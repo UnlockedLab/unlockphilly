@@ -229,7 +229,7 @@ function addInfoBox() {
 				$('#stationOutageMessage').html("No reported elevator outages");
 			} else {
 				var outages = data.meta.elevators_out;
-				$('#stationOutageMessage').html("<p class='text-danger'><img height='20' width='20' src='images/alert.gif'/> " +
+				$('#stationOutageMessage').html("<p class='text-danger'>" +
 					"<strong>" + outages + " elevator " + (outages > 1 ? "outages have" : "outage has") + " been reported.</strong> </p>" + getElevatorOutageStations(data));
 			}
 		});
