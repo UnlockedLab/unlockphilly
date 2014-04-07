@@ -115,7 +115,7 @@ function addLayersAndShow(stationData, line) {
 					info.removeFrom(map);
 					infoVisible=false;
 				}
-				var zoom = Math.max(mapPosition["Fairmount"].zoom, map.getZoom());
+				var zoom = Math.max(15, map.getZoom());
 				map.setView(new L.LatLng(lng, lat), zoom, {
 						animate: true,
 						});
