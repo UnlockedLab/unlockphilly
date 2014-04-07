@@ -9,6 +9,8 @@ var accessTypeStairsOnly = 'StairsOnly';
 var accessTypes = [accessTypeWheelchair, accessTypeOutage, accessTypeStairsOnly];
 var accessTypesLabels = ['Accessible with elevator and Ramp', 'Elevator outage restricting access', 'Stairs only'];
 var accessTypeColors = {};
+var info;
+var infoVisible=true;
 accessTypeColors[accessTypeWheelchair] = "#1a9641";
 accessTypeColors[accessTypeStairsOnly] = "#bababa";
 accessTypeColors[accessTypeOutage] = "#d7191c";
@@ -81,27 +83,7 @@ function addLayersAndShow(stationData, line) {
 			(function() {
 				// go through each station
 				var station = stationData.stations[i];
-				if (station.elevatorOutage) {
-					var alertIcon = L.icon({
-					    iconUrl: 'images/alert.gif',
-					    iconSize:     [20, 20], // size of the icon
-					    iconAnchor:   [10, 10], // point of the icon which will correspond to marker's location
-					    popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
-					});
-					marker = L.marker([station.stop_lat, station.stop_lon], {icon: alertIcon});
-					marker.bindPopup(formatStation(station));
-					//marker.bindLabel(station.stop_name + ": Elevator outage reported").addTo(map);
-					marker.on('click', function(e) {
-						isFirstView = false;
-						var latlng = e.latlng;
-						var zoom = Math.max(mapPosition["Fairmount"].zoom, map.getZoom());
-						map.setView(new L.LatLng(latlng.lat, latlng.lng), zoom, { 
-							animate: true,
-							});
-						updateYelpResults(station);
-					});
-					//stations[getAccessType(station)].push(marker);
-				}
+				
 				feature = {
 					type: 'Feature',
 					geometry: {
@@ -116,25 +98,6 @@ function addLayersAndShow(stationData, line) {
 						'marker-symbol': (station.wheelchair_boarding == "1" && !station.elevatorOutage  ? 'disability': 'roadblock')
 					}
 				};
-				
-				
-				//map.featureLayer.setGeoJSON(feature);
-				circle = L.circle([station.stop_lat, station.stop_lon], 50, {
-					color : getAccessTypeColor(station),
-					opacity : .6,
-					fillOpacity : .4
-				});
-				circle.bindPopup(formatStation(station));
-				//circle.bindLabel(station.stop_name).addTo(map);
-				circle.on('click', function(e) {
-					isFirstView = false;
-					var latlng = e.latlng;
-					var zoom = Math.max(mapPosition["Fairmount"].zoom, map.getZoom());
-					map.setView(new L.LatLng(latlng.lat, latlng.lng), zoom, {
-						animate: true,
-						});
-					updateYelpResults(station);
-				});
 				stations[getAccessType(station)].push(feature);
 			})();
 		}
@@ -146,8 +109,16 @@ function addLayersAndShow(stationData, line) {
 			stationLayerGroups[accessTypes[i]].on('click', function(e) {
 				lng = e.layer.feature.geometry.coordinates[1];
 				lat = e.layer.feature.geometry.coordinates[0];
-				name = e.layer.feature.properties.title;
+				name = e.layer.feature.properties.title;	
 				updateYelpResults(lng, lat, name);
+				if (infoVisible) {
+					info.removeFrom(map);
+					infoVisible=false;
+				}
+				var zoom = Math.max(mapPosition["Fairmount"].zoom, map.getZoom());
+				map.setView(new L.LatLng(lng, lat), zoom, {
+						animate: true,
+						});
 			});
 			map.addLayer(stationLayerGroups[accessTypes[i]]);
 		}
