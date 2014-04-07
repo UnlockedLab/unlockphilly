@@ -144,6 +144,9 @@ function createListOfResults(data, name) {
 		resultsHtml += "</li>";
 		$('#popoverData').popover();
 	}
+	if (data.businesses.length == 0) {
+		resultsHtml += "<li class='list-group-item'>No accessible businesses found close to " + name + "<a/>";
+	}
 	
 	return resultsHtml + "</ul></small>";
 	
