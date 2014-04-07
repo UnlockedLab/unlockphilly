@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "elevators_out": 2,
+    "updated": "2014-03-29 18:17:24"
+  },
+  "results": [
+    {
+      "line": "Market Frankford Line",
+      "station": "Somerset",
+      "elevator": "Westbound ",
+      "message": "No access to/from station",
+      "alternate_url": "http://www.septa.org/access/alternate/mfl.html#som"
+    },
+    {
+      "line": "Market Frankford Line",
+      "station": "Berks",
+      "elevator": "Eastbound",
+      "message": "No access to/from eastbound platform",
+      "alternate_url": "http://www.septa.org/access/alternate/mfl.html#berks"
+    }
+  ]
+}

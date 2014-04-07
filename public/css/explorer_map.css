@@ -1,0 +1,86 @@
+html {
+	overflow: hidden;
+	font-family: "Lucida Grande", "Arial", sans-serif;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+#header, #footer, #left {
+	position: absolute;
+	width: 100%;
+	left: 0;
+}
+
+#header {
+	top: 0;
+	height: 85px;
+	vertical-align: middle;
+	display: inline-block;  
+	font-size: .9em;
+}
+
+#footer {
+	bottom: 0;
+	height: 20px;
+	text-align: center;
+	vertical-align:middle;
+	color: #FFFFFF;
+	font-size: .7em;
+}
+
+#header-span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;      
+}
+
+
+#footer-span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;      
+}
+
+a {
+	color: #B0B0B0;
+}
+
+
+#left {
+	top: 85px;
+	bottom: 20px;
+	width: 230px;
+	overflow: auto;
+	padding-bottom: 20px;
+	text-align: center;
+}
+
+h1 {
+	font-size: 1.3em;
+	padding: 0px;
+	margin: 0px;
+}
+
+#mapcontainer {
+	position: absolute;
+	top: 85px;
+	bottom: 20px;
+	left: 0px;
+	right: 0;
+}
+
+.labels {
+	color: orange;
+	background-color: black;
+	font-family: "Lucida Grande", "Arial", sans-serif;
+	font-size: 9px;
+	font-weight: bold;
+	text-align: center;
+	width: 16px;
+	border: 1px solid #B0B0B0;
+	white-space: nowrap;
+}

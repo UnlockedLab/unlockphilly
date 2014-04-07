@@ -1,0 +1,29 @@
+{
+    "meta": {
+        "elevators_out": 3,
+        "updated": "2014-04-05 15:32:28"
+    },
+    "results": [
+        {
+            "line": "Broad Street Subway / Broad Ridge Spur",
+            "station": "Broad Ridge Spur <br /> 8th &amp; Market ",
+            "elevator": "Street Level",
+            "message": "No access to/from station",
+            "alternate_url": "http://www.septa.org/access/alternate/mfl.html#8th"
+        },
+        {
+            "line": "Market Frankford Line",
+            "station": "Berks",
+            "elevator": "Westbound ",
+            "message": "No access to/from station",
+            "alternate_url": "http://www.septa.org/access/alternate/mfl.html#berks"
+        },
+        {
+            "line": "Market Frankford Line",
+            "station": "8th Street",
+            "elevator": "Westbound",
+            "message": "No access to/from station",
+            "alternate_url": "http://www.septa.org/access/alternate/mfl.html#8th"
+        }
+    ]
+}

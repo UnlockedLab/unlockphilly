@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Unlock Philly - Elevating accessibilty in and around mass transit in Philadelphia</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+		<link href="css/unlock-philadelphia.css" rel="stylesheet" />
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<script src="js/respond.min.js"></script>
+		<![endif]-->
+		<link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css' rel='stylesheet' />
+		<!--[if lte IE 8]>
+		<link rel="stylesheet" href="css/leaflet.ie.css" />
+		<![endif]-->
+
+	</head>
+	<body>
+		<div id="wrap">
+			<div class="navbar navbar-default navbar-fixed-top">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbrand-img" href=""><img src="images/unlock_logosm.jpg" width="140" height="42" alt="Unlock_Philly logo" title="Unlock Philly Logo"></a>
+					</div>
+					<ul class="nav navbar-nav">
+						<!--<li class="active">
+						<a href="http://www.tyack.net">Blog</a>
+						</li>-->
+						<li class="active">
+							<a href="/">Accessible stations and services</a>
+						</li>
+						<li>
+							<a href="http://tyack.net/2013/10/08/transit-apps-for-philly-hackathon-2013-unlocking-philadelphia/">About</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Begin page content -->
+			<div class="container">
+				<div class="row spacer">
+					<row>
+						<div class="col-md-8">
+							<div id="map"></div>
+
+						</div>
+
+						<div class="col-md-4">
+
+							<div class="panel panel-default yelpPanel">
+								<div class="panel-heading panel-title">
+									<a href="http://www.yelp.com"><img style='float:right;' src="http://s3-media1.ak.yelpcdn.com/assets/2/www/img/1589098a542f/developers/Powered_By_Yelp_White.png" alt="Powered by Yelp, white" width="115" height="25" /></a>
+									<h5 id="yelp-heading">What's accessible nearby?</h5>
+								</div>
+								<div id="yelp-results">
+									<!-- start of panel body -->
+									<small>
+										<ul class='list-group'>
+											<li class='list-group-item'>
+												<div align='center'>Click stations on map to see accessible pubs, shops, restaraunts and more here</div>
+											</li>
+										</ul> </ul>
+								</div><!-- end of panel body containing  yelp search results -->
+
+							</div><!-- end of yelp panel -->
+
+						</div><!-- end of upper right column -->
+				</div><!-- end of top content row containing filters and ma -->
+
+				<div class="well" align='center'>
+					<small><h4>If you notice an accessibility problem on the transit network, get social, Septa and other groups are watching, <a href='http://www.tyack.net/2014/03/23/nbc-philadelphia-runs-story-on-transit-app-and-accessibility-following-tweets/' target='_blank'>see this article</a>
+						<br />
+						<a href="https://twitter.com/intent/tweet?screen_name=septa_social&text=%23accessibility" class="twitter-mention-button spacer-small">Tweet @septa</a>
+						<script>
+							! function(d, s, id) {
+								var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+								if (!d.getElementById(id)) {
+									js = d.createElement(s);
+									js.id = id;
+									js.src = p + '://platform.twitter.com/widgets.js';
+									fjs.parentNode.insertBefore(js, fjs);
+								}
+							}(document, 'script', 'twitter-wjs');
+						</script></small>
+					<h4>Join us at <a target='_blonk' href='http://codeforphilly.org/projects/Unlock_Philadelphia'>Code For Philly</a> to get involved and help improve this app!</h4>
+					We are in beta. The app is being developed by a small project team using open data from various <a href="http://www.septa.com">SEPTA APIS</a>.
+				</div>
+				<div id="disqus_thread"></div>
+				<script type="text/javascript">
+					/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+					var disqus_shortname = 'tyackherokuapps';
+					// required: replace example with your forum shortname
+					/* * * DON'T EDIT BELOW THIS LINE * * */
+					(function() {
+						var dsq = document.createElement('script');
+						dsq.type = 'text/javascript';
+						dsq.async = true;
+						dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+					})();
+				</script>
+				<noscript>
+					Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+				</noscript>
+				<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+			</div>
+		</div>
+		<!-- Placed at the end of the document so the pages load faster -->
+		<!-- AddThis Smart Layers BEGIN -->
+		<!-- Go to http://www.addthis.com/get/smart-layers to customize -->
+		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=jamestyack"></script>
+		<script type="text/javascript">
+			addthis.layers({
+				'theme' : 'transparent',
+				'share' : {
+					'position' : 'left',
+					'numPreferredServices' : 5
+				},
+				'whatsnext' : {},
+				'recommended' : {}
+			});
+		</script>
+		<!-- AddThis Smart Layers END -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+		<script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.js'></script>
+		<script src="js/unlock-philadelphia.js"></script>
+		<script>
+			(function(i, s, o, g, r, a, m) {
+				i['GoogleAnalyticsObject'] = r;
+				i[r] = i[r] ||
+				function() {
+					(i[r].q = i[r].q || []).push(arguments)
+				}, i[r].l = 1 * new Date();
+				a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+				a.async = 1;
+				a.src = g;
+				m.parentNode.insertBefore(a, m)
+			})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+			ga('create', 'UA-32865952-5', 'unlockphilly.com');
+			ga('send', 'pageview');
+		</script>
+	</body>
+</html>
