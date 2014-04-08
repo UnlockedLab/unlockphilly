@@ -228,7 +228,9 @@ function addInfoBox() {
 	info.update = function(title) {
 		this._div.innerHTML = '<h4>' + ( title ? title : 'Loading data') + '</h4><div id="stationOutageMessage"></div>';
 		$.getJSON("/septa/elevator/outages", function(data) {
-			if (data.meta.elevators_out==0) {
+			if ("errorMessage" in data) {
+				$('#stationOutageMessage').html(data.errorMessage + "<br /></ul>Visit <a target='_blank' href='http://www3.septa.org/hackathon/elevator/'>Septa website</a> for further info.</small>");
+			} else if (data.meta.elevators_out==0) {
 				$('#stationOutageMessage').html("No reported elevator outages");
 			} else {
 				var outages = data.meta.elevators_out;

@@ -34,7 +34,12 @@ end
 # get all station metadata - will include details of elevator outage (if exists)
 get '/septa/stations/line/:line' do
   content_type :json
-  outages = JSON.parse(getElevatorOutagesFromSeptaJson());
+  outages = {}
+  begin
+    outages = JSON.parse(getElevatorOutagesFromSeptaJson())
+  rescue JSON::ParserError => e
+    outages["results"] = []
+  end
   stationsCol = settings.mongo_db['septa_stations']
   if (params[:line] == "ALL")
     result = stationsCol.find({:$or => [{:MFL => "1"}, {:BSS => "1"}, {:NHSL => "1"}] })
@@ -58,8 +63,13 @@ get '/septa/stations/line/:line' do
 end
 
 get '/septa/elevator/outages' do
-  content_type :json
-  return getElevatorOutagesFromSeptaJson();
+  begin
+    return JSON.parse(getElevatorOutagesFromSeptaJson())
+  rescue JSON::ParserError => e
+    error = {}
+    error['errorMessage'] = "Septa elevator outage information out of service";
+    return error.to_json
+  end
 end
 
 # sample response from SEPTA {"meta":{"elevators_out":1,"updated":"2013-09-26 13:31:57"},"results":[{"line":"Norristown High Speed Line","station":"Norristown Transportation Center","elevator":"Street Level","message":"No access to\/from station","alternate_url":"http:\/\/www.septa.org\/access\/alternate\/nhsl.html#ntc"}]}
