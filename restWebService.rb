@@ -63,8 +63,9 @@ get '/septa/stations/line/:line' do
 end
 
 get '/septa/elevator/outages' do
+  content_type :json
   begin
-    return JSON.parse(getElevatorOutagesFromSeptaJson())
+    return JSON.parse(getElevatorOutagesFromSeptaJson()).to_json
   rescue JSON::ParserError => e
     error = {}
     error['errorMessage'] = "Septa elevator outage information out of service";
