@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content="Visualizing wheelchair accessible stations, pubs, restaurants, shops and more in Philadelphia">
 		<meta name="keywords" content="accessibility, accessible, wheelchair, disability, disabilities, stations, SEPTA, transit">
-		
+
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 
@@ -26,24 +26,26 @@
 	</head>
 	<body>
 		<div id="wrap">
-			<div class="navbar navbar-default navbar-fixed-top">
+
+			<!-- Fixed navbar -->
+			<div class="navbar navbar-default navbar-fixed-top" role="navigation">
 				<div class="container">
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+							<span class="sr-only">Toggle navigation</span>
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbrand-img" href=""><img src="images/logo/unlockphilly_50.png" width="279" height="51" alt="Unlock_Philly logo" title="Unlock Philly Logo"></a>
+						<a class="navbar-brand" rel="home" href="#" title="ReposWatch"><img style="max-width:200px; margin-top: -7px;" src="images/logo/unlockphilly_50.png" alt="Unlock_Philly logo" title="Unlock Philly Logo"></a>
 					</div>
-					<ul class="nav navbar-nav">
-						<!--<li class="active">
-						<a href="http://www.tyack.net">Blog</a>
-						</li>-->
-						<li>
-							<a href="http://tyack.net/2013/10/08/transit-apps-for-philly-hackathon-2013-unlocking-philadelphia/" target="_blank">About</a>
-						</li>
-					</ul>
+					<div class="collapse navbar-collapse">
+						<ul class="nav navbar-nav">
+							<li class="active">
+								<a href="http://tyack.net/2013/10/08/transit-apps-for-philly-hackathon-2013-unlocking-philadelphia/" target="_blank">About</a>
+							</li>
+						</ul>
+					</div><!--/.nav-collapse -->
 				</div>
 			</div>
 
