@@ -42,7 +42,7 @@ get '/septa/stations/line/:line' do
   end
   stationsCol = settings.mongo_db['septa_stations']
   if (params[:line] == "ALL")
-    result = stationsCol.find({:$or => [{:MFL => "1"}, {:BSS => "1"}, {:NHSL => "1"}] })
+    result = stationsCol.find({:$or => [{:MFL => "1"}, {:BSS => "1"}, {:NHSL => "1"}, {:PATCO => "1"}] })
   else
     result = stationsCol.find({params[:line] => "1"})
   end
