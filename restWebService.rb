@@ -24,10 +24,16 @@ configure do
   db = conn.db(db_name)
   db.authenticate(db_details.user, db_details.password) unless (db_details.user.nil? || db_details.user.nil?)
   set :mongo_db, db
+  set :appUrl, "http://www.unlockphilly.com"
+  enable :logging
   puts "dbconnection successful to #{ENV['MONGOHQ_URL']}"
 end
 
 get '/' do
+  if request.host.include? 'herokuapp'
+    logger.info 'redirecting from ' + request.host + ' to ' + settings.appUrl
+    redirect settings.appUrl, 301
+  end
   erb :unlock_philadelphia
 end
 
