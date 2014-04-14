@@ -57,11 +57,15 @@ get '/septa/stations/line/:line' do
   doc["stations"]=result.to_a
   doc["stations"].each_with_index do | station, i |
     outages["results"].each do | outage |
-      puts "comparing outage " + outage["station"].gsub(/-/, ' ').gsub(/Street/, 'St') + " with " + station["stop_name"].gsub(/-/, ' ').gsub(/Street/, 'St')
+      puts "comparing outage " + outage["station"].gsub(/-/, ' ').gsub(/Street/, 'St') + " with " + station["stop_name"].gsub(/-/, ' ').gsub(/Street/, 'St') + " on line " + getLineName(station)
       # have to remove hypens due to naming inconsistency and also abbreviate Street to St
       if station["stop_name"].gsub(/-/, ' ').gsub(/Street/, 'St').include?(outage["station"].gsub(/-/, ' ').gsub(/Street/, 'St'))
-        puts "found match!"
-        doc["stations"][i]["elevatorOutage"] = outage;
+        lineCode = getLineCode(outage["line"])
+        puts "station match, now checking line #{outage['line']} using code #{lineCode}"
+        if station[lineCode] == "1"
+          puts "found match!"
+          doc["stations"][i]["elevatorOutage"] = outage;  
+        end
       end
     end
   end
@@ -84,6 +88,30 @@ def getElevatorOutagesFromSeptaJson()
   uri = "http://www3.septa.org/hackathon/elevator/"
   response = RestClient.get uri
   return response;
+end
+
+def getLineCode(line)
+  if (line.include?('Broad'))
+    return "BSS"
+  elsif (line.include('Market'))
+    return "MFL"
+  elsif (line.include('Norris'))
+    return "NHSL"
+  end
+  return "";
+end
+
+def getLineName(station)
+  if station["BSS"] == "1"
+    return "BSS"
+  elsif station["MFL"] == "1"
+    return "MFL"
+  elsif station["NHSL"] == "1"
+    return "NHSL"
+  elsif station["PATCO"] == "1"
+    return "PATCO"
+  end
+  return "";
 end
 
 # make a call to yelp for wheelchair accessible businesses around given lat/lng
