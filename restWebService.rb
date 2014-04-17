@@ -90,5 +90,10 @@ get '/yelp/wheelchairaccess/:lat/:lng/:radius' do
   consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => "http://#{api_host}"})
   access_token = OAuth::AccessToken.new(consumer, token, token_secret)
   path = "/v2/search?term=wheelchair+accessible&ll=#{params[:lat]},#{params[:lng]}&radius_filter=#{params[:radius]}&sort=1"
-  access_token.get(path).body
+  getGeoJSON(JSON.parse(yelpResults))
+  yelpResults
+end
+
+def getGeoJSON(yelpResults)
+  puts yelpResults["businesses"][0]["location"]["display_address"]
 end
