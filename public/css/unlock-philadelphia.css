@@ -1,4 +1,4 @@
-#map { height: 450px; }
+#map { height: 425px; }
 
 #footer {
     background-color: #F5F5F5;
@@ -56,6 +56,6 @@ body {
 }
 
 .yelpPanel {
-	height: 450px;
+	height: 425px;
 	overflow: scroll;
 }

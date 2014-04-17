@@ -156,7 +156,9 @@ function getLineName(line) {
 	if (line == "MFL") {
 		return "Market-Frankford Line";
 	} else if (line == "BSS") {
-		return "Broad Street Line";
+		return "Broad Street Subway";
+	} else if (line == "PATCO") {
+		return "PATCO Speedline";
 	} else if (line == "ALL") {
 		return "Subway and High Speed Line Stations";
 	} else {
@@ -211,6 +213,9 @@ function getLine(station) {
 	}
 	if (station.NHSL == 1) {
 		response += (response=="" ? "" : "/") + "Norristown High Speed Line";
+	}
+	if (station.PATCO == 1) {
+		response += (response=="" ? "" : "/") + "PATCO Speedline";
 	}
 	return response + "";
 }
