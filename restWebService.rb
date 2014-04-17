@@ -91,33 +91,32 @@ get '/yelp/wheelchairaccess/:lat/:lng/:radius' do
   access_token = OAuth::AccessToken.new(consumer, token, token_secret)
   path = "/v2/search?term=wheelchair+accessible&ll=#{params[:lat]},#{params[:lng]}&radius_filter=#{params[:radius]}&sort=1"
   yelpResults = access_token.get(path).body
-  extractStreetAddresses(JSON.parse(yelpResults))
-  yelpResults
+  address = extractStreetAddresses(JSON.parse(yelpResults))
+  return address
 end
 
 def extractStreetAddresses(yelpResults)
-  addresses = yelpResults["businesses"][0]["location"]["display_address"]
-  address = addresses.join(" ")
-#  for a in addresses
-#    address = address + " " + a;
-# end
-  puts address
-  getGeoJSON(address)
-#  puts yelpResults["businesses"][0]["location"]["display_address"]
+
+  yelpResults["businesses"].each_index do |i|
+    addresses = yelpResults["businesses"][i]["location"]["display_address"]
+    address = addresses.join("%20")
+    address = address.gsub(" ", "%20")
+    geoCoding = getGeoJSON(address)
+    yelpResults["businesses"][i]["location"]["geocoding"] = geoCoding
+    puts yelpResults["businesses"][i]["location"]
+  end
+  return yelpResults.to_json
 end
 
 def getGeoJSON(address)
   mapquestKey = ENV['MAPQUEST_API_KEY'];
-  geocodeRequestUri = "http://open.mapquestapi.com/geocoding/v1/address?key=Fmjtd%7Cluur2q6yng%2C7l%3Do5-9a2a00&location=3600%20Chestnut%20Street%20Philadelphia"
-  # geocodeRequestUri = "http://open.mapquestapi.com/geocoding/v1/address?key=#{mapquestKey}&location=#{address}"
+#  geocodeRequestUri = "http://open.mapquestapi.com/geocoding/v1/address?key=Fmjtd%7Cluur2q6yng%2C7l%3Do5-9a2a00&location=3600%20Chestnut%20Street%20Philadelphia"
+  geocodeRequestUri = "http://open.mapquestapi.com/geocoding/v1/address?key=#{mapquestKey}&location=#{address}"
   geoCodeResponse = RestClient.get(geocodeRequestUri)
   jsonResults = JSON.parse(geoCodeResponse)
-  if jsonResults 
-    # puts response.inspect
-     latLng = jsonResults['results']['locations'][0]['latLng']
-    # [0]["locations"][0]
-     puts latLng.inspect
+  if jsonResults['results'][0]['locations'].length > 0
+     latLng = jsonResults['results'][0]['locations'][0]['latLng']
   else
-    puts "No response!"
+    latLng = {"lng" => 0,"lat" => 0}
   end
 end

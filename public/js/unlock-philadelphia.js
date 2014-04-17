@@ -140,7 +140,7 @@ function createListOfResults(data, name) {
 		resultsHtml += "<li class='list-group-item'>";
 		resultsHtml += "<a target='_blank' href='" + business.url + "'>" + business.name + "</a> <strong>" + business.categories[0][0] +"</strong> (" +
 			 Math.round(business.distance) + " metres from " + name + ")<br />" + business.location.display_address[0] + " " + business.display_phone +
-			 " <br /><img title='" + business.snippet_text + "' src='" + business.rating_img_url + "'/></a> (" + business.review_count + " votes) ";
+			 " <br /><img title='" + business.snippet_text + "' src='" + business.rating_img_url + "'/></a> (" + business.review_count + " votes) " + business.location.geocoding.lng;
 		resultsHtml += "</li>";
 		$('#popoverData').popover();
 	}
