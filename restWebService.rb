@@ -90,10 +90,34 @@ get '/yelp/wheelchairaccess/:lat/:lng/:radius' do
   consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => "http://#{api_host}"})
   access_token = OAuth::AccessToken.new(consumer, token, token_secret)
   path = "/v2/search?term=wheelchair+accessible&ll=#{params[:lat]},#{params[:lng]}&radius_filter=#{params[:radius]}&sort=1"
-  getGeoJSON(JSON.parse(yelpResults))
+  yelpResults = access_token.get(path).body
+  extractStreetAddresses(JSON.parse(yelpResults))
   yelpResults
 end
 
-def getGeoJSON(yelpResults)
-  puts yelpResults["businesses"][0]["location"]["display_address"]
+def extractStreetAddresses(yelpResults)
+  addresses = yelpResults["businesses"][0]["location"]["display_address"]
+  address = addresses.join(" ")
+#  for a in addresses
+#    address = address + " " + a;
+# end
+  puts address
+  getGeoJSON(address)
+#  puts yelpResults["businesses"][0]["location"]["display_address"]
+end
+
+def getGeoJSON(address)
+  mapquestKey = ENV['MAPQUEST_API_KEY'];
+  geocodeRequestUri = "http://open.mapquestapi.com/geocoding/v1/address?key=Fmjtd%7Cluur2q6yng%2C7l%3Do5-9a2a00&location=3600%20Chestnut%20Street%20Philadelphia"
+  # geocodeRequestUri = "http://open.mapquestapi.com/geocoding/v1/address?key=#{mapquestKey}&location=#{address}"
+  geoCodeResponse = RestClient.get(geocodeRequestUri)
+  jsonResults = JSON.parse(geoCodeResponse)
+  if jsonResults 
+    # puts response.inspect
+     latLng = jsonResults['results']['locations'][0]['latLng']
+    # [0]["locations"][0]
+     puts latLng.inspect
+  else
+    puts "No response!"
+  end
 end
