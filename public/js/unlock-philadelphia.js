@@ -248,7 +248,7 @@ function addInfoBox() {
 	};
 	info.addTo(map);
 	map.on('click', function(e){
-		info.removeFrom(map);	
+		//info.removeFrom(map);	
 	});
 }
 
