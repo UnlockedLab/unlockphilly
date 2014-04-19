@@ -90,12 +90,16 @@ def getElevatorOutagesFromSeptaJson()
   return response;
 end
 
+def getElevatorOutagesFromFileForTesting()
+  return IO.read('data/elevator_outage_json_examples/outage5.json')
+end
+
 def getLineCode(line)
   if (line.include?('Broad'))
     return "BSS"
-  elsif (line.include('Market'))
+  elsif (line.include?('Market'))
     return "MFL"
-  elsif (line.include('Norris'))
+  elsif (line.include?('Norris'))
     return "NHSL"
   end
   return "";
@@ -126,3 +130,5 @@ get '/yelp/wheelchairaccess/:lat/:lng/:radius' do
   path = "/v2/search?term=wheelchair+accessible&ll=#{params[:lat]},#{params[:lng]}&radius_filter=#{params[:radius]}&sort=1"
   access_token.get(path).body
 end
+
+
