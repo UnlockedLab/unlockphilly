@@ -23,14 +23,6 @@ mapPosition["Fairmount"] = {
 	"zoom" : 12
 };
 
-//var mapboxLayer = L.tileLayer(mapboxUrl);
-
-// var map = L.map('map', {
-	// center : mapPosition["Fairmount"].coords,
-	// zoom : mapPosition["Fairmount"].zoom,
-	// layers : [mapboxLayer]
-// });
-
 var map = L.mapbox.map('map', mapboxId)
 	.addControl(L.mapbox.geocoderControl(mapboxId))
 	.setView(mapPosition["Fairmount"]["coords"], mapPosition["Fairmount"]["zoom"])
@@ -190,12 +182,9 @@ function getAccessType(station) {
 function formatStation(station) {
 	var response = "<em>" + getLine(station) + "</em><br />";
 	if (station.elevatorOutage) {
-		response += "ELEVATOR OUTAGE<br/>" 
+		response += "Elevator outage: " + station.elevatorOutage.elevator + "<br/>"
 			+ station.elevatorOutage.message + "<br/>"
-			+ "Line: " + station.elevatorOutage.line + "<br/>"
-			+ "Elevator: " + station.elevatorOutage.elevator + "<br/>"
-			+ station.elevatorOutage.message + "<br/>"
-			+ "See : <a target= '_blank' href='" + station.elevatorOutage.alternate_url + "'>" + "SEPTA advice" + "</a>"  
+			+ "<a target= '_blank' href='" + station.elevatorOutage.alternate_url + "'>" + "SEPTA advice" + "</a>"  
 			+ "</p>";
 	} else {
 		response += "Station is " + (station.wheelchair_boarding == "1" ? "" : " not") + " wheelchair accessible<br />";
@@ -263,7 +252,7 @@ function getElevatorOutageStations(data) {
 	var stringToReturn = "<small><ul>";
 	for (var i=0; i < data.results.length; i++) {
 		outage = data.results[i];
-		stringToReturn += "<li>" + outage.station;
+		stringToReturn += "<li>" + outage.station + " (" + outage.line + ")";
 	}
 	if (data.results.length > 0){
 		stringToReturn += "</ul>Visit <a target='_blank' href='http://www2.septa.org/elevators/'>Septa website</a> for further info.</small>";
