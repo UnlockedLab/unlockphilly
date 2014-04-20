@@ -144,7 +144,6 @@ end
 
 def getGeoJSON(address)
   mapquestKey = ENV['MAPQUEST_API_KEY'];
-#  geocodeRequestUri = "http://open.mapquestapi.com/geocoding/v1/address?key=Fmjtd%7Cluur2q6yng%2C7l%3Do5-9a2a00&location=3600%20Chestnut%20Street%20Philadelphia"
   geocodeRequestUri = "http://open.mapquestapi.com/geocoding/v1/address?key=#{mapquestKey}&location=#{address}"
   geoCodeResponse = RestClient.get(geocodeRequestUri)
   jsonResults = JSON.parse(geoCodeResponse)
