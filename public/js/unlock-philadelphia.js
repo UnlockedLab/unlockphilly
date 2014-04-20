@@ -132,8 +132,8 @@ function createListOfResults(data, name) {
 		resultsHtml += "<li class='list-group-item'>";
 		resultsHtml += "<a target='_blank' href='" + business.url + "'>" + business.name + "</a> <strong>" + business.categories[0][0] +"</strong> (" +
 			 Math.round(business.distance) + " metres from " + name + ")<br />" + business.location.display_address[0] + " " + business.display_phone +
-			 " <br /><img title='" + business.snippet_text + "' src='" + business.rating_img_url + "'/></a> (" + business.review_count + " votes) ";
-		resultsHtml += "</li>";
+			 " <br /><img title='" + business.snippet_text + "' src='" + business.rating_img_url + "'/></a> (" + business.review_count + " votes)";
+		resultsHtml += "<br />Yelp listing says 'Wheelchair Accessible'</li>";
 		$('#popoverData').popover();
 	}
 	if (data.businesses.length == 0) {
