@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "elevators_out": 1,
+    "updated": "2014-04-14 19:06:31"
+  },
+  "results": [
+    {
+      "line": "Broad Street Subway / Broad Ridge Spur",
+      "station": "North Philadelphia",
+      "elevator": "Street to Mezzanine",
+      "message": "No access to/from station",
+      "message_html": "<ul><li>No access to/from station</li></ul>",
+      "alternate_url": "http://www.septa.org/service/accessible_septa/alt_service_bsl.html"
+    }
+  ]
+}

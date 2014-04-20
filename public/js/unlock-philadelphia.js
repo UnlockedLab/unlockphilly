@@ -20,7 +20,7 @@ var twitterCode = "<a href='https://twitter.com/intent/tweet?screen_name=septa' 
 var mapPosition = {};
 mapPosition["Fairmount"] = {
 	"coords" : [39.966959, -75.160391],
-	"zoom" : 13
+	"zoom" : 12
 };
 
 //var mapboxLayer = L.tileLayer(mapboxUrl);
