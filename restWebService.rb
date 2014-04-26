@@ -140,9 +140,12 @@ def appendStreetAddressLatLng(yelpResults)
     multilineAddress = yelpResults["businesses"][i]["location"]["display_address"]
     singleLineAddress = multilineAddress.join(" ")
     address = removeHyphenFromHouseNumber(singleLineAddress)
+    if address
+       address = address.gsub(" ", "%20")
+    end
     addressLatLng = getGeoJSON(address)
     yelpResults["businesses"][i]["location"]["geocoding"] = addressLatLng
-    # puts yelpResults["businesses"][i]["location"]
+ #   puts yelpResults["businesses"][i]["location"]
   end
   return yelpResults.to_json
 end
@@ -159,16 +162,18 @@ end
 # Converts a street address to a GeoJSON object via the mapquest API
 def getGeoJSON(address)  
   if $yelpAddressLatLng[address] = 0 # address doesn't exist in global variable
-    mapquestKey = ENV['MAPQUEST_API_KEY'];
-    geocodeRequestUri = URI::encode("http://www.mapquestapi.com/geocoding/v1/address?key=#{mapquestKey}&location=#{address}")
-    geoCodeResponse = RestClient.get(geocodeRequestUri)
+    mapquestKey = ENV['MAPQUEST_API_KEY']
+    geocodeRequestUri = "http://www.mapquestapi.com/geocoding/v1/address?key=#{mapquestKey}&location=#{address}"
+    geoCodeResponse = RestClient.get geocodeRequestUri
     jsonResults = JSON.parse(geoCodeResponse)
-    if jsonResults['results'][0]['locations'].length > 0
+    if jsonResults['info']['statuscode'] == 403 # Request failed
+      puts "Error in mapQuest request";
+      latLng = {"lng" => 0,"lat" => 0}
+    elsif jsonResults['results'][0]['locations'].length > 0
        latLng = jsonResults['results'][0]['locations'][0]['latLng']
        $yelpAddressLatLng[address] = latLng
     else
       latLng = {"lng" => 0,"lat" => 0}
-      $yelpAddressLatLng[address] = latLng
     end
   
   else # address exists in global variable
