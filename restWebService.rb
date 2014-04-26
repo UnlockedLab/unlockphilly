@@ -17,6 +17,8 @@ configure :production do
   require 'newrelic_rpm'
 end
 
+$yelpAddressLatLng = {} # latLng of addresses from Yelp
+
 configure do
   db_details = URI.parse(ENV['MONGOHQ_URL'])
   conn = MongoClient.new(db_details.host, db_details.port)
@@ -128,7 +130,54 @@ get '/yelp/wheelchairaccess/:lat/:lng/:radius' do
   consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => "http://#{api_host}"})
   access_token = OAuth::AccessToken.new(consumer, token, token_secret)
   path = "/v2/search?term=wheelchair+accessible&ll=#{params[:lat]},#{params[:lng]}&radius_filter=#{params[:radius]}&sort=1"
-  access_token.get(path).body
+  yelpResults = access_token.get(path).body
+  appendStreetAddressLatLng(JSON.parse(yelpResults))
 end
+
+# Given a hash of Yelp results, append the latLng values of each address to each result
+def appendStreetAddressLatLng(yelpResults)
+  yelpResults["businesses"].each_index do |i|
+    multilineAddress = yelpResults["businesses"][i]["location"]["display_address"]
+    singleLineAddress = multilineAddress.join(" ")
+    address = removeHyphenFromHouseNumber(singleLineAddress)
+    addressLatLng = getGeoJSON(address)
+    yelpResults["businesses"][i]["location"]["geocoding"] = addressLatLng
+    # puts yelpResults["businesses"][i]["location"]
+  end
+  return yelpResults.to_json
+end
+
+# For addresses in the form '1231-1232 Philadephia Ave', trim the street range such that mapquest can process address (ie -> 1232 Philadelphia Ave) 
+def removeHyphenFromHouseNumber(address)
+  index = address =~ /(\d)-(\d)/
+  if index
+    address = address[index + 2..-1]
+  end
+  return address
+end
+
+# Converts a street address to a GeoJSON object via the mapquest API
+def getGeoJSON(address)  
+  if $yelpAddressLatLng[address] = 0 # address doesn't exist in global variable
+    mapquestKey = ENV['MAPQUEST_API_KEY'];
+    geocodeRequestUri = URI::encode("http://www.mapquestapi.com/geocoding/v1/address?key=#{mapquestKey}&location=#{address}")
+    geoCodeResponse = RestClient.get(geocodeRequestUri)
+    jsonResults = JSON.parse(geoCodeResponse)
+    if jsonResults['results'][0]['locations'].length > 0
+       latLng = jsonResults['results'][0]['locations'][0]['latLng']
+       $yelpAddressLatLng[address] = latLng
+    else
+      latLng = {"lng" => 0,"lat" => 0}
+      $yelpAddressLatLng[address] = latLng
+    end
+  
+  else # address exists in global variable
+    latLng = $yelpAddressLatLng[address]
+  end
+#  puts "Size of yelpAddressLatLng hash: #{$yelpAddressLatLng.length}"
+  return latLng
+end
+
+
 
 
