@@ -23,14 +23,6 @@ mapPosition["Fairmount"] = {
 	"zoom" : 12
 };
 
-//var mapboxLayer = L.tileLayer(mapboxUrl);
-
-// var map = L.map('map', {
-	// center : mapPosition["Fairmount"].coords,
-	// zoom : mapPosition["Fairmount"].zoom,
-	// layers : [mapboxLayer]
-// });
-
 var map = L.mapbox.map('map', mapboxId)
 	.addControl(L.mapbox.geocoderControl(mapboxId))
 	.setView(mapPosition["Fairmount"]["coords"], mapPosition["Fairmount"]["zoom"])
@@ -140,8 +132,8 @@ function createListOfResults(data, name) {
 		resultsHtml += "<li class='list-group-item'>";
 		resultsHtml += "<a target='_blank' href='" + business.url + "'>" + business.name + "</a> <strong>" + business.categories[0][0] +"</strong> (" +
 			 Math.round(business.distance) + " metres from " + name + ")<br />" + business.location.display_address[0] + " " + business.display_phone +
-			 " <br /><img title='" + business.snippet_text + "' src='" + business.rating_img_url + "'/></a> (" + business.review_count + " votes) " + business.location.geocoding.lng;
-		resultsHtml += "</li>";
+			 " <br /><img title='" + business.snippet_text + "' src='" + business.rating_img_url + "'/></a> (" + business.review_count + " votes)";
+		resultsHtml += "<br />Yelp listing says 'Wheelchair Accessible'</li>";
 		$('#popoverData').popover();
 	}
 	if (data.businesses.length == 0) {
@@ -190,12 +182,9 @@ function getAccessType(station) {
 function formatStation(station) {
 	var response = "<em>" + getLine(station) + "</em><br />";
 	if (station.elevatorOutage) {
-		response += "ELEVATOR OUTAGE<br/>" 
+		response += "Elevator outage: " + station.elevatorOutage.elevator + "<br/>"
 			+ station.elevatorOutage.message + "<br/>"
-			+ "Line: " + station.elevatorOutage.line + "<br/>"
-			+ "Elevator: " + station.elevatorOutage.elevator + "<br/>"
-			+ station.elevatorOutage.message + "<br/>"
-			+ "See : <a target= '_blank' href='" + station.elevatorOutage.alternate_url + "'>" + "SEPTA advice" + "</a>"  
+			+ "<a target= '_blank' href='" + station.elevatorOutage.alternate_url + "'>" + "SEPTA advice" + "</a>"  
 			+ "</p>";
 	} else {
 		response += "Station is " + (station.wheelchair_boarding == "1" ? "" : " not") + " wheelchair accessible<br />";
@@ -248,7 +237,7 @@ function addInfoBox() {
 	};
 	info.addTo(map);
 	map.on('click', function(e){
-		info.removeFrom(map);	
+		//info.removeFrom(map);	
 	});
 }
 
@@ -263,7 +252,7 @@ function getElevatorOutageStations(data) {
 	var stringToReturn = "<small><ul>";
 	for (var i=0; i < data.results.length; i++) {
 		outage = data.results[i];
-		stringToReturn += "<li>" + outage.station;
+		stringToReturn += "<li>" + outage.station + " (" + outage.line + ")";
 	}
 	if (data.results.length > 0){
 		stringToReturn += "</ul>Visit <a target='_blank' href='http://www2.septa.org/elevators/'>Septa website</a> for further info.</small>";

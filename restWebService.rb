@@ -92,12 +92,16 @@ def getElevatorOutagesFromSeptaJson()
   return response;
 end
 
+def getElevatorOutagesFromFileForTesting()
+  return IO.read('data/elevator_outage_json_examples/outage5.json')
+end
+
 def getLineCode(line)
   if (line.include?('Broad'))
     return "BSS"
-  elsif (line.include('Market'))
+  elsif (line.include?('Market'))
     return "MFL"
-  elsif (line.include('Norris'))
+  elsif (line.include?('Norris'))
     return "NHSL"
   end
   return "";
@@ -177,3 +181,5 @@ def trimAddresses(address)
   end
   return address
 end
+
+

@@ -37,16 +37,21 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" rel="home" href="#" title="ReposWatch"><img style="max-width:200px; margin-top: -7px;" src="images/logo/unlockphilly_50.png" alt="Unlock_Philly logo" title="Unlock Philly Logo"></a>
+						<a class="navbar-brand" rel="home" href="/"><img style="max-width:200px; margin-top: -7px;" src="images/logo/unlockphilly_50.png" alt="Unlock_Philly logo" title="Unlock Philly Logo" /></a>
 					</div>
 					<div class="collapse navbar-collapse">
 						<ul class="nav navbar-nav">
 							<li>
-								<a>Accessible stations and services</a>
+								<a>Mapping accessibility in Philadelphia</a>
 							</li>
 							<li>
 								<a href="http://tyack.net/2013/10/08/transit-apps-for-philly-hackathon-2013-unlocking-philadelphia/" target='_blank'>Blog</a>
 							</li>
+							<li>
+								<a href="https://twitter.com/unlockphilly" target='_blank'>Follow us on Twitter <img style="max-width:25px; margin-top: -7px;" src="images/logo/Twitter_logo_blue.png" alt="Unlock_Philly logo" title="Unlock Philly Logo" /></a>
+							</li>
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Media<b class="caret"></b></a>
 								<ul class="dropdown-menu">
@@ -56,10 +61,9 @@
 									<li>
 										<a href="https://technical.ly/philly/2014/03/25/septa-wheelchair-accessible-app/" target='_blank'>Technical.ly Philly story</a>
 									</li>
+
 								</ul>
 							</li>
-						</ul>
-						<ul class="nav navbar-nav navbar-right">
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Links<b class="caret"></b></a>
 								<ul class="dropdown-menu">
@@ -95,6 +99,7 @@
 							<div class="panel panel-default yelpPanel">
 								<div class="panel-heading panel-title" align='center'>
 									<h5 id="yelp-heading">What's accessible nearby?</h5>
+									<h6>Leave a review if you visit</h6>
 									<a href="http://www.yelp.com"><img src="http://s3-media1.ak.yelpcdn.com/assets/2/www/img/1589098a542f/developers/Powered_By_Yelp_White.png" alt="Powered by Yelp, white" width="115" height="25" /></a>
 								</div>
 								<div id="yelp-results">
@@ -103,7 +108,7 @@
 										<ul class='list-group'>
 											<li class='list-group-item'>
 												<div align='center'>
-													Click stations on map to see accessible pubs, shops, restaurants and more here
+													Click stations on map to see accessible pubs, shops, restaurants and more
 												</div>
 											</li>
 										</ul> </ul>
@@ -112,58 +117,53 @@
 							</div><!-- end of yelp panel -->
 
 						</div><!-- end of upper right column -->
-				</div><!-- end of top content row containing filters and ma -->
+				</div><!-- end of top content row containing filters and map -->
 
 				<row>
 					<div class="col-md-6">
+						<row>
 
-						<div class="panel panel-default" align='center'>
-							<div class="panel-heading panel-title" align='center'>
-								<a href='http://www.tyack.net/2014/03/23/nbc-philadelphia-runs-story-on-transit-app-and-accessibility-following-tweets/' target='_blank'><img align='left' src='/images/media/outage.png'></img></a>
-								If you notice an accessibility problem, Tweet! Septa, PATCO and other groups <a href='http://www.tyack.net/2014/03/23/nbc-philadelphia-runs-story-on-transit-app-and-accessibility-following-tweets/' target='_blank'>are watching and will retweet and fix things, see this article</a>
-								<br />
-								<a href="https://twitter.com/intent/tweet?screen_name=septa_social&text=%23accessibility" class="twitter-mention-button spacer-small">Tweet @septa</a>
-								<script>
-									! function(d, s, id) {
-										var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-										if (!d.getElementById(id)) {
-											js = d.createElement(s);
-											js.id = id;
-											js.src = p + '://platform.twitter.com/widgets.js';
-											fjs.parentNode.insertBefore(js, fjs);
-										}
-									}(document, 'script', 'twitter-wjs');
-								</script>
-								<a href="https://twitter.com/intent/tweet?screen_name=RidePATCO&text=%23accessibility" class="twitter-mention-button">Tweet to @RidePATCO</a>
-								<script>
-									! function(d, s, id) {
-										var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-										if (!d.getElementById(id)) {
-											js = d.createElement(s);
-											js.id = id;
-											js.src = p + '://platform.twitter.com/widgets.js';
-											fjs.parentNode.insertBefore(js, fjs);
-										}
-									}(document, 'script', 'twitter-wjs');
-								</script>
+							<div class="panel panel-default" align='center'>
+								<div class="panel-body">
+									<a href="https://twitter.com/intent/tweet?screen_name=septa_social&text=@unlockphilly %23accessibility" class="twitter-mention-button spacer-small">Tweet @septa</a>
+									<script>
+										! function(d, s, id) {
+											var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+											if (!d.getElementById(id)) {
+												js = d.createElement(s);
+												js.id = id;
+												js.src = p + '://platform.twitter.com/widgets.js';
+												fjs.parentNode.insertBefore(js, fjs);
+											}
+										}(document, 'script', 'twitter-wjs');
+									</script>
+									<a href="https://twitter.com/intent/tweet?screen_name=RidePATCO&text=@unlockphilly %23accessibility" class="twitter-mention-button">Tweet to @RidePATCO</a>
+									<script>
+										! function(d, s, id) {
+											var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+											if (!d.getElementById(id)) {
+												js = d.createElement(s);
+												js.id = id;
+												js.src = p + '://platform.twitter.com/widgets.js';
+												fjs.parentNode.insertBefore(js, fjs);
+											}
+										}(document, 'script', 'twitter-wjs');
+									</script>
+								</div>
 							</div>
-						</div>
-						<!-- <div align='center'>
-
-						<a class="twitter-timeline" href="https://twitter.com/search?q=%40septa_social" data-widget-id="454994492483842048">Tweets about "@septa_social"</a>
-						<script>
-						! function(d, s, id) {
-						var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-						if (!d.getElementById(id)) {
-						js = d.createElement(s);
-						js.id = id;
-						js.src = p + "://platform.twitter.com/widgets.js";
-						fjs.parentNode.insertBefore(js, fjs);
-						}
-						}(document, "script", "twitter-wjs");
-						</script>
-
-						</div> -->
+						</row>
+						<row>
+							<div class="panel panel-default spacer" align='center'>
+								<div class="panel-heading panel-title" align='center'>
+									<p>
+										Please join us at <a target='_blonk' href='http://codeforphilly.org/projects/Unlock_Philadelphia'>Code For Philly</a> or use the comments box to give feedback and help make Philadephia a more accessible city.
+									</p>
+								</div>
+								<div class="panel-body">
+									<a target='_blonk' href='http://codeforphilly.org/projects/Unlock_Philadelphia'><img style="max-width:100px; margin-top: -7px;" src="images/logo/CfA_logo-300x120.png" alt="Code for Philly logo" title="Code for Philly logo" />
+								</div>
+							</div>
+						</row>
 					</div>
 					<div class="col-md-6">
 
