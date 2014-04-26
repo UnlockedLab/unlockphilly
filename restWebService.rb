@@ -131,31 +131,36 @@ get '/yelp/wheelchairaccess/:lat/:lng/:radius' do
   access_token = OAuth::AccessToken.new(consumer, token, token_secret)
   path = "/v2/search?term=wheelchair+accessible&ll=#{params[:lat]},#{params[:lng]}&radius_filter=#{params[:radius]}&sort=1"
   yelpResults = access_token.get(path).body
-  address = extractStreetAddressLatLng(JSON.parse(yelpResults))
-  return address
+  appendStreetAddressLatLng(JSON.parse(yelpResults))
 end
 
 # Given a hash of Yelp results, append the latLng values of each address to each result
-def extractStreetAddressLatLng(yelpResults)
+def appendStreetAddressLatLng(yelpResults)
   yelpResults["businesses"].each_index do |i|
-    addresses = yelpResults["businesses"][i]["location"]["display_address"]
-    address = addresses.join(" ")
-    address = trimAddresses(address)
-    if address
-      address = address.gsub(" ", "%20")
-    end
-    geoCoding = getGeoJSON(address)
-    yelpResults["businesses"][i]["location"]["geocoding"] = geoCoding
+    multilineAddress = yelpResults["businesses"][i]["location"]["display_address"]
+    singleLineAddress = multilineAddress.join(" ")
+    address = removeHyphenFromHouseNumber(singleLineAddress)
+    addressLatLng = getGeoJSON(address)
+    yelpResults["businesses"][i]["location"]["geocoding"] = addressLatLng
     # puts yelpResults["businesses"][i]["location"]
   end
   return yelpResults.to_json
+end
+
+# For addresses in the form '1231-1232 Philadephia Ave', trim the street range such that mapquest can process address (ie -> 1232 Philadelphia Ave) 
+def removeHyphenFromHouseNumber(address)
+  index = address =~ /(\d)-(\d)/
+  if index
+    address = address[index + 2..-1]
+  end
+  return address
 end
 
 # Converts a street address to a GeoJSON object via the mapquest API
 def getGeoJSON(address)  
   if $yelpAddressLatLng[address] = 0 # address doesn't exist in global variable
     mapquestKey = ENV['MAPQUEST_API_KEY'];
-    geocodeRequestUri = "http://www.mapquestapi.com/geocoding/v1/address?key=#{mapquestKey}&location=#{address}"
+    geocodeRequestUri = URI::encode("http://www.mapquestapi.com/geocoding/v1/address?key=#{mapquestKey}&location=#{address}")
     geoCodeResponse = RestClient.get(geocodeRequestUri)
     jsonResults = JSON.parse(geoCodeResponse)
     if jsonResults['results'][0]['locations'].length > 0
@@ -169,17 +174,10 @@ def getGeoJSON(address)
   else # address exists in global variable
     latLng = $yelpAddressLatLng[address]
   end
-  puts "Size of yelpAddressLatLng hash: #{$yelpAddressLatLng.length}"
+#  puts "Size of yelpAddressLatLng hash: #{$yelpAddressLatLng.length}"
   return latLng
 end
 
-# For addresses in the form '1231-1232 Philadephia Ave', trim the street range such that mapquest can process address (ie -> 1232 Philadelphia Ave) 
-def trimAddresses(address)
-  index = address =~ /(\d)-(\d)/
-  if index
-    address = address[index + 2..-1]
-  end
-  return address
-end
+
 
 
