@@ -161,13 +161,12 @@ end
 
 # Converts a street address to a GeoJSON object via the mapquest API
 def getGeoJSON(address)  
-  if $yelpAddressLatLng[address] = 0 # address doesn't exist in global variable
+  if $yelpAddressLatLng[address] == nil # address doesn't exist in global variable
     mapquestKey = ENV['MAPQUEST_API_KEY']
     geocodeRequestUri = "http://www.mapquestapi.com/geocoding/v1/address?key=#{mapquestKey}&location=#{address}"
     geoCodeResponse = RestClient.get geocodeRequestUri
     jsonResults = JSON.parse(geoCodeResponse)
     if jsonResults['info']['statuscode'] == 403 # Request failed
-      puts "Error in mapQuest request";
       latLng = {"lng" => 0,"lat" => 0}
     elsif jsonResults['results'][0]['locations'].length > 0
        latLng = jsonResults['results'][0]['locations'][0]['latLng']
@@ -177,9 +176,9 @@ def getGeoJSON(address)
     end
   
   else # address exists in global variable
+    puts "#{address} in cache using it"
     latLng = $yelpAddressLatLng[address]
   end
-#  puts "Size of yelpAddressLatLng hash: #{$yelpAddressLatLng.length}"
   return latLng
 end
 
