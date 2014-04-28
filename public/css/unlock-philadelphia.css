@@ -1,58 +1,64 @@
-#map { height: 425px; }
+.leaflet-overlay-pane path, .leaflet-marker-icon {
+	cursor: pointer;
+}
+
+#map {
+	height: 425px;
+}
 
 #footer {
-    background-color: #F5F5F5;
-    height: 30px;
+	background-color: #F5F5F5;
+	height: 30px;
 }
 
 body {
-    padding-top: 50px;
+	padding-top: 50px;
 }
 .main-body-content {
-    padding: 40px 15px;
-    text-align: center;
+	padding: 40px 15px;
+	text-align: center;
 }
 
 .spacer {
-    margin-top: 15px;
+	margin-top: 15px;
 }
 
 .spacer-small {
-    margin-top: 5px;
+	margin-top: 5px;
 }
 
 .legend {
-    line-height: 18px;
-    color: #555;
+	line-height: 18px;
+	color: #555;
 }
 .legend i {
-    width: 18px;
-    height: 18px;
-    float: left;
-    margin-right: 8px;
-    opacity: 0.7;
+	width: 18px;
+	height: 18px;
+	float: left;
+	margin-right: 8px;
+	opacity: 0.7;
 }
 
 .info {
-    background: none repeat scroll 0 0 rgba(255, 255, 255, 0.8);
-    border-radius: 5px 5px 5px 5px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    font: 14px/18px Arial,Helvetica,sans-serif;
-    padding: 6px 8px;
+	background: none repeat scroll 0 0 rgba(255, 255, 255, 0.8);
+	border-radius: 5px 5px 5px 5px;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+	font: 14px/18px Arial, Helvetica, sans-serif;
+	padding: 6px 8px;
 }
 
 .info h4 {
-    margin: 0 0 5px;
-    color: #777;
+	margin: 0 0 5px;
+	color: #777;
 }
 
 /* for header images*/
 .navbrand-img {
-	 
+
 }
- 
+
 .navimg {
-	float:left;
+	float: left;
 }
 
 .yelpPanel {
