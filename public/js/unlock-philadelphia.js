@@ -217,12 +217,16 @@ function getAccessType(station) {
 function getOutageLength(mins) {
 	if (mins < 60) {
 		return mins + " minutes";
-	}
-	if (mins > 60) {
+	} else if (mins >= 60 && mins < 1440) {
 		hours = Math.floor(mins / 60);          
     	minutes = mins % 60;
 		return hours + " " + (hours == 1 ? "hr, " : "hrs, ") + minutes + " mins";
+	} else {
+		days = Math.floor(mins / 60 / 24);
+		hours = mins % (24);
+		return days + " " + (days == 1 ? "day, " : "days, ") + hours + " hours";
 	}
+	
 }
 
 function formatStation(station) {
