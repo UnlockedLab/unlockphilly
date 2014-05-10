@@ -130,8 +130,8 @@ function addLayerAndShowYelpResults(data, name) {
 				coordinates: [business.location.geocoding.lng, business.location.geocoding.lat]
 				},
 				properties: {
-					title: alph.charAt(i) + ". " + business.name,
-					description: "<img style='max-width:80px' align='right' src='" + business.image_url + "'/>" + business.categories[0][0] + "<br />'Wheelchair Accessible'" +
+					title: alph.charAt(i) + ". <a target='_blank' href='" + business.url + "'>" + business.name + "</a>",
+					description: "<a target='_blank' href='" + business.url + "'><img style='max-width:80px' align='right' src='" + business.image_url + "'/></a><strong>" + business.categories[0][0] + "</strong><br />" + business.location.address + "<br />'Wheelchair Accessible'" +
 					      "<br/>More info in Yelp panel next to map, look for '" + alph.charAt(i) + "'",
 						'marker-size': 'small',
 						'marker-color': "#0099cc",
@@ -162,10 +162,10 @@ function createListOfResults(data, name) {
 	for (var i=0; i<data.businesses.length && i<MAX_YELP_RESULTS; i++) {
 		markerRef = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".charAt(i)
 		var business = data.businesses[i];
-		resultsHtml += "<li class='list-group-item'>";
-		resultsHtml += markerRef + ". <a target='_blank' href='" + business.url + "'>" + business.name + "</a> <strong>" + business.categories[0][0] +"</strong> (" +
+		resultsHtml += "<li class='list-group-item'><strong>";
+		resultsHtml += markerRef + ".</strong> <a target='_blank' href='" + business.url + "'>" + business.name + "</a> <strong>" + business.categories[0][0] +"</strong> (" +
 			 Math.round(business.distance) + " metres from " + name + ")<br />" + business.location.display_address[0] + " " + business.display_phone +
-			 " <br /><img title='" + business.snippet_text + "' src='" + business.rating_img_url + "'/></a> (" + business.review_count + " votes) " + business.location.geocoding.lng;
+			 " <br /><img title='" + business.snippet_text + "' src='" + business.rating_img_url + "'/></a> (" + business.review_count + " votes) ";
 		resultsHtml += "<br />Yelp listing says 'Wheelchair Accessible'</li>";
 		$('#popoverData').popover();
 	}
