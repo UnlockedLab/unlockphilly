@@ -85,7 +85,6 @@ function addLayersAndShow(stationData, line) {
 					},
 					properties: {
 						title: station.stop_name,
-						description: formatStation(station),
 						'marker-size': 'small',
 						'marker-color': getAccessTypeColor(station),
 						'marker-symbol': (station.wheelchair_boarding == "1" && !station.elevatorOutage  ? 'disability': 'roadblock')
@@ -108,7 +107,7 @@ function addLayersAndShow(stationData, line) {
 					info.removeFrom(map);
 					infoVisible=false;
 				}
-				var zoom = Math.max(14, map.getZoom());
+				var zoom = Math.max(15, map.getZoom());
 				map.setView(new L.LatLng(lng, lat), zoom, {
 						animate: true,
 						});
@@ -121,6 +120,7 @@ function addLayerAndShowYelpResults(data, name) {
 	console.log(businessLayerGroup);
 	var businesses = [];
 	for (var i=0; i<data.businesses.length && i<MAX_YELP_RESULTS; i++) {
+		alph = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 		var business = data.businesses[i];
 		feature = {
 			type: 'Feature',
@@ -129,11 +129,12 @@ function addLayerAndShowYelpResults(data, name) {
 				coordinates: [business.location.geocoding.lng, business.location.geocoding.lat]
 				},
 				properties: {
-					title: business.name,
-					description: '', // TODO add description
+					title: alph.charAt(i) + ". " + business.name,
+					description: "<img style='max-width:80px' align='right' src='" + business.image_url + "'/>" + business.categories[0][0] + "<br />'Wheelchair Accessible'" +
+					      "<br/>More info in Yelp panel next to map, look for '" + alph.charAt(i) + "'",
 						'marker-size': 'small',
 						'marker-color': "#0099cc",
-						'marker-symbol': "abcdefghijklmnopqrstuvwxyz".charAt(i)
+						'marker-symbol': alph.toLowerCase().charAt(i)
 					}
 		};
 		businesses.push(feature);
