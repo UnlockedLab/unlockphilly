@@ -85,6 +85,7 @@ function addLayersAndShow(stationData, line) {
 					},
 					properties: {
 						title: station.stop_name,
+						description: formatStation(station),
 						'marker-size': 'small',
 						'marker-color': getAccessTypeColor(station),
 						'marker-symbol': (station.wheelchair_boarding == "1" && !station.elevatorOutage  ? 'disability': 'roadblock')
@@ -223,14 +224,12 @@ function getOutageLength(mins) {
 }
 
 function formatStation(station) {
-	var response = "<em>" + getLine(station) + "</em><br />";
+	var response = "";
 	if (station.elevatorOutage) {
 		response += "<span class='red'>Elevator outage reported approx " + getOutageLength(station.outageTracker.duration) + " ago</span><br />" + station.elevatorOutage.elevator + "<br/>"
 			+ station.elevatorOutage.message + "<br/>"
 			+ "<a target= '_blank' href='http://www2.septa.org/elevators/'>Advice page</a> or Tweet @SEPTA_SOCIAL for help"  
 			+ "</p>";
-	} else {
-		response += "Station is " + (station.wheelchair_boarding == "1" ? "" : " not") + " wheelchair accessible<br />";
 	}
 	return response;
 }
