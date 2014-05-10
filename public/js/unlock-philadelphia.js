@@ -7,14 +7,16 @@ var isFirstView = false;
 var accessTypeWheelchair = 'Wheelchair';
 var accessTypeOutage = 'Outage';
 var accessTypeStairsOnly = 'StairsOnly';
-var accessTypes = [accessTypeWheelchair, accessTypeOutage, accessTypeStairsOnly];
-var accessTypesLabels = ['Accessible with elevator/ramp', 'Elevator outage restricting access', 'Access restricted or limited'];
+var accessTypeBusiness = 'AccessTypeBusiness';
+var accessTypes = [accessTypeWheelchair, accessTypeOutage, accessTypeStairsOnly, accessTypeBusiness];
+var accessTypesLabels = ['Accessible station', 'Station with elevator outage', 'Station with restricted/limited access', 'Business listed as accessible on Yelp'];
 var accessTypeColors = {};
 var info;
 var infoVisible=true;
 accessTypeColors[accessTypeWheelchair] = "#1a9641";
 accessTypeColors[accessTypeStairsOnly] = "#bababa";
 accessTypeColors[accessTypeOutage] = "#d7191c";
+accessTypeColors[accessTypeBusiness] = "#0099cc";
 var twitterCode = "<a href='https://twitter.com/intent/tweet?screen_name=septa' class='twitter-mention-button' data-related='septa'>Tweet to @septa</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>";
 var MAX_YELP_RESULTS = 26;
 
@@ -88,7 +90,7 @@ function addLayersAndShow(stationData, line) {
 						description: formatStation(station),
 						'marker-size': 'small',
 						'marker-color': getAccessTypeColor(station),
-						'marker-symbol': (station.wheelchair_boarding == "1" && !station.elevatorOutage  ? 'disability': 'roadblock')
+						'marker-symbol': 'rail-metro'
 					}
 				};
 				stations[getAccessType(station)].push(feature);
