@@ -8,6 +8,9 @@ require 'mongo'
 require 'uri'
 require 'pp'
 require 'oauth'
+require 'mail'
+require 'postmark'
+
 
 include Mongo
 
@@ -115,7 +118,8 @@ get '/septa/stations/line/:line' do
             mongoDocOutageTracker["line_code"] = lineCode
             puts "adding new outage to Mongo #{mongoDocOutageTracker.inspect}"
             stationOutageTrackerCol.insert(mongoDocOutageTracker)
-            station["outageTracker"] = mongoDocOutageTracker 
+            station["outageTracker"] = mongoDocOutageTracker
+            sendAlertMail "UnlockPhilly: New elevator outage reported at " + station["stop_name"], mongoDocOutageTracker.inspect
           end 
           puts result.inspect
         end
@@ -136,6 +140,7 @@ get '/septa/stations/line/:line' do
       stationWithOutage["duration"] = minsSinceOutageStart
       stationWithOutage["outageEnd"] = Time.now
       stationOutageTrackerCol.save(stationWithOutage)
+      sendAlertMail "UnlockPhilly: Elevator outage ended at #{stationWithOutage['stop_name']}", stationWithOutage.inspect
     end
   end
   stationOutageLogCol = settings.mongo_db['stations_outage_log']
@@ -206,6 +211,17 @@ get '/yelp/wheelchairaccess/:lat/:lng/:radius' do
   path = "/v2/search?term=wheelchair+accessible&ll=#{params[:lat]},#{params[:lng]}&radius_filter=#{params[:radius]}&sort=1"
   yelpResults = access_token.get(path).body
   appendStreetAddressLatLng(JSON.parse(yelpResults))
+end
+
+def sendAlertMail(subject, body)
+  message = Mail.new do
+    from            ENV['ADMIN_EMAIL_FROM']
+    to              ENV['ADMIN_EMAIL_TO']
+    subject         subject
+    body            body
+    delivery_method Mail::Postmark, :api_key => ENV['POSTMARK_API_KEY']
+  end
+  message.deliver
 end
 
 # Given a hash of Yelp results, append the latLng values of each address to each result
