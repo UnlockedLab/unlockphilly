@@ -179,12 +179,23 @@ function getAccessType(station) {
 	}
 }
 
+function getOutageLength(mins) {
+	if (mins < 60) {
+		return mins + " minutes";
+	}
+	if (mins > 60) {
+		hours = Math.floor(mins / 60);          
+    	minutes = mins % 60;
+		return hours + " hours, " + minutes + " minutes";
+	}
+}
+
 function formatStation(station) {
 	var response = "<em>" + getLine(station) + "</em><br />";
 	if (station.elevatorOutage) {
-		response += "Elevator outage: " + station.elevatorOutage.elevator + "<br/>"
+		response += "<span class='red'>Elevator outage reported " + getOutageLength(station.outageTracker.duration) + " ago</span><br />" + station.elevatorOutage.elevator + "<br/>"
 			+ station.elevatorOutage.message + "<br/>"
-			+ "<a target= '_blank' href='" + station.elevatorOutage.alternate_url + "'>" + "SEPTA advice" + "</a>"  
+			+ "<a target= '_blank' href='http://www2.septa.org/elevators/'>SEPTA advice</a>"  
 			+ "</p>";
 	} else {
 		response += "Station is " + (station.wheelchair_boarding == "1" ? "" : " not") + " wheelchair accessible<br />";
@@ -224,12 +235,11 @@ function addInfoBox() {
 		$.getJSON("/septa/elevator/outages", function(data) {
 			if ("errorMessage" in data) {
 				$('#stationOutageMessage').html(data.errorMessage + "<br /></ul>Visit <a target='_blank' href='http://www3.septa.org/hackathon/elevator/'>Septa website</a> for further info.</small>");
-			} else if (data.meta.elevators_out==0) {
+			} else if (data.length==0) {
 				$('#stationOutageMessage').html("No reported elevator outages");
 			} else {
-				var outages = data.meta.elevators_out;
 				$('#stationOutageMessage').html("<p class='text-danger'>" +
-					"<strong>" + outages + " elevator " + (outages > 1 ? "outages have" : "outage has") + " been reported.</strong> </p>" + getElevatorOutageStations(data));
+					"<strong>" + data.length + " elevator " + (data.length > 1 ? "outages have" : "outage has") + " been reported.</strong> </p>" + getElevatorOutageStations(data));
 			}
 		});
 	
@@ -250,12 +260,12 @@ function addScaleBox(){
 
 function getElevatorOutageStations(data) {
 	var stringToReturn = "<small><ul>";
-	for (var i=0; i < data.results.length; i++) {
-		outage = data.results[i];
-		stringToReturn += "<li>" + outage.station + " (" + outage.line + ")";
+	for (var i=0; i < data.length; i++) {
+		outage = data[i];
+		stringToReturn += "<li>" + outage.stop_name + " (" + getLineName(outage.line_code) + ")<br /><strong>reported approx " + getOutageLength(outage.duration) + " ago.</strong>";
 	}
-	if (data.results.length > 0){
-		stringToReturn += "</ul>Visit <a target='_blank' href='http://www2.septa.org/elevators/'>Septa website</a> for further info.</small>";
+	if (data.length > 0){
+		stringToReturn += "</ul>Visit <a target='_blank' href='http://www2.septa.org/elevators/'>Septa website</a> or Tweet @SEPTA_SOCIAL for help</small>";
 	}
 	return stringToReturn;
 }

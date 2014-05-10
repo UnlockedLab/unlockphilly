@@ -1,1 +1,35 @@
-{"meta":{"elevators_out":1,"updated":"2014-04-18 15:21:00"},"results":[{"line":"Market Frankford Line","station":"Erie-Torresdale","elevator":"Westbound","message":"No access to\/from station","message_html":"<ul><li>No access to\/from station<\/li><\/ul>","alternate_url":"http:\/\/www.septa.org\/service\/accessible_septa\/alt_service_mfl.html"}]}
+{
+	"meta": {
+		"elevators_out": 4,
+		"updated": "2014-04-18 15:21:00"
+	},
+	"results": [
+		{
+			"line": "Market Frankford Line",
+			"station": "Erie-Torresdale",
+			"elevator": "Westbound",
+			"message": "No access to\/from station",
+			"message_html": "<ul><li>No access to\/from station<\/li><\/ul>",
+			"alternate_url": "http:\/\/www.septa.org\/service\/accessible_septa\/alt_service_mfl.html"
+		}, {
+			"line": "Broad Street Subway / Broad Ridge Spur",
+			"station": "North Philadelphia",
+			"elevator": "Street to Mezzanine",
+			"message": "No access to/from station",
+			"message_html": "<ul><li>No access to/from station</li></ul>",
+			"alternate_url": "http://www.septa.org/service/accessible_septa/alt_service_bsl.html"
+		}, {
+			"line": "Market Frankford Line",
+			"station": "Somerset",
+			"elevator": "Westbound ",
+			"message": "No access to/from station",
+			"alternate_url": "http://www.septa.org/access/alternate/mfl.html#som"
+		}, {
+			"line": "Market Frankford Line",
+			"station": "Berks",
+			"elevator": "Eastbound",
+			"message": "No access to/from eastbound platform",
+			"alternate_url": "http://www.septa.org/access/alternate/mfl.html#berks"
+		}
+	]
+}
