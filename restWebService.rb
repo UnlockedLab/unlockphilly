@@ -27,6 +27,7 @@ configure do
   db.authenticate(db_details.user, db_details.password) unless (db_details.user.nil? || db_details.user.nil?)
   set :mongo_db, db
   set :appUrl, "http://www.unlockphilly.com"
+  set :septaElevatorOutagesUrl, 'http://www3.septa.org/hackathon/elevator/'
   enable :logging
   puts "dbconnection successful to #{ENV['MONGOHQ_URL']}"
 end
@@ -43,8 +44,10 @@ end
 get '/septa/stations/line/:line' do
   content_type :json
   outages = {}
+  matchedOutageStationIds = []
+  stationOutageTrackerCol = settings.mongo_db['stations_outage_tracker']
   begin
-    outages = JSON.parse(getElevatorOutagesFromSeptaJson())
+    outages = getElevatorOutages()
   rescue JSON::ParserError => e
     outages["results"] = []
   end
@@ -57,7 +60,7 @@ get '/septa/stations/line/:line' do
   doc = {}
   doc["line"] = "#{params[:line]}"
   doc["stations"]=result.to_a
-  doc["stations"].each_with_index do | station, i |
+  doc["stations"].each_with_index do | station |
     outages["results"].each do | outage |
       puts "comparing outage " + outage["station"].gsub(/-/, ' ').gsub(/Street/, 'St') + " with " + station["stop_name"].gsub(/-/, ' ').gsub(/Street/, 'St') + " on line " + getLineName(station)
       # have to remove hypens due to naming inconsistency and also abbreviate Street to St
@@ -65,35 +68,106 @@ get '/septa/stations/line/:line' do
         lineCode = getLineCode(outage["line"])
         puts "station match, now checking line #{outage['line']} using code #{lineCode}"
         if station[lineCode] == "1"
+          
           puts "found match!"
-          doc["stations"][i]["elevatorOutage"] = outage;  
+          station["elevatorOutage"] = outage;  
+          
+          # FOUND MATCH FOR OUTAGE... update the DB and object accordingly
+          
+          # archive the outage by date
+          stationOutagesByDayCol = settings.mongo_db['stations_outages_by_day']
+          mongoDocOutageByDay = {}
+          idByDayDoc = {}
+          idByDayDoc["stationId"] = station["_id"]
+          todayDate = Date.today.to_s.split("-")
+          idByDayDoc["outageYear"] = todayDate[0]
+          idByDayDoc["outageMonth"] = todayDate[1]
+          idByDayDoc["outageDay"] = todayDate[2]
+          mongoDocOutageByDay["_id"] = idByDayDoc
+          mongoDocOutageByDay["stop_name"] = station["stop_name"]
+          mongoDocOutageByDay["line_code"] = lineCode
+          stationOutagesByDayCol.save(mongoDocOutageByDay)
+          
+          # add to/update station outage tracker collection
+          
+          matchedOutageStationIds.push station["_id"]
+          result = stationOutageTrackerCol.find_one("_id.stationId" => station["_id"], "isActive" => true)
+          if (result)
+            # update outage duration
+            puts "updating outage duration in Mongo for #{result.inspect}"
+            puts "#{Time.now} - #{result["_id"]["outageStart"]}"
+            minsSinceOutageStart = ((Time.now - result["_id"]["outageStart"])/60).to_i
+            puts "minsSinceOutageStart = " + minsSinceOutageStart.to_s
+            result["duration"] = minsSinceOutageStart
+            stationOutageTrackerCol.save(result)
+            station["outageTracker"] = result 
+          else
+            # add outage
+            mongoDocOutageTracker = {}
+            idOutageTracker = {}
+            idOutageTracker["stationId"] = station["_id"]
+            idOutageTracker["outageStart"] = Time.now
+            mongoDocOutageTracker["_id"] = idOutageTracker
+            mongoDocOutageTracker["duration"] = 0
+            mongoDocOutageTracker["isActive"] = true
+            mongoDocOutageTracker["outageEnd"] = nil
+            mongoDocOutageTracker["stop_name"] = station["stop_name"]
+            mongoDocOutageTracker["line_code"] = lineCode
+            puts "adding new outage to Mongo #{mongoDocOutageTracker.inspect}"
+            stationOutageTrackerCol.insert(mongoDocOutageTracker)
+            station["outageTracker"] = mongoDocOutageTracker 
+          end 
+          puts result.inspect
         end
       end
+    end # end out outages iteration
+    #end
+  end # end of stations iteration
+  # endDate stations that no longer have outages
+  stationsWithActiveOutages = stationOutageTrackerCol.find("isActive" => true).to_a
+  stationsWithActiveOutages.each do | stationWithOutage |
+    if matchedOutageStationIds.include? stationWithOutage["_id"]["stationId"]
+      puts "found active station outage in mongo that is still active #{stationWithOutage.inspect}" 
+    else 
+      puts "found active station outage that is no longer active, endDating #{stationWithOutage.inspect}" 
+      stationWithOutage["isActive"] = false
+      minsSinceOutageStart = ((Time.now - stationWithOutage["_id"]["outageStart"])/60).to_i
+      puts "minsSinceOutageStart = " + minsSinceOutageStart.to_s
+      stationWithOutage["duration"] = minsSinceOutageStart
+      stationWithOutage["outageEnd"] = Time.now
+      stationOutageTrackerCol.save(stationWithOutage)
     end
   end
+  stationOutageLogCol = settings.mongo_db['stations_outage_log']
+  logEntry = {}
+  logEntry['_id'] = Time.now
+  logEntry['outages'] = matchedOutageStationIds
+  stationOutageLogCol.save(logEntry)
+  
+  # work complete, output to outagelog in mongo
+  
+  
   return doc.to_json
 end
 
 get '/septa/elevator/outages' do
   content_type :json
-  begin
-    return JSON.parse(getElevatorOutagesFromSeptaJson()).to_json
-  rescue JSON::ParserError => e
-    error = {}
-    error['errorMessage'] = "Septa elevator outage information out of service";
-    return error.to_json
-  end
+  stationOutageTrackerCol = settings.mongo_db['stations_outage_tracker']
+  return stationOutageTrackerCol.find("isActive" => true).to_a.to_json
+end
+
+def getElevatorOutages()
+  JSON.parse(getElevatorOutagesFromSeptaJson())
+  #JSON.parse(getElevatorOutagesFromFileForTesting())
 end
 
 # sample response from SEPTA {"meta":{"elevators_out":1,"updated":"2013-09-26 13:31:57"},"results":[{"line":"Norristown High Speed Line","station":"Norristown Transportation Center","elevator":"Street Level","message":"No access to\/from station","alternate_url":"http:\/\/www.septa.org\/access\/alternate\/nhsl.html#ntc"}]}
 def getElevatorOutagesFromSeptaJson()
-  uri = "http://www3.septa.org/hackathon/elevator/"
-  response = RestClient.get uri
-  return response;
+  return RestClient.get settings.septaElevatorOutagesUrl
 end
 
 def getElevatorOutagesFromFileForTesting()
-  return IO.read('data/elevator_outage_json_examples/outage5.json')
+  return IO.read('data/elevator_outage_json_examples/outage1.json')
 end
 
 def getLineCode(line)

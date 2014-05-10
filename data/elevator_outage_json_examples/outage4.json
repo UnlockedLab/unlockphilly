@@ -1,0 +1,30 @@
+{
+	"meta": {
+		"elevators_out": 3,
+		"updated": "2014-05-10 10:08:43"
+	},
+	"results": [
+		{
+			"line": "Broad Street Subway \/ Broad Ridge Spur",
+			"station": "Cecil B. Moore",
+			"elevator": "Southbound Platform",
+			"message": "No access to\/from southbound platform",
+			"message_html": "<ul><li>No access to\/from southbound platform<\/li><\/ul>",
+			"alternate_url": "http:\/\/www.septa.org\/service\/accessible_septa\/alt_service_bsl.html"
+		}, {
+			"line": "Market Frankford Line",
+			"station": "30th Street",
+			"elevator": "Street to Mezzanine",
+			"message": "No access to\/from station",
+			"message_html": "<ul><li>No access to\/from station<\/li><\/ul>",
+			"alternate_url": "http:\/\/www.septa.org\/service\/accessible_septa\/alt_service_mfl.html"
+		}, {
+			"line": "Trolley Lines",
+			"station": "30th Street",
+			"elevator": "Street to Mezzanine",
+			"message": "No access to\/from station",
+			"message_html": "<ul><li>No access to\/from station<\/li><\/ul>",
+			"alternate_url": "http:\/\/www.septa.org\/service\/accessible_septa\/alt_service_sub_surface.html"
+		}
+	]
+}
