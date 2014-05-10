@@ -236,6 +236,8 @@ function formatStation(station) {
 			+ station.elevatorOutage.message + "<br/>"
 			+ "<a target= '_blank' href='http://www2.septa.org/elevators/'>Advice page</a> or Tweet @SEPTA_SOCIAL for help"  
 			+ "</p>";
+	} else {
+		response += (station.wheelchair_boarding == "1" ? "" : "Not ") + "Wheelchair Accessible<br />";
 	}
 	return response;
 }
