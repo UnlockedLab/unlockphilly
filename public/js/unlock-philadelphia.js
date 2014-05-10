@@ -220,11 +220,11 @@ function getOutageLength(mins) {
 	} else if (mins >= 60 && mins < 1440) {
 		hours = Math.floor(mins / 60);          
     	minutes = mins % 60;
-		return hours + " " + (hours == 1 ? "hr, " : "hrs, ") + minutes + " mins";
+		return hours + " " + (hours == 1 ? "hr, " : "hrs, ") + minutes + (minutes == 1 ? " min" : " mins");
 	} else {
 		days = Math.floor(mins / 60 / 24);
 		hours = mins % (24);
-		return days + " " + (days == 1 ? "day, " : "days, ") + hours + " hours";
+		return days + " " + (days == 1 ? "day, " : "days, ") + hours + (hours == 1 ? " hr" : " hrs");
 	}
 	
 }
