@@ -301,10 +301,10 @@ function getElevatorOutageStations(data) {
 	var stringToReturn = "<small><ul>";
 	for (var i=0; i < data.length; i++) {
 		outage = data[i];
-		stringToReturn += "<li>" + outage.stop_name + " (" + getLineName(outage.line_code) + ")<br /><strong>reported " + moment(outage._id.outageStart).calendar().toLowerCase() + " (" + getOutageLength(outage.duration) + " ago)</strong>";
+		stringToReturn += "<li>" + outage.stop_name + " (" + getLineName(outage.line_code) + ")<br /><strong>reported approx " + getOutageLength(outage.duration) + " ago</strong>";
 	}
 	if (data.length > 0){
-		stringToReturn += "</ul>Visit <a target='_blank' href='http://www2.septa.org/elevators/'>Septa website</a> or Tweet @SEPTA_SOCIAL for help</small>";
+		stringToReturn += "</ul>Visit <a target='_blank' href='http://www2.septa.org/elevators/'>SEPTA's Outage Advice </a> or Tweet @SEPTA_SOCIAL for help</small>";
 	}
 	return stringToReturn;
 }
