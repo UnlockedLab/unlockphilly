@@ -7,7 +7,7 @@
 	<ul>
 		<% outageHistory.each do | outage | %>
 			<li>
-				From <%= outage['_id']['outageStart'] %> to <%= outage['outageEnd'] %>
+				From <%= outage['_id']['outageStart'] %> to <% if outage['outageEnd'] == nil %>now<% else %><%= outage['outageEnd'] %><% end %>
 			</li>
 		<% end %>
 	</ul>
