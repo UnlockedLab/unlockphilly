@@ -22,8 +22,8 @@
 		<!--[if lte IE 8]>
 		<link rel="stylesheet" href="css/leaflet.ie.css" />
 		<![endif]-->
-
 	</head>
+	
 	<body>
 		<div id="wrap">
 
@@ -37,88 +37,58 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" rel="home" href="/"><img style="max-width:180px; margin-top: -7px;" src="images/logo/unlock_logo.png" alt="Unlock_Philly logo" title="Unlock Philly Logo" /></a>
+						<a class="navbar-brand" rel="home" href="/"><img style="max-width:180px; margin-top: -7px;" src="/images/logo/unlock_logo.png" alt="Unlock_Philly logo" title="Unlock Philly Logo" /></a>
 					</div>
 					<div class="collapse navbar-collapse">
 						<ul class="nav navbar-nav">
-							<li>
-								<a>Mapping accessibility in Philadelphia</a>
+							<li <% if page=="mapper" %>class="active"<% end %>>
+								<a href="/">Accessiblity Mapper</a>
 							</li>
-							<li>
-								<a href="http://tyack.net/2013/10/08/transit-apps-for-philly-hackathon-2013-unlocking-philadelphia/" target='_blank'>Blog</a>
-							</li>
-							<li>
-								<a href="https://twitter.com/unlockphilly" target='_blank'>Follow us on Twitter <img style="max-width:25px; margin-top: -7px;" src="images/logo/Twitter_logo_blue.png" alt="Unlock_Philly logo" title="Unlock Philly Logo" /></a>
-							</li>
+							<!--<li <% if page=="station" %>class="active"<% end %>>
+								<a href="/station/0">Station Info</a>
+							</li>-->
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Media<b class="caret"></b></a>
-								<ul class="dropdown-menu">
-									<li>
-										<a href='http://www.nbcphiladelphia.com/news/local/Elevating-Accessibility-on-Mass-Transit-250853021.html' target='_blank'>NBC Philadelphia article: Elevating Accessiblity on Mass Transit</a>
-									</li>
-									<li>
-										<a href="https://technical.ly/philly/2014/03/25/septa-wheelchair-accessible-app/" target='_blank'>Technical.ly Philly story</a>
-									</li>
-
-								</ul>
+							<li>
+								<a href="https://twitter.com/unlockphilly" target='_blank'>Follow us <img style="max-width:25px; margin-top: -7px;" src="/images/logo/Twitter_logo_blue.png" alt="Twitter logo" title="Twitter Logo" /></a>
 							</li>
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Links<b class="caret"></b></a>
 								<ul class="dropdown-menu">
-									<li>
-										<a href="http://www.septa.org/access/" target='_blank'>Accessible SEPTA</a>
-									</li>
-									<li>
-										<a href='http://www2.septa.org/elevators/' target='_blank'>Elevator Outages SEPTA</a>
-									</li>
-									<li>
-										<a href="http://www.libertyresources.org" target='_blank'>Liberty Resources</a>
-									</li>
-									<li>
+									<li role="presentation" class="dropdown-header">Resources</li>
+									<li role="presentation">
 										<a href="http://www.septa.org/access/vis-impaired.html" target='_blank'>Info for visually impaired customers</a>
 									</li>
+									<li role="presentation">
+										<a href="http://www.septa.org/access/" target='_blank'>Accessible SEPTA</a>
+									</li>
+									<li role="presentation" class="divider"></li>
+									<li role="presentation" class="dropdown-header">News</li>
+									<li role="presentation">
+										<a href='http://www.nbcphiladelphia.com/news/local/Elevating-Accessibility-on-Mass-Transit-250853021.html' target='_blank'>NBC Philadelphia article: Elevating Accessiblity on Mass Transit</a>
+									</li>
+									<li role="presentation">
+										<a href="https://technical.ly/philly/2014/03/25/septa-wheelchair-accessible-app/" target='_blank'>Technical.ly Philly story</a>
+									</li>
+									<li role="presentation">
+										<a href="http://tyack.net/2013/10/08/transit-apps-for-philly-hackathon-2013-unlocking-philadelphia/" target='_blank'>Blog</a>
+									</li>
+									
 								</ul>
 							</li>
 						</ul>
 					</div><!--/.nav-collapse -->
 				</div>
 			</div>
+			
+			
 
 			<!-- Begin page content -->
 			<div class="container">
-				<div class="row spacer">
-					<row>
-						<div class="col-md-9">
-							<div id="map"></div>
-						</div>
-
-						<div class="col-md-3">
-
-							<div class="panel panel-default yelpPanel">
-								<div class="panel-heading panel-title" align='center'>
-									<h5 id="yelp-heading">What's accessible nearby?</h5>
-									<h6>Leave a review if you visit</h6>
-									<a href="http://www.yelp.com"><img src="http://s3-media1.ak.yelpcdn.com/assets/2/www/img/1589098a542f/developers/Powered_By_Yelp_White.png" alt="Powered by Yelp, white" width="115" height="25" /></a>
-								</div>
-								<div id="yelp-results">
-									<!-- start of panel body -->
-									<small>
-										<ul class='list-group'>
-											<li class='list-group-item'>
-												<div align='center'>
-													Click stations on map to see accessible pubs, shops, restaurants and more
-												</div>
-											</li>
-										</ul> </ul>
-								</div><!-- end of panel body containing  yelp search results -->
-
-							</div><!-- end of yelp panel -->
-
-						</div><!-- end of upper right column -->
-				</div><!-- end of top content row containing filters and map -->
-
+				
+				
+				<%= yield %>
+				
 				<row>
 					<div class="col-md-6">
 						<row>
@@ -205,8 +175,6 @@
 
 					</div>
 
-
-					</rom>
 
 					<!-- Placed at the end of the document so the pages load faster -->
 					<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

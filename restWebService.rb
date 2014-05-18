@@ -40,7 +40,16 @@ get '/' do
     logger.info 'redirecting from ' + request.host + ' to ' + settings.appUrl
     redirect settings.appUrl, 301
   end
-  erb :unlock_philadelphia
+  erb :accessibility_mapper, :locals => {:page => "mapper"}
+end
+
+get '/station/:stationid' do
+  stationsCol = settings.mongo_db['septa_stations']
+  outageTrackerCol = settings.mongo_db['stations_outage_tracker']
+  station = stationsCol.find_one({:_id => params[:stationid]})
+  puts params[:stationId]
+  outageHistory = outageTrackerCol.find({"_id.stationId" => params[:stationid]}).sort("_id.outageStart" => :desc)
+  erb :station, :locals => {:page => "station", :station => station, :outageHistory => outageHistory.to_a}
 end
 
 # get all station metadata - will include details of elevator outage (if exists)

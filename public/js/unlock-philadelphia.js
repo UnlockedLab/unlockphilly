@@ -120,30 +120,31 @@ function addLayersAndShow(stationData, line) {
 }
 
 function addLayerAndShowYelpResults(data, name) {
+	
 	console.log(businessLayerGroup);
 	var businesses = [];
-	for (var i=0; i<data.businesses.length && i<MAX_YELP_RESULTS; i++) {
+	for (var i = 0; i < data.businesses.length && i < MAX_YELP_RESULTS; i++) {
 		alph = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 		var business = data.businesses[i];
 		feature = {
-			type: 'Feature',
-			geometry: {
-				type: 'Point',
-				coordinates: [business.location.geocoding.lng, business.location.geocoding.lat]
-				},
-				properties: {
-					title: alph.charAt(i) + ". <a target='_blank' href='" + business.url + "'>" + business.name + "</a>",
-					description: "<a target='_blank' href='" + business.url + "'><img style='max-width:80px' align='right' src='" + business.image_url + "'/></a><strong>" + business.categories[0][0] + "</strong><br />" + business.location.address +
-					      "<br/><span><img title='" + business.snippet_text + "' src='" + business.rating_img_url + "'/></a><img src='http://s3-media1.ak.yelpcdn.com/assets/2/www/img/14f29ad24935/map/miniMapLogo.png' alt='Yelp Logo, mini' height='20' width='40'><br/><a target='_blank' href='" + business.url + "'>" + business.review_count + " reviews</span><br/>Yelp says 'Wheelchair Accessible', leave an accessibility review if you visit.",
-						'marker-size': 'small',
-						'marker-color': "#0099cc",
-						'marker-symbol': alph.toLowerCase().charAt(i)
-					}
+			type : 'Feature',
+			geometry : {
+				type : 'Point',
+				coordinates : [business.location.geocoding.lng, business.location.geocoding.lat]
+			},
+			properties : {
+				title : alph.charAt(i) + ". <a target='_blank' href='" + business.url + "'>" + business.name + "</a>",
+				description : "<a target='_blank' href='" + business.url + "'><img style='max-width:80px' align='right' src='" + business.image_url + "'/></a><strong>" + business.categories[0][0] + "</strong><br />" + business.location.address + "<br/><span><img title='" + business.snippet_text + "' src='" + business.rating_img_url + "'/></a><img src='http://s3-media1.ak.yelpcdn.com/assets/2/www/img/14f29ad24935/map/miniMapLogo.png' alt='Yelp Logo, mini' height='20' width='40'><br/><a target='_blank' href='" + business.url + "'>" + business.review_count + " reviews</span><br/>Yelp says 'Wheelchair Accessible', leave an accessibility review if you visit.",
+				'marker-size' : 'small',
+				'marker-color' : "#0099cc",
+				'marker-symbol' : alph.toLowerCase().charAt(i)
+			}
 		};
 		businesses.push(feature);
 	}
 	businessLayerGroup = L.mapbox.featureLayer(businesses);
-	map.addLayer(businessLayerGroup);
+	map.addLayer(businessLayerGroup); 
+
 }
 
 function updateYelpResults(lat, lng, name) {
@@ -239,7 +240,7 @@ function formatStation(station) {
 	} else {
 		response += (station.wheelchair_boarding == "1" ? "" : "Not ") + "Wheelchair Accessible<br />";
 	}
-	return response;
+	return response + " <a href='" + window.location.href + "station/" + station._id + "'>more ...</a>";
 }
 
 function getLine(station) {
