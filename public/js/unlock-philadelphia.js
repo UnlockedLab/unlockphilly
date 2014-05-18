@@ -238,7 +238,7 @@ function formatStation(station) {
 			+ "<a target= '_blank' href='http://www2.septa.org/elevators/'>Advice page</a> or Tweet @SEPTA_SOCIAL for help"  
 			+ "</p>";
 	} else {
-		response += (station.wheelchair_boarding == "1" ? "" : "Not ") + "Wheelchair Accessible<br />";
+		response += (station.wheelchair_boarding == "1" ? "" : "Not ") + "Wheelchair Accessible";
 	}
 	return response + " <a href='" + window.location.href + "station/" + station._id + "'>more ...</a>";
 }
