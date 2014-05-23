@@ -10,7 +10,8 @@ require 'pp'
 require 'oauth'
 require 'mail'
 require 'postmark'
-
+require 'nokogiri'
+require 'open-uri'
 
 include Mongo
 
@@ -281,6 +282,30 @@ def getGeoJSON(address)
   return latLng
 end
 
+def getPatcoElevatorStatusJson()
+  url = 'http://www.ridepatco.org/schedules/alerts.asp'
+  doc = Nokogiri::HTML(open(url))
+
+  all_status=[]
+  elev_status=[]
+
+  doc.css(".copy img").each do |item|
+    all_status << item['alt']
+  end
+
+  elev_status << all_status[0] << all_status[3] << all_status[5] << all_status[10] << all_status[12] << all_status[14] << all_status[16] << all_status[18] << all_status[20] << all_status[21] << all_status[23]
+
+  elev_map = ["PATCO240", "PATCO242", "PATCO242", "PATCO246", "PATCO247", "PATCO247", "PATCO249", "PATCO249", "PATCO250", "PATCO250", "PATCO252"]
+
+  outages=[]
+  elev_status.each_index do |i|
+    if elev_status[i] == "No"
+      outages << {"line"=>"Patco", "station"=>elev_map[i], "elevator"=>"E", "message"=>"Out of service"}
+    end
+  end
+
+  JSON.generate ["meta" => {"elevators_out" => outages.count, "updated" => Time.now}, "results" => outages]
+end
 
 
 
