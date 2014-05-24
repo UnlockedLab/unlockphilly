@@ -165,6 +165,11 @@ get '/septa/stations/line/:line' do
   return doc.to_json
 end
 
+get '/patco/elevator/outages' do
+  content_type :json
+  return getPatcoElevatorStatusJson
+end
+
 get '/septa/elevator/outages' do
   content_type :json
   stationOutageTrackerCol = settings.mongo_db['stations_outage_tracker']
@@ -222,6 +227,8 @@ get '/yelp/wheelchairaccess/:lat/:lng/:radius' do
   yelpResults = access_token.get(path).body
   appendStreetAddressLatLng(JSON.parse(yelpResults))
 end
+
+
 
 def sendAlertMail(subject, body)
   message = Mail.new do
