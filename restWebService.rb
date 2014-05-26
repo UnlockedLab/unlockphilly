@@ -77,7 +77,7 @@ get '/septa/stations/line/:line' do
     outages["results"].each do | outage |
       puts "comparing outage " + outage["station"].gsub(/-/, ' ').gsub(/Street/, 'St') + " with " + station["stop_name"].gsub(/-/, ' ').gsub(/Street/, 'St') + " on line " + getLineName(station)
       # have to remove hypens due to naming inconsistency and also abbreviate Street to St
-      if station["stop_name"].gsub(/-/, ' ').gsub(/Street/, 'St').include?(outage["station"].gsub(/-/, ' ').gsub(/Street/, 'St'))
+      if station["stop_name"].gsub(/-/, ' ').gsub(/Street/, 'St').start_with?(outage["station"].gsub(/-/, ' ').gsub(/Street/, 'St'))
         lineCode = getLineCode(outage["line"])
         puts "station match, now checking line #{outage['line']} using code #{lineCode}"
         if station[lineCode] == "1"
