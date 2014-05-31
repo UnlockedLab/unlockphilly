@@ -13,7 +13,7 @@ Information for new developers
 **Client Techology to understand**
 * JQuery - http://jquery.com
 * Bootstrap framerwork - makes it easy to lay out a web page... defines CSS for you - http://getbootstrap.com/2.3.2/index.html
-* Maps are done using LeafletJS library - http://leafletjs.com
+* Maps are done using LeafletJS/Mapbox library - http://leafletjs.com - http://www.mapbox.com
 
 **Server Technology to understand**
 * Sinatra - a simple Ruby framework that allows you to build a server - http://www.sinatrarb.com
