@@ -7,12 +7,8 @@ An interactive web application that was prototyped at Apps For Philly Transit Ha
 
 View it online at http://unlockphilly.com
 
-
-
-
-Help information for new developers wishing to work on the project
-
-### Unlock Philadelphia
+Information for new developers
+====
 
 **Client Techology to understand**
 * JQuery - http://jquery.com
