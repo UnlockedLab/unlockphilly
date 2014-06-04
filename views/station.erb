@@ -2,13 +2,24 @@
 	<h4 class="modal-title" id="myModalLabel"><% if station!=nil %><%= station['stop_name'] %><% end %></h4>
 </div>
 <div class="modal-body">
-	<h2><% if station!=nil %><%= station['stop_name'] %><% end %></h2>
-	<h5>Elevator outage history</h5>
+	<h5>Elevator outage history - last 30 days</h5>
 	<ul>
-		<% outageHistory.each do | outage | %>
-			<li>
-				From <%= outage['_id']['outageStart'] %> to <% if outage['outageEnd'] == nil %>now<% else %><%= outage['outageEnd'] %><% end %>
-			</li>
-		<% end %>
+		
+		<div id="chart"></div>
+		<script src="/js/d3/d3.min.js"></script>
+		<script src="/js/d3.tip.js"></script>
+		<script src="/js/outages.js"></script>
+		<script type="application/javascript">
+			renderOutageChart([
+				
+			<% outageHistory.each do | outage | %>
+			{
+				outageStart : new Date("<%= outage['_id']['outageStart'].to_datetime %>"),
+				outageEnd: <% if !outage['outageEnd'] %>null<% else %>new Date("<%= outage['outageEnd'].to_datetime %>")<% end %>
+			},
+			<% end %>
+			]);
+		</script>
+		
 	</ul>
 </div>

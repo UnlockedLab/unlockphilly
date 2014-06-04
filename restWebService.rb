@@ -49,7 +49,7 @@ get '/station/:stationid' do
   outageTrackerCol = settings.mongo_db['stations_outage_tracker']
   station = stationsCol.find_one({:_id => params[:stationid]})
   puts params[:stationId]
-  outageHistory = outageTrackerCol.find({"_id.stationId" => params[:stationid]}).sort("_id.outageStart" => :desc)
+  outageHistory = outageTrackerCol.find({"_id.stationId" => params[:stationid]}).sort("_id.outageStart" => :asc)
   erb :station, :locals => {:page => "station", :station => station, :outageHistory => outageHistory.to_a}
 end
 
