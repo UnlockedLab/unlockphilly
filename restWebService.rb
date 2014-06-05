@@ -153,15 +153,6 @@ get '/septa/stations/line/:line' do
       sendAlertMail "UnlockPhilly: Elevator outage ended at #{stationWithOutage['stop_name']}", stationWithOutage.inspect
     end
   end
-  stationOutageLogCol = settings.mongo_db['stations_outage_log']
-  logEntry = {}
-  logEntry['_id'] = Time.now
-  logEntry['outages'] = matchedOutageStationIds
-  stationOutageLogCol.save(logEntry)
-  
-  # work complete, output to outagelog in mongo
-  
-  
   return doc.to_json
 end
 
