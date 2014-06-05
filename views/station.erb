@@ -1,17 +1,19 @@
 <div class="modal-header">
-	<h4 class="modal-title" id="myModalLabel"><% if station!=nil %><%= station['stop_name'] %><% end %></h4>
+	<h3 class="modal-title" id="myModalLabel"><% if station!=nil %><%= station['stop_name'] + " - " + line_name %><% end %></h3>
 </div>
 <div class="modal-body">
-	<h5>Elevator outage history - last 30 days</h5>
-	<ul>
-		
-		<div id="chart"></div>
-		<script src="/js/d3/d3.min.js"></script>
-		<script src="/js/d3.tip.js"></script>
-		<script src="/js/outages.js"></script>
-		<script type="application/javascript">
+	
+			<h5>Wheelchair accessible station? 
+			<% if station['wheelchair_boarding'] %>
+			Yes
+			<h4>Elevator outage* history - last 30 days</h4>
+			<% if outageHistory.size > 0 %>
+			<script src="/js/d3/d3.min.js"></script>
+			<script src="/js/d3.tip.js"></script>
+			<script src="/js/outages.js"></script>
+			<div id="chart"></div>
+			<script type="application/javascript">
 			renderOutageChart([
-				
 			<% outageHistory.each do | outage | %>
 			{
 				outageStart : new Date("<%= outage['_id']['outageStart'].to_datetime %>"),
@@ -19,7 +21,14 @@
 			},
 			<% end %>
 			]);
-		</script>
+			</script>
+			<% else %>
+			<div><p>No recent outages found</p></div>
+			<% end %>
+			<p>* Data based on start/end time of operator's online elevator outage notifications.</p>
+			<% else %>
+			No
+			<% end %>
+			</h5>
 		
-	</ul>
 </div>

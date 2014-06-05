@@ -49,8 +49,8 @@ get '/station/:stationid' do
   outageTrackerCol = settings.mongo_db['stations_outage_tracker']
   station = stationsCol.find_one({:_id => params[:stationid]})
   puts params[:stationId]
-  outageHistory = outageTrackerCol.find({"_id.stationId" => params[:stationid]}).sort("_id.outageStart" => :asc)
-  erb :station, :locals => {:page => "station", :station => station, :outageHistory => outageHistory.to_a}
+  outageHistoryArray = outageTrackerCol.find({"_id.stationId" => params[:stationid]}).sort("_id.outageStart" => :asc).to_a
+  erb :station, :locals => {:page => "station", :station => station, :line_name => getLineFullName(station), :outageHistory => outageHistoryArray}
 end
 
 # get all station metadata - will include details of elevator outage (if exists)
@@ -210,6 +210,19 @@ def getLineName(station)
     return "NHSL"
   elsif station["PATCO"] == "1"
     return "PATCO"
+  end
+  return "";
+end
+
+def getLineFullName(station)
+  if station["BSS"] == "1"
+    return "Broad Street Subway Line (SEPTA)"
+  elsif station["MFL"] == "1"
+    return "Market Frankford Line (SEPTA)"
+  elsif station["NHSL"] == "1"
+    return "Norristown High Speed Line (SEPTA)"
+  elsif station["PATCO"] == "1"
+    return "PATCO High Speed Line"
   end
   return "";
 end
