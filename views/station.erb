@@ -3,9 +3,9 @@
 </div>
 <div class="modal-body">
 	
+	
 			<h5>Wheelchair accessible station? 
-			<% if station['wheelchair_boarding'] %>
-			Yes
+			<% if station['wheelchair_boarding'] %>Yes
 			<h4>Elevator outage* history - last 30 days</h4>
 			<% if outageHistory.size > 0 %>
 			<script src="/js/d3/d3.min.js"></script>
@@ -26,9 +26,12 @@
 			<div><p>No recent outages found</p></div>
 			<% end %>
 			<p>* Data based on start/end time of operator's online elevator outage notifications.</p>
-			<% else %>
-			No
-			<% end %>
+			<% else %>No<% end %>
 			</h5>
+			<div><% if station_content && station_content['videoForEmbed'] %>
+				<h3>Video</h3>
+				<iframe width="560" height="315" src="<%= station_content['videoForEmbed'] %>" frameborder="0" allowfullscreen></iframe>
+				<% if station_content && station_content['videoCredit'] %><h6>Credit: <%= station_content['videoCredit'] %></h6><% end %>
+			<% end %></div>
 		
 </div>

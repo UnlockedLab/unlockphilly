@@ -46,11 +46,13 @@ end
 
 get '/station/:stationid' do
   stationsCol = settings.mongo_db['septa_stations']
+  stationsContentCol = settings.mongo_db['station_content']
   outageTrackerCol = settings.mongo_db['stations_outage_tracker']
   station = stationsCol.find_one({:_id => params[:stationid]})
-  puts params[:stationId]
+  stationContent = stationsContentCol.find_one({:_id => params[:stationid]})
   outageHistoryArray = outageTrackerCol.find({"_id.stationId" => params[:stationid]}).sort("_id.outageStart" => :asc).to_a
-  erb :station, :locals => {:page => "station", :station => station, :line_name => getLineFullName(station), :outageHistory => outageHistoryArray}
+  erb :station, :locals => {:page => "station", :station => station, :station_content => stationContent,
+    :line_name => getLineFullName(station), :outageHistory => outageHistoryArray}
 end
 
 # get all station metadata - will include details of elevator outage (if exists)
