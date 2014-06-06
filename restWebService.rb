@@ -41,7 +41,7 @@ get '/' do
     logger.info 'redirecting from ' + request.host + ' to ' + settings.appUrl
     redirect settings.appUrl, 301
   end
-  erb :accessibility_mapper, :locals => {:page => "mapper"}
+  erb :accessibility_mapper, :locals => {:page => "mapper", :page_title => "Mapping accessible stations, elevator outages, bars, restaurants, shops, museums and more in Philadelphia"}
 end
 
 get '/station/:stationid' do
@@ -51,7 +51,7 @@ get '/station/:stationid' do
   station = stationsCol.find_one({:_id => params[:stationid]})
   stationContent = stationsContentCol.find_one({:_id => params[:stationid]})
   outageHistoryArray = outageTrackerCol.find({"_id.stationId" => params[:stationid]}).sort("_id.outageStart" => :asc).to_a
-  erb :station, :locals => {:page => "station", :station => station, :station_content => stationContent,
+  erb :station, :locals => {:page => "station", :page_title => "Station details for "  + station['stop_name'] + " - " + getLineFullName(station), :station => station, :station_content => stationContent,
     :line_name => getLineFullName(station), :outageHistory => outageHistoryArray}
 end
 
