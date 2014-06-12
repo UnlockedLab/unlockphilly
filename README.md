@@ -17,7 +17,7 @@ Information for new developers
 
 **Server Technology to understand**
 * Sinatra - a simple Ruby framework that allows you to build a server - http://www.sinatrarb.com
-* Ruby - ruby.org
+* Ruby - http://www.ruby.org
 * REST requests can be made to the server 
 * AJAX requests also made to server
 * MongoDB (NoSQL database) - http://www.mongodb.org
