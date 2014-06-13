@@ -46,7 +46,7 @@ get '/' do
 end
 
 get '/station/:stationid' do
-  stationsCol = settings.mongo_db['septa_stations']
+  stationsCol = settings.mongo_db['stations']
   stationsContentCol = settings.mongo_db['station_content']
   outageTrackerCol = settings.mongo_db['stations_outage_tracker']
   station = stationsCol.find_one({:_id => params[:stationid]})
@@ -67,7 +67,7 @@ get '/septa/stations/line/:line' do
   rescue JSON::ParserError => e
     outages["results"] = []
   end
-  stationsCol = settings.mongo_db['septa_stations']
+  stationsCol = settings.mongo_db['stations']
   if (params[:line] == "ALL")
     result = stationsCol.find({:$or => [{:MFL => "1"}, {:BSS => "1"}, {:NHSL => "1"}, {:PATCO => "1"}] })
   else
