@@ -239,14 +239,16 @@ end
 
 
 def sendAlertMail(subject, body)
-  message = Mail.new do
-    from            ENV['ADMIN_EMAIL_FROM']
-    to              ENV['ADMIN_EMAIL_TO']
-    subject         subject
-    body            body
-    delivery_method Mail::Postmark, :api_key => ENV['POSTMARK_API_KEY']
+  if (ENV['MAIL_ACTIVE'] == 'true')
+    message = Mail.new do
+      from            ENV['ADMIN_EMAIL_FROM']
+      to              ENV['ADMIN_EMAIL_TO']
+      subject         subject
+      body            body
+      delivery_method Mail::Postmark, :api_key => ENV['POSTMARK_API_KEY']
+    end
+    message.deliver
   end
-  message.deliver
 end
 
 # Given a hash of Yelp results, append the latLng values of each address to each result
