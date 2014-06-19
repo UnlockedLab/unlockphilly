@@ -54,6 +54,12 @@ body {
 	color: #777;
 }
 
+@media screen and (max-width: 800px) {
+    .info {
+        display: none !important;
+    }
+}
+
 /* for header images*/
 .navbrand-img {
 
