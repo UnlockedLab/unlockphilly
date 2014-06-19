@@ -85,7 +85,7 @@ function addLayersAndShow(stationData, line) {
 						coordinates: [station.stop_lon, station.stop_lat]
 					},
 					properties: {
-						title: station.stop_name,
+						title: "<a href='" + window.location.href + "station/" + station._id + "'>" + station.stop_name + "</a>",
 						description: formatStation(station),
 						'marker-size': 'small',
 						'marker-color': getAccessTypeColor(station),
@@ -232,9 +232,8 @@ function getOutageLength(mins) {
 function formatStation(station) {
 	var response = "";
 	if (station.elevatorOutage) {
-		response += "<span class='red'>Elevator outage reported approx " + getOutageLength(station.outageTracker.duration) + " ago</span><br />" + station.elevatorOutage.elevator + "<br/>"
-			+ station.elevatorOutage.message + "<br/>"
-			+ "<a target= '_blank' href='http://www2.septa.org/elevators/'>Advice page</a> or Tweet @SEPTA_SOCIAL for help"  
+		response += "<span class='red'>Elevator outage<br/>Reported approx " + getOutageLength(station.outageTracker.duration) + " ago</span><br />" + station.elevatorOutage.elevator + "<br/>"
+			+ station.elevatorOutage.message
 			+ "</p>";
 	} else {
 		response += (station.wheelchair_boarding == "1" ? "" : "Not ") + "Wheelchair Accessible";
