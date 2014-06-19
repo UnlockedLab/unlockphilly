@@ -22,7 +22,7 @@ var MAX_YELP_RESULTS = 26;
 var mapPosition = {};
 mapPosition["Fairmount"] = {
 	"coords" : [39.966959, -75.160391],
-	"zoom" : 12
+	"zoom" : 13
 };
 
 var map = L.mapbox.map('map', mapboxId)
@@ -278,7 +278,7 @@ function addInfoBox() {
 				$('#stationOutageMessage').html("No reported elevator outages");
 			} else {
 				$('#stationOutageMessage').html("<p class='text-danger'>" +
-					"<strong>" + data.length + " elevator " + (data.length > 1 ? "outages are" : "outage is") + " restricting access.</strong> </p>" + getElevatorOutageStations(data));
+					"<strong>" + data.length + (data.length > 1 ? " stations are" : " station is") + " affected by elevator outages.</strong> </p>" + getElevatorOutageStations(data));
 			}
 		});
 	
@@ -301,10 +301,7 @@ function getElevatorOutageStations(data) {
 	var stringToReturn = "<small><ul>";
 	for (var i=0; i < data.length; i++) {
 		outage = data[i];
-		stringToReturn += "<li>" + outage.stop_name + " (" + getLineName(outage.line_code) + ")<br /><strong>reported approx " + getOutageLength(outage.duration) + " ago</strong>";
-	}
-	if (data.length > 0){
-		stringToReturn += "</ul>Visit <a target='_blank' href='http://www2.septa.org/elevators/'>SEPTA's Outage Advice </a> or Tweet @SEPTA_SOCIAL for help</small>";
+		stringToReturn += "<li><a href='/station/" + outage._id.stationId + "'>" + outage.stop_name + " (" + getLineName(outage.line_code) + ")</a>";
 	}
 	return stringToReturn;
 }

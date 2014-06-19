@@ -52,8 +52,9 @@ get '/station/:stationid' do
   station = stationsCol.find_one({:_id => params[:stationid]})
   stationContent = stationsContentCol.find_one({:_id => params[:stationid]})
   outageHistoryArray = outageTrackerCol.find({"_id.stationId" => params[:stationid]}).sort("_id.outageStart" => :asc).to_a
+  activeOutage = outageTrackerCol.find_one({"_id.stationId" => params[:stationid], "isActive" => true})
   erb :station, :locals => {:page => "station", :page_title => "Station accessibilty details for "  + station['stop_name'] + " - " + getLineFullName(station), :station => station, :station_content => stationContent,
-    :line_name => getLineFullName(station), :outageHistory => outageHistoryArray}
+    :line_name => getLineFullName(station), :outageHistory => outageHistoryArray, :activeOutage => activeOutage}
 end
 
 # get all station metadata - will include details of elevator outage (if exists)

@@ -4,9 +4,58 @@
 <div class="modal-body">
 	
 	
-			<h4>Wheelchair accessible station? 
-			<% if station['wheelchair_boarding'] %>Yes
-			<h4>Elevator outage* history - last 30 days</h4>
+	
+			<% if station['wheelchair_boarding'] %>
+				
+				<% if activeOutage %><h4><span class="label large label-danger">Elevator outage reported</h4></span> 
+					<% if line_name.include? "SEPTA" %>Tweet SEPTA_SOCIAL for help or see SEPTA elevator advice page at <a target='_blank' href='http://www3.septa.org/elevators/'>http://www3.septa.org/elevators/</a>
+					<br/>
+					<a href="https://twitter.com/intent/tweet?screen_name=septa_social&text=@unlockphilly %23accessibility <%= station['stop_name'] %>" class="twitter-mention-button spacer-small">Tweet @septa</a>
+									<script>
+										! function(d, s, id) {
+											var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+											if (!d.getElementById(id)) {
+												js = d.createElement(s);
+												js.id = id;
+												js.src = p + '://platform.twitter.com/widgets.js';
+												fjs.parentNode.insertBefore(js, fjs);
+											}
+										}(document, 'script', 'twitter-wjs');
+									</script>
+					<% end %>
+		    	<% else %><h4><span class="label label-success">Wheelchair accessible station with no reported elevator outages</h4></span>
+		    	<% if line_name.include? "SEPTA" %>Tweet SEPTA_SOCIAL if you see an outage or accessibility problem. For SEPTA elevator outage advice page see <a target='_blank' href='http://www3.septa.org/elevators/'>http://www3.septa.org/elevators/</a>
+					<br/>
+					<a href="https://twitter.com/intent/tweet?screen_name=septa_social&text=@unlockphilly %23accessibility <%= station['stop_name'] %>" class="twitter-mention-button spacer-small">Tweet @septa</a>
+									<script>
+										! function(d, s, id) {
+											var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+											if (!d.getElementById(id)) {
+												js = d.createElement(s);
+												js.id = id;
+												js.src = p + '://platform.twitter.com/widgets.js';
+												fjs.parentNode.insertBefore(js, fjs);
+											}
+										}(document, 'script', 'twitter-wjs');
+									</script>
+				<% elsif line_name.include? "PATCO" %>For PATCO elevator outage advice page see <a target='_blank' href='http://www.ridepatco.org/schedules/alerts.asp'>http://www.ridepatco.org/schedules/alerts.asp</a>
+					<br/>
+					<a href="https://twitter.com/intent/tweet?screen_name=RidePATCO&text=@unlockphilly %23accessibility <%= station['stop_name'] %>" class="twitter-mention-button">Tweet @RidePATCO</a>
+									<script>
+										! function(d, s, id) {
+											var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+											if (!d.getElementById(id)) {
+												js = d.createElement(s);
+												js.id = id;
+												js.src = p + '://platform.twitter.com/widgets.js';
+												fjs.parentNode.insertBefore(js, fjs);
+											}
+										}(document, 'script', 'twitter-wjs');
+									</script>				
+			       <% end %>
+		    	<% end %>
+			
+			<h4>Elevator outages* <% if station %>at <%= station['stop_name'] %><% end %> - last 30 days</h4>
 			<% if outageHistory.size > 0 %>
 			<script src="/js/d3/d3.min.js"></script>
 			<script src="/js/d3.tip.js"></script>
@@ -26,7 +75,10 @@
 			<div><p>No recent outages found</p></div>
 			<% end %>
 			<p>* Data based on start/end time of operator's online elevator outage notifications.</p>
-			<% else %>No<% end %>
+			<% else %>
+				<h4><span class="label large label-danger">This station is not wheelchair accessible</h4>
+				Leave comments below about <% if station %><%= station['stop_name'] %><% end %>.
+			<% end %>
 			<div><% if station_content && station_content['videoForEmbed'] %>
 				<h4>Video</h4>
 				<iframe width="560" height="315" src="<%= station_content['videoForEmbed'] %>" frameborder="0" allowfullscreen></iframe>
