@@ -12,6 +12,7 @@ require 'mail'
 require 'postmark'
 require 'nokogiri'
 require 'open-uri'
+require 'date'
 
 include Mongo
 
@@ -310,6 +311,10 @@ def getPatcoElevatorStatusJson()
     all_status << item['alt']
   end
 
+  date_from_site = doc.css("i").to_s[-24..-5]
+  date_formatted = DateTime.strptime(date_from_site, '%m/%d/%Y %H:%M:%S %p')
+  date_updated = date_formatted.strftime '%F %T'
+
   elev_status << all_status[0] << all_status[3] << all_status[5] << all_status[10] << all_status[12] << all_status[14] << all_status[16] << all_status[18] << all_status[20] << all_status[21] << all_status[23]
 
   elev_map = ["PATCO240", "PATCO242", "PATCO242", "PATCO246", "PATCO247", "PATCO247", "PATCO249", "PATCO249", "PATCO250", "PATCO250", "PATCO252"]
@@ -321,7 +326,7 @@ def getPatcoElevatorStatusJson()
     end
   end
 
-  JSON.generate ["meta" => {"elevators_out" => outages.count, "updated" => Time.now}, "results" => outages]
+  JSON.generate ["meta" => {"elevators_out" => outages.count, "updated" => date_updated}, "results" => outages]
 end
 
 
