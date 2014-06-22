@@ -109,7 +109,7 @@ function addLayersAndShow(stationData, line) {
 					info.removeFrom(map);
 					infoVisible=false;
 				}
-				var zoom = Math.max(16, map.getZoom());
+				var zoom = Math.max(15, map.getZoom());
 				map.setView(new L.LatLng(lng, lat), zoom, {
 						animate: true,
 						});
@@ -150,6 +150,7 @@ function updateYelpResults(lat, lng, name) {
 	if (businessLayerGroup != null) {
 		map.removeLayer(businessLayerGroup);
 	}
+	inProgressYelp(name);
 	radiusInMetres = 1000;
 	console.log('/yelp/wheelchairaccess/' + lat + "/" + lng + "/" + radiusInMetres);
 	$.getJSON('/yelp/wheelchairaccess/' + lat + "/" + lng + "/" + radiusInMetres, function(data) {
@@ -157,6 +158,11 @@ function updateYelpResults(lat, lng, name) {
 		$('#yelp-results').html(createListOfResults(data, name));
 		addLayerAndShowYelpResults(data, name);
 	});
+}
+
+function inProgressYelp(name) {
+	$('#yelp-heading').html("Accessible near " + name);
+	$('#yelp-results').html("<div align='center'><h5>Searching for <br/>accessible venues around<br/>" + name + "</h5><img src='/images/ajax-loader.gif'></div>");
 }
 
 function createListOfResults(data, name) {
