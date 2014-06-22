@@ -45,6 +45,10 @@ get '/' do
   erb :accessibility_mapper, :locals => {:page => "mapper", :page_title => "Mapping accessible stations, elevator outages, bars, restaurants, shops, museums and more in Philadelphia"}
 end
 
+get '/routechecker' do
+  erb :route_checker, :locals => {:page => "routechecker", :page_title => "Google maps route checker"}
+end
+
 get '/station/:stationid' do
   stationsCol = settings.mongo_db['stations']
   stationsContentCol = settings.mongo_db['station_content']
