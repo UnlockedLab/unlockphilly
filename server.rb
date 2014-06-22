@@ -46,7 +46,7 @@ get '/' do
 end
 
 get '/routechecker' do
-  erb :route_checker, :locals => {:page => "routechecker", :page_title => "Google maps route checker"}
+  erb :route_checker, :locals => {:page => "routechecker", :page_title => "Google maps wheelchair accessible transit route checker"}
 end
 
 get '/station/:stationid' do
