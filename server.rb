@@ -311,7 +311,7 @@ def getPatcoElevatorStatusJson()
     all_status << item['alt']
   end
 
-  date_from_site = doc.css("i").to_s[-24..-5]
+  date_from_site = doc.css("i").to_s[194..-5].gsub(/>/, '').strip
   date_formatted = DateTime.strptime(date_from_site, '%m/%d/%Y %H:%M:%S %p')
   date_updated = date_formatted.strftime '%F %T'
 
