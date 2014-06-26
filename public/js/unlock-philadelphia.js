@@ -18,6 +18,7 @@ accessTypeColors[accessTypeOutage] = "#d7191c";
 accessTypeColors[accessTypeBusiness] = "#0099cc";
 var twitterCode = "<a href='https://twitter.com/intent/tweet?screen_name=septa' class='twitter-mention-button' data-related='septa'>Tweet to @septa</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>";
 var MAX_YELP_RESULTS = 26;
+var geocoderControl = L.mapbox.geocoderControl(mapboxId);
 
 var mapPosition = {};
 mapPosition["Fairmount"] = {
@@ -26,12 +27,26 @@ mapPosition["Fairmount"] = {
 };
 
 var map = L.mapbox.map('map', mapboxId)
-	.addControl(L.mapbox.geocoderControl(mapboxId))
-	.setView(mapPosition["Fairmount"]["coords"], mapPosition["Fairmount"]["zoom"])
+	.addControl(geocoderControl)
+	.setView(mapPosition["Fairmount"]["coords"], mapPosition["Fairmount"]["zoom"]);
+
+map.on('locationfound', function(e) {
+    map.fitBounds(e.bounds);
+	map.setZoom(15);
+    updateYelpResults(e.latlng.lat, e.latlng.lng, "me");
+});
+
+geocoderControl.on('select', function(e) {
+	console.log(e);
+	updateYelpResults(e.data[0].lat, e.data[0].lon, e.data[0].name);
+});
+
+geocoderControl.on('autoselect', function(e) {
+	console.log(e);
+	updateYelpResults(e.data.latlng[0], e.data.latlng[1], e.data.results[0][0].name);
+});
 
 $(document).ready(function() {
-
-	
 	// ensures checkboxes reset in firefox
 	$(":checkbox").attr("autocomplete", "off");
 	
@@ -53,8 +68,15 @@ $(document).ready(function() {
 	addInfoBox();
 	addScaleBox();
 	populateStationLayerGroupsAndRefreshView("ALL");
+	var myLocationLayer = L.mapbox.featureLayer().addTo(map);
+	L.control.locate({
+		keepCurrentZoomLevel: false
+	}).addTo(map);
+	
 
 });
+
+
 
 function clearStationLayers() {
 	isFirstView = false;

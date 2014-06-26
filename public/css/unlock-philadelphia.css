@@ -11,7 +11,9 @@
 	height: 30px;
 }
 
-.red { color: #FF0000; }
+.red {
+	color: #FF0000;
+}
 
 body {
 	padding-top: 50px;
@@ -55,9 +57,9 @@ body {
 }
 
 @media screen and (max-width: 800px) {
-    .info {
-        display: none !important;
-    }
+	.info {
+		display: none !important;
+	}
 }
 
 /* for header images*/
@@ -72,4 +74,15 @@ body {
 .yelpPanel {
 	height: 425px;
 	overflow: scroll;
+}
+
+.leaflet-control-locate {
+	border: 1px solid rgba(0,0,0,0.4);
+}
+.leaflet-control-locate a {
+	background-color: #fff;
+	background-position: -3px, -2px;
+}
+.leaflet-control-locate.active a {
+	background-position: -33px -2px;
 }
