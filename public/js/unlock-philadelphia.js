@@ -70,6 +70,12 @@ $(document).ready(function() {
 	populateStationLayerGroupsAndRefreshView("ALL");
 	var myLocationLayer = L.mapbox.featureLayer().addTo(map);
 	L.control.locate({
+		strings: {
+			follow: false,
+        	title: "Show me where I am",  // title of the locate control
+        	popup: "You are within {distance} {unit} from this point",  // text to appear if user clicks on circle
+        	outsideMapBoundsMsg: "You seem located outside the boundaries of the map" // default message for onLocationOutsideMapBounds
+   		},	
 		locateOptions: {
                maxZoom: 15
         }
