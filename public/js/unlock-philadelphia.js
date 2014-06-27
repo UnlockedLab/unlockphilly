@@ -70,7 +70,9 @@ $(document).ready(function() {
 	populateStationLayerGroupsAndRefreshView("ALL");
 	var myLocationLayer = L.mapbox.featureLayer().addTo(map);
 	L.control.locate({
-		keepCurrentZoomLevel: false
+		locateOptions: {
+               maxZoom: 15
+        }
 	}).addTo(map);
 	
 
