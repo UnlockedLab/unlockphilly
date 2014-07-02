@@ -150,7 +150,10 @@ function addLayersAndShow(stationData, line) {
 			stationLayerGroups[accessTypes[i]].on('click', function(e) {
 				lng = e.layer.feature.geometry.coordinates[1];
 				lat = e.layer.feature.geometry.coordinates[0];
-				name = e.layer.feature.properties.title;	
+				name = e.layer.feature.properties.title;
+				if (aroundThisLocationLayer != null) {
+					map.removeLayer(aroundThisLocationLayer);
+				}
 				updateYelpResults(lng, lat, name);
 				if (infoVisible) {
 					info.removeFrom(map);
