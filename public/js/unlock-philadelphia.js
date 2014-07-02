@@ -2,6 +2,7 @@ var mapboxUrl = 'http://{s}.tiles.mapbox.com/v3/' + mapboxId + '/{z}/{x}/{y}.png
 var mapboxAttribution = '<a target="_blank" href="https://www.mapbox.com/about/maps/">© Mapbox © OpenStreetMap</a> <a class="mapbox-improve-map" target="_blank" href="https://www.mapbox.com/map-feedback/#examples.map-9ijuk24y/8.538/47.365/15">Improve this map</a>';
 var stationLayerGroups = {};
 var businessLayerGroup = null;
+var meLayer;
 var isFirstView = false;
 var accessTypeWheelchair = 'Wheelchair';
 var accessTypeOutage = 'Outage';
@@ -33,6 +34,30 @@ var map = L.mapbox.map('map', mapboxId)
 map.on('locationfound', function(e) {
     map.fitBounds(e.bounds);
 	map.setZoom(15);
+	meLayer = null;
+	meLayer = L.mapbox.featureLayer({
+	    	type: 'Feature',
+	    	geometry: {
+	        type: 'Point',
+	        coordinates: [
+	          e.latlng.lng,
+	          e.latlng.lat 
+	        ]
+	    },
+	    properties: {
+	        title: 'Me',
+	        'marker-size': 'medium',
+	        'marker-color': '#bcbddc',
+	        'marker-symbol': 'heart'
+	    }
+	})
+	meLayer.addTo(map);
+	meLayer.on('mouseover', function(e) {
+    	e.layer.openPopup();
+	});
+	meLayer.on('mouseout', function(e) {
+    	e.layer.closePopup();
+	});
     updateYelpResults(e.latlng.lat, e.latlng.lng, "me");
 });
 
@@ -69,19 +94,7 @@ $(document).ready(function() {
 	addScaleBox();
 	populateStationLayerGroupsAndRefreshView("ALL");
 	var myLocationLayer = L.mapbox.featureLayer().addTo(map);
-	L.control.locate({
-		strings: {
-			follow: false,
-        	title: "Show me where I am",  // title of the locate control
-        	popup: "You are within {distance} {unit} from this point",  // text to appear if user clicks on circle
-        	outsideMapBoundsMsg: "You seem located outside the boundaries of the map" // default message for onLocationOutsideMapBounds
-   		},	
-		locateOptions: {
-               maxZoom: 15
-        }
-	}).addTo(map);
-	
-
+	addLocateMeButton();
 });
 
 
@@ -341,6 +354,25 @@ function getElevatorOutageStations(data) {
 	return stringToReturn;
 }
 
+function addLocateMeButton() {
+	var myButtonOptions = {
+      'text': '',  // string
+      'iconUrl': 'images/access_near_me.png',  // string
+      'onClick': my_button_onClick,  // callback function
+      'hideText': true,  // bool
+      'maxWidth': 30,  // number
+      'doToggle': false,  // bool
+      'toggleStatus': false  // bool
+	}   
+
+	var myButton = new L.Control.Button(myButtonOptions).addTo(map);
+}
+
+function my_button_onClick() {
+    console.log("someone clicked my button");
+    map.locate();
+}
+
 function addLegend() {
 	legend = L.control({
 		position : 'bottomright'
@@ -357,3 +389,116 @@ function addLegend() {
 	};
 	legend.addTo(map);
 }
+
+L.Control.Button = L.Control.extend({
+  options: {
+    position: 'topright'
+  },
+  initialize: function (options) {
+    this._button = {};
+    this.setButton(options);
+  },
+ 
+  onAdd: function (map) {
+    this._map = map;
+    var container = L.DomUtil.create('div', 'leaflet-control-button');
+	
+    this._container = container;
+    
+    this._update();
+    return this._container;
+  },
+ 
+  onRemove: function (map) {
+  },
+ 
+  setButton: function (options) {
+    var button = {
+      'text': options.text,                 //string
+      'iconUrl': options.iconUrl,           //string
+      'onClick': options.onClick,           //callback function
+      'hideText': !!options.hideText,         //forced bool
+      'maxWidth': options.maxWidth || 70,     //number
+      'doToggle': options.toggle,			//bool
+      'toggleStatus': false					//bool
+    };
+ 
+    this._button = button;
+    this._update();
+  },
+  
+  getText: function () {
+  	return this._button.text;
+  },
+  
+  getIconUrl: function () {
+  	return this._button.iconUrl;
+  },
+  
+  destroy: function () {
+  	this._button = {};
+  	this._update();
+  },
+  
+  toggle: function (e) {
+  	if(typeof e === 'boolean'){
+  		this._button.toggleStatus = e;
+  	}
+  	else{
+  		this._button.toggleStatus = !this._button.toggleStatus;
+  	}
+  	this._update();
+  },
+  
+  _update: function () {
+    if (!this._map) {
+      return;
+    }
+ 
+    this._container.innerHTML = '';
+    this._makeButton(this._button);
+ 
+  },
+ 
+  _makeButton: function (button) {
+    var newButton = L.DomUtil.create('div', 'leaflet-buttons-control-button', this._container);
+    if(button.toggleStatus)
+    	L.DomUtil.addClass(newButton,'leaflet-buttons-control-toggleon');
+        
+    var image = L.DomUtil.create('img', 'leaflet-buttons-control-img', newButton);
+    image.setAttribute('src',button.iconUrl);
+    
+    if(button.text !== ''){
+ 
+      L.DomUtil.create('br','',newButton);  //there must be a better way
+ 
+      var span = L.DomUtil.create('span', 'leaflet-buttons-control-text', newButton);
+      var text = document.createTextNode(button.text);  //is there an L.DomUtil for this?
+      span.appendChild(text);
+      if(button.hideText)
+        L.DomUtil.addClass(span,'leaflet-buttons-control-text-hide');
+    }
+ 
+    L.DomEvent
+      .addListener(newButton, 'click', L.DomEvent.stop)
+      .addListener(newButton, 'click', button.onClick,this)
+      .addListener(newButton, 'click', this._clicked,this);
+    L.DomEvent.disableClickPropagation(newButton);
+    return newButton;
+ 
+  },
+  
+  _clicked: function () {  //'this' refers to button
+  	if(this._button.doToggle){
+  		if(this._button.toggleStatus) {	//currently true, remove class
+  			L.DomUtil.removeClass(this._container.childNodes[0],'leaflet-buttons-control-toggleon');
+  		}
+  		else{
+  			L.DomUtil.addClass(this._container.childNodes[0],'leaflet-buttons-control-toggleon');
+  		}
+  		this.toggle();
+  	}
+  	return;
+  }
+ 
+});

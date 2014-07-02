@@ -258,16 +258,23 @@ end
 # Given a hash of Yelp results, append the latLng values of each address to each result
 def appendStreetAddressLatLng(yelpResults)
   yelpResults["businesses"].each_index do |i|
-    #multilineAddress = yelpResults["businesses"][i]["location"]["display_address"]
-    singleLineAddress = yelpResults["businesses"][i]["location"]["address"][0] + ", " + yelpResults["businesses"][i]["location"]["city"] + ", PA, USA"
-    #address = removeHyphenFromHouseNumber(singleLineAddress)
-    address = singleLineAddress
-    if address
-       address = address.gsub(" ", "%20")
+    addr1 = yelpResults["businesses"][i]["location"]["address"][0]
+    city = yelpResults["businesses"][i]["location"]["city"]
+    stateCode = yelpResults["businesses"][i]["location"]["state_code"]
+    if (addr1 && city && stateCode)
+      singleLineAddress = addr1 + ", " + city + ", " + stateCode + ", USA"
+      address = singleLineAddress
+      if address
+         address = address.gsub(" ", "%20")
+      end
+      addressLatLng = getGeoJSON(address)
+      logger.info(addressLatLng)
+      yelpResults["businesses"][i]["location"]["geocoding"] = addressLatLng
+    else
+      latLng = {"lng" => 0,"lat" => 0}
+      latLng["_id"] = address
+      yelpResults["businesses"][i]["location"]["geocoding"] = latLng
     end
-    addressLatLng = getGeoJSON(address)
-    yelpResults["businesses"][i]["location"]["geocoding"] = addressLatLng
- #   puts yelpResults["businesses"][i]["location"]
   end
   return yelpResults.to_json
 end
@@ -283,17 +290,12 @@ end
 
 # Converts a street address to a GeoJSON object via the mapquest API
 def getGeoJSON(address)  
-  puts "In getGeoJSON with #{address}"
   stationOutageTrackerCol = settings.mongo_db['geocodes']
   cache_result = stationOutageTrackerCol.find_one({:_id => address})
-  puts cache_result.inspect
   if cache_result==nil # address doesn't exist in global variable
-    puts "#{address} not cached, fetching it"
     mapquestKey = ENV['MAPQUEST_API_KEY']
     geocodeRequestUri = "http://open.mapquestapi.com/geocoding/v1/address?key=#{mapquestKey}&location=#{address}"
-    puts "#{geocodeRequestUri} is the request"
     geoCodeResponse = RestClient.get geocodeRequestUri
-    puts "#{geoCodeResponse} is the response"
     jsonResults = JSON.parse(geoCodeResponse)
     if jsonResults['info']['statuscode'] == 403 # Request failed
       latLng = {"lng" => 0,"lat" => 0}
@@ -303,16 +305,13 @@ def getGeoJSON(address)
       latLng = jsonResults['results'][0]['locations'][0]['latLng']
       $yelpAddressLatLng[address] = latLng
       latLng["_id"] = address
-      puts "adding #{latLng.inspect} to collection"
       stationOutageTrackerCol.insert(latLng)
     else
       latLng = {"lng" => 0,"lat" => 0}
       latLng["_id"] = address
-      puts "adding #{latLng.inspect} to collection"
       stationOutageTrackerCol.insert(latLng)
     end
   else # address exists in global variable
-    puts "Using cache"
     latLng = cache_result
   end
   return latLng
