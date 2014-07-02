@@ -49,7 +49,7 @@ map.on('locationfound', function(e) {
 	    },
 	    properties: {
 	        title: 'You are here!',
-	        description: 'Tip: you can also tap on stations or double-tap anywhere on map to find accessible venues',
+	        description: 'Tip: you can also tap on stations to find accessible venues around them',
 	        'marker-size': 'medium',
 	        'marker-color': '#bcbddc',
 	        'marker-symbol': 'heart'
@@ -63,40 +63,6 @@ map.on('locationfound', function(e) {
     	e.layer.closePopup();
 	});
     updateYelpResults(e.latlng.lat, e.latlng.lng, "me");
-});
-
-map.on('dblclick', function(e) {
-	console.log(e);
-	map.setView(e.latlng, 15);
-	if(aroundThisLocationLayer!=null) {
-		map.removeLayer(aroundThisLocationLayer);
-	}
-	aroundThisLocationLayer = null;
-	aroundThisLocationLayer = L.mapbox.featureLayer({
-	    	type: 'Feature',
-	    	geometry: {
-	        type: 'Point',
-	        coordinates: [
-	          e.latlng.lng,
-	          e.latlng.lat 
-	        ]
-	    },
-	    properties: {
-	        title: 'You clicked here!',
-	        description: 'Tip: you can also tap on stations or double-tap anywhere on map to find accessible venues',
-	        'marker-size': 'medium',
-	        'marker-color': '#bcbddc',
-	        'marker-symbol': 'heart'
-	    }
-	})
-	aroundThisLocationLayer.addTo(map);
-	aroundThisLocationLayer.on('mouseover', function(e) {
-    	e.layer.openPopup();
-	});
-	aroundThisLocationLayer.on('mouseout', function(e) {
-    	e.layer.closePopup();
-	});
-    updateYelpResults(e.latlng.lat, e.latlng.lng, "where you clicked");
 });
 
 geocoderControl.on('select', function(e) {
@@ -242,8 +208,8 @@ function updateYelpResults(lat, lng, name) {
 }
 
 function inProgressYelp(name) {
-	$('#yelp-heading').html("Accessible near " + name);
-	$('#yelp-results').html("<div align='center'><h5>Searching for <br/>accessible venues around<br/>" + name + "</h5><img src='/images/ajax-loader.gif'></div>");
+	$('#yelp-heading').html("<h5>Searching for <br/>accessible venues around<br/>" + name + "</h5><img src='/images/ajax-loader.gif'></div>");
+	$('#yelp-results').html("");
 }
 
 function createListOfResults(data, name) {
