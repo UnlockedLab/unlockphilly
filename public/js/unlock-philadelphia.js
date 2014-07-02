@@ -2,7 +2,7 @@ var mapboxUrl = 'http://{s}.tiles.mapbox.com/v3/' + mapboxId + '/{z}/{x}/{y}.png
 var mapboxAttribution = '<a target="_blank" href="https://www.mapbox.com/about/maps/">© Mapbox © OpenStreetMap</a> <a class="mapbox-improve-map" target="_blank" href="https://www.mapbox.com/map-feedback/#examples.map-9ijuk24y/8.538/47.365/15">Improve this map</a>';
 var stationLayerGroups = {};
 var businessLayerGroup = null;
-var meLayer;
+var aroundThisLocationLayer = null;
 var isFirstView = false;
 var accessTypeWheelchair = 'Wheelchair';
 var accessTypeOutage = 'Outage';
@@ -34,8 +34,11 @@ var map = L.mapbox.map('map', mapboxId)
 map.on('locationfound', function(e) {
     map.fitBounds(e.bounds);
 	map.setZoom(15);
-	meLayer = null;
-	meLayer = L.mapbox.featureLayer({
+	if (aroundThisLocationLayer!=null) {
+		map.removeLayer(aroundThisLocationLayer);
+	}
+	aroundThisLocationLayer = null;
+	aroundThisLocationLayer = L.mapbox.featureLayer({
 	    	type: 'Feature',
 	    	geometry: {
 	        type: 'Point',
@@ -45,20 +48,55 @@ map.on('locationfound', function(e) {
 	        ]
 	    },
 	    properties: {
-	        title: 'Me',
+	        title: 'You are here!',
+	        description: 'Tip: you can also tap on stations or double-tap anywhere on map to find accessible venues',
 	        'marker-size': 'medium',
 	        'marker-color': '#bcbddc',
 	        'marker-symbol': 'heart'
 	    }
 	})
-	meLayer.addTo(map);
-	meLayer.on('mouseover', function(e) {
+	aroundThisLocationLayer.addTo(map);
+	aroundThisLocationLayer.on('mouseover', function(e) {
     	e.layer.openPopup();
 	});
-	meLayer.on('mouseout', function(e) {
+	aroundThisLocationLayer.on('mouseout', function(e) {
     	e.layer.closePopup();
 	});
     updateYelpResults(e.latlng.lat, e.latlng.lng, "me");
+});
+
+map.on('dblclick', function(e) {
+	console.log(e);
+	map.setView(e.latlng, 15);
+	if(aroundThisLocationLayer!=null) {
+		map.removeLayer(aroundThisLocationLayer);
+	}
+	aroundThisLocationLayer = null;
+	aroundThisLocationLayer = L.mapbox.featureLayer({
+	    	type: 'Feature',
+	    	geometry: {
+	        type: 'Point',
+	        coordinates: [
+	          e.latlng.lng,
+	          e.latlng.lat 
+	        ]
+	    },
+	    properties: {
+	        title: 'You clicked here!',
+	        description: 'Tip: you can also tap on stations or double-tap anywhere on map to find accessible venues',
+	        'marker-size': 'medium',
+	        'marker-color': '#bcbddc',
+	        'marker-symbol': 'heart'
+	    }
+	})
+	aroundThisLocationLayer.addTo(map);
+	aroundThisLocationLayer.on('mouseover', function(e) {
+    	e.layer.openPopup();
+	});
+	aroundThisLocationLayer.on('mouseout', function(e) {
+    	e.layer.closePopup();
+	});
+    updateYelpResults(e.latlng.lat, e.latlng.lng, "where you clicked");
 });
 
 geocoderControl.on('select', function(e) {
@@ -370,6 +408,7 @@ function addLocateMeButton() {
 
 function my_button_onClick() {
     console.log("someone clicked my button");
+    inProgressYelp("...");
     map.locate();
 }
 
