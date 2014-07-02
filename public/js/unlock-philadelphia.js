@@ -20,6 +20,7 @@ accessTypeColors[accessTypeBusiness] = "#0099cc";
 var twitterCode = "<a href='https://twitter.com/intent/tweet?screen_name=septa' class='twitter-mention-button' data-related='septa'>Tweet to @septa</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>";
 var MAX_YELP_RESULTS = 26;
 var geocoderControl = L.mapbox.geocoderControl(mapboxId);
+var ACCESSIBLE_YELP_REVIEW_QUERY_KEYWORD = "access";
 
 var mapPosition = {};
 mapPosition["Fairmount"] = {
@@ -182,8 +183,8 @@ function addLayerAndShowYelpResults(data, name) {
 				coordinates : [business.location.geocoding.lng, business.location.geocoding.lat]
 			},
 			properties : {
-				title : alph.charAt(i) + ". <a target='_blank' href='" + business.url + "'>" + business.name + "</a>",
-				description : "<a target='_blank' href='" + business.url + "'><img style='max-width:80px' align='right' src='" + business.image_url + "'/></a><strong>" + business.categories[0][0] + "</strong><br />" + business.location.address + "<br/>" + business.display_phone + "<br/><span><img title='" + business.snippet_text + "' src='" + business.rating_img_url + "'/></a><img src='http://s3-media1.ak.yelpcdn.com/assets/2/www/img/14f29ad24935/map/miniMapLogo.png' alt='Yelp Logo, mini' height='20' width='40'><br/><a target='_blank' href='" + business.url + "'>" + business.review_count + " reviews</span><br/>Yelp says 'Wheelchair Accessible', leave an accessibility review if you visit.",
+				title : alph.charAt(i) + ". <a target='_blank' href='" + business.url + "?q="+ ACCESSIBLE_YELP_REVIEW_QUERY_KEYWORD + "'>" + business.name + "</a>",
+				description : "<a target='_blank' href='" + business.url + "?q="+ ACCESSIBLE_YELP_REVIEW_QUERY_KEYWORD + "'><img style='max-width:80px' align='right' src='" + business.image_url + "'/></a><strong>" + business.categories[0][0] + "</strong><br />" + business.location.address + "<br/>" + business.display_phone + "<br/><span><img title='" + business.snippet_text + "' src='" + business.rating_img_url + "'/></a><img src='http://s3-media1.ak.yelpcdn.com/assets/2/www/img/14f29ad24935/map/miniMapLogo.png' alt='Yelp Logo, mini' height='20' width='40'><br/><a target='_blank' href='" + business.url + "?q="+ ACCESSIBLE_YELP_REVIEW_QUERY_KEYWORD + "'>" + business.review_count + " reviews; this link filters them by '" + ACCESSIBLE_YELP_REVIEW_QUERY_KEYWORD + "'</span><br/>Yelp says 'Wheelchair Accessible', leave an accessibility review if you visit.",
 				'marker-size' : 'small',
 				'marker-color' : "#0099cc",
 				'marker-symbol' : alph.toLowerCase().charAt(i)
@@ -221,9 +222,9 @@ function createListOfResults(data, name) {
 		markerRef = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".charAt(i)
 		var business = data.businesses[i];
 		resultsHtml += "<li class='list-group-item'><strong>";
-		resultsHtml += markerRef + ".</strong> <a target='_blank' href='" + business.url + "'>" + business.name + "</a> <strong>" + business.categories[0][0] +"</strong> (" +
+		resultsHtml += markerRef + ".</strong> <a target='_blank' href='" + business.url + "?q="+ ACCESSIBLE_YELP_REVIEW_QUERY_KEYWORD + "'>" + business.name + "</a> <strong>" + business.categories[0][0] +"</strong> (" +
 			 Math.round(business.distance) + " metres from " + name + ")<br />" + business.location.display_address[0] + " " + business.display_phone +
-			 " <br /><img title='" + business.snippet_text + "' src='" + business.rating_img_url + "'/></a> (" + business.review_count + " reviews) ";
+			 " <br /><img title='" + business.snippet_text + "' src='" + business.rating_img_url + "'/></a> (" + business.review_count + " reviews)";
 		resultsHtml += "<br />Yelp listing says 'Wheelchair Accessible'</li>";
 		$('#popoverData').popover();
 	}
