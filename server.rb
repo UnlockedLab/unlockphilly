@@ -46,8 +46,13 @@ get '/' do
 end
 
 get '/routechecker' do
-  erb :route_checker, :locals => {:page => "routechecker", :page_title => "Google maps wheelchair accessible transit route checker"}
+  erb :route_checker, :locals => {:page => "routechecker", :page_title => "Google maps accessible transit route checker"}
 end
+
+get '/about' do
+  erb :about, :locals => {:page => "about", :page_title => "Making Philadelphia a more accessible city that embraces people of all ages and abilities."}
+end
+
 
 get '/station/:stationid' do
   stationsCol = settings.mongo_db['stations']
@@ -261,8 +266,9 @@ def appendStreetAddressLatLng(yelpResults)
     addr1 = yelpResults["businesses"][i]["location"]["address"][0]
     city = yelpResults["businesses"][i]["location"]["city"]
     stateCode = yelpResults["businesses"][i]["location"]["state_code"]
-    if (addr1 && city && stateCode)
-      singleLineAddress = addr1 + ", " + city + ", " + stateCode + ", USA"
+    countryCode = yelpResults["businesses"][i]["location"]["country_code"]
+    if (addr1 && city && stateCode && countryCode)
+      singleLineAddress = addr1 + ", " + city + ", " + stateCode + ", " + countryCode
       address = singleLineAddress
       if address
          address = address.gsub(" ", "%20")

@@ -45,6 +45,9 @@
 							<li <% if page=="mapper" %>class="active"<% end %>>
 								<a href="/">Accessible Stations and Venues</a>
 							</li>
+							<li <% if page=="about" %>class="active"<% end %>>
+								<a href="/about">About Us</a>
+							</li>
 							<li <% if page=="routechecker" %>class="active"<% end %>>
 								<a href="/routechecker">Prototype: Route Checker</a>
 							</li>
@@ -101,7 +104,17 @@
 				
 				<%= yield %>
 				
+				<div id="footer">
+      				<div class="container">
+        			<p class="muted credit">Copyright 2014 <a href='about'>Unlockphilly</a> Data posted on this site is provided AS IS. No guarantee of correctness or suitability for any purpose is implied.</p>
+      				</div>
+    			</div>
 				
+				<div class="footer">
+					<div class="container">
+						
+					<div class="container"></div>
+				</div>
 
 
 					<!-- Placed at the end of the document so the pages load faster -->
@@ -131,5 +144,6 @@
 						ga('send', 'pageview');
 
 					</script>
+		<div>
 	</body>
 </html>
