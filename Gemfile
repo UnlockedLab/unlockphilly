@@ -10,3 +10,4 @@ gem "oauth", "~> 0.4.7"
 gem 'nokogiri', '~> 1.6.1'
 gem 'postmark', '~> 1.2.0'
 gem 'mail', '~> 2.5.4'
+gem 'thin', '~> 1.6.2'
