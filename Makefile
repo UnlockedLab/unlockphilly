@@ -1,9 +1,6 @@
 .PHONY: load-data install .env
 
-default: .env
-
-.env: .env.sample
-	cp .env.sample .env
+default: install
 
 install: Gemfile
 	bundle install
