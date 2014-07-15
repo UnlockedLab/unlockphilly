@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# Provisioning script used to set up a new Vagrant VM the first
+# time it is run.
+
 # Install some basic tools.
 sudo apt-get update
 sudo apt-get install -y git
@@ -11,7 +14,7 @@ echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | 
 sudo apt-get update
 sudo apt-get install -y mongodb-org
 
-# Install Ruby with RVM.
+# Install Ruby 2.0.0 with RVM.
 curl -sSL https://get.rvm.io | bash -s stable
 source ~/.rvm/scripts/rvm
 rvm use --install 2.0.0

@@ -31,7 +31,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # The provisioning script will be run the first time the machine is built.
   config.vm.provision "shell" do |s|
-    s.path = "vagrant-provision.sh"
+    s.path = "scripts/provision-vagrant.sh"
     s.privileged = false
   end
 
