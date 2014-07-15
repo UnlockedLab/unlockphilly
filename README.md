@@ -10,12 +10,12 @@ Philadelphia.
 
 # Information for developers
 
-Unlockphilly is a great platform for learning multiple aspects of web
+UnlockPhilly is a great platform for learning multiple aspects of web
 development spanning front-end and back-end skills.
 
 ### Contributing
 Requirements/features/bugs are tracked here in GitHub under the issues tab.
-Here are some guidelines:-
+Here are some guidelines:
 
 1. If you see something broken on the site, please [file an issue](https://github.com/UnlockedLab/unlockphilly/issues/new)!
 2. If you'd like to contribute to the project, 
@@ -36,19 +36,18 @@ Here are some guidelines:-
 
 ### Client Technology / Concepts
 
-* HTML/CSS
-* JS ([JQuery](http://jquery.com))
-* [Bootstrap framework](http://getbootstrap.com/2.3.2/index.html) - makes it
-  easy to lay out a web page and has many useful styling features out of the
-  box that are fully customizable.
+* HTML/CSS.
+* Javascript ([JQuery](http://jquery.com)).
+* [Bootstrap framework](http://getbootstrap.com/2.3.2/index.html) for easy page
+  layout and styling.
 * [LeafletJS](http://leafletjs.com)/[Mapbox](http://www.mapbox.com) for maps.
 * [D3.js](http://d3js.org/) for graphs and visualizations ([example](http://www.unlockphilly.com/station/21532))
 * AJAX requests to the server.
 
 ### Server Technology / Concepts
 
-* [Ruby](http://www.ruby.org)
-* [MongoDB](http://www.mongodb.org) (NoSQL database)
+* [Ruby](http://www.ruby.org).
+* [MongoDB](http://www.mongodb.org) (NoSQL database).
 * [Sinatra](http://www.sinatrarb.com): a simple Ruby DSL that receives client
   requests, calls 3rd party APIs/MongoDB and returns JSON responses and dynamic
   web pages.
