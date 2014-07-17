@@ -38,10 +38,6 @@ configure do
 end
 
 get '/' do
-  if request.host.include? 'unlockphilly.herokuapp'
-    logger.info 'redirecting from ' + request.host + ' to ' + settings.appUrl
-    redirect settings.appUrl, 301
-  end
   @mapbox_id = ENV['MAPBOX_ID']
   erb :accessibility_mapper, :locals => {:page => "mapper", :page_title => "Mapping accessible stations, elevator outages, bars, restaurants, shops, museums and more in Philadelphia"}
 end
