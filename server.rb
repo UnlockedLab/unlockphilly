@@ -38,7 +38,7 @@ configure do
 end
 
 get '/' do
-  if request.host.include? 'herokuapp'
+  if request.host.include? 'unlockphilly.herokuapp'
     logger.info 'redirecting from ' + request.host + ' to ' + settings.appUrl
     redirect settings.appUrl, 301
   end
