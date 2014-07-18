@@ -32,6 +32,8 @@ var map = L.mapbox.map('map', mapboxId)
 	.addControl(geocoderControl)
 	.setView(mapPosition["Fairmount"]["coords"], mapPosition["Fairmount"]["zoom"]);
 
+L.control.fullscreen().addTo(map);
+
 map.on('locationfound', function(e) {
     map.fitBounds(e.bounds);
 	map.setZoom(15);
@@ -100,6 +102,7 @@ $(document).ready(function() {
 	populateStationLayerGroupsAndRefreshView("ALL");
 	var myLocationLayer = L.mapbox.featureLayer().addTo(map);
 	addLocateMeButton();
+	
 });
 
 
@@ -135,7 +138,7 @@ function addLayersAndShow(stationData, line) {
 					properties: {
 						title: "<a href='" + window.location.href + "station/" + station._id + "'>" + station.stop_name + "</a>",
 						description: formatStation(station),
-						'marker-size': 'small',
+						'marker-size': 'medium',
 						'marker-color': getAccessTypeColor(station),
 						'marker-symbol': 'rail-metro'
 					}
@@ -160,7 +163,7 @@ function addLayersAndShow(stationData, line) {
 					info.removeFrom(map);
 					infoVisible=false;
 				}
-				var zoom = Math.max(15, map.getZoom());
+				var zoom = Math.max(16, map.getZoom());
 				map.setView(new L.LatLng(lng, lat), zoom, {
 						animate: true,
 						});
@@ -185,7 +188,7 @@ function addLayerAndShowYelpResults(data, name) {
 			properties : {
 				title : alph.charAt(i) + ". <a target='_blank' href='" + business.url + "?q="+ ACCESSIBLE_YELP_REVIEW_QUERY_KEYWORD + "'>" + business.name + "</a>",
 				description : "<a target='_blank' href='" + business.url + "?q="+ ACCESSIBLE_YELP_REVIEW_QUERY_KEYWORD + "'><img style='max-width:80px' align='right' src='" + business.image_url + "'/></a><strong>" + business.categories[0][0] + "</strong><br />" + business.location.address + "<br/>" + business.display_phone + "<br/><span><img title='" + business.snippet_text + "' src='" + business.rating_img_url + "'/></a><img src='http://s3-media1.ak.yelpcdn.com/assets/2/www/img/14f29ad24935/map/miniMapLogo.png' alt='Yelp Logo, mini' height='20' width='40'><br/><a target='_blank' href='" + business.url + "?q="+ ACCESSIBLE_YELP_REVIEW_QUERY_KEYWORD + "'>" + business.review_count + " reviews; this link filters them by '" + ACCESSIBLE_YELP_REVIEW_QUERY_KEYWORD + "'</span><br/>Yelp says 'Wheelchair Accessible', leave an accessibility review if you visit.",
-				'marker-size' : 'small',
+				'marker-size' : 'medium',
 				'marker-color' : "#0099cc",
 				'marker-symbol' : alph.toLowerCase().charAt(i)
 			}

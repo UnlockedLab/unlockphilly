@@ -7,7 +7,28 @@
 }
 
 #map {
-	height: 425px;
+	height: 300px;
+}
+
+
+@media (min-height:700px) {
+
+  #map {
+	height: 550px;
+  }
+}
+
+.yelpPanel {
+	height: 300px;
+	overflow: scroll;
+}
+
+@media (min-height:700px) {
+
+  .yelpPanel {
+	height: 550px;
+	overflow: scroll;
+  }
 }
 
 #footer {
@@ -73,11 +94,6 @@ body {
 
 .navimg {
 	float: left;
-}
-
-.yelpPanel {
-	height: 425px;
-	overflow: scroll;
 }
 
 .leaflet-control-locate {
