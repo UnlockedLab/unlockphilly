@@ -215,7 +215,7 @@ function updateYelpResults(lat, lng, name) {
 }
 
 function inProgressYelp(name) {
-	$('#yelp-heading').html("<h5>Searching for <br/>accessible venues around<br/>" + name + "</h5><img src='/images/ajax-loader.gif'></div>");
+	$('#yelp-heading').html("<h5>Searching around " + name + "</h5><img src='/images/ajax-loader.gif'></div>");
 	$('#yelp-results').html("");
 }
 

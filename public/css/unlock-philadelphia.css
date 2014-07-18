@@ -11,10 +11,10 @@
 }
 
 
-@media (min-height:700px) {
+@media (min-height:650px) {
 
   #map {
-	height: 550px;
+	height: 525px;
   }
 }
 
@@ -23,10 +23,10 @@
 	overflow: scroll;
 }
 
-@media (min-height:700px) {
+@media (min-height:650px) {
 
   .yelpPanel {
-	height: 550px;
+	height: 525px;
 	overflow: scroll;
   }
 }
