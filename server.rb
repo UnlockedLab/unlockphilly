@@ -50,6 +50,14 @@ get '/routechecker' do
   erb :route_checker, :locals => {:page => "routechecker", :page_title => "Google maps wheelchair accessible transit route checker"}
 end
 
+get '/reviews' do
+  erb :reviews, :locals => {:page => "reviews", :page_title => "Reviews: Beta"}
+end
+
+get '/postreviews/:venueid' do
+  erb :postreviews, :locals => {:page => "postreviews", :page_title => "Post Reviews", :venueid => params[:venueid]}
+end
+
 get '/station/:stationid' do
   stationsCol = settings.mongo_db['stations']
   stationsContentCol = settings.mongo_db['station_content']
