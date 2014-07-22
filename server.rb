@@ -50,6 +50,13 @@ get '/about' do
   erb :about, :locals => {:page => "about", :page_title => "Making Philadelphia a more accessible city that embraces people of all ages and abilities."}
 end
 
+get '/reviews' do
+  erb :reviews, :locals => {:page => "reviews", :page_title => "Reviews: Beta"}
+end
+
+get '/postreviews/:venueid' do
+  erb :postreviews, :locals => {:page => "postreviews", :page_title => "Post Reviews", :venueid => params[:venueid]}
+end
 
 get '/station/:stationid' do
   stationsCol = settings.mongo_db['stations']
