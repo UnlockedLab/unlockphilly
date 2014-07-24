@@ -1,3 +1,5 @@
+var buttonToReset = null;
+
 function showlocation(searchType) {
     // One-shot position request.
     console.log(searchType);
@@ -18,15 +20,11 @@ function showlocation(searchType) {
     });
 }
 
-function test() {
-    alert('oop');
-}
-
 function fetchData(apiAddress) {
     $('.results').empty();
     $.getJSON(apiAddress, function(data) {
       	  console.log(data);
-          $("#loadingImage").hide();
+          $('#yelp-results').html(buildResults(data));
           $.each(data.response.venues, function(i,venues){
             var contents = "";
             contents += '<div class="col-xs-8 col-sm-8 col-md-10">';
@@ -40,13 +38,40 @@ function fetchData(apiAddress) {
             contents += '</div>';
             contents += '<div style="clear:both"></div><br />';
             $('.results').append(contents);
+            buttonToReset.button('reset')
         });
     });
 }
 
+function buildResults(data) {
+	var resultsHtml = "<small><ul class='list-group'>";
+	$.each(data.response.venues, function(i,venue) {
+		resultsHtml += "<li class='list-group-item'>";
+		resultsHtml += "<a href='/postreviews/'" + venue.id + "'>" + venue.name + "</a></h4><br/>";
+		if(venue.location.address != null) resultsHtml += venue.location.address + ' ';
+        if(venue.location.city != null) resultsHtml += venue.location.city + ' ';
+        if(venue.location.state != null) resultsHtml += venue.location.state + ' ';
+        if(venue.location.postalCode != null) resultsHtml += venue.location.postalCode + ' ';
+	});
+	if (data.response.venues.length == 0) {
+		resultsHtml += "<li class='list-group-item'>No accessible businesses found close to " + name + "<a/>";
+	}
+	
+	return resultsHtml + "</ul></small>";
+	
+}
+
+
 $(document).ready(function() {
     var imgSrc = "";
-    var contents = "";        
+    var contents = "";      
+    
+    $('#loading-example-btn').click(function () {
+		buttonToReset = $(this);
+		buttonToReset.button('loading');
+		showlocation('search');
+	});
+      
     $.ajax({
       url: 'https://api.foursquare.com/v2/venues/'+venueId+'/photos?&limit=1&oauth_token=ADKCZISL2BPWAUVWFY1EN4Z012FAPIYJQPYVLG1U4EXTCCZB&v=20140715',
       dataType: 'json',

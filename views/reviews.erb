@@ -1,21 +1,31 @@
 <h1>Reviews: Beta</h1>
 
-<div style="width:100%;margin-bottom:20px" class="form-inline">
-    <div class="col-xs-12 col-sm-6 col-md-6" style="margin:0 auto; float:none">
-        <div>
-            <button class="btn btn-default" style="width:32%;float:left" onclick="showlocation('search');">Near Me</button>
-            <div class="input-group" style="width:68%; padding-left:10px">
-                <div class="input-group-addon">OR</div>
-                <input type="text" class="form-control" placeholder="Location" id="searchquery" onkeyup="if(window.event.keyCode == 13) showlocation('search');" />
-            </div>
-            <div style="clear:both"></div>
-            <br />
-            <div id="loadingImage" style="display:none">
-                <img src = "/images/ajax-loader.gif" />
-            </div>
+
+<div class="col-md-3">
+
+			<div class="panel panel-default yelpPanel">
+				<div class="panel-heading panel-title" align='center'>
+					<h5 id="yelp-heading"><button type="button" id="loading-example-btn" data-loading-text="Loading..." class="btn btn-primary">
+  											Nearby
+										  </button>
+											<div class="input-group">
         </div>
-        
-        <div style="clear:both"></div>
-        <div class="results"></div>        
-    </div>
+					</h5>
+				</div>
+				<div id="yelp-results">
+					<!-- start of panel body -->
+					<small>
+						<ul class='list-group'>
+							<li class='list-group-item'>
+								<div align='center'>
+									<p></p>
+								</div>
+							</li>
+						</ul>
+					</small>
+				</div><!-- end of panel body containing  yelp search results -->
+
+			</div><!-- end of venues panel -->
+
+		</div>
 </div>
