@@ -47,7 +47,7 @@ function buildResults(data) {
 	var resultsHtml = "<small><ul class='list-group'>";
 	$.each(data.response.venues, function(i,venue) {
 		resultsHtml += "<li class='list-group-item'>";
-		resultsHtml += "<a href='/postreviews/'" + venue.id + "'>" + venue.name + "</a></h4><br/>";
+		resultsHtml += "<a href='/postreviews/" + venue.id + "'>" + venue.name + "</a></h4><br/>";
 		if(venue.location.address != null) resultsHtml += venue.location.address + ' ';
         if(venue.location.city != null) resultsHtml += venue.location.city + ' ';
         if(venue.location.state != null) resultsHtml += venue.location.state + ' ';
@@ -69,7 +69,7 @@ $(document).ready(function() {
     $('#loading-example-btn').click(function () {
 		buttonToReset = $(this);
 		buttonToReset.button('loading');
-		showlocation('search');
+		showlocation('nearby');
 	});
       
     $.ajax({
