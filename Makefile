@@ -4,7 +4,6 @@ default: install
 
 install: Gemfile
 	bundle install
-	gem install dotenv-deployment
 	gem install foreman
 
 load-data:
