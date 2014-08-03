@@ -1,7 +1,15 @@
-{
-  "_id": "1282",
-  "name": "Walnut Locust Station - Broad Street Subway Line (SEPTA)",
-  "connections": "PATCO Speedline at 12th-13th & Locust and 15-16th & Locust<br />City Bus SEPTA City Bus: 4, 9, 12, 21, 27, 32, 42",
-  "videoForEmbed": "//www.youtube.com/embed/Y1uCHkGgOo0?rel=0",
-  "videoCredit": "Walnut-Locust BSL Station Roll Through by Clark Matthews"
-}
+[
+	{
+		"_id": "1282",
+		"name": "Walnut Locust Station - Broad Street Subway Line (SEPTA)",
+		"connections": "PATCO Speedline at 12th-13th & Locust and 15-16th & Locust<br />City Bus SEPTA City Bus: 4, 9, 12, 21, 27, 32, 42",
+		"videoForEmbed": "//www.youtube.com/embed/Y1uCHkGgOo0?rel=0",
+		"videoCredit": "Walnut-Locust BSL Station Roll Through by Clark Matthews"
+	}, {
+		"_id": "1934",
+		"name": "Hughes Park Station - Norristown High Speed Line (SEPTA)",
+		"videoForEmbed": "//www.youtube.com/embed/d4Ww2-vtRXk",
+		"videoCredit": "By James Tyack"
+	}
+]
+
