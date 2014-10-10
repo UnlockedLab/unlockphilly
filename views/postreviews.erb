@@ -1,41 +1,142 @@
-<h1 id="heading">Post Review: </h1>
-
+<h3 id="heading">Accessibility Survey of </h3>
 <div style="width:100%;margin-bottom:20px" class="form-inline">
-    <form class="col-md-6" style="float:none; margin: 0 auto;text-align:center">
-        <script type="application/javascript">var venueId = '<%= venueid %>';</script>
-        <div id="venueheader" style="text-align:center"></div>
-        <div style="clear:both"></div>                
-        <br />
-        <h4>Question 1</h4>
-        <label class="radio-inline">
-          <input type="radio" name="q1" id="q1yes" value="Yes"> Yes
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="q1" id="q1no" value="No"> No
-        </label>
-        <div style="clear:both"></div>               
-        <br />
-        
-        <h4>Question 2</h4>
-        <label class="radio-inline">
-          <input type="radio" name="q2" id="q2yes" value="Yes"> Yes
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="q2" id="q2no" value="No"> No
-        </label>
-        <div style="clear:both"></div>               
-        <br />
-        
-        <h4>Question 3</h4>
-        <label class="radio-inline">
-          <input type="radio" name="q3" id="q3yes" value="Yes"> Yes
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="q3" id="q3no" value="No"> No
-        </label>
-        <div style="clear:both"></div>  
-        <br />
-        
-        <input class="btn btn-primary" type="submit" value="Submit Review"/>
-    </form>
+	<form action="/reviewsubmit" method="post" style="float:none; margin: 0 auto;">
+		<script type="application/javascript">var venueId ='<%= venueid %>';
+		</script>
+		<div id="venueheader"></div>
+		<div style="clear:both"></div>
+		<div id="yelp-results">
+			<!-- start of panel body -->
+			<small>
+				<ul class='list-group'>
+					<li class='list-group-item'>
+						<div align='center'>
+							<p>
+								<h5>Main Entrance</h5>
+								<div class="btn-group" data-toggle="buttons">
+									<label class="btn btn-default">
+										<input type="radio" name="options" id="option2" checked>
+										2+ steps</label>
+									<label class="btn btn-default">
+										<input type="radio" name="options" id="option2">
+										Narrow/steep</label>
+									<label class="btn btn-default">
+										<input type="radio" name="options" id="option3">
+										1 step</label>
+									<label class="btn btn-default">
+										<input type="radio" name="options" id="option3">
+										Accessible</label>
+								</div>
+							</p>
+						</div>
+					</li>
+					<li class='list-group-item'>
+						<div align='center'>
+							<p>
+								<h5>Alternative fully accessible entrance</h5>
+								<div class="btn-group" data-toggle="buttons">
+									<label class="btn btn-default">
+										<input type="radio" name="options" id="option2" checked>
+										None </label>
+									<label class="btn btn-default">
+										<input type="radio" name="options" id="option2">
+										At the rear</label>
+									<label class="btn btn-default">
+										<input type="radio" name="options" id="option3">
+										At the side</label>
+								</div>
+							</p>
+						</div>
+					</li>
+					<li class='list-group-item'>
+						<div align='center'>
+							<p>
+								<h5>Restrooms</h5>
+								<div class="btn-group" data-toggle="buttons">
+									<label class="btn btn-default">
+										<input type="radio" name="options" id="option2" checked>
+										None </label>
+									<label class="btn btn-default">
+										<input type="radio" name="options" id="option2">
+										Poor</label>
+									<label class="btn btn-default">
+										<input type="radio" name="options" id="option3">
+										Average</label>
+									<label class="btn btn-default">
+										<input type="radio" name="options" id="option3">
+										Accessible</label>
+								</div>
+							</p>
+						</div>
+					</li>
+					<li class='list-group-item'>
+						<div align='center'>
+							<p>
+								<h5>Seating Area</h5>
+								<div class="btn-group" data-toggle="buttons">
+									<label class="btn btn-default">
+										<input type="radio" name="options" id="option2" checked>
+										None </label>
+									<label class="btn btn-default">
+										<input type="radio" name="options" id="option2">
+										Poor</label>
+									<label class="btn btn-default">
+										<input type="radio" name="options" id="option3">
+										Average</label>
+									<label class="btn btn-default">
+										<input type="radio" name="options" id="option3">
+										Accessible</label>
+								</div>
+							</p>
+						</div>
+					</li>
+					<li class='list-group-item'>
+						<div align='center'>
+							<p>
+								<h5>Features for blind and visually impaired people</h5>
+								<div class="btn-group" data-toggle="buttons">
+									<label class="btn btn-default">
+										<input type="radio" name="options" id="option2" checked>
+										Poor </label>
+									<label class="btn btn-default">
+										<input type="radio" name="options" id="option2">
+										Average</label>
+									<label class="btn btn-default">
+										<input type="radio" name="options" id="option3">
+										Good</label>
+								</div>
+							</p>
+						</div>
+					</li>
+					<li class='list-group-item'>
+						<div align='center'>
+							<p>
+								<h5>Noise Level</h5>
+								<div class="btn-group" data-toggle="buttons">
+									<label class="btn btn-default">
+										<input type="radio" name="options" id="option2" checked>
+										Loud </label>
+									<label class="btn btn-default">
+										<input type="radio" name="options" id="option2">
+										Average</label>
+									<label class="btn btn-default">
+										<input type="radio" name="options" id="option3">
+										Quiet</label>
+								</div>
+							</p>
+						</div>
+					</li>
+					<li class='list-group-item'>
+						<div align='center'>
+							<p>
+								<input class="btn btn-primary" type="submit" value="Submit Review"/>
+							</p>
+						</div>
+					</li>
+					
+				</ul> </small>
+		</div>
+
+		
+	</form>
 </div>
