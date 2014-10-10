@@ -62,6 +62,10 @@ get '/postreviews/:venueid' do
   erb :postreviews, :locals => {:page => "postreviews", :page_title => "Post Reviews", :venueid => params[:venueid]}
 end
 
+post '/reviewsubmit' do
+  erb :reviewsubmit, :locals => {:page => "reviewsubmit", :page_title => "Thanks for your review!"}
+end
+
 get '/station/:stationid' do
   stationsCol = settings.mongo_db['stations']
   stationsContentCol = settings.mongo_db['station_content']
