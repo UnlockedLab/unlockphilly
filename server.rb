@@ -54,6 +54,13 @@ get '/n3rdstreet' do
   erb :n3rdstreet, :locals => {:page => "n3rdstreet", :page_title => "N3RD Street, Philadelphia Shops / Venues with Accessible Main Entrance/Accessibility Instructions Outside"}
 end
 
+get '/reviews' do
+  erb :reviews, :locals => {:page => "reviews", :page_title => "Reviews: Beta"}
+end
+
+get '/postreviews/:venueid' do
+  erb :postreviews, :locals => {:page => "postreviews", :page_title => "Post Reviews", :venueid => params[:venueid]}
+end
 
 get '/station/:stationid' do
   stationsCol = settings.mongo_db['stations']
