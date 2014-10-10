@@ -4,7 +4,7 @@ function showlocation(searchType) {
     $("#loadingImage").show();
     navigator.geolocation.getCurrentPosition(function(position) {
     if(searchType == 'nearby') apiAddress = "https://api.foursquare.com/v2/venues/search?ll=" + position.coords.latitude + "," + position.coords.longitude + "&oauth_token=ADKCZISL2BPWAUVWFY1EN4Z012FAPIYJQPYVLG1U4EXTCCZB&v=20140716";
-    else if(searchType == 'search') apiAddress = "https://api.foursquare.com/v2/venues/search?ll=" + position.coords.latitude + "," + position.coords.longitude + "&intend=global&query=" + $('#searchquery').val() + "&oauth_token=ADKCZISL2BPWAUVWFY1EN4Z012FAPIYJQPYVLG1U4EXTCCZB&v=20140716";
+    else if(searchType == 'search') apiAddress = "https://api.foursquare.com/v2/venues/search?ll=" + position.coords.latitude + "," + position.coords.longitude + "&intend=global&limit=5&query=" + $('#searchquery').val() + "&oauth_token=ADKCZISL2BPWAUVWFY1EN4Z012FAPIYJQPYVLG1U4EXTCCZB&v=20140716";
     fetchData(apiAddress);
     });
 }
