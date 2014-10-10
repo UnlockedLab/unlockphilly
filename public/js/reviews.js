@@ -87,8 +87,9 @@ $(document).ready(function() {
          // }
       // }
     // });
-    contents += imgSrc + '<br />';
+    //contents += imgSrc + '<br />';
     
+    if(typeof venueId !== "undefined") {
     $.ajax({
       url: 'https://api.foursquare.com/v2/venues/' + venueId + '?&oauth_token=ADKCZISL2BPWAUVWFY1EN4Z012FAPIYJQPYVLG1U4EXTCCZB&v=20140715',
       dataType: 'json',
@@ -106,4 +107,5 @@ $(document).ready(function() {
       }
     });
     $("#venueheader").append(contents);
+    }
 });
