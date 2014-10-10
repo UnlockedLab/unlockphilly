@@ -38,8 +38,9 @@ configure do
 end
 
 get '/' do
-  @mapbox_id = ENV['MAPBOX_ID']
-  erb :accessibility_mapper, :locals => {:page => "mapper", :page_title => "Mapping accessible stations, elevator outages, bars, restaurants, shops, museums and more in Philadelphia"}
+  redirect "/reviews"
+  #@mapbox_id = ENV['MAPBOX_ID']
+  #erb :accessibility_mapper, :locals => {:page => "mapper", :page_title => "Mapping accessible stations, elevator outages, bars, restaurants, shops, museums and more in Philadelphia"}
 end
 
 get '/routechecker' do
