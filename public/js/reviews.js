@@ -1,6 +1,5 @@
 function showlocation(searchType) {
     // One-shot position request.
-    alert(searchType);
     var apiAddress = "";
     $("#loadingImage").show();
     navigator.geolocation.getCurrentPosition(function(position) {
