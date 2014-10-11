@@ -10,41 +10,40 @@
 			<small>
 				<ul class='list-group'>
 					<li class='list-group-item'>
-						<div align='center'>
-							<p>
-								<h5>Is the main entrance wheelchair accessible?</h5>
-								<div class="btn-group" data-toggle="buttons">
-									<label class="btn btn-default">
-										<input type="radio" name="options" id="option2">
-										Yes</label>
-									<label class="btn btn-default">
-										<input type="radio" name="options" id="option2">
-										No, 2+ steps</label>
-									<label class="btn btn-default">
-										<input type="radio" name="options" id="option3">
-										No, 1 step</label>
-								</div>
-							</p>
+						<div>
+							<fieldset>
+								<legend>
+									Is the main entrance wheelchair accessible?
+								</legend>
+								<input id="yes" type="radio" name="entrance" value="yes">
+								<label for="yes">Yes</label>
+								<br>
+								<input id="2plus_steps" type="radio" name="entrance" value="2plus_steps">
+								<label for="2+">No 2+ steps</label>
+								<br>
+								<input id="1_step" type="radio" name="entrance" value="1_step">
+								<label for="1_step">No 1 step</label>
+							</fieldset>
 						</div>
 					</li>
 					<li class='list-group-item'>
-						<div align='center'>
-							<p>
-								<h5>Please describe the main door</h5>
-								<div class="btn-group" data-toggle="buttons">
-									<label class="btn btn-default">
-										<input type="radio" name="options" id="option2">
-										Wide and light</label>
-									<label class="btn btn-default">
-										<input type="radio" name="options" id="option2">
-										Too Narrow</label>
-									<label class="btn btn-default">
-										<input type="radio" name="options" id="option2">
-										Heavy and awkward</label>
-								</div>
-							</p>
+						<div>
+							<fieldset>
+								<legend>
+									Please describe the main door
+								</legend>
+								<input id="wide_light" type="radio" name="door" value="wide_light">
+								<label for="yes">Wide and light</label>
+								<br>
+								<input id="too_narrow" type="radio" name="door" value="too_narrow">
+								<label for="too_narrow">Too Narrow</label>
+								<br>
+								<input id="heavy_awkward" type="radio" name="door" value="mushrooms">
+								<label for="heavy_awkward">Heavy and awkward</label>
+							</fieldset>
 						</div>
 					</li>
+					
 					<li class='list-group-item'>
 						<div align='center'>
 							<p>
