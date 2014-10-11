@@ -15,13 +15,13 @@
 								<legend>
 									Is the main entrance wheelchair accessible?
 								</legend>
-								<input id="yes" type="radio" name="entrance" value="yes">
+								<input id="yes" type="radio" name="entrance" value="yes"/>
 								<label for="yes">Yes</label>
 								<br>
-								<input id="2plus_steps" type="radio" name="entrance" value="2plus_steps">
-								<label for="2+">No 2+ steps</label>
+								<input id="2plus_steps" type="radio" name="entrance" value="2plus_steps"/>
+								<label for="2plus_steps">No 2+ steps</label>
 								<br>
-								<input id="1_step" type="radio" name="entrance" value="1_step">
+								<input id="1_step" type="radio" name="entrance" value="1_step"/>
 								<label for="1_step">No 1 step</label>
 							</fieldset>
 						</div>
@@ -32,14 +32,37 @@
 								<legend>
 									Please describe the main door
 								</legend>
-								<input id="wide_light" type="radio" name="door" value="wide_light">
-								<label for="yes">Wide and light</label>
+								<input id="wide_light" type="radio" name="door" value="wide_light"/>
+								<label for="wide_light">Wide and light</label>
 								<br>
-								<input id="too_narrow" type="radio" name="door" value="too_narrow">
+								<input id="too_narrow" type="radio" name="door" value="too_narrow"/>
 								<label for="too_narrow">Too Narrow</label>
 								<br>
-								<input id="heavy_awkward" type="radio" name="door" value="mushrooms">
+								<input id="heavy_awkward" type="radio" name="door" value="mushrooms"/>
 								<label for="heavy_awkward">Heavy and awkward</label>
+								<br>
+								<input id="na" type="radio" name="door" value="mushrooms"/>
+								<label for="na">Not applicable for this venue</label>
+							</fieldset>
+						</div>
+					</li>
+					<li class='list-group-item'>
+						<div>
+							<fieldset>
+								<legend>
+									If the main entrance is inaccessible, is there an alternative, fully wheelchair accessible entrance?
+								</legend>
+								<input id="rear" type="radio" name="alt_entrance" value="rear"/>
+								<label for="rear">Yes, at the rear</label>
+								<br>
+								<input id="side" type="radio" name="alt_entrance" value="side"/>
+								<label for="side">Yes, at the side</label>
+								<br>
+								<input id="no" type="radio" name="alt_entrance" value="no"/>
+								<label for="no">No</label>
+								<br>
+								<input id="na" type="radio" name="alt_entrance" value="na"/>
+								<label for="na">Not applicable</label>
 							</fieldset>
 						</div>
 					</li>
@@ -47,37 +70,16 @@
 					<li class='list-group-item'>
 						<div align='center'>
 							<p>
-								<h5>If the main entrance is inaccessible, is there an alternative, fully wheelchair accessible entrance?</h5>
-								<div class="btn-group" data-toggle="buttons">
-									<label class="btn btn-default">
-										<input type="radio" name="options" id="option2">
-										Yes, at the rear</label>
-									<label class="btn btn-default">
-										<input type="radio" name="options" id="option2">
-										Yes, at the side</label>
-									<label class="btn btn-default">
-										<input type="radio" name="options" id="option3">
-										No</label>
-									<label class="btn btn-default">
-										<input type="radio" name="options" id="option2">
-										N/A</label>
-								</div>
-							</p>
-						</div>
-					</li>
-					<li class='list-group-item'>
-						<div align='center'>
-							<p>
 								<h5>Are there useful signs inside/outside?</h5>
 								<div class="btn-group" data-toggle="buttons">
 									<label class="btn btn-default">
-									<input type="radio" name="options" id="option2">
+									<input type="radio" name="options" id="option2"/>
 										Yes w/ braille</label>
 									<label class="btn btn-default">
-									<input type="radio" name="options" id="option2">
+									<input type="radio" name="options" id="option2"/>
 										No</label>
 									<label class="btn btn-default">
-									<input type="radio" name="options" id="option2">
+									<input type="radio" name="options" id="option2"/>
 										Limited</label>
 								</div>
 							</p>
