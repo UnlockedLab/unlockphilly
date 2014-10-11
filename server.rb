@@ -56,11 +56,11 @@ get '/n3rdstreet' do
 end
 
 get '/reviews' do
-  erb :reviews, :locals => {:page => "reviews", :page_title => "Reviews: Beta"}
+  erb :reviews, :locals => {:page => "reviews", :page_title => "Find and review nearby venues"}
 end
 
 get '/postreviews/:venueid' do
-  erb :postreviews, :locals => {:page => "postreviews", :page_title => "Post Reviews", :venueid => params[:venueid]}
+  erb :postreviews, :locals => {:page => "postreviews", :page_title => "Reviewing selected venue", :venueid => params[:venueid]}
 end
 
 post '/reviewsubmit' do
