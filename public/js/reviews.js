@@ -25,7 +25,7 @@ function fetchData(apiAddress) {
           $.each(data.response.venues, function(i,venues){
             var contents = "";
             contents += '<div class="col-xs-8 col-sm-8 col-md-10">';
-            contents += '<h4><a alt="Click to review accessibility" href="/postreviews/' + venues.id +'">' + venues.name + '</a></h4>';
+            contents += '<h4><a alt="Click to review accessibility" href="/postreviews/' + venues.id +'">' + venues.name + ' (' + venues.categories[0].name + ')</a></h4>';
             if(venues.location.address != null) contents += venues.location.address + ' ';
             if(venues.location.city != null) contents += venues.location.city + ' ';
             if(venues.location.state != null) contents += venues.location.state + ' ';
@@ -72,7 +72,7 @@ $(document).ready(function() {
         // if(venues.location.city != null) contents += venues.location.city + ' ';
         // if(venues.location.state != null) contents += venues.location.state + ' ';
         // if(venues.location.postalCode != null) contents += venues.location.postalCode + ' ';
-        $("#heading").append(venues.name);
+        $("#heading").append(venues.name + " (" + venues.categories[0].name + ")");
       }
     });
     $("#venueheader").append(contents);
