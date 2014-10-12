@@ -1,0 +1,177 @@
+<h3 id="heading">Assessing </h3>
+<div style="width:100%;margin-bottom:20px" class="form-inline">
+	<form action="/assessment" method="post" style="float:none; margin: 0 auto;">
+		<script type="application/javascript">var venueId ='<%= venueid %>';
+		</script>
+		<div id="venueheader"></div>
+		<div style="clear:both"></div>
+		<div id="yelp-results">
+			<!-- start of panel body -->
+			<small>
+				<ul class='list-group'>
+					<li class='list-group-item'>
+						<div>
+							<fieldset>
+								<legend>
+									Is the main entrance wheelchair accessible?
+								</legend>
+								<input id="yes" type="radio" name="entrance" value="yes"/>
+								<label for="yes">Yes, wide with good ramp</label>
+								<br>
+								<input id="2plus_steps" type="radio" name="entrance" value="2plus_steps"/>
+								<label for="2plus_steps">No, there are 2+ steps</label>
+								<br>
+								<input id="1_step" type="radio" name="entrance" value="1_step"/>
+								<label for="1_step">No, there is 1 step</label>
+								<br>
+								<input id="no_main" type="radio" name="entrance" value="no_other"/>
+								<label for="no_main">No for other reason</label>
+							</fieldset>
+						</div>
+					</li>
+					<li class='list-group-item'>
+						<div>
+							<fieldset>
+								<legend>
+									Please describe the main door
+								</legend>
+								<input id="wide_light" type="radio" name="door" value="wide_light"/>
+								<label for="wide_light">Wide and light</label>
+								<br>
+								<input id="too_narrow" type="radio" name="door" value="too_narrow"/>
+								<label for="too_narrow">Too Narrow</label>
+								<br>
+								<input id="heavy_awkward" type="radio" name="door" value="mushrooms"/>
+								<label for="heavy_awkward">Heavy and awkward</label>
+								<br>
+								<input id="na_door" type="radio" name="door" value="mushrooms"/>
+								<label for="na_door">Door not applicable for this venue</label>
+							</fieldset>
+						</div>
+					</li>
+					<li class='list-group-item'>
+						<div>
+							<fieldset>
+								<legend>
+									If the main entrance is inaccessible, is there an alternative, fully wheelchair accessible entrance?
+								</legend>
+								<input id="rear" type="radio" name="alt_entrance" value="rear"/>
+								<label for="rear">Yes, at the rear</label>
+								<br>
+								<input id="side" type="radio" name="alt_entrance" value="side"/>
+								<label for="side">Yes, at the side</label>
+								<br>
+								<input id="no_alt" type="radio" name="alt_entrance" value="no"/>
+								<label for="no_alt">No way to enter venue</label>
+								<br>
+								<input id="na_alt" type="radio" name="alt_entrance" value="na"/>
+								<label for="na_alt">Alternative not needed</label>
+							</fieldset>
+						</div>
+					</li>
+					<li class='list-group-item'>
+						<div>
+							<fieldset>
+								<legend>
+									Are there clear accessibility signs inside/outside?
+								</legend>
+								<input id="yes_with_braille" type="radio" name="signs" value="yes_with_braille"/>
+								<label for="yes_with_braille">Yes with braille</label>
+								<br>
+								<input id="no_signs" type="radio" name="signs" value="no_signs"/>
+								<label for="no_signs">No signs</label>
+								<br>
+								<input id="ltd_signs" type="radio" name="signs" value="ltd_signs"/>
+								<label for="ltd_signs">Limited</label>
+							</fieldset>
+						</div>
+					</li>
+					<li class='list-group-item'>
+						<div>
+							<fieldset>
+								<legend>
+									Are the restrooms wheelchair accessible?
+								</legend>
+								<input id="yes_restrooms" type="radio" name="restrooms" value="yes"/>
+								<label for="yes_restrooms">Yes with sufficient space and grab bars</label>
+								<br>
+								<input id="no_rest_narrow" type="radio" name="restrooms" value="no_narrow"/>
+								<label for="no_rest_narrow">No, entrance too narrow</label>
+								<br>
+								<input id="no_rest_space" type="radio" name="restrooms" value="no_space"/>
+								<label for="no_rest_space">No, insufficient space</label>
+								<br>
+								<input id="no_rest_ava" type="radio" name="restrooms" value="not_ava"/>
+								<label for="no_rest_ava">N/A</label>
+							</fieldset>
+						</div>
+					</li>
+					<li class='list-group-item'>
+						<div>
+							<fieldset>
+								<legend>
+									Is the seating area wheelchair accessible?
+								</legend>
+								<input id="yes_seating" type="radio" name="seating" value="yes_seating"/>
+								<label for="yes_seating">Yes, correct height with movable chairs</label>
+								<br>
+								<input id="no_seating" type="radio" name="seating" value="no_seating"/>
+								<label for="no_seating">No, seating not accessible</label>'
+								<br>
+								<input id="na_seating" type="radio" name="seating" value="no_seating"/>
+								<label for="na_seating">N/A</label>
+							</fieldset>
+						</div>
+					</li>
+					<li class='list-group-item'>
+						<div>
+							<fieldset>
+								<legend>
+									Please describe the noise level
+								</legend>
+								<input id="quiet_noise" type="radio" name="noise" value="quiet_noise"/>
+								<label for="quiet_noise">Quiet</label>
+								<br>
+								<input id="moderate_noise" type="radio" name="noise" value="moderate_noise"/>
+								<label for="moderate_noise">Moderate</label>'
+								<br>
+								<input id="loud_noise" type="radio" name="noise" value="loud_noise"/>
+								<label for="loud_noise">Loud</label>
+							</fieldset>
+						</div>
+					</li>
+					<li class='list-group-item'>
+						<div>
+							<fieldset>
+								<legend>
+									Is there accommodation for visually impaired people? (e.g. braille menus)
+								</legend>
+								<input id="yes_visual" type="radio" name="visual" value="yes_visual"/>
+								<label for="yes_visual">Yes</label>
+								<br>
+								<input id="no_visual" type="radio" name="visual" value="no_visual"/>
+								<label for="no_visual">No</label>'
+								<br>
+								<input id="limited_visual" type="radio" name="visual" value="limited_visual"/>
+								<label for="limited_visual">Limited</label>
+							</fieldset>
+							<!--<label for="blind_description">Helpful navigation and orientation info:</label>
+							<br>
+							<textarea id="blind_description" rows="4" cols="27" name="blind_description"></textarea>-->
+						</div>
+					</li>
+					
+					<li class='list-group-item'>
+						<div align='center'>
+							<p>
+								<input class="btn btn-primary" type="submit" value="Submit"/>
+							</p>
+						</div>
+					</li>
+					
+				</ul> </small>
+		</div>
+
+		
+	</form>
+</div>
