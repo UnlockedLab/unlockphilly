@@ -38,7 +38,7 @@ configure do
 end
 
 get '/' do
-  redirect "/reviews"
+  redirect "/places"
   #@mapbox_id = ENV['MAPBOX_ID']
   #erb :accessibility_mapper, :locals => {:page => "mapper", :page_title => "Mapping accessible stations, elevator outages, bars, restaurants, shops, museums and more in Philadelphia"}
 end
@@ -55,16 +55,24 @@ get '/n3rdstreet' do
   erb :n3rdstreet, :locals => {:page => "n3rdstreet", :page_title => "N3RD Street, Philadelphia Shops / Venues with Accessible Main Entrance/Accessibility Instructions Outside"}
 end
 
+get '/places' do
+  erb :places, :locals => {:page => "places", :page_title => "Find places nearby"}
+end
+
+get '/assess/:venueid' do
+  erb :assess, :locals => {:page => "assess", :page_title => "Assessing selected venue", :venueid => params[:venueid]}
+end
+
 get '/reviews' do
-  erb :reviews, :locals => {:page => "reviews", :page_title => "Find and review nearby venues"}
+  redirect "/places"
 end
 
 get '/postreviews/:venueid' do
-  erb :postreviews, :locals => {:page => "postreviews", :page_title => "Reviewing selected venue", :venueid => params[:venueid]}
+  redirect "/assess/" + params[:venueid]
 end
 
-post '/reviewsubmit' do
-  erb :reviewsubmit, :locals => {:page => "reviewsubmit", :page_title => "Thanks for your review!"}
+post '/assessment' do
+  erb :assessment, :locals => {:page => "assessment", :page_title => "Thanks for your help!"}
 end
 
 get '/station/:stationid' do
