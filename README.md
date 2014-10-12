@@ -72,7 +72,7 @@ Here are some guidelines:
   and [Mapquest](http://developer.mapquest.com/) to get the necessary API keys.
 * Run `make install` from the root of the project to install all of the
   necessary Gem dependencies.
-* Run `make load-station-data` to load all stations into MongoDB and give a
+* Run `make load-data` to load all stations into MongoDB and give a
   result saying how many stations were loaded.
 * Run `foreman start`. This will start a local instance of the application running at [http://localhost:5000](http://localhost:5000).
 
