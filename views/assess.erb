@@ -13,7 +13,7 @@
 						<div>
 							<fieldset>
 								<legend>
-									Is the main entrance wheelchair accessible?
+									Is the main entrance wheelchair accessible? (choose one)
 								</legend>
 								<input id="yes" type="radio" name="entrance" value="yes"/>
 								<label for="yes">Yes, wide with good ramp</label>
@@ -33,7 +33,7 @@
 						<div>
 							<fieldset>
 								<legend>
-									Please describe the main door
+									Please describe the main door (choose one)
 								</legend>
 								<input id="wide_light" type="radio" name="door" value="wide_light"/>
 								<label for="wide_light">Wide and light</label>
@@ -53,7 +53,7 @@
 						<div>
 							<fieldset>
 								<legend>
-									If the main entrance is inaccessible, is there an alternative, fully wheelchair accessible entrance?
+									If the main entrance is inaccessible, is there an alternative, fully wheelchair accessible entrance? (choose one)
 								</legend>
 								<input id="rear" type="radio" name="alt_entrance" value="rear"/>
 								<label for="rear">Yes, at the rear</label>
@@ -73,10 +73,10 @@
 						<div>
 							<fieldset>
 								<legend>
-									Are there clear accessibility signs inside/outside?
+									Are there clear accessibility signs inside/outside? (choose one)
 								</legend>
 								<input id="yes_with_braille" type="radio" name="signs" value="yes_with_braille"/>
-								<label for="yes_with_braille">Yes with braille</label>
+								<label for="yes_with_braille">Yes</label>
 								<br>
 								<input id="no_signs" type="radio" name="signs" value="no_signs"/>
 								<label for="no_signs">No signs</label>
@@ -90,10 +90,10 @@
 						<div>
 							<fieldset>
 								<legend>
-									Are the restrooms wheelchair accessible?
+									Are the restrooms wheelchair accessible? (choose one)
 								</legend>
 								<input id="yes_restrooms" type="radio" name="restrooms" value="yes"/>
-								<label for="yes_restrooms">Yes with sufficient space and grab bars</label>
+								<label for="yes_restrooms">Yes, with sufficient space and grab bars</label>
 								<br>
 								<input id="no_rest_narrow" type="radio" name="restrooms" value="no_narrow"/>
 								<label for="no_rest_narrow">No, entrance too narrow</label>
@@ -110,7 +110,7 @@
 						<div>
 							<fieldset>
 								<legend>
-									Is the seating area wheelchair accessible?
+									Is the seating area wheelchair accessible? (choose one)
 								</legend>
 								<input id="yes_seating" type="radio" name="seating" value="yes_seating"/>
 								<label for="yes_seating">Yes, correct height with movable chairs</label>
@@ -127,7 +127,7 @@
 						<div>
 							<fieldset>
 								<legend>
-									Please describe the noise level
+									Please describe the noise level (choose one)
 								</legend>
 								<input id="quiet_noise" type="radio" name="noise" value="quiet_noise"/>
 								<label for="quiet_noise">Quiet</label>
@@ -141,25 +141,27 @@
 						</div>
 					</li>
 					<li class='list-group-item'>
-						<div>
-							<fieldset>
-								<legend>
-									Is there accommodation for visually impaired people? (e.g. braille menus)
-								</legend>
-								<input id="yes_visual" type="radio" name="visual" value="yes_visual"/>
-								<label for="yes_visual">Yes</label>
-								<br>
-								<input id="no_visual" type="radio" name="visual" value="no_visual"/>
-								<label for="no_visual">No</label>'
-								<br>
-								<input id="limited_visual" type="radio" name="visual" value="limited_visual"/>
-								<label for="limited_visual">Limited</label>
-							</fieldset>
-							<!--<label for="blind_description">Helpful navigation and orientation info:</label>
+						<fieldset>
+							<legend>
+								Please select as many of the following items that are available
+							</legend>
+							<input id="braille_signs" type="checkbox" name="visual" value="braille_signs">
+							<label for="braille_signs">Braille signs</label>
 							<br>
-							<textarea id="blind_description" rows="4" cols="27" name="blind_description"></textarea>-->
-						</div>
+							<input id="braille_menus" type="checkbox" name="visual" value="braille_signs">
+							<label for="braille_menus">Braille menus</label>
+							<br>
+							<input id="braille_leaflets" type="checkbox" name="visual" value="braille_leaflets">
+							<label for="braille_leaflets">Braille leaflets</label>
+							<br>
+							<input id="tactile_maps" type="checkbox" name="visual" value="tactile_maps">
+							<label for="tactile_maps">Tactile maps</label>
+							<br>
+							<input id="e_audio_guides" type="checkbox" name="visual" value="e_audio_guides">
+							<label for="e_audio_guides">Electronic audio guides</label>
+						</fieldset>
 					</li>
+					
 					
 					<li class='list-group-item'>
 						<div align='center'>

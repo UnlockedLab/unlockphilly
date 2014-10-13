@@ -6,6 +6,11 @@
 	cursor: pointer;
 }
 
+select:focus, select:active, input:focus, input:active, input:focus + label, input:active + label, label[for]:focus, label[for]:active {
+  color: #fff !important;
+  background-color: #ba2710 !important;
+}
+
 #map {
 	height: 300px;
 }
