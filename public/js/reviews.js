@@ -3,14 +3,18 @@ function showlocation(searchType) {
     var apiAddress = "";
     $("#loadingImage").show();
     navigator.geolocation.getCurrentPosition(function(position) {
-    if(searchType == 'nearby') apiAddress = "https://api.foursquare.com/v2/venues/search?ll=" + position.coords.latitude + "," + position.coords.longitude + "&oauth_token=ADKCZISL2BPWAUVWFY1EN4Z012FAPIYJQPYVLG1U4EXTCCZB&v=20140716";
-    else if(searchType == 'search') apiAddress = "https://api.foursquare.com/v2/venues/search?ll=" + position.coords.latitude + "," + position.coords.longitude + "&intend=global&limit=5&query=" + $('#searchquery').val() + "&oauth_token=ADKCZISL2BPWAUVWFY1EN4Z012FAPIYJQPYVLG1U4EXTCCZB&v=20140716";
+    if(searchType == 'nearby') {
+    	apiAddress = "https://api.foursquare.com/v2/venues/search?ll=" + 
+    		position.coords.latitude + "," + position.coords.longitude + 
+    		"&oauth_token=ADKCZISL2BPWAUVWFY1EN4Z012FAPIYJQPYVLG1U4EXTCCZB&v=20140716";
+    }
+    else if(searchType == 'search') { 
+    	apiAddress = "https://api.foursquare.com/v2/venues/search?ll=" + position.coords.latitude 
+    		+ "," + position.coords.longitude + "&intend=global&limit=10&query=" 
+    		+ $('#searchquery').val() + "&oauth_token=ADKCZISL2BPWAUVWFY1EN4Z012FAPIYJQPYVLG1U4EXTCCZB&v=20140716";
+    }
     fetchData(apiAddress);
     });
-}
-
-function test() {
-    alert('oop');
 }
 
 function fetchData(apiAddress) {
@@ -29,9 +33,8 @@ function fetchData(apiAddress) {
             if(venues.location.address != null) contents += venues.location.address + ' ';
             if(venues.location.city != null) contents += venues.location.city + ' ';
             if(venues.location.state != null) contents += venues.location.state + ' ';
-            if(venues.location.postalCode != null) contents += venues.location.postalCode + ' ';
-            contents += '<br /><br />';
-            
+            if(venues.location.postalCode != null) contents += venues.location.postalCode + '';
+            if(venues.location.distance != null) contents += '<br>(approx ' + Math.floor(venues.location.distance*3.28084) + ' feet from your location)';
             contents += '</div>';
 
             contents += '<div style="clear:both"></div><br />';
