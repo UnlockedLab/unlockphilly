@@ -2,6 +2,7 @@ function showlocation(searchType) {
     // One-shot position request.
     var apiAddress = "";
     $("#loadingImage").show();
+    $('.results').empty();
     navigator.geolocation.getCurrentPosition(function(position) {
     if(searchType == 'nearby') {
     	apiAddress = "https://api.foursquare.com/v2/venues/search?ll=" + 
@@ -18,7 +19,6 @@ function showlocation(searchType) {
 }
 
 function fetchData(apiAddress) {
-    $('.results').empty();
     $.ajax({
       url: apiAddress,
       dataType: 'json',
@@ -62,21 +62,5 @@ $(document).ready(function() {
       // }
     // });
     // contents += imgSrc + '<br />';
-    
-    $.ajax({
-      url: 'https://api.foursquare.com/v2/venues/' + venueId + '?&oauth_token=ADKCZISL2BPWAUVWFY1EN4Z012FAPIYJQPYVLG1U4EXTCCZB&v=20140715',
-      dataType: 'json',
-      async: false,
-      cache: false,
-      success: function(data) {
-        var venues = data.response.venue;
-        //contents += '<h4>' + venues.name + '</h4>';
-        // if(venues.location.address != null) contents += venues.location.address + ' ';
-        // if(venues.location.city != null) contents += venues.location.city + ' ';
-        // if(venues.location.state != null) contents += venues.location.state + ' ';
-        // if(venues.location.postalCode != null) contents += venues.location.postalCode + ' ';
-        $("#heading").append(venues.name + " (" + venues.categories[0].name + ")");
-      }
-    });
-    $("#venueheader").append(contents);
+ 
 });

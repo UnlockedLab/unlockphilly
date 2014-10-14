@@ -60,7 +60,10 @@ get '/places' do
 end
 
 get '/assess/:venueid' do
-  erb :assess, :locals => {:page => "assess", :page_title => "Assessing selected venue", :venueid => params[:venueid]}
+  venue = getVenueFromFoursquare(params[:venueid])
+  venue_name = venue["response"]["venue"]["name"]
+  venue_type = venue["response"]["venue"]["categories"][0]["name"]
+  erb :assess, :locals => {:page => "assess", :page_title => "Assessing #{venue_name}, #{venue_type}", :venueid => params[:venueid], :venue => venue, :venue_name => venue_name, :venue_type => venue_type}
 end
 
 get '/reviews' do
@@ -252,6 +255,15 @@ def getLineFullName(station)
   return "";
 end
 
+def getVenueFromFoursquare(venueid) 
+  foursquare_id = ENV['FOURSQUARE_ID']
+  foursquare_secret = ENV['FOURSQUARE_SECRET']
+  url = "https://api.foursquare.com/v2/venues/#{venueid}?client_id=#{foursquare_id}&client_secret=#{foursquare_secret}&v=20140715"
+  response = RestClient.get url
+  venue = JSON.parse(response)
+  venue
+end
+
 # make a call to yelp for wheelchair accessible businesses around given lat/lng
 get '/yelp/wheelchairaccess/:lat/:lng/:radius' do
   consumer_key = ENV['YELP_CONSUMER_KEY']
@@ -265,8 +277,6 @@ get '/yelp/wheelchairaccess/:lat/:lng/:radius' do
   yelpResults = access_token.get(path).body
   appendStreetAddressLatLng(JSON.parse(yelpResults))
 end
-
-
 
 def sendAlertMail(subject, body)
   if (ENV['MAIL_ACTIVE'] == 'true')
