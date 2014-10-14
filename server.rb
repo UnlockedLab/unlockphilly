@@ -256,7 +256,7 @@ def getLineFullName(station)
 end
 
 def getVenueFromFoursquare(venueid) 
-  foursquare_id = ENV['FOURSQUARE_ID']
+  foursquare_id = ENV['FOURSQUARE_KEY']
   foursquare_secret = ENV['FOURSQUARE_SECRET']
   url = "https://api.foursquare.com/v2/venues/#{venueid}?client_id=#{foursquare_id}&client_secret=#{foursquare_secret}&v=20140715"
   response = RestClient.get url

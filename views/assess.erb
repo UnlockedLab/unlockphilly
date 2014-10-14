@@ -1,6 +1,6 @@
 <h3 id="heading">Assessing <%= venue_name %> (<%= venue_type %>)</h3>
 <div style="width:100%;margin-bottom:20px" class="form-inline">
-	<form action="/assessment" method="post" style="float:none; margin: 0 auto;">
+	<form id="form-post-reviews" action="/assessment" method="post" style="float:none; margin: 0 auto;">
 		<script type="application/javascript">var venueId ='<%= venueid %>';
 		</script>
 		<div id="venueheader"></div>
@@ -15,7 +15,7 @@
 								<legend>
 									Is the <strong>main entrance</strong> wheelchair accessible? (choose one)
 								</legend>
-								<input id="yes" type="radio" name="entrance" value="yes"/>
+								<input id="yes_entrance" type="radio" name="entrance" value="yes" required/>
 								<label for="yes">Yes, wide with good ramp</label>
 								<br>
 								<input id="2plus_steps" type="radio" name="entrance" value="2plus_steps"/>
@@ -35,7 +35,7 @@
 								<legend>
 									Please describe the <strong>main door</strong> (choose one)
 								</legend>
-								<input id="wide_light" type="radio" name="door" value="wide_light"/>
+								<input id="wide_light" type="radio" name="door" value="wide_light" required/>
 								<label for="wide_light">Wide and light</label>
 								<br>
 								<input id="too_narrow" type="radio" name="door" value="too_narrow"/>
@@ -75,7 +75,7 @@
 								<legend>
 									Are there clear <strong>accessibility signs</strong> inside/outside? (choose one)
 								</legend>
-								<input id="yes_with_braille" type="radio" name="signs" value="yes_with_braille"/>
+								<input id="yes_with_braille" type="radio" name="signs" value="yes_with_braille" required/>
 								<label for="yes_with_braille">Yes</label>
 								<br>
 								<input id="no_signs" type="radio" name="signs" value="no_signs"/>
@@ -92,7 +92,7 @@
 								<legend>
 									Are the <strong>restrooms</strong> wheelchair accessible? (choose one)
 								</legend>
-								<input id="yes_restrooms" type="radio" name="restrooms" value="yes"/>
+								<input id="yes_restrooms" type="radio" name="restrooms" value="yes" required/>
 								<label for="yes_restrooms">Yes, spacious w/ grab bars</label>
 								<br>
 								<input id="no_rest_narrow" type="radio" name="restrooms" value="no_narrow"/>
@@ -112,11 +112,11 @@
 								<legend>
 									Is the <strong>seating area</strong> wheelchair accessible? (choose one)
 								</legend>
-								<input id="yes_seating" type="radio" name="seating" value="yes_seating"/>
+								<input id="yes_seating" type="radio" name="seating" value="yes_seating" required/>
 								<label for="yes_seating">Yes, correct height</label>
 								<br>
 								<input id="no_seating" type="radio" name="seating" value="no_seating"/>
-								<label for="no_seating">No, not accessible</label>'
+								<label for="no_seating">No, not accessible</label>
 								<br>
 								<input id="na_seating" type="radio" name="seating" value="no_seating"/>
 								<label for="na_seating">N/A</label>
@@ -129,11 +129,11 @@
 								<legend>
 									Please describe the <strong>noise level</strong> (choose one)
 								</legend>
-								<input id="quiet_noise" type="radio" name="noise" value="quiet_noise"/>
+								<input id="quiet_noise" type="radio" name="noise" value="quiet_noise" required/>
 								<label for="quiet_noise">Quiet</label>
 								<br>
 								<input id="moderate_noise" type="radio" name="noise" value="moderate_noise"/>
-								<label for="moderate_noise">Moderate</label>'
+								<label for="moderate_noise">Moderate</label>
 								<br>
 								<input id="loud_noise" type="radio" name="noise" value="loud_noise"/>
 								<label for="loud_noise">Loud</label>
@@ -141,7 +141,7 @@
 						</div>
 					</li>
 					<li class='list-group-item'>
-						<fieldset class='lead'>
+                        <fieldset class="lead">
 							<legend>
 								Please select as many of the following items that are available
 							</legend>
@@ -160,9 +160,7 @@
 							<input id="e_audio_guides" type="checkbox" name="visual" value="e_audio_guides">
 							<label for="e_audio_guides">Electronic audio guides</label>
 						</fieldset>
-					</li>
-					
-					
+					</li>				
 					<li class='list-group-item'>
 						<div align='center'>
 							<p>

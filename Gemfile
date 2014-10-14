@@ -1,4 +1,4 @@
-ruby '2.0.0'
+ruby '2.1.2'
 source "https://rubygems.org"
 gem 'sinatra', '1.4.3'
 gem 'rest-client', "~> 1.6.7"
