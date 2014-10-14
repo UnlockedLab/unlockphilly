@@ -1,4 +1,4 @@
-<h3 class="text-center">Places</h3>
+<h3>Places</h3>
 
 <div style="width:100%;margin-bottom:20px">
     <div class="col-xs-12 col-sm-6 col-md-6" style="margin:0 auto; float:none">
@@ -8,9 +8,11 @@
                 <div class="input-group-addon">or at</div>
                 <input type="text" class="form-control" placeholder="name, address etc." id="searchquery" onkeyup="if(window.event.keyCode == 13) showlocation('search');">
             </div>
-            <img alt='Powered by Foursquare icon, results will appear below here' src='/images/logo/poweredByFoursquare_gray.png' width='175'>
             <div style="clear:both"></div>
-            <div id="loadingImage" style="display:none">
+            <div id="powered" class="row text-center">
+            	<img alt='Powered by Foursquare icon, results will appear below here' src='/images/logo/poweredByFoursquare_gray.png' width='175'>
+            </div>    
+            <div id="loadingImage" class="row text-center" style="display:none">
                 <img src = "/images/ajax-loader.gif" />
             </div>
         </div>
