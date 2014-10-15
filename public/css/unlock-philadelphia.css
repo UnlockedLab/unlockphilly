@@ -6,7 +6,7 @@
 	cursor: pointer;
 }
 
-input:focus, input:active {
+input:focus, input:active, label:active, label:focus, input[type="radio"]:checked+label, input[type="checkbox"]:checked+label {
 /*  color: #fff !important;*/
 /*  background-color: #ba2710 !important;*/
     color: #000 !important;
