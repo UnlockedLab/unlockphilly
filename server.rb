@@ -59,6 +59,16 @@ get '/places' do
   erb :places, :locals => {:page => "places", :page_title => "Find places nearby"}
 end
 
+get '/xhrnearbyplaces/:lat/:lng' do
+  content_type :json
+  getNearbyPlacesFromFoursquare(params[:lat], params[:lng], 10, 500).to_json
+end
+
+get '/xhrnearbyplacessearch/:lat/:lng/:query' do
+  content_type :json
+  getSearchResultsNearMeFromFoursquare(params[:lat], params[:lng], params[:query], 10, 500).to_json
+end
+
 get '/assess/:venueid' do
   venue = getVenueFromFoursquare(params[:venueid])
   venue_name = venue["response"]["venue"]["name"]
@@ -383,5 +393,36 @@ def getPatcoElevatorStatusJson()
   JSON.generate ["meta" => {"elevators_out" => outages.count, "updated" => date_updated}, "results" => outages]
 end
 
+def getVenueFromFoursquare(venueid) 
+  url = "https://api.foursquare.com/v2/venues/#{venueid}?#{getFsKeySecretVersionString()}"
+  response = RestClient.get url
+  venue = JSON.parse(response)
+  venue
+end
 
+def getNearbyPlacesFromFoursquare(lat, lng, limit, radius) 
+  url = "https://api.foursquare.com/v2/venues/search?ll=#{lat},#{lng}&limit=#{limit}&radius=#{radius}&#{getFsKeySecretVersionString()}" 
+  response = RestClient.get url
+  venue = JSON.parse(response)
+  venue
+end
 
+def getSearchResultsNearMeFromFoursquare(lat, lng, query, limit, radius)
+  url = "https://api.foursquare.com/v2/venues/search?ll=#{lat},#{lng}&query=#{query}&limit=#{limit}&radius=#{radius}&#{getFsKeySecretVersionString()}" 
+  response = RestClient.get url
+  venue = JSON.parse(response)
+  venue
+end
+
+def getSearchResultsRegardlessOfLocation(query, limit) 
+  url = "https://api.foursquare.com/v2/venues/search?limit=#{limit}&#{getFsKeySecretVersionString()}" 
+  response = RestClient.get url
+  venue = JSON.parse(response)
+  venue
+end
+
+def getFsKeySecretVersionString()
+  foursquare_key = ENV['FOURSQUARE_KEY']
+  foursquare_secret = ENV['FOURSQUARE_SECRET']
+  "client_id=#{foursquare_key}&client_secret=#{foursquare_secret}&v=20141015"
+end

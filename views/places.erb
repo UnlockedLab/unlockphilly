@@ -3,7 +3,7 @@
 <div style="width:100%;margin-bottom:20px">
     <div class="col-xs-12 col-sm-6 col-md-6" style="margin:0 auto; float:none">
         <div>
-            <button alt="Near Me" class="btn btn-default" style="width:25%;float:left;padding:6px 2%" onclick="showlocation('search');">Near Me</button>
+            <button alt="Near Me" class="btn btn-default" style="width:25%;float:left;padding:6px 2%" onclick="showlocation('nearby');">Near Me</button>
             <div class="input-group" style="width:55%; padding-left:10px; float:left">
                 <div class="input-group-addon">or at</div>
                 <input type="text" class="form-control" placeholder="Place Name or Location" id="searchquery" onkeyup="if(window.event.keyCode == 13) showlocation('search');">
@@ -13,8 +13,11 @@
             <div id="powered" class="row text-right">
             	<img alt='Powered by Foursquare icon, results will appear below here' src='/images/logo/poweredByFoursquare_gray.png' width='175'>
             </div>    
+            <div id="geoLocating" class="row text-center" style="display:none">
+                Getting Location
+            </div>
             <div id="loadingImage" class="row text-center" style="display:none">
-                <img src = "/images/ajax-loader.gif" />
+                <img alt='loading search results' src = "/images/ajax-loader.gif" />
             </div>
         </div>
         
