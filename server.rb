@@ -66,7 +66,7 @@ end
 
 get '/xhrnearbyplacessearch/:lat/:lng/:query' do
   content_type :json
-  getSearchResultsNearMeFromFoursquare(params[:lat], params[:lng], params[:query], 10, 500).to_json
+  getSearchResultsNearMeFromFoursquare(params[:lat], params[:lng], params[:query], 10, 5000).to_json
 end
 
 get '/assess/:venueid' do
