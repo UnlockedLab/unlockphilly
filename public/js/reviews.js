@@ -1,6 +1,7 @@
 function showlocation(searchType) {
 		var apiAddress = "";
 		$("#loadingImage").hide();
+		$("#geoLocating").hide();
 		$('.results').empty();
 		if (searchType == 'nearby') {
 			// geolocate and nearby
