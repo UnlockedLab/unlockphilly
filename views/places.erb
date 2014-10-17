@@ -3,10 +3,11 @@
 <div style="width:100%;margin-bottom:20px">
     <div class="col-xs-12 col-sm-6 col-md-6" style="margin:0 auto; float:none">
         <div>
-            <button alt="Near Me" class="btn btn-default" style="width:25%;float:left;padding:6px 2%" onclick="showlocation('nearby');">Near Me</button>
+        	
+            <button alt="Near Me (using your location)" class="btn btn-default" style="width:25%;float:left;padding:6px 2%" onclick="showlocation('nearby');">Nearby</button>
             <div class="input-group" style="width:55%; padding-left:10px; float:left">
                 <div class="input-group-addon">or</div>
-                <input type="text" class="form-control" placeholder="find by name (anywhere in Philly)" id="searchquery" onkeyup="if(window.event.keyCode == 13) showlocation('search');">
+                <input type="text" class="form-control" placeholder="find by name (uses location 'Philadelphia')" id="searchquery" onkeyup="if(window.event.keyCode == 13) showlocation('search');">
             </div>
             <button alt="Submit Location or Place Name" class="btn btn-default" style="padding:6px 2%;margin-top:0px;margin-left:10px;width:15%;float:left" onclick="showlocation('search');">GO</button>
             <div style="clear:both"></div>
@@ -14,7 +15,7 @@
             	<img alt='Powered by Foursquare icon, results will appear below here' src='/images/logo/poweredByFoursquare_gray.png' width='175'>
             </div>    
             <div id="geoLocating" class="row text-center" style="display:none">
-                Getting location (tip: type in 'find by name' and click GO if this search is unsuccessful)<br/>
+                Getting location (tip: you will be prompted to confirm the first time you do this: if you don't want to use your location or your experience delays, use 'find by name' search box and click GO)<br/>
                 <img alt='loading search results' src = "/images/ajax-loader.gif" />
             </div>
             <div id="loadingImage" class="row text-center" style="display:none">
@@ -24,6 +25,6 @@
         </div>
         
         <!--<div style="clear:both"></div>-->
-        <div class="results"></div>        
+        <div class="results"></div>      
     </div>
 </div>
