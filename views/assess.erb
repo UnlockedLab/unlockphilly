@@ -1,7 +1,8 @@
-<h3 id="heading">Assessing <%= venue_name %> (<%= venue_type %>)</h3>
+<h3 id="heading">This is mock-up, no data is collected! Assessing <%= venue_name %> (<%= venue_type %>)</h3>
 <div style="width:100%;margin-bottom:20px" class="form-inline">
 	<form id="form-post-reviews" action="/assessment" method="post" style="float:none; margin: 0 auto;">
 		<script type="application/javascript">var venueId ='<%= venueid %>';
+		
 		</script>
 		<div id="venueheader"></div>
 		<div style="clear:both"></div>
@@ -15,16 +16,19 @@
 								<legend>
 									Is the <strong>main entrance</strong> wheelchair accessible? (choose one)
 								</legend>
-								<input id="yes_entrance" type="radio" name="entrance" value="yes" required/>
+								<input id='venueid' type='hidden' name='_id' value='<%= venueid %>'/>
+								<input id='venuename' type='hidden' name='venue_name' value='<%= venue_name %>'/>
+								<input id='venuetype' type='hidden' name='venue_type' value='<%= venue_type %>'/>
+								<input id="yes_entrance" type="radio" name="main_entrance_accessible" value="yes_wide_with_good_ramp" required/>
 								<label for="yes_entrance">Yes, wide with good ramp</label>
 								<br>
-								<input id="2plus_steps" type="radio" name="entrance" value="2plus_steps"/>
+								<input id="2plus_steps" type="radio" name="main_entrance_accessible" value="no_two+_steps"/>
 								<label for="2plus_steps">No, there are 2+ steps</label>
 								<br>
-								<input id="1_step" type="radio" name="entrance" value="1_step"/>
+								<input id="1_step" type="radio" name="main_entrance_accessible" value="no_1_step"/>
 								<label for="1_step">No, there is 1 step</label>
 								<br>
-								<input id="no_main" type="radio" name="entrance" value="no_other"/>
+								<input id="no_main" type="radio" name="main_entrance_accessible" value="no_other_reason"/>
 								<label for="no_main">No for other reason</label>
 							</fieldset>
 						</div>
@@ -35,16 +39,16 @@
 								<legend>
 									Please describe the <strong>main door</strong> (choose one)
 								</legend>
-								<input id="wide_light" type="radio" name="door" value="wide_light" required/>
+								<input id="wide_light" type="radio" name="main_door" value="wide_and_light" required/>
 								<label for="wide_light">Wide and light</label>
 								<br>
-								<input id="too_narrow" type="radio" name="door" value="too_narrow"/>
+								<input id="too_narrow" type="radio" name="main_door" value="too_narrow"/>
 								<label for="too_narrow">Too Narrow</label>
 								<br>
-								<input id="heavy_awkward" type="radio" name="door" value="mushrooms"/>
+								<input id="heavy_awkward" type="radio" name="main_door" value="heavy_and_awkward"/>
 								<label for="heavy_awkward">Heavy and awkward</label>
 								<br>
-								<input id="na_door" type="radio" name="door" value="mushrooms"/>
+								<input id="na_door" type="radio" name="door" value="N_A"/>
 								<label for="na_door">N/A</label>
 							</fieldset>
 						</div>
@@ -53,18 +57,18 @@
 						<div>
 							<fieldset class='lead'>
 								<legend>
-									If the main entrance is inaccessible, is there <strong>2nd wheelchair accessible entrance</strong>? (choose one)
+									If the main entrance is inaccessible, is there <strong>alternative wheelchair accessible entrance</strong>? (choose one)
 								</legend>
-								<input id="rear" type="radio" name="alt_entrance" value="rear"/>
+								<input id="rear" type="radio" name="alt_accessible_entrance_ava" value="yes_at_rear"/>
 								<label for="rear">Yes, at the rear</label>
 								<br>
-								<input id="side" type="radio" name="alt_entrance" value="side"/>
+								<input id="side" type="radio" name="alt_accessible_entrance_ava" value="yes_at_side"/>
 								<label for="side">Yes, at the side</label>
 								<br>
-								<input id="no_alt" type="radio" name="alt_entrance" value="no"/>
-								<label for="no_alt">No way to enter venue</label>
+								<input id="no_alt" type="radio" name="alt_accessible_entrance_ava" value="no_way_to_enter_place"/>
+								<label for="no_alt">No way to enter place</label>
 								<br>
-								<input id="na_alt" type="radio" name="alt_entrance" value="na"/>
+								<input id="na_alt" type="radio" name="alt_accessible_entrance_ava" value="alt_not_needed"/>
 								<label for="na_alt">Alternative not needed</label>
 							</fieldset>
 						</div>
@@ -75,13 +79,13 @@
 								<legend>
 									Are there clear <strong>accessibility signs</strong> inside/outside? (choose one)
 								</legend>
-								<input id="yes_with_braille" type="radio" name="signs" value="yes_with_braille" required/>
+								<input id="yes_with_braille" type="radio" name="accessibility_signs" value="yes" required/>
 								<label for="yes_with_braille">Yes</label>
 								<br>
-								<input id="no_signs" type="radio" name="signs" value="no_signs"/>
+								<input id="no_signs" type="radio" name="accessibility_signs" value="no"/>
 								<label for="no_signs">No signs</label>
 								<br>
-								<input id="ltd_signs" type="radio" name="signs" value="ltd_signs"/>
+								<input id="ltd_signs" type="radio" name="accessibility_signs" value="limited"/>
 								<label for="ltd_signs">Limited</label>
 							</fieldset>
 						</div>
@@ -92,16 +96,16 @@
 								<legend>
 									Are the <strong>restrooms</strong> wheelchair accessible? (choose one)
 								</legend>
-								<input id="yes_restrooms" type="radio" name="restrooms" value="yes" required/>
+								<input id="yes_restrooms" type="radio" name="restrooms_accessible" value="yes_spacious_w_grab_bars" required/>
 								<label for="yes_restrooms">Yes, spacious w/ grab bars</label>
 								<br>
-								<input id="no_rest_narrow" type="radio" name="restrooms" value="no_narrow"/>
+								<input id="no_rest_narrow" type="radio" name="restrooms_accessible" value="no_entrance_too_narrow"/>
 								<label for="no_rest_narrow">No, entrance too narrow</label>
 								<br>
-								<input id="no_rest_space" type="radio" name="restrooms" value="no_space"/>
+								<input id="no_rest_space" type="radio" name="restrooms_accessible" value="no_insufficient_space"/>
 								<label for="no_rest_space">No, insufficient space</label>
 								<br>
-								<input id="no_rest_ava" type="radio" name="restrooms" value="not_ava"/>
+								<input id="no_rest_ava" type="radio" name="restrooms_accessible" value="n_a"/>
 								<label for="no_rest_ava">N/A</label>
 							</fieldset>
 						</div>
@@ -112,10 +116,10 @@
 								<legend>
 									Is the <strong>seating area</strong> wheelchair accessible? (choose one)
 								</legend>
-								<input id="yes_seating" type="radio" name="seating" value="yes_seating" required/>
+								<input id="yes_seating" type="radio" name="seating" value="yes_correct_height" required/>
 								<label for="yes_seating">Yes, correct height</label>
 								<br>
-								<input id="no_seating" type="radio" name="seating" value="no_seating"/>
+								<input id="no_seating" type="radio" name="seating" value="no_not_accessible"/>
 								<label for="no_seating">No, not accessible</label>
 								<br>
 								<input id="na_seating" type="radio" name="seating" value="no_seating"/>
@@ -129,13 +133,13 @@
 								<legend>
 									Please describe the <strong>noise level</strong> (choose one)
 								</legend>
-								<input id="quiet_noise" type="radio" name="noise" value="quiet_noise" required/>
+								<input id="quiet_noise" type="radio" name="noise_level" value="quiet" required/>
 								<label for="quiet_noise">Quiet</label>
 								<br>
-								<input id="moderate_noise" type="radio" name="noise" value="moderate_noise"/>
+								<input id="moderate_noise" type="radio" name="noise_level" value="moderate"/>
 								<label for="moderate_noise">Moderate</label>
 								<br>
-								<input id="loud_noise" type="radio" name="noise" value="loud_noise"/>
+								<input id="loud_noise" type="radio" name="noise_level" value="quiet"/>
 								<label for="loud_noise">Loud</label>
 							</fieldset>
 						</div>
@@ -145,19 +149,19 @@
 							<legend>
 								Please select as many of the following items that are available
 							</legend>
-							<input id="braille_signs" type="checkbox" name="visual" value="braille_signs">
+							<input id="braille_signs" type="checkbox" name="accessibility_extras[]" value="braille_signs">
 							<label for="braille_signs">Braille signs</label>
 							<br>
-							<input id="braille_menus" type="checkbox" name="visual" value="braille_signs">
+							<input id="braille_menus" type="checkbox" name="accessibility_extras[]" value="braille_menus">
 							<label for="braille_menus">Braille menus</label>
 							<br>
-							<input id="braille_leaflets" type="checkbox" name="visual" value="braille_leaflets">
+							<input id="braille_leaflets" type="checkbox" name="accessibility_extras[]" value="braille_leaflets">
 							<label for="braille_leaflets">Braille leaflets</label>
 							<br>
-							<input id="tactile_maps" type="checkbox" name="visual" value="tactile_maps">
+							<input id="tactile_maps" type="checkbox" name="accessibility_extras[]" value="tactile_maps">
 							<label for="tactile_maps">Tactile maps</label>
 							<br>
-							<input id="e_audio_guides" type="checkbox" name="visual" value="e_audio_guides">
+							<input id="e_audio_guides" type="checkbox" name="accessibility_extras[]" value="electronic_audio_guides">
 							<label for="e_audio_guides">Electronic audio guides</label>
 						</fieldset>
 					</li>				

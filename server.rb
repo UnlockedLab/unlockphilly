@@ -85,7 +85,9 @@ get '/postreviews/:venueid' do
 end
 
 post '/assessment' do
-  erb :assessment, :locals => {:page => "assessment", :page_title => "Thanks for your help!"}
+  
+  pretty_json = JSON.pretty_generate(params)
+  erb :assessment, :locals => {:page => "assessment", :page_title => "Thanks for your help!", :assessment_contents => params, :pretty_json => pretty_json}
 end
 
 get '/station/:stationid' do
