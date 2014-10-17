@@ -69,6 +69,12 @@ get '/xhrnearbyplacessearch/:lat/:lng/:query' do
   getSearchResultsNearMeFromFoursquare(params[:lat], params[:lng], params[:query], 10, 5000).to_json
 end
 
+
+get '/xhrplacesnearnamedplace/:query/:near' do
+  content_type :json
+  getSearchResultsNearNamedPlace(URI.encode(params[:query]), params[:near], 20).to_json
+end
+
 get '/assess/:venueid' do
   venue = getVenueFromFoursquare(params[:venueid])
   venue_name = venue["response"]["venue"]["name"]
@@ -86,8 +92,9 @@ end
 
 post '/assessment' do
   
-  pretty_json = JSON.pretty_generate(params)
-  erb :assessment, :locals => {:page => "assessment", :page_title => "Thanks for your help!", :assessment_contents => params, :pretty_json => pretty_json}
+  @pretty_json = JSON.pretty_generate(params)
+  @assessment = params
+  erb :assessment, :locals => {:page => "assessment", :page_title => "Thanks for your help!"}
 end
 
 get '/station/:stationid' do
@@ -404,6 +411,7 @@ end
 
 def getNearbyPlacesFromFoursquare(lat, lng, limit, radius) 
   url = "https://api.foursquare.com/v2/venues/search?ll=#{lat},#{lng}&limit=#{limit}&radius=#{radius}&#{getFsKeySecretVersionString()}" 
+  puts url
   response = RestClient.get url
   venue = JSON.parse(response)
   venue
@@ -416,8 +424,9 @@ def getSearchResultsNearMeFromFoursquare(lat, lng, query, limit, radius)
   venue
 end
 
-def getSearchResultsRegardlessOfLocation(query, limit) 
-  url = "https://api.foursquare.com/v2/venues/search?limit=#{limit}&#{getFsKeySecretVersionString()}" 
+def getSearchResultsNearNamedPlace(query, near, limit) 
+  url = "https://api.foursquare.com/v2/venues/search?query=#{query}&near=#{near}&limit=#{limit}&#{getFsKeySecretVersionString()}" 
+  puts url
   response = RestClient.get url
   venue = JSON.parse(response)
   venue

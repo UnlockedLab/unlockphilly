@@ -1,22 +1,28 @@
 function showlocation(searchType) {
-    // One-shot position request.
-    var apiAddress = "";
-    $("#geoLocating").show();
-    $('.results').empty();
-    navigator.geolocation.getCurrentPosition(function(position) {
-    	$("#geoLocating").hide();
-    	$("#loadingImage").show();
-	    if(searchType == 'nearby') {
-	    	apiAddress = "/xhrnearbyplaces/" + position.coords.latitude + "/" + position.coords.longitude;
-	    }
-	    else if(searchType == 'search') { 
-	    	apiAddress = "/xhrnearbyplacessearch/" + position.coords.latitude + "/" + position.coords.longitude + "/" + $('#searchquery').val();
-	    }
-	    fetchData(apiAddress);
-    });
+		var apiAddress = "";
+		$("#loadingImage").hide();
+		$('.results').empty();
+		if (searchType == 'nearby') {
+			// geolocate and nearby
+			$("#geoLocating").show();
+			navigator.geolocation.getCurrentPosition(function(position) {
+				$("#geoLocating").hide();
+				apiAddress = "/xhrnearbyplaces/" + position.coords.latitude + "/" + position.coords.longitude;
+				fetchData(apiAddress);
+			});
+		} else if (searchType == 'search' && ($('#searchquery').val() + "").length > 0) {
+			// search text in area
+			apiAddress = "/xhrplacesnearnamedplace/" + $('#searchquery').val() + "/" + "Philadelphia,PA";
+			fetchData(apiAddress);
+		} else {
+			// anything else
+			showNoResults();
+		}
+
 }
 
 function fetchData(apiAddress) {
+	$("#loadingImage").hide();
     $.ajax({
       url: apiAddress,
       dataType: 'json',
@@ -24,22 +30,34 @@ function fetchData(apiAddress) {
       cache: false,
       success: function(data) {
         $("#loadingImage").hide();
-          $.each(data.response.venues, function(i,venues){
-            var contents = "";
-            contents += '<div class="row text-center">';
-            contents += '<h4><a alt="Click to assess accessibility" href="/assess/' + venues.id +'">' + venues.name + ' (' + venues.categories[0].name + ')</a></h4>';
-            if(venues.location.address != null) contents += venues.location.address + ' ';
-            if(venues.location.city != null) contents += venues.location.city + ' ';
-            if(venues.location.state != null) contents += venues.location.state + ' ';
-            if(venues.location.postalCode != null) contents += venues.location.postalCode + '';
-            if(venues.location.distance != null) contents += '<br>(approx ' + Math.floor(venues.location.distance*3.28084) + ' feet from your location)';
-            contents += '</div>';
-
-            contents += '<div style="clear:both"></div><br />';
-            $('.results').append(contents);
-        });
+          if (data.response.venues.length == 0) {
+          	showNoResults;
+          } else {
+          	  var contents = "";
+	          $.each(data.response.venues, function(i,venue){
+	          	contents = "";
+	            contents += '<div class="row text-center">';
+	            contents += '<h4><a alt="Click to assess accessibility" href="/assess/' + venue.id +'">' + venue.name + ' (' + ((venue.categories[0] != null) ? venue.categories[0].name : '?') + ')</a></h4>';
+	            if(venue.location.address != null) contents += venue.location.address + ' ';
+	            if(venue.location.city != null) contents += venue.location.city + ' ';
+	            if(venue.location.state != null) contents += venue.location.state + ' ';
+	            if(venue.location.postalCode != null) contents += venue.location.postalCode + '';
+	            if(venue.location.distance != null) contents += '<br>(approx ' + Math.floor(venue.location.distance*3.28084) + ' feet from your location)';
+	            contents += '</div>';
+	            contents += '<div style="clear:both"></div><br />';
+	            console.log('appending ' + contents)
+	            $('.results').append(contents);
+              });
+          }
       }
     });
+}
+
+function showNoResults() {
+	var noResults = ""
+    noResults += '<div class="row text-center">';
+    noResults += '<h4>No results, try a different search term</h4></div>';
+    $('.results').append(noResults);
 }
 
 $(document).ready(function() {
