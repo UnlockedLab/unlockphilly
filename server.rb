@@ -426,7 +426,6 @@ end
 
 def getSearchResultsNearNamedPlace(query, near, limit) 
   url = "https://api.foursquare.com/v2/venues/search?query=#{query}&near=#{near}&limit=#{limit}&#{getFsKeySecretVersionString()}" 
-  puts url
   response = RestClient.get url
   venue = JSON.parse(response)
   venue

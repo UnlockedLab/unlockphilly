@@ -21,16 +21,19 @@
 								<input id='venuename' type='hidden' name='venue_name' value='<%= venue_name %>'/>
 								<input id='venuetype' type='hidden' name='venue_type' value='<%= venue_type %>'/>
 								<input id="yes_entrance" type="radio" name="main_entrance_accessible" value="yes_wide_with_good_ramp" required/>
-								<label for="yes_entrance">Yes, wide with good ramp</label>
+								<label for="yes_entrance">YES - wide door with good ramp</label>
 								<br>
-								<input id="2plus_steps" type="radio" name="main_entrance_accessible" value="no_two+_steps"/>
-								<label for="2plus_steps">No, there are 2+ steps</label>
+								<input id="limited_tight_door" type="radio" name="main_entrance_accessible" value="limited_tight_door_andor_subpar_ramp"/>
+								<label for="limited_tight_door">LIMITED - tight door and/or subpar ramp</label>
 								<br>
-								<input id="1_step" type="radio" name="main_entrance_accessible" value="no_1_step"/>
-								<label for="1_step">No, there is 1 step</label>
+								<input id="limited_one_step_port_ramp" type="radio" name="main_entrance_accessible" value="limited_one_step_port_ramp"/>
+								<label for="limited_one_step_port_ramp">LIMITED - one step, portable ramp available</label>
 								<br>
-								<input id="no_main" type="radio" name="main_entrance_accessible" value="no_other_reason"/>
-								<label for="no_main">No for other reason</label>
+								<input id="limited_one_no_ramp" type="radio" name="main_entrance_accessible" value="limited_one_step_no_ramp"/>
+								<label for="limited_one_no_ramp">LIMITED - one step, no ramp</label>
+								<br>
+								<input id="no_main" type="radio" name="main_entrance_accessible" value="no"/>
+								<label for="no_main">NO - door too narrow, 2+ steps, etc.</label>
 							</fieldset>
 						</div>
 					</li>
@@ -38,19 +41,25 @@
 						<div>
 							<fieldset class='lead'>
 								<legend>
-									Please describe the <strong>main door</strong> (choose one)
+									Is the <strong>main door</strong> easy to use? (choose one)
 								</legend>
-								<input id="wide_light" type="radio" name="main_door" value="wide_and_light" required/>
-								<label for="wide_light">Wide and light</label>
+								<input id="yes_power_assist_door" type="radio" name="main_door" value="yes_power_assist_door" required/>
+								<label for="yes_power_assist_door">YES - power assist door</label>
 								<br>
-								<input id="too_narrow" type="radio" name="main_door" value="too_narrow"/>
-								<label for="too_narrow">Too Narrow</label>
+								<input id="limited_wide_and_light" type="radio" name="main_door" value="limited_wide_and_light"/>
+								<label for="limited_wide_and_light">LIMITED - wide and light</label>
 								<br>
-								<input id="heavy_awkward" type="radio" name="main_door" value="heavy_and_awkward"/>
-								<label for="heavy_awkward">Heavy and awkward</label>
+								<input id="limited_kinda_heavy" type="radio" name="main_door" value="limited_kinda_heavy"/>
+								<label for="limited_kinda_heavy">LIMITED - kinda heavy</label>
 								<br>
-								<input id="na_door" type="radio" name="main_door" value="N_A"/>
-								<label for="na_door">N/A</label>
+								<input id="limited_kinda_narrow" type="radio" name="main_door" value="limited_kinda_narrow"/>
+								<label for="limited_kinda_narrow">LIMITED - kinda narrow</label>
+								<br>
+								<input id="no_narrow" type="radio" name="main_door" value="no_narrow_andor_too_heavy"/>
+								<label for="no_narrow">NO - too narrow and/or too heavy</label>
+								<br>
+								<input id="na_door" type="radio" name="main_door" value="no_door"/>
+								<label for="na_door">N/A - No door at this place</label>
 							</fieldset>
 						</div>
 					</li>
@@ -58,19 +67,19 @@
 						<div>
 							<fieldset class='lead'>
 								<legend>
-									If the main entrance is inaccessible, is there <strong>alternative wheelchair accessible entrance</strong>? (choose one)
+									If the main entrance is inaccessible, is there a <strong>separate wheelchair accessible entrance</strong>? (choose one)
 								</legend>
-								<input id="rear" type="radio" name="alt_accessible_entrance_ava" value="yes_at_rear"/>
-								<label for="rear">Yes, at the rear</label>
+								<input id="rear" type="radio" name="alt_accessible_entrance_ava" value="yes_at_rear" required/>
+								<label for="rear">YES - at the rear</label>
 								<br>
 								<input id="side" type="radio" name="alt_accessible_entrance_ava" value="yes_at_side"/>
-								<label for="side">Yes, at the side</label>
+								<label for="side">YES - at the side</label>
 								<br>
-								<input id="no_alt" type="radio" name="alt_accessible_entrance_ava" value="no_way_to_enter_place"/>
-								<label for="no_alt">No way to enter place</label>
+								<input id="no_alt" type="radio" name="alt_accessible_entrance_ava" value="no_accessible_entrance"/>
+								<label for="no_alt">NO - no accessible entrance</label>
 								<br>
 								<input id="na_alt" type="radio" name="alt_accessible_entrance_ava" value="alt_not_needed"/>
-								<label for="na_alt">Alternative not needed</label>
+								<label for="na_alt">N/A - main entrance is accessible, no alt needed</label>
 							</fieldset>
 						</div>
 					</li>
@@ -78,16 +87,39 @@
 						<div>
 							<fieldset class='lead'>
 								<legend>
-									Are there clear <strong>accessibility signs</strong> inside/outside? (choose one)
+									Is the separate accessible entrance well marked? (choose one)
 								</legend>
-								<input id="yes_with_braille" type="radio" name="accessibility_signs" value="yes" required/>
-								<label for="yes_with_braille">Yes</label>
+								<input id="yes_clear_visible_signs" type="radio" name="accessibility_signs" value="yes_clear_visible_signs" required/>
+								<label for="yes_clear_visible_signs">YES - clear, visible sign(s)</label>
 								<br>
-								<input id="no_signs" type="radio" name="accessibility_signs" value="no"/>
-								<label for="no_signs">No signs</label>
+								<input id="limited_signs" type="radio" name="accessibility_signs" value="limited_confusing_andor_obscurely_placed"/>
+								<label for="limited_signs">LIMITED - signs are confusing and/or obscurely placed</label>
 								<br>
-								<input id="ltd_signs" type="radio" name="accessibility_signs" value="limited"/>
-								<label for="ltd_signs">Limited</label>
+								<input id="no_signs" type="radio" name="accessibility_signs" value="no_signs"/>
+								<label for="no_signs">NO - no signs at all</label>
+								<br>
+								<input id="na_signs" type="radio" name="accessibility_signs" value="alt_not_needed"/>
+								<label for="na_signs">N/A - main entrance is accessible, no alt needed</label>
+							</fieldset>
+						</div>
+					</li>
+					<li class='list-group-item'>
+						<div>
+							<fieldset class='lead'>
+								<legend>
+									Is the interior easy to navigate? (choose one)
+								</legend>
+								<input id="yes_easy_nav" type="radio" name="easy_navigation" value="yes_pathways_wide_and_clear" required/>
+								<label for="yes_easy_nav">YES - all pathways are wide and clear</label>
+								<br>
+								<input id="limited_narrow" type="radio" name="easy_navigation" value="limited_some_narrow_pathways"/>
+								<label for="limited_narrow">LIMITED - some narrow pathways</label>
+								<br>
+								<input id="limited_not_all_areas" type="radio" name="easy_navigation" value="limited_not_all_areas_accessible"/>
+								<label for="limited_not_all_areas">LIMITED - not all areas accessible</label>
+								<br>
+								<input id="no_all_narrow" type="radio" name="easy_navigation" value="no_all_paths_narrow"/>
+								<label for="no_all_narrow">NO - all pathways are narrow </label>
 							</fieldset>
 						</div>
 					</li>
@@ -97,17 +129,20 @@
 								<legend>
 									Are the <strong>restrooms</strong> wheelchair accessible? (choose one)
 								</legend>
-								<input id="yes_restrooms" type="radio" name="restrooms_accessible" value="yes_spacious_w_grab_bars" required/>
-								<label for="yes_restrooms">Yes, spacious w/ grab bars</label>
+								<input id="yes_spacious_grab" type="radio" name="restrooms_accessible" value="yes_spacious_w_grab_bars" required/>
+								<label for="yes_spacious_grab">YES - spacious, good grab bars</label>
 								<br>
-								<input id="no_rest_narrow" type="radio" name="restrooms_accessible" value="no_entrance_too_narrow"/>
-								<label for="no_rest_narrow">No, entrance too narrow</label>
+								<input id="limited_no_grab_bars" type="radio" name="restrooms_accessible" value="limited_no_grab_bars"/>
+								<label for="limited_no_grab_bars">LIMITED - no grab bars</label>
 								<br>
-								<input id="no_rest_space" type="radio" name="restrooms_accessible" value="no_insufficient_space"/>
-								<label for="no_rest_space">No, insufficient space</label>
+								<input id="limited_kinda_small" type="radio" name="restrooms_accessible" value="limited_kinda_small"/>
+								<label for="limited_kinda_small">LIMITED - kinda small</label>
 								<br>
-								<input id="no_rest_ava" type="radio" name="restrooms_accessible" value="n_a"/>
-								<label for="no_rest_ava">N/A</label>
+								<input id="no_too_small" type="radio" name="restrooms_accessible" value="no_too_small"/>
+								<label for="no_too_small">NO - too small</label>
+								<br>
+								<input id="no_rest_ava" type="radio" name="restrooms_accessible" value="no_rest_ava"/>
+								<label for="no_rest_ava">N/A - no restroom available</label>
 							</fieldset>
 						</div>
 					</li>
@@ -115,16 +150,16 @@
 						<div>
 							<fieldset class='lead'>
 								<legend>
-									Is the <strong>seating area</strong> wheelchair accessible? (choose one)
+									Is the staff responsive to your needs? (choose one)
 								</legend>
-								<input id="yes_seating" type="radio" name="seating" value="yes_correct_height" required/>
-								<label for="yes_seating">Yes, correct height</label>
+								<input id="yes_attentive" type="radio" name="staff_reponsive" value="yes" required/>
+								<label for="yes_attentive">YES</label>
 								<br>
-								<input id="no_seating" type="radio" name="seating" value="no_not_accessible"/>
-								<label for="no_seating">No, not accessible</label>
+								<input id="limited_attentive" type="radio" name="staff_reponsive" value="limited"/>
+								<label for="limited_attentive">LIMITED</label>
 								<br>
-								<input id="na_seating" type="radio" name="seating" value="no_seating"/>
-								<label for="na_seating">N/A</label>
+								<input id="no_attentive" type="radio" name="staff_reponsive" value="no"/>
+								<label for="no_attentive">NO</label>
 							</fieldset>
 						</div>
 					</li>
@@ -132,7 +167,7 @@
 						<div>
 							<fieldset class='lead'>
 								<legend>
-									Please describe the <strong>noise level</strong> (choose one)
+									Describe the <strong>noise level</strong> (choose one)
 								</legend>
 								<input id="quiet_noise" type="radio" name="noise_level" value="quiet" required/>
 								<label for="quiet_noise">Quiet</label>
@@ -140,31 +175,10 @@
 								<input id="moderate_noise" type="radio" name="noise_level" value="moderate"/>
 								<label for="moderate_noise">Moderate</label>
 								<br>
-								<input id="loud_noise" type="radio" name="noise_level" value="quiet"/>
+								<input id="loud_noise" type="radio" name="noise_level" value="loud"/>
 								<label for="loud_noise">Loud</label>
 							</fieldset>
 						</div>
-					</li>
-					<li class='list-group-item'>
-                        <fieldset class="lead">
-							<legend>
-								Please select as many of the following items that are available
-							</legend>
-							<input id="braille_signs" type="checkbox" name="accessibility_extras[]" value="braille_signs">
-							<label for="braille_signs">Braille signs</label>
-							<br>
-							<input id="braille_menus" type="checkbox" name="accessibility_extras[]" value="braille_menus">
-							<label for="braille_menus">Braille menus</label>
-							<br>
-							<input id="braille_leaflets" type="checkbox" name="accessibility_extras[]" value="braille_leaflets">
-							<label for="braille_leaflets">Braille leaflets</label>
-							<br>
-							<input id="tactile_maps" type="checkbox" name="accessibility_extras[]" value="tactile_maps">
-							<label for="tactile_maps">Tactile maps</label>
-							<br>
-							<input id="e_audio_guides" type="checkbox" name="accessibility_extras[]" value="electronic_audio_guides">
-							<label for="e_audio_guides">Electronic audio guides</label>
-						</fieldset>
 					</li>				
 					<li class='list-group-item'>
 						<div align='center'>
