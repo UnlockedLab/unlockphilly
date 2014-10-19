@@ -411,7 +411,6 @@ end
 
 def getNearbyPlacesFromFoursquare(lat, lng, limit, radius) 
   url = "https://api.foursquare.com/v2/venues/search?ll=#{lat},#{lng}&limit=#{limit}&radius=#{radius}&#{getFsKeySecretVersionString()}" 
-  puts url
   response = RestClient.get url
   venue = JSON.parse(response)
   venue
