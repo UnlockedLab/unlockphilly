@@ -77,6 +77,7 @@ end
 
 get '/assess/:venueid' do
   venue = getVenueFromFoursquare(params[:venueid])
+  pp venue
   venue_name = venue["response"]["venue"]["name"]
   venue_type = venue["response"]["venue"]["categories"][0]["name"]
   erb :assess, :locals => {:page => "assess", :page_title => "Assessing #{venue_name}, #{venue_type}", :venueid => params[:venueid], :venue => venue["response"]["venue"], :venue_name => venue_name, :venue_type => venue_type}
@@ -97,7 +98,8 @@ post '/assessment' do
 end
 
 post '/postassessment' do
-  # save to db
+  assessmentsCol = settings.mongo_db['assessments']
+  assessmentsCol.insert(params)
   erb :postassessment, :locals => {:page => "postassessment", :page_title => "Thanks for your help!"}
 end
 
@@ -409,14 +411,12 @@ end
 def getVenueFromFoursquare(venueid) 
   url = "https://api.foursquare.com/v2/venues/#{venueid}?#{getFsKeySecretVersionString()}"
   response = RestClient.get url
-  logger.info(url)
   venue = JSON.parse(response)
   venue
 end
 
 def getNearbyPlacesFromFoursquare(lat, lng, limit, radius) 
   url = "https://api.foursquare.com/v2/venues/search?ll=#{lat},#{lng}&limit=#{limit}&radius=#{radius}&#{getFsKeySecretVersionString()}" 
-  logger.info(url)
   response = RestClient.get url
   venue = JSON.parse(response)
   venue
@@ -432,7 +432,6 @@ end
 def getSearchResultsNearNamedPlace(query, near, limit) 
   url = "https://api.foursquare.com/v2/venues/search?query=#{query}&near=#{near}&limit=#{limit}&#{getFsKeySecretVersionString()}" 
   response = RestClient.get url
-  logger.info(url)
   venue = JSON.parse(response)
   venue
 end

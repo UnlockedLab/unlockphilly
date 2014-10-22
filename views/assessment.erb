@@ -1,10 +1,12 @@
 <h4 class="text-center">This is a usability mock-up for internal test purposes</h3>
-<h3>Your assessment</h3>
+<h3>Your assessment for <%= @assessment['venue_name'] %></h3>
 
 <div style="width:100%;margin-bottom:20px" class="form-inline">
 
 <pre>
-<%= @pretty_json %>
+<% @assessment.each do |k, v| %>
+<% if (k != 'venue_id' && k != 'venue_name' && k != 'venue_type' && k != 'venue_lat' && k != 'venue_lng') %><%= k.gsub('_',' ') %>: <%= v.gsub('_',' ') %><br/><% end %>
+<% end %>
 </pre>
 
 <pre>
@@ -14,7 +16,8 @@ Assessment will be saved for internal testing use only.
 <div>
 	<form id="form-post-reviews" action="/postassessment" method="post" style="float:none; margin: 0 auto;">
 	<label for'trialkey'>Trial Key</label><input id='trialkey' size="5" name='trialkey'></input>
-	<button type='submit' alt='Agree and submit'>Confirm</button>
+	<% @assessment.each do |k, v| %><input type='hidden' name='<%= k %>' value='<%= v %>' />
+	<% end %><button type='submit' alt='Agree and submit'>Confirm</button>
 	</div>
 	</form>
 

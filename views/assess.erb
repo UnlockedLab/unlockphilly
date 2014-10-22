@@ -17,9 +17,11 @@
 								<legend>
 									Is the <strong>main entrance</strong> wheelchair accessible? (choose one)
 								</legend>
-								<input id='venueid' type='hidden' name='_id' value='<%= venueid %>'/>
+								<input id='venueid' type='hidden' name='venue_id' value='<%= venueid %>'/>
 								<input id='venuename' type='hidden' name='venue_name' value='<%= venue_name %>'/>
 								<input id='venuetype' type='hidden' name='venue_type' value='<%= venue_type %>'/>
+								<input id='venueloc' type='hidden' name='venue_lat' value='<%= venue["location"]["lat"] %>'/>
+								<input id='venueloc' type='hidden' name='venue_lng' value='<%= venue["location"]["lng"] %>'/>
 								<input id="yes_entrance" type="radio" name="main_entrance_accessible" value="yes_wide_with_good_ramp" required/>
 								<label for="yes_entrance">YES: wide door, good ramp</label>
 								<br>
