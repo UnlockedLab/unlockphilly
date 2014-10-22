@@ -79,7 +79,7 @@ get '/assess/:venueid' do
   venue = getVenueFromFoursquare(params[:venueid])
   venue_name = venue["response"]["venue"]["name"]
   venue_type = venue["response"]["venue"]["categories"][0]["name"]
-  erb :assess, :locals => {:page => "assess", :page_title => "Assessing #{venue_name}, #{venue_type}", :venueid => params[:venueid], :venue => venue, :venue_name => venue_name, :venue_type => venue_type}
+  erb :assess, :locals => {:page => "assess", :page_title => "Assessing #{venue_name}, #{venue_type}", :venueid => params[:venueid], :venue => venue["response"]["venue"], :venue_name => venue_name, :venue_type => venue_type}
 end
 
 get '/reviews' do
@@ -91,10 +91,14 @@ get '/postreviews/:venueid' do
 end
 
 post '/assessment' do
-  
   @pretty_json = JSON.pretty_generate(params)
   @assessment = params
-  erb :assessment, :locals => {:page => "assessment", :page_title => "Thanks for your help!"}
+  erb :assessment, :locals => {:page => "assessment", :page_title => "Your assessment"}
+end
+
+post '/postassessment' do
+  # save to db
+  erb :postassessment, :locals => {:page => "postassessment", :page_title => "Thanks for your help!"}
 end
 
 get '/station/:stationid' do
@@ -405,12 +409,14 @@ end
 def getVenueFromFoursquare(venueid) 
   url = "https://api.foursquare.com/v2/venues/#{venueid}?#{getFsKeySecretVersionString()}"
   response = RestClient.get url
+  logger.info(url)
   venue = JSON.parse(response)
   venue
 end
 
 def getNearbyPlacesFromFoursquare(lat, lng, limit, radius) 
   url = "https://api.foursquare.com/v2/venues/search?ll=#{lat},#{lng}&limit=#{limit}&radius=#{radius}&#{getFsKeySecretVersionString()}" 
+  logger.info(url)
   response = RestClient.get url
   venue = JSON.parse(response)
   venue
@@ -426,6 +432,7 @@ end
 def getSearchResultsNearNamedPlace(query, near, limit) 
   url = "https://api.foursquare.com/v2/venues/search?query=#{query}&near=#{near}&limit=#{limit}&#{getFsKeySecretVersionString()}" 
   response = RestClient.get url
+  logger.info(url)
   venue = JSON.parse(response)
   venue
 end
