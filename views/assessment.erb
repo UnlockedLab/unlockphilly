@@ -5,7 +5,7 @@
 <div style="width:100%;margin-bottom:20px" class="form-inline">
  
 <% @assessment.each do |k, v| %>
-<% if (k != 'venue_id' && k != 'venue_name' && k != 'venue_type' && k != 'venue_lat' && k != 'venue_lng') %>- <%= k.gsub('_',' ') %>: <%= v.gsub('_',' ') %><br/><% end %>
+<% if (k != 'venue_id' && k != 'venue_name' && k != 'venue_type' && k != 'venue_lat' && k != 'venue_lng') %>- <strong><%= k.gsub('_',' ') %>?</strong> <%= v.gsub('_',' ') %><br/><% end %>
 <% end %>
 </ul>
 
