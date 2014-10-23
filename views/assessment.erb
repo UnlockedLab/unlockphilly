@@ -1,17 +1,17 @@
-<h4 class="text-center">This is a usability mock-up for internal test purposes</h3>
-<h3>Your assessment for <%= @assessment['venue_name'] %></h3>
+<h6 class="text-center">This is a usability mock-up for internal test purposes</h6>
+<h4>Review and confirm...<h4>
+<h4><%= @assessment['venue_name'] %></h4>
 
 <div style="width:100%;margin-bottom:20px" class="form-inline">
-
-<pre>
+ 
 <% @assessment.each do |k, v| %>
-<% if (k != 'venue_id' && k != 'venue_name' && k != 'venue_type' && k != 'venue_lat' && k != 'venue_lng') %><%= k.gsub('_',' ') %>: <%= v.gsub('_',' ') %><br/><% end %>
+<% if (k != 'venue_id' && k != 'venue_name' && k != 'venue_type' && k != 'venue_lat' && k != 'venue_lng') %>- <%= k.gsub('_',' ') %>: <%= v.gsub('_',' ') %><br/><% end %>
 <% end %>
-</pre>
+</ul>
 
-<pre>
-Assessment will be saved for internal testing use only.
-</pre>
+<div class='panel'>
+<strong>Assessment will be saved for internal testing use only.</strong>
+</div>
 
 <div>
 	<form id="form-post-reviews" action="/postassessment" method="post" style="float:none; margin: 0 auto;">
@@ -21,7 +21,5 @@ Assessment will be saved for internal testing use only.
 	</div>
 	</form>
 
-<br>
-<br>
-<h4><a href='/places'>Search for another place</a></h4>
+<h5><a href='/places'>Or go back and find another place</a></h5>
 </div>

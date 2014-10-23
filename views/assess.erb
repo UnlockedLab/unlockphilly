@@ -1,6 +1,6 @@
 <h5><a href='/'>Return to search</a></h5>
-<h4 id="heading">This is a usability mock-up for internal test purposes</h3>
-<h3>Assessing <%= venue_name %> (<%= venue_type %>)</h3>
+<h6 id="heading">This is a usability mock-up for internal test purposes</h6>
+<h3><%= venue_name %> (<%= venue_type %>)</h3>
 <h4><%= venue["location"]["address"] %></h4>
 <div style="width:100%;margin-bottom:20px" class="form-inline">
 	<br/>
@@ -14,9 +14,9 @@
 				
 						<div>
 							<fieldset>
-								<legend>
+								<h4>
 									Is the main entrance wheelchair accessible? (choose one)
-								</legend>
+								</h4>
 								<input id='venueid' type='hidden' name='venue_id' value='<%= venueid %>'/>
 								<input id='venuename' type='hidden' name='venue_name' value='<%= venue_name %>'/>
 								<input id='venuetype' type='hidden' name='venue_type' value='<%= venue_type %>'/>
@@ -41,9 +41,9 @@
 					<br/>
 						<div>
 							<fieldset>
-								<legend>
+								<h4>
 									Is the main door easy to use? (choose one)
-								</legend>
+								</h4>
 								<input id="yes_power_assist_door" type="radio" name="main_door" value="yes_power_assist_door" required/>
 								<label for="yes_power_assist_door">YES: power assist door</label>
 								<br>
@@ -66,9 +66,9 @@
 					<br/>
 						<div>
 							<fieldset>
-								<legend>
+								<h4>
 									If the main entrance is inaccessible, is there a separate wheelchair accessible entrance? (choose one)
-								</legend>
+								</h4>
 								<input id="rear" type="radio" name="alt_accessible_entrance_ava" value="yes_at_rear" required/>
 								<label for="rear">YES - at the rear</label>
 								<br>
@@ -85,9 +85,9 @@
 					<br/>
 						<div>
 							<fieldset>
-								<legend>
+								<h4>
 									Is the separate accessible entrance well marked? (choose one)
-								</legend>
+								</h4>
 								<input id="yes_clear_visible_signs" type="radio" name="accessibility_signs" value="yes_clear_visible_signs" required/>
 								<label for="yes_clear_visible_signs">YES - clear, visible sign(s)</label>
 								<br>
@@ -104,9 +104,9 @@
 					<br/>
 						<div>
 							<fieldset>
-								<legend>
+								<h4>
 									Is the interior easy to navigate? (choose one)
-								</legend>
+								</h4>
 								<input id="yes_easy_nav" type="radio" name="easy_navigation" value="yes_pathways_wide_and_clear" required/>
 								<label for="yes_easy_nav">YES - all pathways are wide and clear</label>
 								<br>
@@ -123,9 +123,9 @@
 					<br/>
 						<div>
 							<fieldset>
-								<legend>
+								<h4>
 									Are the restrooms wheelchair accessible? (choose one)
-								</legend>
+								</h4>
 								<input id="yes_spacious_grab" type="radio" name="restrooms_accessible" value="yes_spacious_w_grab_bars" required/>
 								<label for="yes_spacious_grab">YES - spacious, good grab bars</label>
 								<br>
@@ -145,9 +145,9 @@
 					<br/>
 						<div>
 							<fieldset>
-								<legend>
+								<h4>
 									Is the staff responsive to your needs? (choose one)
-								</legend>
+								</h4>
 								<input id="yes_attentive" type="radio" name="staff_reponsive" value="yes" required/>
 								<label for="yes_attentive">YES</label>
 								<br>
@@ -161,9 +161,9 @@
 						<br/>
 						<div>
 							<fieldset>
-								<legend>
+								<h4>
 									Describe the noise level (choose one)
-								</legend>
+								</h4>
 								<input id="quiet_noise" type="radio" name="noise_level" value="quiet" required/>
 								<label for="quiet_noise">QUIET</label>
 								<br>
