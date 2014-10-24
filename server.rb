@@ -77,9 +77,12 @@ end
 
 get '/assess/:venueid' do
   venue = getVenueFromFoursquare(params[:venueid])
-  pp venue
   venue_name = venue["response"]["venue"]["name"]
-  venue_type = venue["response"]["venue"]["categories"][0]["name"]
+  categories = venue["response"]["venue"]["categories"]
+  venue_type = "?"
+  if (categories!=nil && categories.length > 0)
+    venue_type = categories[0]["name"]
+  end
   erb :assess, :locals => {:page => "assess", :page_title => "Assessing #{venue_name}, #{venue_type}", :venueid => params[:venueid], :venue => venue["response"]["venue"], :venue_name => venue_name, :venue_type => venue_type}
 end
 
