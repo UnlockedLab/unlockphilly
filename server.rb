@@ -99,6 +99,7 @@ end
 
 post '/postassessment' do
   assessmentsCol = settings.mongo_db['assessments']
+  params['assessmentTimestamp'] = Time.new
   assessmentsCol.insert(params)
   erb :postassessment, :locals => {:page => "postassessment", :page_title => "Thanks for your help!"}
 end
@@ -330,7 +331,6 @@ def appendStreetAddressLatLng(yelpResults)
          address = address.gsub(" ", "%20")
       end
       addressLatLng = getGeoJSON(address)
-      logger.info(addressLatLng)
       yelpResults["businesses"][i]["location"]["geocoding"] = addressLatLng
     else
       latLng = {"lng" => 0,"lat" => 0}

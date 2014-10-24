@@ -1,16 +1,15 @@
-<h6 class="text-center">This is a usability mock-up for internal test purposes</h6>
 <h4>Review and confirm...<h4>
 <h4><%= @assessment['venue_name'] %></h4>
 
 <div style="width:100%;margin-bottom:20px" class="form-inline">
  
 <% @assessment.each do |k, v| %>
-<% if (k != 'venue_id' && k != 'venue_name' && k != 'venue_type' && k != 'venue_lat' && k != 'venue_lng') %>- <strong><%= k.gsub('_',' ') %>?</strong> <%= v.gsub('_',' ') %><br/><% end %>
+<% if (k != 'venue_id' && k != 'venue_name' && k != 'venue_type' && k != 'venue_lat' && k != 'venue_lng') %>- <strong><%= k.gsub('_',' ') %>? </strong><%= v.gsub('_',' ') %><br/><% end %>
 <% end %>
 </ul>
 
 <div class='panel'>
-<strong>Assessment will be saved for internal testing use only.</strong>
+<strong>Assessment will be saved for internal testing use.</strong>
 </div>
 
 <div>
