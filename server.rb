@@ -100,6 +100,18 @@ post '/assessment' do
   erb :assessment, :locals => {:page => "assessment", :page_title => "Your assessment"}
 end
 
+get '/assess_summary' do
+  assessmentsCol = settings.mongo_db['assessments']
+  assessmentsByType = assessmentsCol.aggregate([{"$group" => {_id: "$venue_type", assessments: {"$sum" => 1}}}])
+  @byTypeHash= {}
+  @total = 0
+  assessmentsByType.each do | entry |
+    @byTypeHash[entry["_id"]] = entry["assessments"]
+    @total += entry["assessments"]
+  end
+  erb :assess_summary, :locals => {:page => "assess_summary", :page_title => "Assessment Summary"}
+end
+
 post '/postassessment' do
   assessmentsCol = settings.mongo_db['assessments']
   params['assessmentTimestamp'] = Time.new

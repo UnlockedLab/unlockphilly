@@ -1,0 +1,9 @@
+<h4 class="text-center">Map4Access Trial</h4>
+<table class="table table">
+  <tr><th>Place Type</th><th>Assessments</th></tr>
+  <% @byTypeHash.sort.map do | key, value | %>
+  <tr><td><%= key %></td><td><%= value %></td></tr>
+  <% end %>
+  <tr><td></td><td><%= @total %></td></tr>
+</table>
+
