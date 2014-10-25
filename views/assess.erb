@@ -48,19 +48,19 @@
 								<label for="yes_power_assist_door">YES: power assist door</label>
 								<br>
 								<input id="limited_wide_and_light" type="radio" name="main_door" value="limited_wide_and_light"/>
-								<label for="limited_wide_and_light">LIMITED - wide and light</label>
+								<label for="limited_wide_and_light">LIMITED: wide and light</label>
 								<br>
 								<input id="limited_kinda_heavy" type="radio" name="main_door" value="limited_kinda_heavy"/>
-								<label for="limited_kinda_heavy">LIMITED - kinda heavy</label>
+								<label for="limited_kinda_heavy">LIMITED: kinda heavy</label>
 								<br>
 								<input id="limited_kinda_narrow" type="radio" name="main_door" value="limited_kinda_narrow"/>
-								<label for="limited_kinda_narrow">LIMITED - kinda narrow</label>
+								<label for="limited_kinda_narrow">LIMITED: kinda narrow</label>
 								<br>
 								<input id="no_narrow" type="radio" name="main_door" value="no_narrow_andor_too_heavy"/>
-								<label for="no_narrow">NO - too narrow or too heavy</label>
+								<label for="no_narrow">NO: too narrow or too heavy</label>
 								<br>
 								<input id="na_door" type="radio" name="main_door" value="no_door"/>
-								<label for="na_door">N/A - No door at this place</label>
+								<label for="na_door">N/A: No door at this place</label>
 							</fieldset>
 						</div>
 					<br/>
@@ -70,16 +70,16 @@
 									If the main entrance is inaccessible, is there a separate wheelchair accessible entrance? (choose one)
 								</h4>
 								<input id="rear" type="radio" name="alt_accessible_entrance_ava" value="yes_at_rear" required/>
-								<label for="rear">YES - at the rear</label>
+								<label for="rear">YES: at the rear</label>
 								<br>
 								<input id="side" type="radio" name="alt_accessible_entrance_ava" value="yes_at_side"/>
-								<label for="side">YES - at the side</label>
+								<label for="side">YES: at the side</label>
 								<br>
 								<input id="no_alt" type="radio" name="alt_accessible_entrance_ava" value="no_accessible_entrance"/>
-								<label for="no_alt">NO - no accessible entrance</label>
+								<label for="no_alt">NO: no accessible entrance</label>
 								<br>
 								<input id="na_alt" type="radio" name="alt_accessible_entrance_ava" value="NA_alt_not_needed"/>
-								<label for="na_alt">N/A - main entrance accessible</label>
+								<label for="na_alt">N/A: main entrance accessible</label>
 							</fieldset>
 						</div>
 					<br/>
@@ -89,16 +89,16 @@
 									Is the separate accessible entrance well marked? (choose one)
 								</h4>
 								<input id="yes_clear_visible_signs" type="radio" name="separate_entrance_well_marked" value="yes_clear_visible_signs" required/>
-								<label for="yes_clear_visible_signs">YES - clear, visible sign(s)</label>
+								<label for="yes_clear_visible_signs">YES: clear, visible sign(s)</label>
 								<br>
 								<input id="limited_signs" type="radio" name="separate_entrance_well_marked" value="limited_confusing_or_hard_to_see"/>
-								<label for="limited_signs">LIMITED - signs confusing/hard to see</label>
+								<label for="limited_signs">LIMITED: signs confusing/hard to see</label>
 								<br>
 								<input id="no_signs" type="radio" name="separate_entrance_well_marked" value="no_signs_at_all"/>
-								<label for="no_signs">NO - no signs at all</label>
+								<label for="no_signs">NO: no signs at all</label>
 								<br>
 								<input id="na_signs" type="radio" name="separate_entrance_well_marked" value="NA_main_entrance_accessible"/>
-								<label for="na_signs">N/A - main entrance accessible</label>
+								<label for="na_signs">N/A: main entrance accessible</label>
 							</fieldset>
 						</div>
 					<br/>
@@ -108,16 +108,19 @@
 									Is the interior easy to navigate? (choose one)
 								</h4>
 								<input id="yes_easy_nav" type="radio" name="easy_navigation" value="yes_pathways_wide_and_clear" required/>
-								<label for="yes_easy_nav">YES - all pathways are wide and clear</label>
+								<label for="yes_easy_nav">YES: all pathways are wide and clear</label>
 								<br>
 								<input id="limited_narrow" type="radio" name="easy_navigation" value="limited_some_narrow_pathways"/>
-								<label for="limited_narrow">LIMITED - some narrow pathways</label>
+								<label for="limited_narrow">LIMITED: some narrow pathways</label>
 								<br>
 								<input id="limited_not_all_areas" type="radio" name="easy_navigation" value="limited_not_all_areas_accessible"/>
-								<label for="limited_not_all_areas">LIMITED - not all areas accessible</label>
+								<label for="limited_not_all_areas">LIMITED: not all areas accessible</label>
 								<br>
 								<input id="no_all_narrow" type="radio" name="easy_navigation" value="no_all_paths_narrow"/>
-								<label for="no_all_narrow">NO - all pathways are narrow</label>
+								<label for="no_all_narrow">NO: all pathways are narrow</label>
+								<br>
+								<input id="unknown_nav" type="radio" name="easy_navigation" value="could_not_assess"/>
+								<label for="unknown_nav">Could not assess</label>
 							</fieldset>
 						</div>
 					<br/>
@@ -140,6 +143,9 @@
 								<br>
 								<input id="no_rest_ava" type="radio" name="restrooms_accessible" value="NA_no_rest_ava"/>
 								<label for="no_rest_ava">N/A - no restroom available</label>
+								<br>
+								<input id="unable_to_assess_rest" type="radio" name="restrooms_accessible" value="cound_not_asses"/>
+								<label for="unable_to_assess_rest">Could not assess</label>
 							</fieldset>
 						</div>
 					<br/>
@@ -172,6 +178,9 @@
 								<br>
 								<input id="loud_noise" type="radio" name="noise_level" value="loud"/>
 								<label for="loud_noise">LOUD</label>
+								<br>
+								<input id="unable_to_assess_noise" type="radio" name="noise_level" value="cound_not_asses"/>
+								<label for="unable_to_assess_noise">Could not assess</label>
 							</fieldset>
 						</div>
 						<div align='center'>
