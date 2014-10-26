@@ -43,7 +43,9 @@ function fetchData(apiAddress) {
 	            if(venue.location.city != null) contents += venue.location.city + ' ';
 	            if(venue.location.state != null) contents += venue.location.state + ' ';
 	            if(venue.location.postalCode != null) contents += venue.location.postalCode + '';
-	            if(venue.location.distance != null) contents += '<br>(approx ' + Math.floor(venue.location.distance*3.28084) + ' feet from your location)';
+	            if(venue.location.distance != null) contents += '<br>(approx ' + Math.floor(venue.location.distance*3.28084) +
+	                ' feet from your location) <a target="_blank" href="https://www.foursquare.com/v/' + 
+	                venue.id + '"><img alt="Foursquare venue page" src="/images/logo/foursquare-icon-16x16.png"></a>';
 	            contents += '</div>';
 	            contents += '<div style="clear:both"></div><br />';
 	            console.log('appending ' + contents)
