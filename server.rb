@@ -112,6 +112,10 @@ get '/assess_summary' do
   erb :assess_summary, :locals => {:page => "assess_summary", :page_title => "Assessment Summary"}
 end
 
+get '/assess_map' do
+  erb :assess_map, :locals => {:page => "assess_map", :page_title => "Assessment Map (trial)"}
+end
+
 post '/postassessment' do
   assessmentsCol = settings.mongo_db['assessments']
   params['assessmentTimestamp'] = Time.new
