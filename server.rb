@@ -54,7 +54,6 @@ get '/n3rdstreet' do
   erb :n3rdstreet, :locals => {:page => "n3rdstreet", :page_title => "N3RD Street, Philadelphia Shops / Venues with Accessible Main Entrance/Accessibility Instructions Outside"}
 end
 
-
 get '/station/:stationid' do
   stationsCol = settings.mongo_db['stations']
   stationsContentCol = settings.mongo_db['station_content']
@@ -179,6 +178,22 @@ get '/septa/elevator/outages' do
   content_type :json
   stationOutageTrackerCol = settings.mongo_db['stations_outage_tracker']
   return stationOutageTrackerCol.find("isActive" => true).to_a.to_json
+end
+
+get '/septa/elevator/outagedaysbymonth/:stationid' do
+  content_type :json
+  stationOutageTrackerCol = settings.mongo_db['stations_outages_by_day']
+  aggResult = stationOutageTrackerCol.aggregate([
+    { "$match" => {"_id.stationId" => params[:stationid] } },
+    { "$group" => 
+      { 
+        "_id" => {"stop_name" => "$stop_name", "outageYear" => "$_id.outageYear", "outageMonth" => "$_id.outageMonth"},
+        "totalDaysOutageReported" => { "$sum" => 1 }
+      }
+    }
+  ])
+  
+  return aggResult.to_json
 end
 
 def getElevatorOutages()

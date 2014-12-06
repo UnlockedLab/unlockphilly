@@ -84,6 +84,7 @@
 				<iframe width="560" height="315" src="<%= station_content['videoForEmbed'] %>" frameborder="0" allowfullscreen></iframe>
 				<% if station_content && station_content['videoCredit'] %><h6>Credit: <%= station_content['videoCredit'] %></h6><% end %>
 			<% end %></div>
+			<a href='/septa/elevator/outagedaysbymonth/<%= station['_id'] %>'>REST API: Summary of days with outage by month for this station</a>
 		
 </div>
 <div id="disqus_thread"></div>
