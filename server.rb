@@ -188,7 +188,7 @@ get '/septa/elevator/outagedaysbymonth/:stationid' do
     { "$group" => 
       { 
         "_id" => {"stop_name" => "$stop_name", "outageYear" => "$_id.outageYear", "outageMonth" => "$_id.outageMonth"},
-        "totalDaysOutageReported" => { "$sum" => 1 }
+        "totalDaysInMonthWithOutageIncidentReportedByOperator" => { "$sum" => 1 }
       }
     },
     { "$sort" => 
