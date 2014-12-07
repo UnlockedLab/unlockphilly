@@ -182,9 +182,22 @@ end
 
 get '/septa/elevator/outagedaysbymonth/:stationid' do
   content_type :json
-  stationOutageTrackerCol = settings.mongo_db['stations_outages_by_day']
-  aggResult = stationOutageTrackerCol.aggregate([
-    { "$match" => {"_id.stationId" => params[:stationid] } },
+  return getDaysOfElevatorOutagesByMonthForStation(params[:stationid]).to_json
+end
+
+get '/septa/elevator/outagedaysbyyearmonth' do
+  content_type :json
+  return getDaysOfElevatorOutagesByYearMonth().to_json
+end
+
+get '/septa/elevator/outagedaysbyyear' do
+  content_type :json
+  return getDaysOfElevatorOutagesByYear().to_json
+end
+
+def getDaysOfElevatorOutagesByMonthForStation(stationId)
+  settings.mongo_db["stations_outages_by_day"].aggregate([
+    { "$match" => {"_id.stationId" => stationId } },
     { "$group" => 
       { 
         "_id" => {"stop_name" => "$stop_name", "outageYear" => "$_id.outageYear", "outageMonth" => "$_id.outageMonth"},
@@ -193,13 +206,42 @@ get '/septa/elevator/outagedaysbymonth/:stationid' do
     },
     { "$sort" => 
       {
-        "_id.outageYear" => 1, "_id.outageMonth" => 1
+        "_id.outageYear" => -1, "_id.outageMonth" => -1
       }
-      
     }
   ])
-  
-  return aggResult.to_json
+end
+
+def getDaysOfElevatorOutagesByYearMonth()
+  settings.mongo_db["stations_outages_by_day"].aggregate([
+    { "$group" => 
+      { 
+        "_id" => {"stop_name" => "$stop_name", "outageYear" => "$_id.outageYear", "outageMonth" => "$_id.outageMonth"},
+        "totalDaysInMonthWithOutageIncidentReportedByOperator" => { "$sum" => 1 }
+      }
+    },
+    { "$sort" => 
+      {
+        "totalDaysInMonthWithOutageIncidentReportedByOperator" => -1
+      }
+    }
+  ])
+end
+
+def getDaysOfElevatorOutagesByYear()
+  settings.mongo_db["stations_outages_by_day"].aggregate([
+    { "$group" => 
+      { 
+        "_id" => {"stop_name" => "$stop_name", "outageYear" => "$_id.outageYear"},
+        "totalDaysInYearWithOutageIncidentReportedByOperator" => { "$sum" => 1 }
+      }
+    },
+    { "$sort" => 
+      {
+        "totalDaysInYearWithOutageIncidentReportedByOperator" => -1
+      }
+    }
+  ])
 end
 
 def getElevatorOutages()
