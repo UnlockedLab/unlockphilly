@@ -195,6 +195,20 @@ get '/septa/elevator/outagedaysbyyear' do
   return getDaysOfElevatorOutagesByYear().to_json
 end
 
+get '/septa/elevator/dayswithoutagereport' do
+  content_type :json
+  stationsOutagesByDayCol = settings.mongo_db["stations_outages_by_day"]
+  result = stationsOutagesByDayCol.find().sort({"stop_name" => 1, "line_code" => 1, "_id.outageYear" => 1, "_id.outageMonth" => 1, "_id.outageDay" => 1})
+  result.to_a.to_json
+end
+
+get '/septa/elevator/dayswithoutagereport/:stationid' do
+  content_type :json
+  stationsOutagesByDayCol = settings.mongo_db["stations_outages_by_day"]
+  result = stationsOutagesByDayCol.find({"_id.stationId" => params[:stationid]}).sort({"stop_name" => 1, "line_code" => 1, "_id.outageYear" => 1, "_id.outageMonth" => 1, "_id.outageDay" => 1})
+  result.to_a.to_json
+end
+
 def getDaysOfElevatorOutagesByMonthForStation(stationId)
   settings.mongo_db["stations_outages_by_day"].aggregate([
     { "$match" => {"_id.stationId" => stationId } },
