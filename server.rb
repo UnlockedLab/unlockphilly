@@ -185,6 +185,25 @@ get '/septa/elevator/outagedaysbymonth/:stationid' do
   return getDaysOfElevatorOutagesByMonthForStation(params[:stationid]).to_json
 end
 
+get '/septa/elevator/outagedayslast12months/:stationid' do
+  content_type :json
+  months = getDaysOfElevatorOutagesByMonthForStation(params[:stationid])
+  outagesByMonth = Hash.new(0)
+  months.each do | month |
+    outagesByMonth[month["_id"]["outageMonth"] + "/" + month["_id"]["outageYear"]] = month["totalDaysInMonthWithOutageIncidentReportedByOperator"]
+  end
+  today = Date.today
+  begOfMonth = today - today.day+1
+  # get last months outages
+  outagesLast12Months = []
+  (0..11).to_a.each do | number |
+    year = begOfMonth.prev_month(number).year
+    monthNumber = begOfMonth.prev_month(number).month
+    outagesLast12Months.push({"month"=>Date::MONTHNAMES[monthNumber] + " " + year.to_s,"outageDays"=>outagesByMonth[monthNumber.to_s.rjust(2,"0") + "/" + year.to_s]})
+  end
+  return outagesLast12Months.to_json
+end
+
 get '/septa/elevator/outagedaysbyyearmonth' do
   content_type :json
   return getDaysOfElevatorOutagesByYearMonth().to_json

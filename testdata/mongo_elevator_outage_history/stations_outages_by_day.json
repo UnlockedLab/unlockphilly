@@ -4,20 +4,94 @@
 { "_id" : { "stationId" : "1277", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "15" }, "stop_name" : "Cecil B. Moore Station", "line_code" : "BSS" }
 { "_id" : { "stationId" : "1277", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "18" }, "stop_name" : "Cecil B. Moore Station", "line_code" : "BSS" }
 { "_id" : { "stationId" : "1277", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "19" }, "stop_name" : "Cecil B. Moore Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "1277", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "08" }, "stop_name" : "Cecil B. Moore Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "1277", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "09" }, "stop_name" : "Cecil B. Moore Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "1277", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "11" }, "stop_name" : "Cecil B. Moore Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "1277", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "25" }, "stop_name" : "Cecil B. Moore Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "1277", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "04" }, "stop_name" : "Cecil B. Moore Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "1277", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "05" }, "stop_name" : "Cecil B. Moore Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "1277", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "26" }, "stop_name" : "Cecil B. Moore Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "1277", "outageYear" : "2015", "outageMonth" : "01", "outageDay" : "15" }, "stop_name" : "Cecil B. Moore Station", "line_code" : "BSS" }
 { "_id" : { "stationId" : "1279", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "16" }, "stop_name" : "Spring Garden Station", "line_code" : "BSS" }
 { "_id" : { "stationId" : "1279", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "17" }, "stop_name" : "Spring Garden Station", "line_code" : "BSS" }
 { "_id" : { "stationId" : "1279", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "18" }, "stop_name" : "Spring Garden Station", "line_code" : "BSS" }
 { "_id" : { "stationId" : "1279", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "16" }, "stop_name" : "Spring Garden Station", "line_code" : "BSS" }
 { "_id" : { "stationId" : "1279", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "15" }, "stop_name" : "Spring Garden Station", "line_code" : "BSS" }
 { "_id" : { "stationId" : "1279", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "16" }, "stop_name" : "Spring Garden Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "1279", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "17" }, "stop_name" : "Spring Garden Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "1279", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "18" }, "stop_name" : "Spring Garden Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "1279", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "19" }, "stop_name" : "Spring Garden Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "1279", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "20" }, "stop_name" : "Spring Garden Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "1279", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "08" }, "stop_name" : "Spring Garden Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "1279", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "05" }, "stop_name" : "Spring Garden Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "1279", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "08" }, "stop_name" : "Spring Garden Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "1279", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "10" }, "stop_name" : "Spring Garden Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "1279", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "11" }, "stop_name" : "Spring Garden Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "1279", "outageYear" : "2015", "outageMonth" : "01", "outageDay" : "13" }, "stop_name" : "Spring Garden Station", "line_code" : "BSS" }
 { "_id" : { "stationId" : "1282", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "18" }, "stop_name" : "Walnut Locust Station", "line_code" : "BSS" }
 { "_id" : { "stationId" : "1282", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "19" }, "stop_name" : "Walnut Locust Station", "line_code" : "BSS" }
 { "_id" : { "stationId" : "1282", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "06" }, "stop_name" : "Walnut Locust Station", "line_code" : "BSS" }
 { "_id" : { "stationId" : "1282", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "15" }, "stop_name" : "Walnut Locust Station", "line_code" : "BSS" }
 { "_id" : { "stationId" : "1282", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "16" }, "stop_name" : "Walnut Locust Station", "line_code" : "BSS" }
-{ "_id" : { "stationId" : "1392", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "26" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1282", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "12" }, "stop_name" : "Walnut Locust Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "1282", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "13" }, "stop_name" : "Walnut Locust Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "1282", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "06" }, "stop_name" : "Walnut Locust Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "1282", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "14" }, "stop_name" : "Walnut Locust Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "1282", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "21" }, "stop_name" : "Walnut Locust Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "1282", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "22" }, "stop_name" : "Walnut Locust Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "1282", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "30" }, "stop_name" : "Walnut Locust Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "1282", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "06" }, "stop_name" : "Walnut Locust Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "04" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "05" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "06" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "20" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "28" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "29" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "30" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "01" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "02" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "03" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "04" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "05" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "06" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "07" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "08" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "09" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "10" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "11" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "13" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "14" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "15" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "25" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "26" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "27" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "28" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "29" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "30" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "31" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2015", "outageMonth" : "01", "outageDay" : "01" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2015", "outageMonth" : "01", "outageDay" : "05" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2015", "outageMonth" : "01", "outageDay" : "06" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2015", "outageMonth" : "01", "outageDay" : "07" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2015", "outageMonth" : "01", "outageDay" : "08" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2015", "outageMonth" : "01", "outageDay" : "20" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2015", "outageMonth" : "01", "outageDay" : "21" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "1392", "outageYear" : "2015", "outageMonth" : "01", "outageDay" : "22" }, "stop_name" : "15th St Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "142", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "26" }, "stop_name" : "Allegheny Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "142", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "25" }, "stop_name" : "Allegheny Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "142", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "23" }, "stop_name" : "Allegheny Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "142", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "29" }, "stop_name" : "Allegheny Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "142", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "30" }, "stop_name" : "Allegheny Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "20965", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "28" }, "stop_name" : "Fern Rock Transportation Center", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "20965", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "25" }, "stop_name" : "Fern Rock Transportation Center", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "20965", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "06" }, "stop_name" : "Fern Rock Transportation Center", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "20965", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "21" }, "stop_name" : "Fern Rock Transportation Center", "line_code" : "BSS" }
 { "_id" : { "stationId" : "20966", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "28" }, "stop_name" : "Girard Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "20966", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "28" }, "stop_name" : "Girard Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "20966", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "29" }, "stop_name" : "Girard Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "20966", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "15" }, "stop_name" : "Girard Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "20966", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "17" }, "stop_name" : "Girard Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "20966", "outageYear" : "2015", "outageMonth" : "01", "outageDay" : "15" }, "stop_name" : "Girard Station", "line_code" : "BSS" }
 { "_id" : { "stationId" : "20967", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "12" }, "stop_name" : "Oregon Station", "line_code" : "BSS" }
 { "_id" : { "stationId" : "20967", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "13" }, "stop_name" : "Oregon Station", "line_code" : "BSS" }
 { "_id" : { "stationId" : "20967", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "31" }, "stop_name" : "Oregon Station", "line_code" : "BSS" }
@@ -30,6 +104,11 @@
 { "_id" : { "stationId" : "20967", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "07" }, "stop_name" : "Oregon Station", "line_code" : "BSS" }
 { "_id" : { "stationId" : "20967", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "08" }, "stop_name" : "Oregon Station", "line_code" : "BSS" }
 { "_id" : { "stationId" : "20967", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "09" }, "stop_name" : "Oregon Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "20967", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "29" }, "stop_name" : "Oregon Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "20967", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "30" }, "stop_name" : "Oregon Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "20967", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "04" }, "stop_name" : "Oregon Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "20967", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "05" }, "stop_name" : "Oregon Station", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "20967", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "12" }, "stop_name" : "Oregon Station", "line_code" : "BSS" }
 { "_id" : { "stationId" : "21532", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "09" }, "stop_name" : "30th St Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "21532", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "10" }, "stop_name" : "30th St Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "21532", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "11" }, "stop_name" : "30th St Station", "line_code" : "MFL" }
@@ -59,22 +138,78 @@
 { "_id" : { "stationId" : "21532", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "18" }, "stop_name" : "30th St Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "21532", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "19" }, "stop_name" : "30th St Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "21532", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "20" }, "stop_name" : "30th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "21532", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "24" }, "stop_name" : "30th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "21532", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "25" }, "stop_name" : "30th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "21532", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "08" }, "stop_name" : "30th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "21532", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "09" }, "stop_name" : "30th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "21532", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "10" }, "stop_name" : "30th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "21532", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "26" }, "stop_name" : "30th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "21532", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "01" }, "stop_name" : "30th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "21532", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "22" }, "stop_name" : "30th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "21532", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "23" }, "stop_name" : "30th St Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2439", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "20" }, "stop_name" : "North Philadelphia", "line_code" : "BSS" }
 { "_id" : { "stationId" : "2439", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "15" }, "stop_name" : "North Philadelphia", "line_code" : "BSS" }
 { "_id" : { "stationId" : "2439", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "16" }, "stop_name" : "North Philadelphia", "line_code" : "BSS" }
 { "_id" : { "stationId" : "2439", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "17" }, "stop_name" : "North Philadelphia", "line_code" : "BSS" }
 { "_id" : { "stationId" : "2439", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "18" }, "stop_name" : "North Philadelphia", "line_code" : "BSS" }
 { "_id" : { "stationId" : "2439", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "15" }, "stop_name" : "North Philadelphia", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "2439", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "28" }, "stop_name" : "North Philadelphia", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "2439", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "09" }, "stop_name" : "North Philadelphia", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "2439", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "10" }, "stop_name" : "North Philadelphia", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "2439", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "17" }, "stop_name" : "North Philadelphia", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "2439", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "22" }, "stop_name" : "North Philadelphia", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "2439", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "29" }, "stop_name" : "North Philadelphia", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "2439", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "06" }, "stop_name" : "North Philadelphia", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "2439", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "11" }, "stop_name" : "North Philadelphia", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "2439", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "19" }, "stop_name" : "North Philadelphia", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "2439", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "20" }, "stop_name" : "North Philadelphia", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "2439", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "24" }, "stop_name" : "North Philadelphia", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "2439", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "26" }, "stop_name" : "North Philadelphia", "line_code" : "BSS" }
 { "_id" : { "stationId" : "2446", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "15" }, "stop_name" : "Millbourne Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2446", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "16" }, "stop_name" : "Millbourne Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2446", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "17" }, "stop_name" : "Millbourne Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2446", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "18" }, "stop_name" : "Millbourne Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2447", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "13" }, "stop_name" : "63rd St Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2447", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "14" }, "stop_name" : "63rd St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2447", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "16" }, "stop_name" : "63rd St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2447", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "22" }, "stop_name" : "63rd St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2447", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "23" }, "stop_name" : "63rd St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2447", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "11" }, "stop_name" : "63rd St Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2448", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "17" }, "stop_name" : "60th St Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2448", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "18" }, "stop_name" : "60th St Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2448", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "26" }, "stop_name" : "60th St Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2448", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "27" }, "stop_name" : "60th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2448", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "05" }, "stop_name" : "60th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2448", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "07" }, "stop_name" : "60th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2448", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "08" }, "stop_name" : "60th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2448", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "08" }, "stop_name" : "60th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2448", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "01" }, "stop_name" : "60th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2448", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "21" }, "stop_name" : "60th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2448", "outageYear" : "2015", "outageMonth" : "01", "outageDay" : "08" }, "stop_name" : "60th St Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2449", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "26" }, "stop_name" : "56th St Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2449", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "01" }, "stop_name" : "56th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2449", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "05" }, "stop_name" : "56th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2449", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "10" }, "stop_name" : "56th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2449", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "06" }, "stop_name" : "56th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2449", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "07" }, "stop_name" : "56th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2449", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "08" }, "stop_name" : "56th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2449", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "22" }, "stop_name" : "56th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2449", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "23" }, "stop_name" : "56th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2449", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "27" }, "stop_name" : "56th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2449", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "02" }, "stop_name" : "56th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2449", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "07" }, "stop_name" : "56th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2449", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "17" }, "stop_name" : "56th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2449", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "18" }, "stop_name" : "56th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2449", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "20" }, "stop_name" : "56th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2449", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "23" }, "stop_name" : "56th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2449", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "24" }, "stop_name" : "56th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2449", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "25" }, "stop_name" : "56th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2449", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "08" }, "stop_name" : "56th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2449", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "09" }, "stop_name" : "56th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2449", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "10" }, "stop_name" : "56th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2449", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "24" }, "stop_name" : "56th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2449", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "25" }, "stop_name" : "56th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2449", "outageYear" : "2015", "outageMonth" : "01", "outageDay" : "23" }, "stop_name" : "56th St Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2450", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "19" }, "stop_name" : "52nd St Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2450", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "24" }, "stop_name" : "52nd St Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2450", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "25" }, "stop_name" : "52nd St Station", "line_code" : "MFL" }
@@ -82,6 +217,25 @@
 { "_id" : { "stationId" : "2450", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "13" }, "stop_name" : "52nd St Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2450", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "16" }, "stop_name" : "52nd St Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2450", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "30" }, "stop_name" : "52nd St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2450", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "19" }, "stop_name" : "52nd St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2450", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "20" }, "stop_name" : "52nd St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2450", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "30" }, "stop_name" : "52nd St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2450", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "08" }, "stop_name" : "52nd St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2450", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "09" }, "stop_name" : "52nd St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2450", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "10" }, "stop_name" : "52nd St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2450", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "11" }, "stop_name" : "52nd St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2450", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "19" }, "stop_name" : "52nd St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2450", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "20" }, "stop_name" : "52nd St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2450", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "28" }, "stop_name" : "52nd St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2450", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "29" }, "stop_name" : "52nd St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2450", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "10" }, "stop_name" : "52nd St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2450", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "11" }, "stop_name" : "52nd St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2450", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "23" }, "stop_name" : "52nd St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2450", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "26" }, "stop_name" : "52nd St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2450", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "07" }, "stop_name" : "52nd St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2450", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "10" }, "stop_name" : "52nd St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2450", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "31" }, "stop_name" : "52nd St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2450", "outageYear" : "2015", "outageMonth" : "01", "outageDay" : "01" }, "stop_name" : "52nd St Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2451", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "05" }, "stop_name" : "46th St Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2451", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "06" }, "stop_name" : "46th St Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2451", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "08" }, "stop_name" : "46th St Station", "line_code" : "MFL" }
@@ -89,37 +243,169 @@
 { "_id" : { "stationId" : "2451", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "10" }, "stop_name" : "46th St Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2451", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "17" }, "stop_name" : "46th St Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2451", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "18" }, "stop_name" : "46th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2451", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "12" }, "stop_name" : "46th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2451", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "13" }, "stop_name" : "46th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2451", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "14" }, "stop_name" : "46th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2451", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "19" }, "stop_name" : "46th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2451", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "15" }, "stop_name" : "46th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2451", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "16" }, "stop_name" : "46th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2451", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "30" }, "stop_name" : "46th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2451", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "01" }, "stop_name" : "46th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2451", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "04" }, "stop_name" : "46th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2451", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "05" }, "stop_name" : "46th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2451", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "25" }, "stop_name" : "46th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2451", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "12" }, "stop_name" : "46th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2451", "outageYear" : "2015", "outageMonth" : "01", "outageDay" : "16" }, "stop_name" : "46th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2451", "outageYear" : "2015", "outageMonth" : "01", "outageDay" : "17" }, "stop_name" : "46th St Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2455", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "24" }, "stop_name" : "13th St Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2455", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "25" }, "stop_name" : "13th St Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2455", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "26" }, "stop_name" : "13th St Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2455", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "05" }, "stop_name" : "13th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2455", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "17" }, "stop_name" : "13th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2455", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "31" }, "stop_name" : "13th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2455", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "05" }, "stop_name" : "13th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2455", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "20" }, "stop_name" : "13th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2455", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "10" }, "stop_name" : "13th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2455", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "11" }, "stop_name" : "13th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2455", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "07" }, "stop_name" : "13th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2455", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "08" }, "stop_name" : "13th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2455", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "09" }, "stop_name" : "13th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2455", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "10" }, "stop_name" : "13th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2455", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "15" }, "stop_name" : "13th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2455", "outageYear" : "2015", "outageMonth" : "01", "outageDay" : "02" }, "stop_name" : "13th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2457", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "27" }, "stop_name" : "8th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2457", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "26" }, "stop_name" : "8th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2457", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "27" }, "stop_name" : "8th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2457", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "14" }, "stop_name" : "8th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2457", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "21" }, "stop_name" : "8th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2457", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "12" }, "stop_name" : "8th St Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2458", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "26" }, "stop_name" : "5th St Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2458", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "27" }, "stop_name" : "5th St Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2458", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "18" }, "stop_name" : "5th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2458", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "30" }, "stop_name" : "5th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2458", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "01" }, "stop_name" : "5th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2458", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "22" }, "stop_name" : "5th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2458", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "23" }, "stop_name" : "5th St Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2460", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "24" }, "stop_name" : "Berks Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2460", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "14" }, "stop_name" : "Berks Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2460", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "22" }, "stop_name" : "Berks Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2460", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "27" }, "stop_name" : "Berks Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2460", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "28" }, "stop_name" : "Berks Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2460", "outageYear" : "2015", "outageMonth" : "01", "outageDay" : "03" }, "stop_name" : "Berks Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2460", "outageYear" : "2015", "outageMonth" : "01", "outageDay" : "04" }, "stop_name" : "Berks Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2460", "outageYear" : "2015", "outageMonth" : "01", "outageDay" : "05" }, "stop_name" : "Berks Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2460", "outageYear" : "2015", "outageMonth" : "01", "outageDay" : "22" }, "stop_name" : "Berks Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2460", "outageYear" : "2015", "outageMonth" : "01", "outageDay" : "23" }, "stop_name" : "Berks Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2461", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "19" }, "stop_name" : "York Dauphin Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2461", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "20" }, "stop_name" : "York Dauphin Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2461", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "18" }, "stop_name" : "York Dauphin Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2461", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "19" }, "stop_name" : "York Dauphin Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2461", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "06" }, "stop_name" : "York Dauphin Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2461", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "07" }, "stop_name" : "York Dauphin Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2461", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "08" }, "stop_name" : "York Dauphin Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2461", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "11" }, "stop_name" : "York Dauphin Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2461", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "19" }, "stop_name" : "York Dauphin Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2461", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "20" }, "stop_name" : "York Dauphin Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2462", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "05" }, "stop_name" : "Huntingdon Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2462", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "10" }, "stop_name" : "Huntingdon Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "2462", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "11" }, "stop_name" : "Huntingdon Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2462", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "22" }, "stop_name" : "Huntingdon Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2462", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "08" }, "stop_name" : "Huntingdon Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2462", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "09" }, "stop_name" : "Huntingdon Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2462", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "27" }, "stop_name" : "Huntingdon Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2462", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "28" }, "stop_name" : "Huntingdon Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2463", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "06" }, "stop_name" : "Tioga Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2463", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "07" }, "stop_name" : "Tioga Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2463", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "02" }, "stop_name" : "Tioga Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2463", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "03" }, "stop_name" : "Tioga Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2463", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "04" }, "stop_name" : "Tioga Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2463", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "05" }, "stop_name" : "Tioga Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2463", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "06" }, "stop_name" : "Tioga Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2463", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "07" }, "stop_name" : "Tioga Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2463", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "13" }, "stop_name" : "Tioga Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2463", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "14" }, "stop_name" : "Tioga Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2463", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "10" }, "stop_name" : "Tioga Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2463", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "11" }, "stop_name" : "Tioga Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2464", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "20" }, "stop_name" : "Church Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "2464", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "21" }, "stop_name" : "Church Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "30520", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "19" }, "stop_name" : "Norristown Transportation Center", "line_code" : "NHSL" }
 { "_id" : { "stationId" : "353", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "02" }, "stop_name" : "Girard Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "353", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "20" }, "stop_name" : "Girard Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "353", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "21" }, "stop_name" : "Girard Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "353", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "07" }, "stop_name" : "Girard Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "353", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "05" }, "stop_name" : "Girard Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "353", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "06" }, "stop_name" : "Girard Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "353", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "18" }, "stop_name" : "Girard Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "353", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "23" }, "stop_name" : "Girard Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "428", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "24" }, "stop_name" : "2nd St Station          ", "line_code" : "MFL" }
 { "_id" : { "stationId" : "428", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "25" }, "stop_name" : "2nd St Station          ", "line_code" : "MFL" }
 { "_id" : { "stationId" : "428", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "13" }, "stop_name" : "2nd St Station          ", "line_code" : "MFL" }
 { "_id" : { "stationId" : "428", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "14" }, "stop_name" : "2nd St Station          ", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "428", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "05" }, "stop_name" : "2nd St Station          ", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "428", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "06" }, "stop_name" : "2nd St Station          ", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "428", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "20" }, "stop_name" : "2nd St Station          ", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "428", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "10" }, "stop_name" : "2nd St Station          ", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "428", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "11" }, "stop_name" : "2nd St Station          ", "line_code" : "MFL" }
 { "_id" : { "stationId" : "60", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "11" }, "stop_name" : "Allegheny Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "60", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "12" }, "stop_name" : "Allegheny Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "60", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "21" }, "stop_name" : "Allegheny Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "60", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "02" }, "stop_name" : "Allegheny Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "60", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "03" }, "stop_name" : "Allegheny Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "60", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "04" }, "stop_name" : "Allegheny Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "60", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "30" }, "stop_name" : "Allegheny Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "60", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "31" }, "stop_name" : "Allegheny Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "60", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "07" }, "stop_name" : "Allegheny Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "60", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "20" }, "stop_name" : "Allegheny Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "60", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "16" }, "stop_name" : "Allegheny Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "60", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "28" }, "stop_name" : "Allegheny Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "60", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "11" }, "stop_name" : "Allegheny Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "60", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "12" }, "stop_name" : "Allegheny Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "60", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "14" }, "stop_name" : "Allegheny Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "60", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "14" }, "stop_name" : "Allegheny Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "60", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "15" }, "stop_name" : "Allegheny Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "60", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "16" }, "stop_name" : "Allegheny Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "60", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "17" }, "stop_name" : "Allegheny Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "60", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "23" }, "stop_name" : "Allegheny Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "60", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "26" }, "stop_name" : "Allegheny Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "60", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "27" }, "stop_name" : "Allegheny Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "60", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "31" }, "stop_name" : "Allegheny Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "60", "outageYear" : "2015", "outageMonth" : "01", "outageDay" : "01" }, "stop_name" : "Allegheny Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "60", "outageYear" : "2015", "outageMonth" : "01", "outageDay" : "06" }, "stop_name" : "Allegheny Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "61", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "14" }, "stop_name" : "Frankford Transportation Center", "line_code" : "MFL" }
 { "_id" : { "stationId" : "61", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "15" }, "stop_name" : "Frankford Transportation Center", "line_code" : "MFL" }
 { "_id" : { "stationId" : "61", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "16" }, "stop_name" : "Frankford Transportation Center", "line_code" : "MFL" }
 { "_id" : { "stationId" : "61", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "14" }, "stop_name" : "Frankford Transportation Center", "line_code" : "MFL" }
 { "_id" : { "stationId" : "61", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "15" }, "stop_name" : "Frankford Transportation Center", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "61", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "20" }, "stop_name" : "Frankford Transportation Center", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "61", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "25" }, "stop_name" : "Frankford Transportation Center", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "61", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "26" }, "stop_name" : "Frankford Transportation Center", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "61", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "07" }, "stop_name" : "Frankford Transportation Center", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "61", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "08" }, "stop_name" : "Frankford Transportation Center", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "61", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "09" }, "stop_name" : "Frankford Transportation Center", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "61", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "17" }, "stop_name" : "Frankford Transportation Center", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "61", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "24" }, "stop_name" : "Frankford Transportation Center", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "61", "outageYear" : "2015", "outageMonth" : "01", "outageDay" : "16" }, "stop_name" : "Frankford Transportation Center", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "61", "outageYear" : "2015", "outageMonth" : "01", "outageDay" : "17" }, "stop_name" : "Frankford Transportation Center", "line_code" : "MFL" }
 { "_id" : { "stationId" : "797", "outageYear" : "2014", "outageMonth" : "06", "outageDay" : "11" }, "stop_name" : "Somerset Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "797", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "08" }, "stop_name" : "Somerset Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "797", "outageYear" : "2014", "outageMonth" : "12", "outageDay" : "16" }, "stop_name" : "Somerset Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "82", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "15" }, "stop_name" : "Olney Transportation Center", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "82", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "16" }, "stop_name" : "Olney Transportation Center", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "82", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "25" }, "stop_name" : "Olney Transportation Center", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "82", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "26" }, "stop_name" : "Olney Transportation Center", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "82", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "29" }, "stop_name" : "Olney Transportation Center", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "82", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "30" }, "stop_name" : "Olney Transportation Center", "line_code" : "BSS" }
+{ "_id" : { "stationId" : "82", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "21" }, "stop_name" : "Olney Transportation Center", "line_code" : "BSS" }
 { "_id" : { "stationId" : "838", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "11" }, "stop_name" : "Erie Torresdale Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "838", "outageYear" : "2014", "outageMonth" : "05", "outageDay" : "12" }, "stop_name" : "Erie Torresdale Station", "line_code" : "MFL" }
 { "_id" : { "stationId" : "838", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "11" }, "stop_name" : "Erie Torresdale Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "838", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "26" }, "stop_name" : "Erie Torresdale Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "838", "outageYear" : "2014", "outageMonth" : "07", "outageDay" : "27" }, "stop_name" : "Erie Torresdale Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "838", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "11" }, "stop_name" : "Erie Torresdale Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "838", "outageYear" : "2014", "outageMonth" : "08", "outageDay" : "31" }, "stop_name" : "Erie Torresdale Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "838", "outageYear" : "2014", "outageMonth" : "09", "outageDay" : "01" }, "stop_name" : "Erie Torresdale Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "838", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "07" }, "stop_name" : "Erie Torresdale Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "838", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "14" }, "stop_name" : "Erie Torresdale Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "838", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "17" }, "stop_name" : "Erie Torresdale Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "838", "outageYear" : "2014", "outageMonth" : "10", "outageDay" : "19" }, "stop_name" : "Erie Torresdale Station", "line_code" : "MFL" }
+{ "_id" : { "stationId" : "838", "outageYear" : "2014", "outageMonth" : "11", "outageDay" : "28" }, "stop_name" : "Erie Torresdale Station", "line_code" : "MFL" }
