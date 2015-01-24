@@ -57,24 +57,51 @@
 			
 			<h4>Elevator outages* <% if station %>at <%= station['stop_name'] %><% end %> - last 30 days</h4>
 			<% if outageHistory.size > 0 %>
-			<script src="/js/d3/d3.min.js"></script>
-			<script src="/js/d3.tip.js"></script>
-			<script src="/js/outages.js"></script>
-			<div id="chart"></div>
-			<script type="application/javascript">
-			renderOutageChart([
-			<% outageHistory.each do | outage | %>
-			{
-				outageStart : new Date("<%= outage['_id']['outageStart'].to_datetime %>"),
-				outageEnd: <% if !outage['outageEnd'] %>null<% else %>new Date("<%= outage['outageEnd'].to_datetime %>")<% end %>
-			},
-			<% end %>
-			]);
-			</script>
+				<script src="/js/d3/d3.min.js"></script>
+				<script src="/js/d3.tip.js"></script>
+				<script src="/js/outages.js"></script>
+				<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+			    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+				<!-- accessible graphs from evographs: see www.evoxlabs.com -->
+				<script src="//code.evoxlabs.org/evographs.min.js"></script>
+				<div id="chart"></div>
+				<script type="application/javascript">
+				renderOutageChart([
+					<% outageHistory.each do | outage | %>
+					{
+						outageStart : new Date("<%= outage['_id']['outageStart'].to_datetime %>"),
+						outageEnd: <% if !outage['outageEnd'] %>null<% else %>new Date("<%= outage['outageEnd'].to_datetime %>")<% end %>
+					},
+				    <% end %>
+			    ]);
+			    </script>
 			<% else %>
-			<div><p>No recent outages found</p></div>
+			    <div><p>No recent outages found</p></div>
 			<% end %>
+			
+			<script>
+			    evoGraphOptions = {
+			    	title: "Last 12 months: total days in month where elevator outage was reported <% if station %>at <%= station['stop_name'] %><% end %>",
+			        data: [],
+			        width: 700,
+			        height: 350
+			    };
+			    $.get("/septa/elevator/outagedayslast12months/<%= station['_id'] %>", function( data ) {
+  					$.each(data, function( index, value ) {
+  						evoGraphOptions.data.push(value.month, value.outageDays)
+  					});
+			        createEvoGraph (evoGraphOptions);   //create graph
+				});
+			    
+			</script>
+			<div class="evographsdiv"></div>
+		
+</script>
+			
+			
 			<p>* Data based on start/end time of operator's online elevator outage notifications.</p>
+			
+			
 			<% else %>
 				<h4><span class="label large label-danger">Not wheelchair accessible</h4>
 				Leave comments below about <% if station %><%= station['stop_name'] %><% end %>.
