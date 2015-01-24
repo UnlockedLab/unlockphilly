@@ -78,7 +78,8 @@
 			<% else %>
 			    <div><p>No recent outages found</p></div>
 			<% end %>
-			
+			<hr>
+			<h4>Accessible outage graph below designed by Ather Sharif - see project website here <a target='_blank' href='http://evoxlabs.org/whitecane/evographs'>EvoGraphs</a></h5>
 			<script>
 			    evoGraphOptions = {
 			    	title: "Last 12 months: total days in month where elevator outage was reported <% if station %>at <%= station['stop_name'] %><% end %>",
@@ -95,7 +96,7 @@
 			    
 			</script>
 			<div class="evographsdiv"></div>
-		
+			
 </script>
 			
 			
