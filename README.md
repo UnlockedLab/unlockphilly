@@ -17,7 +17,7 @@ development spanning front-end and back-end skills.
 Requirements/features/bugs are tracked here in GitHub under the issues tab.
 Here are some guidelines:
 
-1. An accessible website/app is our number one priority. We value all contributions that put user accessibility as the top consideration when creating or modifying user interface elements. See http://www.w3.org/WAI/intro/wcag and for information/examples about accessible forms/controls see http://webaim.org/techniques/forms/controls ; for details of the evoxlabs project, see http://evoxlabs.org/
+1. An accessible website/app is our number one priority. We value all contributions that put user accessibility as the top consideration when creating or modifying user interface elements. See http://www.w3.org/WAI/intro/wcag and for information/examples about accessible forms/controls see http://webaim.org/techniques/forms/controls ; for details of the Evoxlabs accessibility project, see http://evoxlabs.org/
 2. If you see something broken on the site, please [file an issue](https://github.com/UnlockedLab/unlockphilly/issues/new)!
 3. If you'd like to contribute to the project, 
  * Decide which issue you'd like to work on. Feel free to ask questions by
