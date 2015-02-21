@@ -83,8 +83,13 @@ get '/station/:stationid' do
   station_content = settings.STATIONS_CONTENT_COLLECTION.find_one({:_id => params[:stationid]})
   outage_history = settings.OUTAGE_TRACKER_COLLECTION.find({"_id.stationId" => params[:stationid]}).sort("_id.outageStart" => :asc).to_a
   active_outage = settings.OUTAGE_TRACKER_COLLECTION.find_one({"_id.stationId" => params[:stationid], "isActive" => true})
-  erb :station, :locals => {:page => "station", :page_title => "Station accessibilty details for "  + station['stop_name'] + " - " + get_line_full_name(station), :station => station, :station_content => station_content,
-    :line_name => get_line_full_name(station), :outageHistory => outage_history, :active_outage => active_outage}
+  if (station==nil) 
+    status 404
+    erb :oops_station, :locals => {:page => "oops_station", :page_title => "Station #{params[:stationid]} not found"}
+  else
+    erb :station, :locals => {:page => "station", :page_title => "Station accessibilty details for "  + station['stop_name'] + " - " + get_line_full_name(station), :station => station, :station_content => station_content,
+      :line_name => get_line_full_name(station), :outageHistory => outage_history, :active_outage => active_outage}
+  end
 end
 
 # get all station (and outage) metadata (AJAX request from main page in order to display map and outage info)
