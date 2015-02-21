@@ -7,7 +7,7 @@
 	
 			<% if station['wheelchair_boarding'] %>
 				
-				<% if activeOutage %><h4><span class="label large label-danger">Elevator outage reported</h4></span> 
+				<% if active_outage %><h4><span class="label large label-danger">Elevator outage reported</h4></span> 
 					<% if line_name.include? "SEPTA" %>Tweet SEPTA_SOCIAL for help or see SEPTA elevator advice page at <a target='_blank' href='http://www3.septa.org/elevators/'>http://www3.septa.org/elevators/</a>
 					<br/>
 					<a href="https://twitter.com/intent/tweet?screen_name=septa_social&text=@unlockphilly %23accessibility <%= station['stop_name'] %>" class="twitter-mention-button spacer-small">Tweet @septa</a>
@@ -87,8 +87,8 @@
 			        width: 700,
 			        height: 350
 			    };
-			    $.get("/septa/elevator/outagedayslast12months/<%= station['_id'] %>", function( data ) {
-  					$.each(data, function( index, value ) {
+			    $.get("/septa/elevator/outagedayslast12months/<%= station['_id'] %>", function( outageData ) {
+  					$.each(outageData, function( index, value ) {
   						evoGraphOptions.data.push(value.month, value.outageDays)
   					});
 			        createEvoGraph (evoGraphOptions);   //create graph
