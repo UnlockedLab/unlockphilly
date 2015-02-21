@@ -1,5 +1,4 @@
-var mapboxUrl = 'http://{s}.tiles.mapbox.com/v3/' + mapboxId + '/{z}/{x}/{y}.png';
-var mapboxAttribution = '<a target="_blank" href="https://www.mapbox.com/about/maps/">© Mapbox © OpenStreetMap</a> <a class="mapbox-improve-map" target="_blank" href="https://www.mapbox.com/map-feedback/#examples.map-9ijuk24y/8.538/47.365/15">Improve this map</a>';
+L.mapbox.accessToken = 'pk.eyJ1IjoiamFtZXN0eWFjayIsImEiOiJkbmNSd2prIn0.BTm2f3y2Bu5hBUt6TQAZ7w';
 var stationLayerGroups = {};
 var businessLayerGroup = null;
 var aroundThisLocationLayer = null;
@@ -22,13 +21,14 @@ var MAX_YELP_RESULTS = 26;
 var geocoderControl = L.mapbox.geocoderControl(mapboxId);
 var ACCESSIBLE_YELP_REVIEW_QUERY_KEYWORD = "access";
 
+
 var mapPosition = {};
 mapPosition["Fairmount"] = {
 	"coords" : [39.966959, -75.160391],
 	"zoom" : 13
 };
 
-var map = L.mapbox.map('map', mapboxId)
+var map = L.mapbox.map('map', mapboxId, {accessToken : 'pk.eyJ1IjoiamFtZXN0eWFjayIsImEiOiJkbmNSd2prIn0.BTm2f3y2Bu5hBUt6TQAZ7w'})
 	.addControl(geocoderControl)
 	.setView(mapPosition["Fairmount"]["coords"], mapPosition["Fairmount"]["zoom"]);
 
@@ -57,7 +57,7 @@ map.on('locationfound', function(e) {
 	        'marker-color': '#bcbddc',
 	        'marker-symbol': 'heart'
 	    }
-	})
+	});
 	aroundThisLocationLayer.addTo(map);
 	aroundThisLocationLayer.on('mouseover', function(e) {
     	e.layer.openPopup();
@@ -164,7 +164,8 @@ function addLayersAndShow(stationData, line) {
 					infoVisible=false;
 				}
 				var zoom = Math.max(16, map.getZoom());
-				map.setView(new L.LatLng(lng, lat), zoom, {
+				setTimeout( function () { map.setZoom(zoom); }, 500);
+			    map.setView(new L.LatLng(lng, lat), map.getZoom(), {
 						animate: true,
 						});
 			});
