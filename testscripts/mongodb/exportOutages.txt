@@ -1,7 +1,13 @@
-// export all by day
+// export all by day - to csv
 
 mongoexport --host localhost --port 10058 --username *** --password *** --collection stations_outages_by_day --db *** --csv --out /Users/jamestyack/git/unlockPhilly/datasets/station_outage_history/outages_by_day_2014.csv --fields '_id.stationId,_id.outageYear,_id.outageMonth,_id.outageDay,stop_name,line_code'
 
-// export all outage occurrences
+// export all outage occurrences - to csv
 
-mongoexport --host localhost --port 10058 --username *** --password *** --collection stations_outage_tracker --db *** --csv --out /Users/jamestyack/git/unlockPhilly/datasets/station_outage_history/outage_reports_2014.csv --fields '_id.stationId,_id.outageStart,duration,isActive,outageEnd,stop_name,line_code'
+mongoexport --host localhost --port 10058 --username * --password * --collection stations_outage_tracker --db * --csv --out /Users/jamestyack/git/unlockPhilly/datasets/station_outage_history/outage_reports_2014.csv --fields '_id.stationId,_id.outageStart,duration,isActive,outageEnd,stop_name,line_code'
+
+// export stations_outages_by_day
+
+mongoexport --host * --port 10058 --username * --password * --collection stations_outages_by_day --db *
+
+
