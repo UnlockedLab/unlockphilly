@@ -137,7 +137,7 @@ get '/septa/elevator/outagedayslast12months/:stationid' do
   prev_month_list_based_on_1st_current_month(0..11).each do | month_year |
     year = month_year.year
     month = month_year.month
-    outagesLast12Months << ({"month"=>Date::MONTHNAMES[month] + " " + year.to_s,"outageDays"=>outagesByMonth[month.to_s.rjust(2,"0") + "/" + year.to_s]})
+    outagesLast12Months.unshift({"month"=>year.to_s + "-" + month.to_s.rjust(2,"0"),"outageDays"=>outagesByMonth[month.to_s.rjust(2,"0") + "/" + year.to_s]})
   end
   return outagesLast12Months.to_json
 end
