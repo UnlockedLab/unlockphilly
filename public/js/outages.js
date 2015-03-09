@@ -31,7 +31,7 @@ function describeMonthlyOutages(outages, stationName) {
 		}
 	});
 	if (totalDaysOutages > 0) {
-		maxOutageDesc = "The worst " + ((maxOutageMonths.length > 1) ? "month(s) were" : "month was ") + describeMonths(maxOutageMonths) + " with " + maxOutagesInMonth + " days affected. ";
+		maxOutageDesc = "The worst " + ((maxOutageMonths.length > 1) ? "month(s) were " : "month was ") + describeMonths(maxOutageMonths) + " with " + maxOutagesInMonth + " days affected. ";
 		return "A total of " + totalDaysOutages + " days were affected by outages over the past 12 months at " + stationName + ". " 
 			+ maxOutageDesc + "A summary of all months is as follows: " + summaryDesc + "The following bar graph visualizes these stats.";
 	} else {
