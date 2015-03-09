@@ -73,27 +73,7 @@
 	                  return "rgb(255,255,255)";
 	                }
 	            })
-	            .attr("alt", "this is a box")
 	            .on("mouseover", tip.show)
 	            .on("mouseout", tip.hide);
-	          // svg.selectAll("text.datalabels")
-	            // .data(outages)
-	            // .enter()
-	            // .append("text")
-	            // .text(function(d, i) {
-	                // if (i < outages.length-1) {
-	                  // return d.days > 0 ? d.days : '';
-	                // }
-	            // })
-	            // .attr("x", function(d, i) {
-	                // return x(i) + (width / outages.length) / 2;
-	            // })
-	            // .attr("y", function(d) {
-	                // return yScale(d.days) - 2;
-	            // })
-	            // .attr("font-family", "sans-serif")
-	            // .attr("font-size", "11px")
-	            // .attr("font-weight", "bold")
-	            // .attr("fill", "black")
-	            // .attr("text-anchor", "middle");
+	          
 	        }

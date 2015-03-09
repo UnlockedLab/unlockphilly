@@ -6,8 +6,8 @@
 function describeRecentOutages(outages) {
 	var thisMonthOutages = outages[outages.length-1];
 	var lastMonthOutages = outages[outages.length-2];
-	var desc = "So far this month there have been " + thisMonthOutages.days + " day(s) affected by elevator outages*. ";
-	desc += "Last month there were " + lastMonthOutages.days + " day(s) affected. The following graph visualizes the pattern of recent outages."; 
+	var desc = thisMonthOutages.days + " day" + (thisMonthOutages.days === 1 ? "" : "s") + " affected by elevator outages* so far this month. ";
+	desc += "Last month " + lastMonthOutages.days + " day" + (lastMonthOutages.days === 1 ? "" : "s") + " affected."; 
 	return desc;
 }
 
@@ -33,7 +33,7 @@ function describeMonthlyOutages(outages, stationName) {
 	if (totalDaysOutages > 0) {
 		maxOutageDesc = "The worst " + ((maxOutageMonths.length > 1) ? "month(s) were " : "month was ") + describeMonths(maxOutageMonths) + " with " + maxOutagesInMonth + " days affected. ";
 		return "A total of " + totalDaysOutages + " days were affected by outages over the past 12 months at " + stationName + ". " 
-			+ maxOutageDesc + "A summary of all months is as follows: " + summaryDesc + "The following bar graph visualizes these stats.";
+			+ maxOutageDesc + "A summary of all months is as follows: " + summaryDesc;
 	} else {
 		return "";
 	}
