@@ -2,6 +2,52 @@
 // TODO: fix X axis to last month instead of min/max outage
 // TODO: tweak sizing and get labels aligning correctly
 
+// text description to improve accessibility
+function describeRecentOutages(outages) {
+	var thisMonthOutages = outages[outages.length-1];
+	var lastMonthOutages = outages[outages.length-2];
+	var desc = "So far this month there have been " + thisMonthOutages.days + " day(s) affected by elevator outages*. ";
+	desc += "Last month there were " + lastMonthOutages.days + " day(s) affected. The following graph visualizes the pattern of recent outages."; 
+	return desc;
+}
+
+// text description to improve accessibility
+function describeMonthlyOutages(outages, stationName) {
+	var summaryDesc = ""; 
+	var maxOutagesInMonth = 0;
+	var maxOutageMonths = [];
+	var monthFormat = d3.time.format("%Y-%m");
+	var totalDaysOutages = 0;
+	outages.forEach(function (data) {
+		totalDaysOutages += data.days;
+		if (data.days > 0) {
+			summaryDesc += d3.time.format("%b %Y")(monthFormat.parse(data.month)) + ", " + data.days + ". ";
+			if (data.days === maxOutagesInMonth) {
+				maxOutageMonths.push(data);
+			} else if (data.days > maxOutagesInMonth) {
+				maxOutagesInMonth = data.days;
+				maxOutageMonths = [data];
+			}
+		}
+	});
+	if (totalDaysOutages > 0) {
+		maxOutageDesc = "The worst " + ((maxOutageMonths.length > 1) ? "month(s) were" : "month was ") + describeMonths(maxOutageMonths) + " with " + maxOutagesInMonth + " days affected. ";
+		return "A total of " + totalDaysOutages + " days were affected by outages over the past 12 months at " + stationName + ". " 
+			+ maxOutageDesc + "A summary of all months is as follows: " + summaryDesc + "The following bar graph visualizes these stats.";
+	} else {
+		return "";
+	}
+}
+
+function describeMonths(maxOutageMonths) {
+	var descMon = "";
+	var monthFormat = d3.time.format("%Y-%m");
+	maxOutageMonths.forEach(function(data) {
+		descMon += (descMon === "" ? "" : "/") + d3.time.format("%B %Y")(monthFormat.parse(data.month));
+	});
+	return descMon;
+}
+
 function renderOutageChart(outages) {
 
     // settings
