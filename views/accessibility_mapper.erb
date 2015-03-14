@@ -10,7 +10,14 @@
 		</div>
 
 		<div class="col-md-3">
-
+			<row>
+				<div class="panel panel-default">
+					<div class="panel-heading panel-title" align='center'>
+						<h5><a href="#outageStats">Station elevator outage stats</a></h5>
+					</div>
+				</div><!-- end of contents box -->
+			</row><!-- end of contents box -->
+			<row>
 			<div class="panel panel-default yelpPanel">
 				<div class="panel-heading panel-title" align='center'>
 					<h5 id="yelp-heading">What's accessible nearby?</h5>
@@ -27,15 +34,15 @@
 						</ul>
 					</small>
 				</div><!-- end of panel body containing  yelp search results -->
-
 			</div><!-- end of yelp panel -->
+			</row><!-- end of yelp row -->
 
 		</div><!-- end of upper right column -->
 	</row>
 </div><!-- end of top content row containing filters and map -->
 <row>
 					
-						
+						<a name="outageStats"></a>
 					<p align='center'>Geocoding by <a href="http://www.mapquest.com/" target="_blank">MapQuest Open API</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png"> | Venues tagged 'wheelchair accessible' fetched from <a href="http://www.yelp.com" target="_blank"><img src="http://s3-media1.fl.yelpcdn.com/assets/2/www/img/14f29ad24935/map/miniMapLogo.png" alt="Yelp logo"/></a></p>
 					</row>
 					<row>
@@ -50,7 +57,7 @@
 			    	</div>
 			    	<div class="panel-body">
 						<div id="yearlygraph" aria-hidden="true"></div>	
-						<p class='text-left'>Data based on start/end time of operator's online elevator outage notifications.</p>
+						<p class='text-left'>* An 'affected outage day' is a day where an elevator outage alert occurred for any period of time.</p>
 						<p class='text-left'><a href='/septa/elevator/outageTotalsByStationForLast12Months'>REST API: Total days affected by outages by station over past 12 months.</a>
 					</div>
 					</div>

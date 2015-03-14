@@ -28,7 +28,7 @@
 		        .attr('class', 'd3-tip')
 		        .offset([-10, 0])
 		        .html(function(d) {
-		            return d._id.stop_name + " (" + d._id.line_code + ")" + "<br/>" + d.totalDaysOutageReported + " day(s)<br/>where outage<br/>reported";
+		            return d._id.stop_name + " (" + d._id.line_code + ")" + "<br/>" + d.totalDaysOutageReported + " day(s)<br/>where outage<br/>reported.<br/>Click bar for details...";
 		        });
 		    svg.call(tip);
 	        //var x = d3.scale.linear()

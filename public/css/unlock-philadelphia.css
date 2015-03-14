@@ -19,14 +19,14 @@
 }
 
 .yelpPanel {
-	height: 300px;
+	height: 250px;
 	overflow: scroll;
 }
 
 @media (min-height:650px) {
 
   .yelpPanel {
-	height: 525px;
+	height: 455px;
 	overflow: scroll;
   }
 }
