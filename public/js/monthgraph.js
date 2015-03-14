@@ -1,8 +1,20 @@
+		
+		
+		
+
+		
+		
 		var margin = {top: 10, right: 20, bottom: 20, left: 20},
             width = 800 - margin.left - margin.right,
             height = 300 - margin.top - margin.bottom;
         var barPadding = 1;
         function renderMonthGraph(outages) {
+        	var maxDays = 0;
+        	outages.forEach(function (d) {
+        		if (d.days > maxDays) {
+        			maxDays = d.days;
+        		}
+        	});
 	        var svg = d3.select("#monthgraph").append("svg")
 	            .attr("width", width + margin.left + margin.right)
 	            .attr("height", height + margin.top + margin.bottom)
@@ -32,7 +44,6 @@
 	                return d3.time.format("%b %Y")(monthFormat.parse(outages[d].month));
 	              }
 	            });
-	        
 	        var g = svg.append("g")
 	            .attr("class", "x axis")
 	            .attr("transform", "translate(0," + height + ")")
@@ -42,7 +53,7 @@
 	          .attr("x", 9)
 	          .attr("y", 4);
 	        var yScale = d3.scale.linear()
-	            .domain([31,0])
+	            .domain([Math.max(maxDays, 31),0])
 	            .range([0, height]);
 	        var yAxis = d3.svg.axis()
 	         	.scale(yScale)

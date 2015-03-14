@@ -125,6 +125,31 @@ get '/septa/elevator/outagedaysbymonth/:stationid' do
   return getDaysOfElevatorOutagesByMonthForStation(params[:stationid]).to_json
 end
 
+get '/septa/elevator/outageTotalsByStationForLast12Months' do
+  content_type :json
+  totalsForAllStations12Months = getLast12MonthsElevatorOutageTotalByStation()
+  return totalsForAllStations12Months.to_json
+end
+
+# outage totals last 12 months across all septa stations
+get '/septa/elevator/outagedayslast12months' do
+  content_type :json
+  months = getDaysOfElevatorOutagesByMonthAllStations()
+  outagesByMonth = Hash.new(0)
+  months.each do | month |
+    outagesByMonth[month["_id"]["outageMonth"] + "/" + month["_id"]["outageYear"]] = month["totalDaysInMonthWithOutageIncidentReportedByOperator"]
+  end
+  # get last months outages
+  outagesLast12Months = []
+  prev_month_list_based_on_1st_current_month(0..11).each do | month_year |
+    year = month_year.year
+    month = month_year.month
+    outagesLast12Months.unshift({"month"=>year.to_s + "-" + month.to_s.rjust(2,"0"),"outageDays"=>outagesByMonth[month.to_s.rjust(2,"0") + "/" + year.to_s]})
+  end
+  return outagesLast12Months.to_json
+end
+
+# outage totals last 12 months specific station
 get '/septa/elevator/outagedayslast12months/:stationid' do
   content_type :json
   months = getDaysOfElevatorOutagesByMonthForStation(params[:stationid])
@@ -283,6 +308,47 @@ helpers do
     today = Date.today
     beg_of_current_month = today - today.day + 1
     prev_month_range.to_a.map { | prev_month_number | beg_of_current_month.prev_month(prev_month_number) }
+  end
+  
+  def getLast12MonthsElevatorOutageTotalByStation()
+    last12MonthDates = prev_month_list_based_on_1st_current_month(0..11)
+    datesForMatch = []
+    last12MonthDates.each do | date |
+      datesForMatch << { "_id.outageYear" => "#{date.year}", "_id.outageMonth" => "#{date.month.to_s.rjust(2,"0")}" }
+    end
+    # TODO convert list of dates to array of hashes for '$or'
+    settings.mongo_db["stations_outages_by_day"].aggregate([
+      {
+        "$match" => {"$or" =>  datesForMatch }
+      },
+      { 
+        "$group" => {
+            "_id" => { "stationId" => "$_id.stationId", "stop_name" => "$stop_name", "line_code" => "$line_code"},
+            "totalDaysOutageReported" => { "$sum" => 1 }
+       }
+      },
+      { "$sort" =>
+        {
+          "totalDaysOutageReported" => -1
+        }
+      }
+    ])
+  end
+  
+  def getDaysOfElevatorOutagesByMonthAllStations()
+    settings.mongo_db["stations_outages_by_day"].aggregate([
+      { "$group" => 
+        { 
+          "_id" => {"outageYear" => "$_id.outageYear", "outageMonth" => "$_id.outageMonth"},
+          "totalDaysInMonthWithOutageIncidentReportedByOperator" => { "$sum" => 1 }
+        }
+      },
+      { "$sort" => 
+        {
+          "_id.outageYear" => -1, "_id.outageMonth" => -1
+        }
+      }
+    ])
   end
   
   def getDaysOfElevatorOutagesByMonthForStation(stationId)

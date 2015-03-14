@@ -34,10 +34,28 @@
 	</row>
 </div><!-- end of top content row containing filters and map -->
 <row>
-					<div class="col-md-6">
+					
 						
-						<p align='center'>Geocoding by <a href="http://www.mapquest.com/" target="_blank">MapQuest Open API</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png"> | Venues tagged 'wheelchair accessible' fetched from <a href="http://www.yelp.com" target="_blank"><img src="http://s3-media1.fl.yelpcdn.com/assets/2/www/img/14f29ad24935/map/miniMapLogo.png" alt="Yelp logo"/></a></p>
-
+					<p align='center'>Geocoding by <a href="http://www.mapquest.com/" target="_blank">MapQuest Open API</a> <img src="http://developer.mapquest.com/content/osm/mq_logo.png"> | Venues tagged 'wheelchair accessible' fetched from <a href="http://www.yelp.com" target="_blank"><img src="http://s3-media1.fl.yelpcdn.com/assets/2/www/img/14f29ad24935/map/miniMapLogo.png" alt="Yelp logo"/></a></p>
+					</row>
+					<row>
+					<div class="panel panel-default spacer" align='center'>
+					<div class="panel-heading panel-title" align='center'>
+						<h4>Elevator Outages @ SEPTA Stations (MFL/BSS): Days where elevator outage was reported - totals for last 12 months based on operator alerts*</h5>
+							<small>
+							<p class='text-left' id="yearlyOutageDaysTotalByStationDescription">Some info about the last 12 months of outages.</p>
+							</small>
+						<script type="text/javascript" src='/js/allstationsgraph.js'>
+			    		</script>
+			    	</div>
+			    	<div class="panel-body">
+						<div id="yearlygraph" aria-hidden="true"></div>	
+						<p class='text-left'>Data based on start/end time of operator's online elevator outage notifications.</p>
+						<p class='text-left'><a href='/septa/elevator/outageTotalsByStationForLast12Months'>REST API: Total days affected by outages by station over past 12 months.</a>
+					</div>
+					</div>
+					</row>
+					
 						<row>
 							<div class="panel panel-default spacer" align='center'>
 								<div class="panel-heading panel-title" align='center'>
@@ -52,16 +70,7 @@
 								</div>
 							</div>
 						</row>
-						<row>
-							<a class="twitter-timeline" href="https://twitter.com/unlockphilly" data-widget-id="460080457162293249">Tweets by @unlockphilly</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-
-
-
-						</row>
-					</div>
-					<div class="col-md-6">
+						
 						<row>
 
 						<div id="disqus_thread"></div>
@@ -86,4 +95,3 @@
 
 						</div>
 					</row>
-					</div>

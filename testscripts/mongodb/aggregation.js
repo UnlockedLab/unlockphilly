@@ -48,3 +48,24 @@ db.stations_outages_by_day.aggregate([
        }
    }
 ]);
+
+// 12-month outage totals by station
+db.stations_outages_by_day.aggregate([
+  {
+    $match : {$or:[ {"_id.outageYear":"2014", "_id.outageMonth":"12"} ,
+                    {"_id.outageYear":"2014", "_id.outageMonth":"11"}
+                  ]
+             }
+  },
+  { 
+    $group: {
+      "_id" : { stationId : "$_id.stationId", stop_name : "$stop_name", line_code : "$line_code"},
+      "totalDaysOutageReported" : { $sum :1 }
+    }
+  },
+  { $sort :
+       {
+         "totalDaysOutageReported" : -1
+       }
+   }
+]);
