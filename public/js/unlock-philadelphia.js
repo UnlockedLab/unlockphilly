@@ -147,7 +147,7 @@ function addLayersAndShow(stationData, line) {
 						coordinates: [station.stop_lon, station.stop_lat]
 					},
 					properties: {
-						title: "<a href='" + window.location.href + "station/" + station._id + "'>" + station.stop_name + "</a>",
+						title: "<a href='" + cleanBookmark(window.location.href) + "station/" + station._id + "'>" + station.stop_name + "</a>",
 						description: formatStation(station),
 						'marker-size': 'medium',
 						'marker-color': getAccessTypeColor(station),
@@ -321,7 +321,17 @@ function formatStation(station) {
 	} else {
 		response += (station.wheelchair_boarding == "1" ? "" : "Not ") + "Wheelchair Accessible";
 	}
-	return response + " <a href='" + window.location.href + "station/" + station._id + "'>more ...</a>";
+	return response + " <a href='" + cleanBookmark(window.location.href) + "station/" + station._id + "'>more ...</a>";
+}
+
+// removes bookmark from the end of the window location
+function cleanBookmark(s) {
+	var n = s.indexOf("#");
+	if (n>0) {
+		return s.substring(0,n);
+	} else {
+		return s;
+	}
 }
 
 function getLine(station) {
