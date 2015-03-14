@@ -10,12 +10,16 @@ var accessTypeBusiness = 'AccessTypeBusiness';
 var accessTypes = [accessTypeWheelchair, accessTypeOutage, accessTypeStairsOnly, accessTypeBusiness];
 var accessTypesLabels = ['Accessible station', 'Station with elevator outage', 'Station with restricted/limited access', 'Business listed as accessible on Yelp'];
 var accessTypeColors = {};
-var info;
-var infoVisible=true;
 accessTypeColors[accessTypeWheelchair] = "#1a9641";
-accessTypeColors[accessTypeStairsOnly] = "#bababa";
+accessTypeColors[accessTypeStairsOnly] = "#fc9272";
 accessTypeColors[accessTypeOutage] = "#d7191c";
 accessTypeColors[accessTypeBusiness] = "#0099cc";
+var accessTypeIcons = {};
+accessTypeIcons[accessTypeWheelchair] = "rail-light";
+accessTypeIcons[accessTypeStairsOnly] = "roadblock";
+accessTypeIcons[accessTypeOutage] = "roadblock";
+var info;
+var infoVisible=true;
 var twitterCode = "<a href='https://twitter.com/intent/tweet?screen_name=septa' class='twitter-mention-button' data-related='septa'>Tweet to @septa</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>";
 var MAX_YELP_RESULTS = 26;
 var geocoderControl = L.mapbox.geocoderControl(mapboxId);
@@ -103,6 +107,13 @@ $(document).ready(function() {
 	var myLocationLayer = L.mapbox.featureLayer().addTo(map);
 	addLocateMeButton();
 	
+	// render outage graph
+	$.get("/septa/elevator/outageTotalsByStationForLast12Months", function( outageData ) {
+		d3.select("#yearlyOutageDaysTotalByStationDescription").text(describeYearlyOutageDaysByStation(outageData));
+		outageData.push("{}");
+		renderAllStationYearlyTotalsGraph(outageData);
+	});
+	
 });
 
 
@@ -140,7 +151,7 @@ function addLayersAndShow(stationData, line) {
 						description: formatStation(station),
 						'marker-size': 'medium',
 						'marker-color': getAccessTypeColor(station),
-						'marker-symbol': 'rail-metro'
+						'marker-symbol': getAccessTypeIcon(station)
 					}
 				};
 				stations[getAccessType(station)].push(feature);
@@ -178,7 +189,7 @@ function addLayerAndShowYelpResults(data, name) {
 	console.log(businessLayerGroup);
 	var businesses = [];
 	for (var i = 0; i < data.businesses.length && i < MAX_YELP_RESULTS; i++) {
-		alph = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+		alph = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		var business = data.businesses[i];
 		feature = {
 			type : 'Feature',
@@ -223,7 +234,7 @@ function inProgressYelp(name) {
 function createListOfResults(data, name) {
 	var resultsHtml = "<small><ul class='list-group'>";
 	for (var i=0; i<data.businesses.length && i<MAX_YELP_RESULTS; i++) {
-		markerRef = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".charAt(i)
+		var markerRef = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".charAt(i);
 		var business = data.businesses[i];
 		resultsHtml += "<li class='list-group-item'><strong>";
 		resultsHtml += markerRef + ".</strong> <a target='_blank' href='" + business.url + "?q="+ ACCESSIBLE_YELP_REVIEW_QUERY_KEYWORD + "'>" + business.name + "</a> <strong>" + business.categories[0][0] +"</strong> (" +
@@ -264,6 +275,17 @@ function getAccessTypeColor(station) {
 		return accessTypeColors[accessTypeWheelchair];
 	} else {
 		return accessTypeColors[accessTypeStairsOnly];
+	}
+}
+
+function getAccessTypeIcon(station) {
+	if (station.elevatorOutage) {
+		return accessTypeIcons[accessTypeOutage];
+	}
+	if (station.wheelchair_boarding == "1") {
+		return accessTypeIcons[accessTypeWheelchair];
+	} else {
+		return accessTypeIcons[accessTypeStairsOnly];
 	}
 }
 
@@ -375,7 +397,7 @@ function addLocateMeButton() {
       'maxWidth': 30,  // number
       'doToggle': false,  // bool
       'toggleStatus': false  // bool
-	}   
+	};
 
 	var myButton = new L.Control.Button(myButtonOptions).addTo(map);
 }

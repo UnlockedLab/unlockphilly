@@ -2,6 +2,31 @@
 // TODO: fix X axis to last month instead of min/max outage
 // TODO: tweak sizing and get labels aligning correctly
 
+function describeYearlyOutageDaysByStation(outages) {
+	var summaryDesc = ""; 
+	var maxOutagesAtStation = 0;
+	var maxOutageStations = [];
+	var totalDaysOutages = 0;
+	outages.forEach(function (data) {
+		totalDaysOutages += data.totalDaysOutageReported;
+		if (data.totalDaysOutageReported > 0) {
+			summaryDesc += data._id.stop_name + ", " + data.totalDaysOutageReported + ". ";
+			if (data.totalDaysOutageReported === maxOutagesAtStation) {
+				maxOutageStations.push(data);
+			} else if (data.totalDaysOutageReported > maxOutagesAtStation) {
+				maxOutagesAtStation = data.totalDaysOutageReported;
+				maxOutageStations = [data];
+			}
+		}
+	});
+	if (totalDaysOutages > 0) {
+		maxOutageDesc = "Over the past 12 months, the " + ((maxOutageStations.length > 1) ? "stations with the most days affected by outages were " : "station with the most days affected by outages was ") + describeStations(maxOutageStations) + " with " + maxOutagesAtStation + " days affected. ";
+		return "We keep track of SETPA elevator outage notifications. " + maxOutageDesc + "A summary of all stations is as follows: " + summaryDesc;
+	} else {
+		return "";
+	}
+}
+
 // text description to improve accessibility
 function describeRecentOutages(outages) {
 	var thisMonthOutages = outages[outages.length-1];
@@ -31,7 +56,7 @@ function describeMonthlyOutages(outages, stationName) {
 		}
 	});
 	if (totalDaysOutages > 0) {
-		maxOutageDesc = "The worst " + ((maxOutageMonths.length > 1) ? "month(s) were " : "month was ") + describeMonths(maxOutageMonths) + " with " + maxOutagesInMonth + " days affected. ";
+		maxOutageDesc = "The worst " + ((maxOutageMonths.length > 1) ? "months were " : "month was ") + describeMonths(maxOutageMonths) + " with " + maxOutagesInMonth + " days affected. ";
 		return "A total of " + totalDaysOutages + " days were affected by outages over the past 12 months at " + stationName + ". " 
 			+ maxOutageDesc + "A summary of all months is as follows: " + summaryDesc;
 	} else {
@@ -39,6 +64,7 @@ function describeMonthlyOutages(outages, stationName) {
 	}
 }
 
+// TODO - refactor these functions... so similar
 function describeMonths(maxOutageMonths) {
 	var descMon = "";
 	var monthFormat = d3.time.format("%Y-%m");
@@ -46,6 +72,14 @@ function describeMonths(maxOutageMonths) {
 		descMon += (descMon === "" ? "" : "/") + d3.time.format("%B %Y")(monthFormat.parse(data.month));
 	});
 	return descMon;
+}
+
+function describeStations(maxOutageStations) {
+	var descStations = "";
+	maxOutageStations.forEach(function(data) {
+		descStations += (descStations === "" ? "" : "/") + data._id.stop_name;
+	});
+	return descStations;
 }
 
 function renderOutageChart(outages) {
