@@ -21,7 +21,7 @@ function describeYearlyOutageDaysByStation(outages) {
 	});
 	if (totalDaysOutages > 0) {
 		maxOutageDesc = "Over the past 12 months, the " + ((maxOutageStations.length > 1) ? "stations with the most days affected by outages were " : "station with the most days affected by outages was ") + describeStations(maxOutageStations) + " with " + maxOutagesAtStation + " days affected. ";
-		return "We keep track of SETPA elevator outage notifications. " + maxOutageDesc + "A summary of all stations is as follows: " + summaryDesc;
+		return "Accessible description:- We keep track of SETPA elevator outage notifications. " + maxOutageDesc + "A summary of all stations is as follows: " + summaryDesc;
 	} else {
 		return "";
 	}
