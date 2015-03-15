@@ -104,10 +104,9 @@
 	                	return height - yScale(d.totalDaysOutageReported);
 	                }
 	            })
-	            //.attr("stroke", "rgb(255,0,0)")
 	            .attr("fill", function(d, i) {
 	                if (i < outages.length-1) {
-	                  return "rgba(255, 0, 0, 0.4)";
+	                  return "rgba(0, 0, 255, 0.4)";
 	                } else {
 	                  return "rgb(255,255,255)";
 	                }
@@ -126,5 +125,5 @@
 		        .attr("x",0 - (height / 2))
 		        .attr("dy", "1em")
 		        .style("text-anchor", "middle")
-		        .text("Days affected by outage *");
+		        .text("Days affected by outage over past 12 months *");
 	        }
