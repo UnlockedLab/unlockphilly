@@ -4,10 +4,11 @@
 
 .leaflet-buttons-control-img {
 	cursor: pointer;
+	width: 90px;
 }
 
 #map {
-	height: 300px;
+	height: 350px;
 }
 
 
@@ -19,16 +20,20 @@
 }
 
 .yelpPanel {
-	height: 250px;
-	overflow: scroll;
+	display: none;
 }
 
-@media (min-height:650px) {
+@media (min-height:650px) and (min-width:650px) {
 
   .yelpPanel {
+  	display: block;
 	height: 455px;
 	overflow: scroll;
   }
+  
+  .leaflet-buttons-control-img {
+	width: 120px;
+}
 }
 
 #footer {
