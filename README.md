@@ -8,6 +8,10 @@ Philadelphia.
 
 [View it online at http://unlockphilly.com](http://unlockphilly.com).
 
+# Contributors
+
+See https://github.com/UnlockedLab/unlockphilly/wiki/Volunteer-contributors
+
 # Information for developers
 
 UnlockPhilly is a great platform for learning multiple aspects of web
