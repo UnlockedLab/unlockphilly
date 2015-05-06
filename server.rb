@@ -77,6 +77,10 @@ get '/n3rdstreet' do
   erb :n3rdstreet, :locals => {:page => "n3rdstreet", :page_title => "N3RD Street, Philadelphia Shops / Venues with Accessible Main Entrance/Accessibility Instructions Outside"}
 end
 
+get '/parks' do
+  erb :parks, :locals => {:page => "parks", :page_title => "Case Study: Independence National Historical Park - Accessibility Survey/Map"}
+end
+
 # station details page
 get '/station/:stationid' do
   station = settings.STATIONS_COLLECTION.find_one({:_id => params[:stationid]})
