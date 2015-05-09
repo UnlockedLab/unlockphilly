@@ -5,28 +5,19 @@
 		</script>
 		<link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.3/leaflet.fullscreen.css' rel='stylesheet' />
 		<link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.css' rel='stylesheet' />
-		<div class="col-md-9">
+		<div class="col-md-9" aria-hidden="true">
 			<div id="map"></div>
 		</div>
 
 		<div class="col-md-3">
-			<div class="panel panel-default yelpPanel">
-				<div class="panel-heading panel-title" align='center'>
-					<h5 id="yelp-heading">What's accessible nearby?</h5>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4><a href='/parks'>Accessiblity Map of Independence National Historical Park</a> for Love Your Park week and #CompleteParks</h4>
 				</div>
-				<div id="yelp-results">
-					<!-- start of panel body -->
-					<small>
-						<ul class='list-group'>
-							<li class='list-group-item'>
-								<div align='center'>
-									<p>Click stations on map to see accessible bars, shops, restaurants and more</p>
-								</div>
-							</li>
-						</ul>
-					</small>
-				</div><!-- end of panel body containing  yelp search results -->
-			</div><!-- end of yelp panel -->
+				<div class="panel-body" style="height: 420px; overflow: scroll;">
+					<a target='_blank' href='http://www.eventbrite.com/e/complete-parks-a-discussion-on-ensuring-our-public-spaces-are-accessible-to-people-of-all-ages-and-tickets-16303757979'><img alt="Complete parks week flyer" width=100% src="/images/logo/complete_parks.jpg" /></a>
+				</div>
+			</div>
 		</div><!-- end of upper right column -->
 	</row>
 </div><!-- end of top content row containing filters and map -->
