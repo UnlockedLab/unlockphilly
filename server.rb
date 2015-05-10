@@ -78,7 +78,11 @@ get '/n3rdstreet' do
 end
 
 get '/parks' do
-  erb :parks, :locals => {:page => "parks", :page_title => "Case Study: Independence National Historical Park - Accessibility Survey/Map"}
+  erb :parks, :locals => {:page => "parks", :page_title => "Independence National Historical Park, Philadelphia - Accessibility Guide"}
+end
+
+get '/parks/independence-national-historical-park-accessibility' do
+  erb :parks_inde, :locals => {:page => "parks", :page_title => "Independence National Historical Park, Philadelphia - Accessibility Guide"}
 end
 
 # station details page
