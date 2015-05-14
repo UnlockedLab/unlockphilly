@@ -81,6 +81,10 @@ get '/parks' do
   erb :parks, :locals => {:page => "parks", :page_title => "Independence National Historical Park, Philadelphia - Accessibility Guide"}
 end
 
+get '/help' do
+  erb :help, :locals => {:page => "help", :page_title => "Help page for reporting and tracking accessibility problems."}
+end
+
 get '/parks/independence-national-historical-park-accessibility' do
   erb :parks_inde, :locals => {:page => "parks", :page_title => "Independence National Historical Park, Philadelphia - Accessibility Guide"}
 end
