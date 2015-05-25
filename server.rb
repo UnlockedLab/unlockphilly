@@ -13,6 +13,7 @@ require 'postmark'
 require 'nokogiri'
 require 'open-uri'
 require 'date'
+require 'twitter'
 
 include Mongo
 
@@ -25,13 +26,10 @@ end
 $yelpAddressLatLng = {} # latLng of addresses from Yelp
 
 configure do
+  
   # DB CONFIG
-  db_details = URI.parse(ENV['MONGOHQ_URL'])
-  conn = MongoClient.new(db_details.host, db_details.port)
-  db_name = db_details.path.gsub(/^\//, '')
-  db = conn.db(db_name)
-  db.authenticate(db_details.user, db_details.password) unless (db_details.user.nil? || db_details.user.nil?)
-  set :mongo_db, db
+  conn = Mongo::Client.new(ENV['MONGOHQ_URL'])
+  set :mongo_db, conn
   set :STATIONS_COLLECTION, settings.mongo_db['stations']
   set :STATIONS_CONTENT_COLLECTION, settings.mongo_db['station_content']
   set :OUTAGE_TRACKER_COLLECTION, settings.mongo_db['stations_outage_tracker']
@@ -55,6 +53,15 @@ configure do
   # URLS
   set :app_url, "http://www.unlockphilly.com"
   set :septaElevatorOutagesUrl, 'http://www3.septa.org/hackathon/elevator/'
+  
+  #TWITTER
+  client = Twitter::REST::Client.new do |config|
+    config.consumer_key        = ENV['TWITTER_CONSUMER_KEY']
+    config.consumer_secret     = ENV['TWITTER_CONSUMER_SECRET']
+    config.access_token        = ENV['TWITTER_ACCESS_TOKEN']
+    config.access_token_secret = ENV['TWITTER_ACCESS_SECRET']
+  end
+  set :twitter_client, client
   
   enable :logging
 end
@@ -91,14 +98,17 @@ end
 
 # station details page
 get '/station/:stationid' do
-  station = settings.STATIONS_COLLECTION.find_one({:_id => params[:stationid]})
-  station_content = settings.STATIONS_CONTENT_COLLECTION.find_one({:_id => params[:stationid]})
+  station_arr = settings.STATIONS_COLLECTION.find({:_id => params[:stationid]}).to_a
+  station_content_arr = settings.STATIONS_CONTENT_COLLECTION.find({:_id => params[:stationid]}).to_a
   outage_history = settings.OUTAGE_TRACKER_COLLECTION.find({"_id.stationId" => params[:stationid]}).sort("_id.outageStart" => :asc).to_a
-  active_outage = settings.OUTAGE_TRACKER_COLLECTION.find_one({"_id.stationId" => params[:stationid], "isActive" => true})
-  if (station==nil) 
+  active_outage_arr = settings.OUTAGE_TRACKER_COLLECTION.find({"_id.stationId" => params[:stationid], "isActive" => true}).to_a
+  if (station_arr.size==0) 
     status 404
     erb :oops_station, :locals => {:page => "oops_station", :page_title => "Station #{params[:stationid]} not found"}
   else
+    station=station_arr[0]
+    if (station_content_arr.size>0) then station_content=station_content_arr[0] else station_content=nil end
+    if (active_outage_arr.size>0) then active_outage=active_outage_arr[0] else active_outage_arr=nil end
     erb :station, :locals => {:page => "station", :page_title => "Station accessibilty details for "  + station['stop_name'] + " - " + get_line_full_name(station), :station => station, :station_content => station_content,
       :line_name => get_line_full_name(station), :outageHistory => outage_history, :active_outage => active_outage}
   end
@@ -233,13 +243,17 @@ helpers do
             # FOUND MATCH FOR OUTAGE... update the DB and object accordingly
             # archive the outage by date
             outage_by_day = build_outage_by_day(station_data, line_code)
-            settings.OUTAGES_BY_DAY_COLLECTION.save(outage_by_day)
+            outage_today_already_in_db = settings.OUTAGES_BY_DAY_COLLECTION.find(outage_by_day).count
+            puts "outage already in db " + outage_today_already_in_db.to_s
+            if (outage_today_already_in_db == 0) then
+              settings.OUTAGES_BY_DAY_COLLECTION.insert_one(outage_by_day)
+            end
             # update/add to station_dataoutage tracker collection
             station_ids_with_outage << station_data["_id"]
-            already_active_outage = settings.OUTAGE_TRACKER_COLLECTION.find_one("_id.stationId" => station_data["_id"], "isActive" => true)
-            if (already_active_outage)
-              update_active_outage(already_active_outage)
-              station_data["outageTracker"] = already_active_outage
+            already_active_outage_array = settings.OUTAGE_TRACKER_COLLECTION.find("_id.stationId" => station_data["_id"], "isActive" => true).limit(1).to_a
+            if (already_active_outage_array.size > 0)
+              update_active_outage(already_active_outage_array[0])
+              station_data["outageTracker"] = already_active_outage_array[0]
             else
               add_new_outage_and_alert(station_data, line_code)
             end
@@ -256,16 +270,18 @@ helpers do
     mins_since_outage_start = ((Time.now - already_active_outage["_id"]["outageStart"])/60).to_i
     puts "mins_since_outage_start = " + mins_since_outage_start.to_s
     already_active_outage["duration"] = mins_since_outage_start
-    settings.OUTAGE_TRACKER_COLLECTION.save(already_active_outage)
+    settings.OUTAGE_TRACKER_COLLECTION.find({"_id"=>already_active_outage["_id"]}).update_one(already_active_outage)
   end
   
   def add_new_outage_and_alert(station_data, line_code)
     outage = build_outage(station_data, line_code)
     puts "adding new outage to Mongo #{outage.inspect}"
-    settings.OUTAGE_TRACKER_COLLECTION.insert(outage)
+    settings.OUTAGE_TRACKER_COLLECTION.insert_one(outage)
     station_data["outageTracker"] = outage
-    mail_body = "New outage reported at #{station_data["stop_name"]} see #{settings.app_url}/station/#{outage['_id']['stationId']}\n\n#{outage.to_json}"
-    send_alert_mail "UnlockPhilly: New elevator outage reported at " + station_data["stop_name"], mail_body
+    pp station_data.inspect
+    msg = "##{station_data['operator']}#{line_code} #elevatoroutage reported @ #{station_data["stop_name"]}: for latest see unlockphilly.com #{Time.now.strftime("%b %e, %H:%M %p")} "
+    send_alert_mail "UnlockPhilly: New elevator outage reported at " + station_data["stop_name"], msg
+    settings.twitter_client.update(msg)
     outage
   end
 
@@ -282,8 +298,10 @@ helpers do
         puts "mins_since_outage_start = " + mins_since_outage_start.to_s
         station_with_outage["duration"] = mins_since_outage_start
         station_with_outage["outageEnd"] = Time.now
-        settings.OUTAGE_TRACKER_COLLECTION.save(station_with_outage)
-        send_alert_mail "UnlockPhilly: Elevator outage ended at #{station_with_outage['stop_name']}", station_with_outage.inspect
+        settings.OUTAGE_TRACKER_COLLECTION.find({"_id"=>station_with_outage["_id"]}).update_one(station_with_outage)
+        mail_body = "Elevator outage ended at #{station_with_outage["stop_name"]} #{station_with_outage["line_code"]}"
+        puts mail_body
+        send_alert_mail "UnlockPhilly: Elevator outage ended at #{station_with_outage['stop_name']}", mail_body
       end
     end
   end
@@ -329,7 +347,7 @@ helpers do
       datesForMatch << { "_id.outageYear" => "#{date.year}", "_id.outageMonth" => "#{date.month.to_s.rjust(2,"0")}" }
     end
     # TODO convert list of dates to array of hashes for '$or'
-    settings.mongo_db["stations_outages_by_day"].aggregate([
+    settings.mongo_db["stations_outages_by_day"].find.aggregate([
       {
         "$match" => {"$or" =>  datesForMatch }
       },
@@ -344,7 +362,7 @@ helpers do
           "totalDaysOutageReported" => -1
         }
       }
-    ])
+    ]).to_a
   end
   
   def getDaysOfElevatorOutagesByMonthAllStations()
@@ -360,11 +378,11 @@ helpers do
           "_id.outageYear" => -1, "_id.outageMonth" => -1
         }
       }
-    ])
+    ]).to_a
   end
   
   def getDaysOfElevatorOutagesByMonthForStation(stationId)
-    settings.mongo_db["stations_outages_by_day"].aggregate([
+    settings.mongo_db["stations_outages_by_day"].find.aggregate([
       { "$match" => {"_id.stationId" => stationId } },
       { "$group" => 
         { 
@@ -377,7 +395,7 @@ helpers do
           "_id.outageYear" => -1, "_id.outageMonth" => -1
         }
       }
-    ])
+    ]).to_a
   end
   
   def getDaysOfElevatorOutagesByYearMonth()
@@ -393,7 +411,7 @@ helpers do
           "totalDaysInMonthWithOutageIncidentReportedByOperator" => -1
         }
       }
-    ])
+    ]).to_a
   end
   
   def getDaysOfElevatorOutagesByYear()
@@ -409,7 +427,7 @@ helpers do
           "totalDaysInYearWithOutageIncidentReportedByOperator" => -1
         }
       }
-    ])
+    ]).to_a
   end
   
   def get_live_elevator_outages()
@@ -502,8 +520,8 @@ helpers do
   # Converts a street address to a GeoJSON object via the mapquest API
   def get_geo_json(address)  
     geocodes_collection = settings.mongo_db['geocodes']
-    cache_result = geocodes_collection.find_one({:_id => address})
-    if cache_result==nil # address doesn't exist in global variable
+    cache_result_arr = geocodes_collection.find({:_id => address}).limit(1).to_a
+    if cache_result_arr.size==0 # address doesn't exist in global variable
       mapquestKey = ENV['MAPQUEST_API_KEY']
       geocodeRequestUri = "http://open.mapquestapi.com/geocoding/v1/address?key=#{mapquestKey}&location=#{address}"
       geoCodeResponse = RestClient.get geocodeRequestUri
@@ -511,19 +529,19 @@ helpers do
       if jsonResults['info']['statuscode'] == 403 # Request failed
         latLng = {"lng" => 0,"lat" => 0}
         latLng["_id"] = address
-        geocodes_collection.insert(latLng)
+        geocodes_collection.insert_one(latLng)
       elsif jsonResults['results'][0]['locations'].length > 0
         latLng = jsonResults['results'][0]['locations'][0]['latLng']
         $yelpAddressLatLng[address] = latLng
         latLng["_id"] = address
-        geocodes_collection.insert(latLng)
+        geocodes_collection.insert_one(latLng)
       else
         latLng = {"lng" => 0,"lat" => 0}
         latLng["_id"] = address
-        geocodes_collection.insert(latLng)
+        geocodes_collection.insert_one(latLng)
       end
     else # address exists in global variable
-      latLng = cache_result
+      latLng = cache_result_arr[0]
     end
     return latLng
   end
