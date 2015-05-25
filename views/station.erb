@@ -27,7 +27,7 @@
 										}(document, 'script', 'twitter-wjs');
 									</script>
 					<% end %>
-		    	<% else %><h4><span class="label label-success">Wheelchair accessible station</h4></span>
+		    	<% else %><h4><span class="label label-success">Wheelchair accessible station with no active elevator outage reported</h4></span>
 		    	<% if line_name.include? "SEPTA" %>Tweet SEPTA_SOCIAL if you see an outage or accessibility problem. For SEPTA elevator outage advice page see <a target='_blank' href='http://www3.septa.org/elevators/'>http://www3.septa.org/elevators/</a>
 					<br/>
 					<a href="https://twitter.com/intent/tweet?screen_name=septa_social&text=@unlockphilly %23accessibility <%= station['stop_name'] %>" class="twitter-mention-button spacer-small">Tweet @septa</a>
