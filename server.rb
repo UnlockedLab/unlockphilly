@@ -279,7 +279,7 @@ helpers do
     settings.OUTAGE_TRACKER_COLLECTION.insert_one(outage)
     station_data["outageTracker"] = outage
     pp station_data.inspect
-    msg = "##{station_data['operator']}#{line_code} #elevatoroutage reported @ #{station_data["stop_name"]}: for latest see unlockphilly.com #{Time.now.strftime("%b %e, %H:%M %p")} "
+    msg = "##{station_data['operator']}#{line_code} #elevatoroutage reported @ #{station_data["stop_name"]}: for latest see unlockphilly.com/station/#{outage['_id']['stationId']} #{Time.now.strftime("%b %e, %H:%M %p")} "
     send_alert_mail "UnlockPhilly: New elevator outage reported at " + station_data["stop_name"], msg
     settings.twitter_client.update(msg)
     outage
