@@ -437,7 +437,12 @@ helpers do
   
   # sample response from SEPTA {"meta":{"elevators_out":1,"updated":"2013-09-26 13:31:57"},"results":[{"line":"Norristown High Speed Line","station":"Norristown Transportation Center","elevator":"Street Level","message":"No access to\/from station","alternate_url":"http:\/\/www.septa.org\/access\/alternate\/nhsl.html#ntc"}]}
   def getElevatorOutagesFromSeptaJson()
-    return RestClient.get settings.septaElevatorOutagesUrl
+    begin
+      return RestClient.get settings.septaElevatorOutagesUrl
+    rescue => e
+      puts e.response
+      return '{"results": []}'
+    end
   end
   
   def getElevatorOutagesFromFileForTesting()
