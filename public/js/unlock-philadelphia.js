@@ -149,7 +149,7 @@ function addLayersAndShow(stationData, line) {
 					properties: {
 						title: "<a href='" + cleanBookmark(window.location.href) + "station/" + station._id + "'>" + station.stop_name + "</a>",
 						description: formatStation(station),
-						'marker-size': 'medium',
+						'marker-size': 'small',
 						'marker-color': getAccessTypeColor(station),
 						'marker-symbol': getAccessTypeIcon(station)
 					}
@@ -200,7 +200,7 @@ function addLayerAndShowYelpResults(data, name) {
 			properties : {
 				title : alph.charAt(i) + ". <a target='_blank' href='" + business.url + "?q="+ ACCESSIBLE_YELP_REVIEW_QUERY_KEYWORD + "'>" + business.name + "</a>",
 				description : "<a target='_blank' href='" + business.url + "?q="+ ACCESSIBLE_YELP_REVIEW_QUERY_KEYWORD + "'><img style='max-width:80px' align='right' src='" + business.image_url + "'/></a><strong>" + business.categories[0][0] + "</strong><br />" + business.location.address + "<br/>" + business.display_phone + "<br/><span><img title='" + business.snippet_text + "' src='" + business.rating_img_url + "'/></a><img src='http://s3-media1.ak.yelpcdn.com/assets/2/www/img/14f29ad24935/map/miniMapLogo.png' alt='Yelp Logo, mini' height='20' width='40'><br/><a target='_blank' href='" + business.url + "?q="+ ACCESSIBLE_YELP_REVIEW_QUERY_KEYWORD + "'>" + business.review_count + " reviews</span><br/>Yelp says 'Wheelchair Accessible'",
-				'marker-size' : 'medium',
+				'marker-size' : 'small',
 				'marker-color' : "#0099cc",
 				'marker-symbol' : alph.toLowerCase().charAt(i)
 			}
