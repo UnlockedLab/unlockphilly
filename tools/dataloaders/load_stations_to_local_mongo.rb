@@ -20,11 +20,13 @@ mongoPort = 27017
 dbName = "unlockphilly"
 
 puts "Connecting to Mongo #{mongoServer}:#{mongoPort}"
-@client = MongoClient.new(mongoServer, mongoPort)
-@db     = @client[dbName]
-@coll   = @db['stations']
+@client = Mongo::Client.new("mongodb://" + mongoServer + ":" + mongoPort.to_s + "/" + dbName)
 
-@coll.remove
+#@client = MongoClient.new(mongoServer + ":" + mongoPort)
+#@db     = @client[dbName]
+@coll   = @client['stations']
+
+@coll.find().delete_many
 
 arr_of_arrs = CSV.read("../../datasets/stations/rail_stops_with_lines.csv")
 
@@ -43,7 +45,7 @@ arr_of_arrs.drop(1).each do | line |
 end
 
 puts "inserting stations"
-@coll.insert(result)
+@coll.insert_many(result)
 
-puts " #{@coll.count} result."
+puts " #{@coll.find().count()} result."
 

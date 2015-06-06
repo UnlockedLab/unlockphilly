@@ -1,88 +1,242 @@
-_id,stop_name,stop_lat,stop_lon,location_type,parent_station,zone_id,wheelchair_boarding,operator,rail,MFL,BSS,NHSL,PATCO
-PATCO240,Lindenwold,39.83389,-75.00056,,,,1,PATCO,1,,,,1
-PATCO241,Ashland (Voorhees),39.85856,-75.009199,,,,,PATCO,1,,,,1
-PATCO242,Woodcrest/Cherry Hill,39.8695145128,-75.0106787682,,,,1,PATCO,1,,,,1
-PATCO243,Haddonfield,39.8970285235,-75.0366640091,,,,,PATCO,1,,,,1
-PATCO244,Westmont (Haddon Twp),39.907117,-75.046775,,,,,PATCO,1,,,,1
-PATCO245,Collingswood,39.913561,-75.064561,,,,,PATCO,1,,,,1
-PATCO246,Ferry Ave (Camden),39.922852992,-75.091906786,,,,1,PATCO,1,,,,1
-PATCO247,Broadway (Camden),39.94319792,-75.1202845573,,,,1,PATCO,1,,,,1
-PATCO248,City Hall (Camden),39.9450733307,-75.1211535931,,,,,PATCO,1,,,,1
-PATCO249,8th & Market St,39.951181,-75.1532,,,,1,PATCO,1,,,,1
-PATCO250,9-10th & Locust St,39.9472365695,-75.1568698883,,,,1,PATCO,1,,,,1
-PATCO251,12-13th & Locust St,39.947731,-75.160797,,,,,PATCO,1,,,,1
-PATCO252,15-16th & Locust St,39.948417,-75.166208,,,,1,PATCO,1,,,,1
-60,Allegheny Station,39.996444,-75.113345,,,1,1,SEPTA,1,1,,,
-61,Frankford Transportation Center,40.023427,-75.077197,,,1,1,SEPTA,1,1,,,
-82,Olney Transportation Center,40.039066,-75.144737,,,1,1,SEPTA,1,,1,,
-140,Erie Station,40.009172,-75.151226,,,1,,SEPTA,1,,1,,
-142,Allegheny Station,40.001536,-75.152887,,,1,1,SEPTA,1,,1,,
-152,A T and T Station,39.905379,-75.173709,,,1,1,SEPTA,1,,1,,
-217,Margaret & Orthodox Station,40.016734,-75.083955,,,1,,SEPTA,1,1,,,
-353,Girard Station,39.968841,-75.13611,,,1,1,SEPTA,1,1,,,
-416,69th St Transportation Center MFL East,39.96232,-75.258555,,31034,1,1,SEPTA,1,1,,1,
-428,2nd St Station          ,39.949822,-75.14371,,,1,1,SEPTA,1,1,,,
-797,Somerset Station,39.99138,-75.122596,,,1,1,SEPTA,1,1,,,
-838,Erie Torresdale Station,40.00586,-75.096133,,,1,1,SEPTA,1,1,,,
-1272,Logan Station,40.030671,-75.14658,,,1,,SEPTA,1,,1,,
-1273,Wyoming Station,40.024569,-75.147892,,,1,,SEPTA,1,,1,,
-1274,Hunting Park Station,40.016897,-75.14953,,,1,,SEPTA,1,,1,,
-1276,Susquehanna Dauphin Station,39.98704,-75.156097,,,1,,SEPTA,1,,1,,
-1277,Cecil B. Moore Station,39.978591,-75.157843,,,1,1,SEPTA,1,,1,,
-1278,Fairmount Station,39.966959,-75.160391,,,1,,SEPTA,1,,1,,
-1279,Spring Garden Station,39.962338,-75.161388,,,1,1,SEPTA,1,,1,,
-1280,Race Vine Station,39.957039,-75.162601,,,1,,SEPTA,1,,1,,
-1281,City Hall Station,39.952473,-75.164106,,,1,,SEPTA,1,,1,,
-1282,Walnut Locust Station,39.948716,-75.164498,,,1,1,SEPTA,1,,1,,
-1283,Lombard South Station,39.944095,-75.165424,,,1,,SEPTA,1,,1,,
-1284,Ellsworth Federal Station,39.936191,-75.167141,,,1,,SEPTA,1,,1,,
-1285,Tasker Morris Station,39.929786,-75.168475,,,1,,SEPTA,1,,1,,
-1286,Snyder Station,39.924309,-75.169617,,,1,,SEPTA,1,,1,,
-1392,15th St Station,39.952502,-75.165298,,,1,1,SEPTA,1,1,,,
-1892,Bridgeport Station,40.104964,-75.348141,,,2,0,SEPTA,1,,,1,
-1895,Gulph Mills Station,40.070838,-75.342325,,31031,2,1,SEPTA,1,,,1,
-1900,Stadium Station ,40.032681,-75.340776,,,2,,SEPTA,1,,,1,
-1902,Roberts Rd Station ,40.021383,-75.33027,,,2,,SEPTA,1,,,1,
-1908,Beechwood Brookline Station,39.986521,-75.291495,,,2,,SEPTA,1,,,1,
-1917,Parkview Station,39.968982,-75.274804,,,2,,SEPTA,1,,,1,
-1918,Township Line Rd Station,39.974791,-75.281572,,,2,,SEPTA,1,,,1,
-1919,Penfield Station Manoa Rd,39.981015,-75.283992,,,2,,SEPTA,1,,,1,
-1921,Wynnewood Rd Station,39.993382,-75.298229,,,2,1,SEPTA,1,,,1,
-1923,Ardmore Av Station,39.999918,-75.309467,,,2,,SEPTA,1,,,1,
-1924,Haverford Station      ,40.009821,-75.315158,,,2,,SEPTA,1,,,1,
-1925,Bryn Mawr Station           ,40.018075,-75.323419,,,2,,SEPTA,1,,,1,
-1927,Garrett Hill Station,40.027957,-75.336396,,,2,,SEPTA,1,,,1,
-1929,Villanova Station      ,40.034049,-75.344037,,,2,,SEPTA,1,,,1,
-1930,Radnor Station,40.042061,-75.353617,,,2,,SEPTA,1,,,1,
-1931,County Line Station,40.050108,-75.347376,,,2,,SEPTA,1,,,1,
-1932,Matsonford Station,40.058215,-75.339455,,,2,,SEPTA,1,,,1,
-1934,Hughes Park Station,40.081392,-75.34902,,,2,,SEPTA,1,,,1,
-1935,DeKalb St Station,40.098736,-75.352065,,,2,0,SEPTA,1,,,1,
-2439,North Philadelphia,39.9939,-75.154582,,,1,1,SEPTA,1,,1,,
-2440,Chinatown Station,39.955251,-75.152794,,,1,,SEPTA,1,,1,,
-2446,Millbourne Station,39.964365,-75.252314,,,1,1,SEPTA,1,1,,,
-2447,63rd St Station,39.962741,-75.246743,,,1,1,SEPTA,1,1,,,
-2448,60th St Station,39.961991,-75.240757,,,1,1,SEPTA,1,1,,,
-2449,56th St Station,39.961007,-75.232847,,,1,1,SEPTA,1,1,,,
-2450,52nd St Station,39.960012,-75.224889,,,1,1,SEPTA,1,1,,,
-2451,46th St Station,39.958646,-75.213922,,,1,1,SEPTA,1,1,,,
-2452,40th St Station,39.957161,-75.202034,,,1,,SEPTA,1,1,,,
-2453,34th St Station,39.955848,-75.191504,,,1,,SEPTA,1,1,,,
-2455,13th St Station,39.952021,-75.161462,,,1,1,SEPTA,1,1,,,
-2456,11th St Station,39.951648,-75.158346,,,1,,SEPTA,1,1,,,
-2457,8th St Station,39.951066,-75.153519,,,1,1,SEPTA,1,1,,,
-2458,5th St Station,39.950485,-75.148892,,,1,1,SEPTA,1,1,,,
-2459,Spring Garden Station,39.960399,-75.140408,,,1,,SEPTA,1,1,,,
-2460,Berks Station,39.978679,-75.133542,,,1,1,SEPTA,1,1,,,
-2461,York Dauphin Station,39.986191,-75.132011,,,1,1,SEPTA,1,1,,,
-2462,Huntingdon Station,39.988759,-75.127463,,,1,1,SEPTA,1,1,,,
-2463,Tioga Station,40.000238,-75.106392,,,1,1,SEPTA,1,1,,,
-2464,Church Station,40.01091,-75.088628,,,1,1,SEPTA,1,1,,,
-20845,69th St Transportation Center MFL West,39.962428,-75.258555,,31034,2,1,SEPTA,1,1,,,
-20965,Fern Rock Transportation Center,40.04185,-75.136745,,,1,1,SEPTA,1,,1,,
-20966,Girard Station,39.971401,-75.159417,,,1,,SEPTA,1,,1,,
-20967,Oregon Station,39.916753,-75.171285,,,1,1,SEPTA,1,,1,,
-21531,8th St & Market St,39.951129,-75.153506,,,1,1,SEPTA,1,,1,,
-21532,30th St Station,39.95477,-75.183264,,,1,1,SEPTA,1,1,,,
-30519,Ardmore Junction Station,39.996262,-75.303695,,,2,,SEPTA,1,,,1,
-30520,Norristown Transportation Center,40.113468,-75.345161,,31038,2,1,SEPTA,1,,,1,
+_id,stop_name,stop_lat,stop_lon,location_type,parent_station,zone_id,wheelchair_boarding,operator,rail,MFL,BSS,NHSL,PATCO,RR,RR_LINE
+PATCO240,Lindenwold,39.83389,-75.00056,,,,1,PATCO,1,,,,1,,
+PATCO241,Ashland (Voorhees),39.85856,-75.009199,,,,,PATCO,1,,,,1,,
+PATCO242,Woodcrest/Cherry Hill,39.86951451,-75.01067877,,,,1,PATCO,1,,,,1,,
+PATCO243,Haddonfield,39.89702852,-75.03666401,,,,,PATCO,1,,,,1,,
+PATCO244,Westmont (Haddon Twp),39.907117,-75.046775,,,,,PATCO,1,,,,1,,
+PATCO245,Collingswood,39.913561,-75.064561,,,,,PATCO,1,,,,1,,
+PATCO246,Ferry Ave (Camden),39.92285299,-75.09190679,,,,1,PATCO,1,,,,1,,
+PATCO247,Broadway (Camden),39.94319792,-75.12028456,,,,1,PATCO,1,,,,1,,
+PATCO248,City Hall (Camden),39.94507333,-75.12115359,,,,,PATCO,1,,,,1,,
+PATCO249,8th & Market St,39.951181,-75.1532,,,,1,PATCO,1,,,,1,,
+PATCO250,9-10th & Locust St,39.94723657,-75.15686989,,,,1,PATCO,1,,,,1,,
+PATCO251,12-13th & Locust St,39.947731,-75.160797,,,,,PATCO,1,,,,1,,
+PATCO252,15-16th & Locust St,39.948417,-75.166208,,,,1,PATCO,1,,,,1,,
+60,Allegheny Station,39.996444,-75.113345,,,1,1,SEPTA,1,1,,,,,
+61,Frankford Transportation Center,40.023427,-75.077197,,,1,1,SEPTA,1,1,,,,,
+82,Olney Transportation Center,40.039066,-75.144737,,,1,1,SEPTA,1,,1,,,,
+140,Erie Station,40.009172,-75.151226,,,1,,SEPTA,1,,1,,,,
+142,Allegheny Station,40.001536,-75.152887,,,1,1,SEPTA,1,,1,,,,
+152,A T and T Station,39.905379,-75.173709,,,1,1,SEPTA,1,,1,,,,
+217,Margaret & Orthodox Station,40.016734,-75.083955,,,1,,SEPTA,1,1,,,,,
+353,Girard Station,39.968841,-75.13611,,,1,1,SEPTA,1,1,,,,,
+416,69th St Transportation Center MFL East,39.96232,-75.258555,,31034,1,1,SEPTA,1,1,,1,,,
+428,2nd St Station,39.949822,-75.14371,,,1,1,SEPTA,1,1,,,,,
+797,Somerset Station,39.99138,-75.122596,,,1,1,SEPTA,1,1,,,,,
+838,Erie Torresdale Station,40.00586,-75.096133,,,1,1,SEPTA,1,1,,,,,
+1272,Logan Station,40.030671,-75.14658,,,1,,SEPTA,1,,1,,,,
+1273,Wyoming Station,40.024569,-75.147892,,,1,,SEPTA,1,,1,,,,
+1274,Hunting Park Station,40.016897,-75.14953,,,1,,SEPTA,1,,1,,,,
+1276,Susquehanna Dauphin Station,39.98704,-75.156097,,,1,,SEPTA,1,,1,,,,
+1277,Cecil B. Moore Station,39.978591,-75.157843,,,1,1,SEPTA,1,,1,,,,
+1278,Fairmount Station,39.966959,-75.160391,,,1,,SEPTA,1,,1,,,,
+1279,Spring Garden Station,39.962338,-75.161388,,,1,1,SEPTA,1,,1,,,,
+1280,Race Vine Station,39.957039,-75.162601,,,1,,SEPTA,1,,1,,,,
+1281,City Hall Station,39.952473,-75.164106,,,1,,SEPTA,1,,1,,,,
+1282,Walnut Locust Station,39.948716,-75.164498,,,1,1,SEPTA,1,,1,,,,
+1283,Lombard South Station,39.944095,-75.165424,,,1,,SEPTA,1,,1,,,,
+1284,Ellsworth Federal Station,39.936191,-75.167141,,,1,,SEPTA,1,,1,,,,
+1285,Tasker Morris Station,39.929786,-75.168475,,,1,,SEPTA,1,,1,,,,
+1286,Snyder Station,39.924309,-75.169617,,,1,,SEPTA,1,,1,,,,
+1392,15th St Station,39.952502,-75.165298,,,1,1,SEPTA,1,1,,,,,
+1892,Bridgeport Station,40.104964,-75.348141,,,2,,SEPTA,1,,,1,,,
+1895,Gulph Mills Station,40.070838,-75.342325,,31031,2,1,SEPTA,1,,,1,,,
+1900,Stadium Station,40.032681,-75.340776,,,2,,SEPTA,1,,,1,,,
+1902,Roberts Rd Station,40.021383,-75.33027,,,2,,SEPTA,1,,,1,,,
+1908,Beechwood Brookline Station,39.986521,-75.291495,,,2,,SEPTA,1,,,1,,,
+1917,Parkview Station,39.968982,-75.274804,,,2,,SEPTA,1,,,1,,,
+1918,Township Line Rd Station,39.974791,-75.281572,,,2,,SEPTA,1,,,1,,,
+1919,Penfield Station Manoa Rd,39.981015,-75.283992,,,2,,SEPTA,1,,,1,,,
+1921,Wynnewood Rd Station,39.993382,-75.298229,,,2,1,SEPTA,1,,,1,,,
+1923,Ardmore Av Station,39.999918,-75.309467,,,2,,SEPTA,1,,,1,,,
+1924,Haverford Station,40.009821,-75.315158,,,2,,SEPTA,1,,,1,,,
+1925,Bryn Mawr Station,40.018075,-75.323419,,,2,,SEPTA,1,,,1,,,
+1927,Garrett Hill Station,40.027957,-75.336396,,,2,,SEPTA,1,,,1,,,
+1929,Villanova Station,40.034049,-75.344037,,,2,,SEPTA,1,,,1,,,
+1930,Radnor Station,40.042061,-75.353617,,,2,,SEPTA,1,,,1,,,
+1931,County Line Station,40.050108,-75.347376,,,2,,SEPTA,1,,,1,,,
+1932,Matsonford Station,40.058215,-75.339455,,,2,,SEPTA,1,,,1,,,
+1934,Hughes Park Station,40.081392,-75.34902,,,2,,SEPTA,1,,,1,,,
+1935,DeKalb St Station,40.098736,-75.352065,,,2,,SEPTA,1,,,1,,,
+2439,North Philadelphia,39.9939,-75.154582,,,1,1,SEPTA,1,,1,,,,
+2440,Chinatown Station,39.955251,-75.152794,,,1,,SEPTA,1,,1,,,,
+2446,Millbourne Station,39.964365,-75.252314,,,1,1,SEPTA,1,1,,,,,
+2447,63rd St Station,39.962741,-75.246743,,,1,1,SEPTA,1,1,,,,,
+2448,60th St Station,39.961991,-75.240757,,,1,1,SEPTA,1,1,,,,,
+2449,56th St Station,39.961007,-75.232847,,,1,1,SEPTA,1,1,,,,,
+2450,52nd St Station,39.960012,-75.224889,,,1,1,SEPTA,1,1,,,,,
+2451,46th St Station,39.958646,-75.213922,,,1,1,SEPTA,1,1,,,,,
+2452,40th St Station,39.957161,-75.202034,,,1,,SEPTA,1,1,,,,,
+2453,34th St Station,39.955848,-75.191504,,,1,,SEPTA,1,1,,,,,
+2455,13th St Station,39.952021,-75.161462,,,1,1,SEPTA,1,1,,,,,
+2456,11th St Station,39.951648,-75.158346,,,1,,SEPTA,1,1,,,,,
+2457,8th St Station,39.951066,-75.153519,,,1,1,SEPTA,1,1,,,,,
+2458,5th St Station,39.950485,-75.148892,,,1,1,SEPTA,1,1,,,,,
+2459,Spring Garden Station,39.960399,-75.140408,,,1,,SEPTA,1,1,,,,,
+2460,Berks Station,39.978679,-75.133542,,,1,1,SEPTA,1,1,,,,,
+2461,York Dauphin Station,39.986191,-75.132011,,,1,1,SEPTA,1,1,,,,,
+2462,Huntingdon Station,39.988759,-75.127463,,,1,1,SEPTA,1,1,,,,,
+2463,Tioga Station,40.000238,-75.106392,,,1,1,SEPTA,1,1,,,,,
+2464,Church Station,40.01091,-75.088628,,,1,1,SEPTA,1,1,,,,,
+20845,69th St Transportation Center MFL West,39.962428,-75.258555,,31034,2,1,SEPTA,1,1,,,,,
+20965,Fern Rock Transportation Center,40.04185,-75.136745,,,1,1,SEPTA,1,,1,,,,
+20966,Girard Station,39.971401,-75.159417,,,1,,SEPTA,1,,1,,,,
+20967,Oregon Station,39.916753,-75.171285,,,1,1,SEPTA,1,,1,,,,
+21531,8th St & Market St,39.951129,-75.153506,,,1,1,SEPTA,1,,1,,,,
+21532,30th St Station,39.95477,-75.183264,,,1,1,SEPTA,1,1,,,,,
+30519,Ardmore Junction Station,39.996262,-75.303695,,,2,,SEPTA,1,,,1,,,
+30520,Norristown Transportation Center,40.113468,-75.345161,,31038,2,1,SEPTA,1,,,1,,,
+90001,Cynwyd,40.0066667,-75.2316667,,,2,1,SEPTA,1,,,,,1,Cynwyd Line
+90002,Bala,40.0011111,-75.2277778,,,2,1,SEPTA,1,,,,,1,Cynwyd Line
+90003,Wynnefield Avenue,39.99,-75.2255556,,,1,,SEPTA,1,,,,,1,Cynwyd Line
+90004,30th Street Station,39.9566667,-75.1816667,,,C,1,SEPTA,1,,,,,1,All Regional Rail Lines
+90005,Suburban Station,39.9538889,-75.1677778,,,C,1,SEPTA,1,,,,,1,All Regional Rail Lines
+90006,Jefferson Station,39.9525,-75.1580556,,,C,1,SEPTA,1,,,,,1,All Regional Rail Lines
+90007,Temple University,39.9813889,-75.1494444,,,C,1,SEPTA,1,,,,,1,All Regional Rail Lines
+90008,North Broad,39.9922222,-75.1538889,,,1,1,SEPTA,1,,,,,1,Multiple Lines
+90009,Wayne Junction,40.0222222,-75.16,,,1,,SEPTA,1,,,,,1,Multiple Lines
+90201,Newark,39.6705556,-75.7527778,,,4,1,SEPTA,1,,,,,1,Wilmington Newark Line
+90202,Churchman's Crossing,39.695,-75.6725,,,4,,SEPTA,1,,,,,1,Wilmington Newark Line
+90203,Wilmington,39.7372222,-75.5511111,,,4,1,SEPTA,1,,,,,1,Wilmington Newark Line
+90204,Claymont,39.7977778,-75.4522222,,,4,1,SEPTA,1,,,,,1,Wilmington Newark Line
+90205,Marcus Hook,39.8216667,-75.4194444,,,3,,SEPTA,1,,,,,1,Wilmington Newark Line
+90206,Highland Avenue,39.8336111,-75.3933333,,,3,,SEPTA,1,,,,,1,Wilmington Newark Line
+90207,Chester,39.8497222,-75.36,,,3,1,SEPTA,1,,,,,1,Wilmington Newark Line
+90208,Eddystone,39.8572222,-75.3422222,,,3,,SEPTA,1,,,,,1,Wilmington Newark Line
+90209,Crum Lynne,39.8719444,-75.3311111,,,3,,SEPTA,1,,,,,1,Wilmington Newark Line
+90210,Ridley Park,39.8805556,-75.3222222,,,3,,SEPTA,1,,,,,1,Wilmington Newark Line
+90211,Prospect Park - Moore,39.8883333,-75.3088889,,,2,,SEPTA,1,,,,,1,Wilmington Newark Line
+90212,Norwood,39.8916667,-75.3016667,,,2,,SEPTA,1,,,,,1,Wilmington Newark Line
+90213,Glenolden,39.8963889,-75.29,,,2,,SEPTA,1,,,,,1,Wilmington Newark Line
+90214,Folcroft,39.9005556,-75.2797222,,,2,,SEPTA,1,,,,,1,Wilmington Newark Line
+90215,Sharon Hill,39.9044444,-75.2708333,,,2,,SEPTA,1,,,,,1,Wilmington Newark Line
+90216,Curtis Park,39.9080556,-75.265,,,2,,SEPTA,1,,,,,1,Wilmington Newark Line
+90217,Darby,39.9130556,-75.2544444,,,2,,SEPTA,1,,,,,1,Wilmington Newark Line
+90218,Allegheny,40.0036111,-75.1647222,,,1,,SEPTA,1,,,,,1,Manayunk Norristown Line
+90219,East Falls,40.0113889,-75.1919444,,,1,,SEPTA,1,,,,,1,Manayunk Norristown Line
+90220,Wissahickon,40.0166667,-75.2102778,,,2,,SEPTA,1,,,,,1,Manayunk Norristown Line
+90221,Manayunk,40.0269444,-75.225,,,2,,SEPTA,1,,,,,1,Manayunk Norristown Line
+90222,Ivy Ridge,40.0341667,-75.2355556,,,2,,SEPTA,1,,,,,1,Manayunk Norristown Line
+90223,Miquon,40.0586111,-75.2663889,,,2,,SEPTA,1,,,,,1,Manayunk Norristown Line
+90224,Spring Mill,40.0741667,-75.2861111,,,3,1,SEPTA,1,,,,,1,Manayunk Norristown Line
+90225,Conshohocken,40.0722222,-75.3086111,,,3,,SEPTA,1,,,,,1,Manayunk Norristown Line
+90226,Norristown T.C.,40.1127778,-75.3441667,,,3,,SEPTA,1,,,,,1,Manayunk Norristown Line
+90227,Main Street,40.1172222,-75.3486111,,,3,,SEPTA,1,,,,,1,Manayunk Norristown Line
+90228,Norristown Elm Street,40.1202778,-75.3475,,,3,1,SEPTA,1,,,,,1,Manayunk Norristown Line
+90301,Elwyn,39.9075,-75.4116667,,,3,1,SEPTA,1,,,,,1,Media Elwyn Line
+90302,Media,39.9144444,-75.395,,,3,1,SEPTA,1,,,,,1,Media Elwyn Line
+90303,Moylan-Rose Valley,39.9061111,-75.3886111,,,3,,SEPTA,1,,,,,1,Media Elwyn Line
+90304,Wallingford,39.9036111,-75.3719444,,,3,,SEPTA,1,,,,,1,Media Elwyn Line
+90305,Swarthmore,39.9022222,-75.3508333,,,3,1,SEPTA,1,,,,,1,Media Elwyn Line
+90306,Morton-Rutledge,39.9077778,-75.3288889,,,2,1,SEPTA,1,,,,,1,Media Elwyn Line
+90307,Secane,39.9158333,-75.3097222,,,2,,SEPTA,1,,,,,1,Media Elwyn Line
+90308,Primos,39.9216667,-75.2983333,,,2,1,SEPTA,1,,,,,1,Media Elwyn Line
+90309,Clifton-Aldan,39.9266667,-75.2902778,,,2,,SEPTA,1,,,,,1,Media Elwyn Line
+90310,Gladstone,39.9327778,-75.2822222,,,2,,SEPTA,1,,,,,1,Media Elwyn Line
+90311,Lansdowne,39.9375,-75.2708333,,,2,,SEPTA,1,,,,,1,Media Elwyn Line
+90312,Fernwood-Yeadon,39.9397222,-75.2558333,,,2,,SEPTA,1,,,,,1,Media Elwyn Line
+90313,Angora,39.9447222,-75.2386111,,,1,,SEPTA,1,,,,,1,Media Elwyn Line
+90314,49th Street,39.9436111,-75.2166667,,,1,1,SEPTA,1,,,,,1,Media Elwyn Line
+90315,Noble,40.1044444,-75.1241667,,,3,,SEPTA,1,,,,,1,West Trenton Line
+90316,Rydal,40.1075,-75.1105556,,,3,,SEPTA,1,,,,,1,West Trenton Line
+90317,Meadowbrook,40.1113889,-75.0925,,,3,,SEPTA,1,,,,,1,West Trenton Line
+90318,Bethayres,40.1166667,-75.0683333,,,3,1,SEPTA,1,,,,,1,West Trenton Line
+90319,Philmont,40.1219444,-75.0436111,,,3,1,SEPTA,1,,,,,1,West Trenton Line
+90320,Forest Hills,40.1277778,-75.0205556,,,3,1,SEPTA,1,,,,,1,West Trenton Line
+90321,Somerton,40.1305556,-75.0119444,,,3,1,SEPTA,1,,,,,1,West Trenton Line
+90322,Trevose,40.1402778,-74.9825,,,3,1,SEPTA,1,,,,,1,West Trenton Line
+90323,Neshaminy,40.1469444,-74.9616667,,,3,1,SEPTA,1,,,,,1,West Trenton Line
+90324,Langhorne,40.1608333,-74.9125,,,4,,SEPTA,1,,,,,1,West Trenton Line
+90325,Woodbourne,40.1925,-74.8891667,,,4,,SEPTA,1,,,,,1,West Trenton Line
+90326,Yardley,40.2352778,-74.8305556,,,4,,SEPTA,1,,,,,1,West Trenton Line
+90327,West Trenton,40.2577778,-74.8152778,,,NJ,,SEPTA,1,,,,,1,West Trenton Line
+90401,Airport Terminal E F,39.8794444,-75.2397222,,,4,1,SEPTA,1,,,,,1,Airport Line
+90402,Airport Terminal C D,39.8780556,-75.24,,,4,1,SEPTA,1,,,,,1,Airport Line
+90403,Airport Terminal B,39.8772222,-75.2413889,,,4,1,SEPTA,1,,,,,1,Airport Line
+90404,Airport Terminal A,39.8761111,-75.2452778,,,4,1,SEPTA,1,,,,,1,Airport Line
+90405,Eastwick,39.8927778,-75.2438889,,,1,1,SEPTA,1,,,,,1,Airport Line
+90406,University City,39.9480556,-75.1902778,,,C,1,SEPTA,1,,,,,1,Multiple Lines
+90407,Fern Rock T C,40.0405556,-75.1347222,,,1,1,SEPTA,1,,,,,1,Multiple Lines
+90408,Melrose Park,40.0594444,-75.1291667,,,2,1,SEPTA,1,,,,,1,Multiple Lines
+90409,Elkins Park,40.0713889,-75.1277778,,,2,,SEPTA,1,,,,,1,Multiple Lines
+90410,Jenkintown Wyncote,40.0927778,-75.1375,,,3,,SEPTA,1,,,,,1,Multiple Lines
+90411,Glenside,40.1013889,-75.1536111,,,3,,SEPTA,1,,,,,1,Multiple Lines
+90412,Ardsley,40.1141667,-75.1530556,,,3,1,SEPTA,1,,,,,1,Warminster Line
+90413,Roslyn,40.1208333,-75.1341667,,,3,1,SEPTA,1,,,,,1,Warminster Line
+90414,Crestmont,40.1333333,-75.1186111,,,3,1,SEPTA,1,,,,,1,Warminster Line
+90415,Willow Grove,40.1438889,-75.1141667,,,3,,SEPTA,1,,,,,1,Warminster Line
+90416,Hatboro,40.1761111,-75.1025,,,4,,SEPTA,1,,,,,1,Warminster Line
+90417,Warminster,40.1952778,-75.0891667,,,4,1,SEPTA,1,,,,,1,Warminster Line
+90501,Thorndale,39.9927778,-75.7636111,,,4,1,SEPTA,1,,,,,1,Paoli Thorndale Line
+90502,Downingtown,40.0022222,-75.7102778,,,4,,SEPTA,1,,,,,1,Paoli Thorndale Line
+90503,Whitford,40.0147222,-75.6380556,,,4,,SEPTA,1,,,,,1,Paoli Thorndale Line
+90504,Exton,40.0191667,-75.6227778,,,4,1,SEPTA,1,,,,,1,Paoli Thorndale Line
+90505,Malvern,40.0363889,-75.5155556,,,4,,SEPTA,1,,,,,1,Paoli Thorndale Line
+90506,Paoli,40.0430556,-75.4827778,,,4,,SEPTA,1,,,,,1,Paoli Thorndale Line
+90507,Daylesford,40.0430556,-75.4605556,,,3,,SEPTA,1,,,,,1,Paoli Thorndale Line
+90508,Berwyn,40.0480556,-75.4422222,,,3,1,SEPTA,1,,,,,1,Paoli Thorndale Line
+90509,Devon,40.0472222,-75.4227778,,,3,,SEPTA,1,,,,,1,Paoli Thorndale Line
+90510,Strafford,40.0494444,-75.4030556,,,3,1,SEPTA,1,,,,,1,Paoli Thorndale Line
+90511,Wayne,40.0458333,-75.3866667,,,3,1,SEPTA,1,,,,,1,Paoli Thorndale Line
+90512,St. Davids,40.0438889,-75.3725,,,3,,SEPTA,1,,,,,1,Paoli Thorndale Line
+90513,Radnor,40.0447222,-75.3588889,,,3,1,SEPTA,1,,,,,1,Paoli Thorndale Line
+90514,Villanova,40.0383333,-75.3416667,,,3,,SEPTA,1,,,,,1,Paoli Thorndale Line
+90515,Rosemont,40.0277778,-75.3266667,,,3,,SEPTA,1,,,,,1,Paoli Thorndale Line
+90516,Bryn Mawr,40.0219444,-75.3163889,,,3,,SEPTA,1,,,,,1,Paoli Thorndale Line
+90517,Haverford,40.0138889,-75.2997222,,,2,,SEPTA,1,,,,,1,Paoli Thorndale Line
+90518,Ardmore,40.0083333,-75.2902778,,,2,,SEPTA,1,,,,,1,Paoli Thorndale Line
+90519,Wynnewood,40.0027778,-75.2725,,,2,,SEPTA,1,,,,,1,Paoli Thorndale Line
+90520,Narberth,40.0047222,-75.2613889,,,2,,SEPTA,1,,,,,1,Paoli Thorndale Line
+90521,Merion,39.9986111,-75.2513889,,,2,,SEPTA,1,,,,,1,Paoli Thorndale Line
+90522,Overbrook,39.9894444,-75.2494444,,,2,1,SEPTA,1,,,,,1,Paoli Thorndale Line
+90523,North Hills,40.1119444,-75.1694444,,,3,,SEPTA,1,,,,,1,Lansdale Doylestown Line
+90524,Oreland,40.1183333,-75.1838889,,,3,,SEPTA,1,,,,,1,Lansdale Doylestown Line
+90525,Fort Washington,40.1358333,-75.2122222,,,3,1,SEPTA,1,,,,,1,Lansdale Doylestown Line
+90526,Ambler,40.1536111,-75.2247222,,,3,1,SEPTA,1,,,,,1,Lansdale Doylestown Line
+90527,Penllyn,40.17,-75.2441667,,,3,,SEPTA,1,,,,,1,Lansdale Doylestown Line
+90528,Gwynedd Valley,40.1847222,-75.2569444,,,3,,SEPTA,1,,,,,1,Lansdale Doylestown Line
+90529,North Wales,40.2141667,-75.2772222,,,4,1,SEPTA,1,,,,,1,Lansdale Doylestown Line
+90530,Pennbrook,40.2302778,-75.2816667,,,4,1,SEPTA,1,,,,,1,Lansdale Doylestown Line
+90531,Lansdale,40.2427778,-75.285,,,4,1,SEPTA,1,,,,,1,Lansdale Doylestown Line
+90532,Fortuna,40.2594444,-75.2661111,,,4,,SEPTA,1,,,,,1,Lansdale Doylestown Line
+90533,Colmar,40.2683333,-75.2544444,,,4,1,SEPTA,1,,,,,1,Lansdale Doylestown Line
+90534,Link Belt,40.2738889,-75.2466667,,,4,1,SEPTA,1,,,,,1,Lansdale Doylestown Line
+90535,Chalfont,40.2877778,-75.2097222,,,4,1,SEPTA,1,,,,,1,Lansdale Doylestown Line
+90536,New Britain,40.2975,-75.1797222,,,4,1,SEPTA,1,,,,,1,Lansdale Doylestown Line
+90537,Delaware Valley College,40.2972222,-75.1616667,,,4,1,SEPTA,1,,,,,1,Lansdale Doylestown Line
+90538,Doylestown,40.3063889,-75.1302778,,,4,1,SEPTA,1,,,,,1,Lansdale Doylestown Line
+90701,Trenton,40.2177778,-74.755,,,NJ,1,SEPTA,1,,,,,1,Trenton Line
+90702,Levittown-Tullytown,40.1402778,-74.8169444,,,4,,SEPTA,1,,,,,1,Trenton Line
+90703,Bristol,40.1047222,-74.8547222,,,4,,SEPTA,1,,,,,1,Trenton Line
+90704,Croydon,40.0936111,-74.9066667,,,3,1,SEPTA,1,,,,,1,Trenton Line
+90705,Eddington,40.0830556,-74.9336111,,,3,,SEPTA,1,,,,,1,Trenton Line
+90706,Cornwells Heights,40.0716667,-74.9522222,,,3,1,SEPTA,1,,,,,1,Trenton Line
+90707,Torresdale,40.0544444,-74.9844444,,,3,,SEPTA,1,,,,,1,Trenton Line
+90708,Holmesburg Jct,40.0327778,-75.0236111,,,2,,SEPTA,1,,,,,1,Trenton Line
+90709,Tacony,40.0233333,-75.0388889,,,2,,SEPTA,1,,,,,1,Trenton Line
+90710,Bridesburg,40.0105556,-75.0697222,,,2,,SEPTA,1,,,,,1,Trenton Line
+90711,North Philadelphia Amtrak,39.9972222,-75.155,,,1,,SEPTA,1,,,,,1,Trenton Line
+90712,Wister,40.0361111,-75.1611111,,,1,,SEPTA,1,,,,,1,Chestnut Hill East Line
+90713,Germantown,40.0375,-75.1716667,,,1,,SEPTA,1,,,,,1,Chestnut Hill East Line
+90714,Washington Lane,40.0508333,-75.1713889,,,2,,SEPTA,1,,,,,1,Chestnut Hill East Line
+90715,Stenton,40.0605556,-75.1786111,,,2,,SEPTA,1,,,,,1,Chestnut Hill East Line
+90716,Sedgwick,40.0627778,-75.1852778,,,2,,SEPTA,1,,,,,1,Chestnut Hill East Line
+90717,Mount Airy,40.0652778,-75.1908333,,,2,,SEPTA,1,,,,,1,Chestnut Hill East Line
+90718,Wyndmoor,40.0733333,-75.1966667,,,2,,SEPTA,1,,,,,1,Chestnut Hill East Line
+90719,Gravers,40.0775,-75.2016667,,,2,,SEPTA,1,,,,,1,Chestnut Hill East Line
+90720,Chestnut Hill East,40.0811111,-75.2072222,,,2,,SEPTA,1,,,,,1,Chestnut Hill East Line
+90801,Chestnut Hill West,40.0763889,-75.2083333,,,2,1,SEPTA,1,,,,,1,Chestnut Hill West Line
+90802,Highland,40.0705556,-75.2111111,,,2,,SEPTA,1,,,,,1,Chestnut Hill West Line
+90803,St. Martins,40.0658333,-75.2044444,,,2,,SEPTA,1,,,,,1,Chestnut Hill West Line
+90804,Allen Lane,40.0575,-75.1947222,,,2,1,SEPTA,1,,,,,1,Chestnut Hill West Line
+90805,Carpenter,40.0511111,-75.1913889,,,2,,SEPTA,1,,,,,1,Chestnut Hill West Line
+90806,Upsal,40.0425,-75.19,,,2,,SEPTA,1,,,,,1,Chestnut Hill West Line
+90807,Tulpehocken,40.0352778,-75.1869444,,,2,,SEPTA,1,,,,,1,Chestnut Hill West Line
+90808,Chelten Avenue,40.03,-75.1808333,,,1,,SEPTA,1,,,,,1,Chestnut Hill West Line
+90809,Queen Lane,40.0233333,-75.1780556,,,1,1,SEPTA,1,,,,,1,Chestnut Hill West Line
+90810,North Philadelphia,39.9977778,-75.1563889,,,1,,SEPTA,1,,,,,1,Chestnut Hill West Line
+90811,Olney,40.0333333,-75.1227778,,,1,1,SEPTA,1,,,,,1,Fox Chase Line
+90812,Lawndale,40.0513889,-75.1030556,,,2,1,SEPTA,1,,,,,1,Fox Chase Line
+90813,Cheltenham,40.0580556,-75.0927778,,,2,1,SEPTA,1,,,,,1,Fox Chase Line
+90814,Ryers,40.0641667,-75.0863889,,,2,1,SEPTA,1,,,,,1,Fox Chase Line
+90815,Fox Chase,40.0763889,-75.0833333,,,2,1,SEPTA,1,,,,,1,Fox Chase Line

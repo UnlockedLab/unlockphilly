@@ -42,12 +42,14 @@ configure do
   station_codes_to_names["MFL"] = "Market Frankford Line (SEPTA)"
   station_codes_to_names["NHSL"] = "Norristown High Speed Line (SEPTA)" 
   station_codes_to_names["PATCO"] = "PATCO High Speed Line"
+  station_codes_to_names["RR"] = "Regional Rail (SEPTA)"
   set :STATION_CODES_TO_NAMES, station_codes_to_names
   station_codes_to_search_strings = Hash.new("")
   station_codes_to_search_strings["BSS"] = "Broad"
   station_codes_to_search_strings["MFL"] = "Market"
   station_codes_to_search_strings["NHSL"] = "Norris" 
   station_codes_to_search_strings["PATCO"] = "PATCO"
+  station_codes_to_search_strings["RR"] = "Regional"
   set :STATION_CODES_TO_SEARCH_STRINGS, station_codes_to_search_strings
   
   # URLS
