@@ -111,6 +111,7 @@ get '/station/:stationid' do
     station=station_arr[0]
     if (station_content_arr.size>0) then station_content=station_content_arr[0] else station_content=nil end
     if (active_outage_arr.size>0) then active_outage=active_outage_arr[0] else active_outage_arr=nil end
+    @mapbox_id = ENV['MAPBOX_ID']
     erb :station, :locals => {:page => "station", :page_title => "Station accessibilty details for "  + station['stop_name'] + " - " + get_line_full_name(station), :station => station, :station_content => station_content,
       :line_name => get_line_full_name(station), :outageHistory => outage_history, :active_outage => active_outage}
   end
@@ -280,7 +281,6 @@ helpers do
     puts "adding new outage to Mongo #{outage.inspect}"
     settings.OUTAGE_TRACKER_COLLECTION.insert_one(outage)
     station_data["outageTracker"] = outage
-    pp station_data.inspect
     msg = "##{station_data['operator']}#{line_code} #elevatoroutage reported @ #{station_data["stop_name"]}: for latest see unlockphilly.com/station/#{outage['_id']['stationId']} #{Time.now.strftime("%b %e, %H:%M %p")} "
     send_alert_mail "UnlockPhilly: New elevator outage reported at " + station_data["stop_name"], msg
     settings.twitter_client.update(msg)

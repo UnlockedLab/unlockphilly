@@ -1,9 +1,18 @@
-<div class="modal-header">
-	<h3 class="modal-title" id="myModalLabel"><% if station!=nil %><%= station['stop_name'] + " - " + line_name %><% end %></h3>
+<div>
+	<h3 id="myModalLabel"><% if station!=nil %><%= station['stop_name'] + " - " + line_name %><% end %></h3>
+	<h4><a href='/'>Back to All Stations</a></h4>
 </div>
 <div class="modal-body">
 <script src="/js/d3/d3.min.js"></script>
 <script src="/js/d3.tip.js"></script>
+<script type="application/javascript">
+			var mapboxId = '<%= @mapbox_id %>';
+			var startLat = '<%= station['stop_lat']; %>';
+			var startLon = '<%= station['stop_lon'] %>';
+			var isMini = true;
+		</script>
+		<link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.3/leaflet.fullscreen.css' rel='stylesheet' />
+		<link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.24.0/L.Control.Locate.css' rel='stylesheet' />
 				
 	
 	
@@ -28,7 +37,7 @@
 									</script>
 					<% end %>
 		    	<% else %><h4><span class="label label-success">Wheelchair accessible station with no active elevator outage reported</h4></span>
-		    	<% if line_name.include? "SEPTA" %>Tweet SEPTA_SOCIAL if you see an outage or accessibility problem. For SEPTA elevator outage advice page see <a target='_blank' href='http://www3.septa.org/elevators/'>http://www3.septa.org/elevators/</a>
+		    	<% if line_name.include? "SEPTA" %>Tweet SEPTA_SOCIAL if you see an outage or accessibility problem.<br />For SEPTA elevator outage advice page see <a target='_blank' href='http://www3.septa.org/elevators/'>http://www3.septa.org/elevators/</a>
 					<br/>
 					<a href="https://twitter.com/intent/tweet?screen_name=septa_social&text=@unlockphilly %23accessibility <%= station['stop_name'] %>" class="twitter-mention-button spacer-small">Tweet @septa</a>
 									<script>
@@ -58,7 +67,11 @@
 									</script>				
 			       <% end %>
 		    	<% end %>
-			
+			<div class="row">
+				<div class="col-md-6">
+					<div class="minimap" id="map"></div>
+				</div>
+			</div>
 			<h4>Recent elevator outages* <% if station %>at <%= station['stop_name'] %><% end %></h4>
 			<p id="recentOutageDescription">Some info about recent outages.</p>
 			<% if outageHistory.size > 0 %>
@@ -77,7 +90,7 @@
 			    ]);
 			    </script>
 			<% else %>
-			    <div><p>No recent outages found</p></div>
+				<div><p>No recent outages found</p></div>
 			<% end %>
 			<hr>
 			<h4>Elevator outage* days over last 12 months at <% if station %>at <%= station['stop_name'] %><% end %></h5>
@@ -106,37 +119,16 @@
 			
 			<% else %>
 				<h4><span class="label large label-danger">Not wheelchair accessible</h4>
-				Leave comments below about <% if station %><%= station['stop_name'] %><% end %>.
+				<div class="row">
+					<div class="col-md-6">
+						<div class="minimap" id="map"></div>
+					</div>
+				</div>
 			<% end %>
 			<div><% if station_content && station_content['videoForEmbed'] %>
 				<h4>Video</h4>
 				<iframe width="560" height="315" src="<%= station_content['videoForEmbed'] %>" frameborder="0" allowfullscreen></iframe>
 				<% if station_content && station_content['videoCredit'] %><h6>Credit: <%= station_content['videoCredit'] %></h6><% end %>
 			<% end %></div>
-			<ul>
-			<li><a href='/septa/elevator/dayswithoutagereport/<%= station['_id'] %>'>REST API: List days affected by outage</a></li>
-			<li><a href='/septa/elevator/outagedaysbymonth/<%= station['_id'] %>'>REST API: Counts of days affected by outage by month</a></li>
-			</ul>
 		
 </div>
-<div id="disqus_thread"></div>
-						<script type="text/javascript">
-							/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-							var disqus_shortname = 'unlockphilly';
-							// required: replace example with your forum shortname
-
-							/* * * DON'T EDIT BELOW THIS LINE * * */
-							(function() {
-								var dsq = document.createElement('script');
-								dsq.type = 'text/javascript';
-								dsq.async = true;
-								dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-								(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-							})();
-						</script>
-						<noscript>
-							Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-						</noscript>
-						<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-					</div>

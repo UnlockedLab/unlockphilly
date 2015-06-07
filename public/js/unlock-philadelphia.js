@@ -27,10 +27,17 @@ var ACCESSIBLE_YELP_REVIEW_QUERY_KEYWORD = "access";
 
 
 var mapPosition = {};
-mapPosition["Fairmount"] = {
-	"coords" : [39.966959, -75.160391],
-	"zoom" : 13
-};
+if (typeof isMini !== 'undefined' && isMini===true) {
+	mapPosition["Fairmount"] = {
+		"coords" : [startLat, startLon],
+		"zoom" : 15
+	};
+} else {
+	mapPosition["Fairmount"] = {
+		"coords" : [39.966959, -75.160391],
+		"zoom" : 13
+	};
+}
 
 var map = L.mapbox.map('map', mapboxId, {accessToken : 'pk.eyJ1IjoiamFtZXN0eWFjayIsImEiOiJkbmNSd2prIn0.BTm2f3y2Bu5hBUt6TQAZ7w'})
 	.addControl(geocoderControl)
@@ -100,12 +107,17 @@ $(document).ready(function() {
 		}
 	});
 
+	addScaleBox();
 	addLegend();
 	addInfoBox();
-	addScaleBox();
 	populateStationLayerGroupsAndRefreshView("ALL");
 	var myLocationLayer = L.mapbox.featureLayer().addTo(map);
-	addLocateMeButton();
+	
+	if (typeof isMini === 'undefined' || isMini===false) {
+		addLocateMeButton();
+	} else {
+		updateYelpResults(startLat, startLon, "?");
+	}
 	
 	// render outage graph
 	$.get("/septa/elevator/outageTotalsByStationForLast12Months", function( outageData ) {
@@ -135,25 +147,40 @@ function addLayersAndShow(stationData, line) {
 	stations = {};
 	stations[accessTypeWheelchair] = [];
 	stations[accessTypeStairsOnly] = [];
-		for ( i = 0; i < stationData.stations.length; i++) {
+			for ( i = 0; i < stationData.stations.length; i++) {
 			(function() {
 				// go through each station
 				var station = stationData.stations[i];
-				
-				feature = {
-					type: 'Feature',
-					geometry: {
-						type: 'Point',
-						coordinates: [station.stop_lon, station.stop_lat]
-					},
-					properties: {
-						title: "<a href='" + cleanBookmark(window.location.href) + "station/" + station._id + "'>" + station.stop_name + "</a>",
-						description: formatStation(station),
-						'marker-size': 'small',
-						'marker-color': getAccessTypeColor(station),
-						'marker-symbol': getAccessTypeIcon(station)
-					}
-				};
+				if (typeof isMini === 'undefined' || isMini===false) {
+					feature = {
+						type: 'Feature',
+						geometry: {
+							type: 'Point',
+							coordinates: [station.stop_lon, station.stop_lat]
+						},
+						properties: {
+							title: "<a href='" + cleanBookmark(window.location.href) + "station/" + station._id + "'>" + station.stop_name + " (" + getLine(station) + ")" + "</a>",
+							description: formatStation(station),
+							'marker-size': 'small',
+							'marker-color': getAccessTypeColor(station),
+							'marker-symbol': getAccessTypeIcon(station)
+						}
+					};
+				} else {
+					feature = {
+						type: 'Feature',
+						geometry: {
+							type: 'Point',
+							coordinates: [station.stop_lon, station.stop_lat]
+						},
+						properties: {
+							title: station.stop_name + " (" + getLineCode(station) + ")",
+							'marker-size': 'small',
+							'marker-color': getAccessTypeColor(station),
+							'marker-symbol': getAccessTypeIcon(station)
+						}
+					};
+				}
 				stations[getAccessType(station)].push(feature);
 			})();
 		}
@@ -321,7 +348,7 @@ function formatStation(station) {
 	} else {
 		response += (station.wheelchair_boarding == "1" ? "" : "Not ") + "Wheelchair Accessible";
 	}
-	return response + " <a href='" + cleanBookmark(window.location.href) + "station/" + station._id + "'>more ...</a>";
+	return response + " <a href='" + cleanBookmark(window.location.href) + "/station/" + station._id + "'>more ...</a>";
 }
 
 // removes bookmark from the end of the window location
@@ -348,6 +375,29 @@ function getLine(station) {
 	if (station.PATCO == 1) {
 		response += (response=="" ? "" : "/") + "PATCO Speedline";
 	}
+	if (station.RR == 1) {
+		response += (response=="" ? "" : "/") + "Regional Rail";
+	}
+	return response + "";
+}
+
+function getLineCode(station) {
+	var response = "";
+	if (station.MFL == 1) {
+		response += "MFL";
+	}
+	if (station.BSS == 1) {
+		response += (response=="" ? "" : "/") + "BSS";
+	}
+	if (station.NHSL == 1) {
+		response += (response=="" ? "" : "/") + "NHSL";
+	}
+	if (station.PATCO == 1) {
+		response += (response=="" ? "" : "/") + "PATCO";
+	}
+	if (station.RR == 1) {
+		response += (response=="" ? "" : "/") + "Regional";
+	}
 	return response + "";
 }
 
@@ -362,24 +412,23 @@ function addInfoBox() {
 		return this._div;
 	};
 	info.update = function(title) {
-		this._div.innerHTML = '<h4>' + ( title ? title : 'Loading data') + '</h4><div id="stationOutageMessage"></div>';
-		$.getJSON("/septa/elevator/outages", function(data) {
-			if ("errorMessage" in data) {
-				$('#stationOutageMessage').html(data.errorMessage + "<br /></ul>Visit <a target='_blank' href='http://www3.septa.org/hackathon/elevator/'>Septa website</a> or Tweet @SEPTA_SOCIAL for help.</small>");
-			} else if (data.length==0) {
-				$('#stationOutageMessage').html("No reported elevator outages");
-			} else {
-				$('#stationOutageMessage').html("<p class='text-danger'>" +
-					"<strong>" + data.length + (data.length > 1 ? " stations are" : " station is") + " affected by elevator outages.</strong> </p>" + getElevatorOutageStations(data));
-			}
-		});
-	
-		
+		if (typeof isMini === 'undefined' || isMini===false) {
+			this._div.innerHTML = '<h4>' + ( title ? title : 'Loading data') + '</h4><div id="stationOutageMessage"></div>';
+			$.getJSON("/septa/elevator/outages", function(data) {
+				if ("errorMessage" in data) {
+					$('#stationOutageMessage').html(data.errorMessage + "<br /></ul>Visit <a target='_blank' href='http://www3.septa.org/hackathon/elevator/'>Septa website</a> or Tweet @SEPTA_SOCIAL for help.</small>");
+				} else if (data.length==0) {
+					$('#stationOutageMessage').html("No reported elevator outages");
+				} else {
+					$('#stationOutageMessage').html("<p class='text-danger'>" +
+						"<strong>" + data.length + (data.length > 1 ? " stations are" : " station is") + " affected by elevator outages.</strong> </p>" + getElevatorOutageStations(data));
+				}
+			});
+		}
 	};
-	info.addTo(map);
-	map.on('click', function(e){
-		//info.removeFrom(map);	
-	});
+	if (typeof isMini === 'undefined' || isMini===false) {
+		info.addTo(map);
+	}
 }
 
 /*
@@ -401,7 +450,7 @@ function getElevatorOutageStations(data) {
 function addLocateMeButton() {
 	var myButtonOptions = {
       'text': '',  // string
-      'iconUrl': 'images/access_near_me.png',  // string
+      'iconUrl': '/images/access_near_me.png',  // string
       'onClick': my_button_onClick,  // callback function
       'hideText': true,  // bool
       'maxWidth': 30,  // number
@@ -432,7 +481,9 @@ function addLegend() {
 	legend.update = function(type) {
 		// update stuff
 	};
-	legend.addTo(map);
+	if (typeof isMini === 'undefined' || isMini===false) {
+		legend.addTo(map);
+	}
 }
 
 L.Control.Button = L.Control.extend({

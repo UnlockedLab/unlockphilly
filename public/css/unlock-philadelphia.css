@@ -7,14 +7,18 @@
 	width: 90px;
 }
 
-#map {
+.map {
+	height: 350px;
+}
+
+.minimap {
 	height: 350px;
 }
 
 
 @media (min-height:650px) {
 
-  #map {
+  .map {
 	height: 525px;
   }
 }
