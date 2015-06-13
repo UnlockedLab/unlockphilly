@@ -8,7 +8,7 @@ var accessTypeOutage = 'Outage';
 var accessTypeStairsOnly = 'StairsOnly';
 var accessTypeBusiness = 'AccessTypeBusiness';
 var accessTypes = [accessTypeWheelchair, accessTypeOutage, accessTypeStairsOnly, accessTypeBusiness];
-var accessTypesLabels = ['Accessible station', 'Station with elevator outage', 'Station with restricted/limited access', 'Business listed as accessible on Yelp'];
+var accessTypesLabels = ['Wheelchair accessible station', 'Station with elevator outage', 'Station with restricted/limited access', 'Business listed as accessible on Yelp'];
 var accessTypeColors = {};
 accessTypeColors[accessTypeWheelchair] = "#1a9641";
 accessTypeColors[accessTypeStairsOnly] = "#fc9272";
@@ -184,7 +184,7 @@ function addLayersAndShow(stationData, line) {
 				stations[getAccessType(station)].push(feature);
 			})();
 		}
-		info.update(getLineName(line));
+		info.update(getLineName(line) +"<br />Follow elevators on Twitter at <a target='_blank' href='https://www.twitter.com/unlockphlalerts'>@unlockphlalerts</a><br />");
 		legend.update('severity');
 		
 		for ( i = 0; i < accessTypes.length; i++) {
@@ -423,6 +423,7 @@ function addInfoBox() {
 					$('#stationOutageMessage').html("<p class='text-danger'>" +
 						"<strong>" + data.length + (data.length > 1 ? " stations are" : " station is") + " affected by elevator outages.</strong> </p>" + getElevatorOutageStations(data));
 				}
+				
 			});
 		}
 	};
