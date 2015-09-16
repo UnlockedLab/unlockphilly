@@ -82,6 +82,10 @@ get '/about' do
   erb :about, :locals => {:page => "about", :page_title => "Making Philadelphia a more accessible city that embraces people of all ages and abilities."}
 end
 
+get '/privacy' do
+  erb :privacy, :locals => {:page => "privacy", :page_title => "Privacy Policy."}
+end
+
 get '/n3rdstreet' do
   erb :n3rdstreet, :locals => {:page => "n3rdstreet", :page_title => "N3RD Street, Philadelphia Shops / Venues with Accessible Main Entrance/Accessibility Instructions Outside"}
 end
