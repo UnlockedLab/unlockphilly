@@ -66,6 +66,10 @@ GEM
       memoizable (~> 0.4.0)
       naught (~> 1.0)
       simple_oauth (~> 0.3.0)
+    tz (0.0.1)
+      tzinfo
+    tzinfo (1.2.2)
+      thread_safe (~> 0.1)
 
 PLATFORMS
   ruby
@@ -82,3 +86,4 @@ DEPENDENCIES
   sinatra (= 1.4.3)
   thin (~> 1.6.2)
   twitter (~> 5.14.0)
+  tz (~> 0.0.1)
