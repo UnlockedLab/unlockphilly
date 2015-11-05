@@ -39,7 +39,7 @@ Here are some guidelines:
  * Happy coding! Come along to Code for Philly meetups to learn more and meet
    the team.
 
-### Client Technology / Concepts
+### Client Tools (and tech/concepts)
 
 * HTML/CSS.
 * Javascript ([JQuery](http://jquery.com)).
@@ -49,10 +49,13 @@ Here are some guidelines:
 * [D3.js](http://d3js.org/) for graphs and visualizations ([example](http://www.unlockphilly.com/station/21532))
 * AJAX requests to the server.
 
-### Server Technology / Concepts
+### Server/General Tools (and tech/concepts)
 
 * [Ruby](http://www.ruby.org).
 * [MongoDB](http://www.mongodb.org) (NoSQL database).
+* [Postmark](https://postmarkapp.com/) For transactional email alerting.
+* [Twitter API](https://dev.twitter.com/) For posting outage notifications to Twitter.
+* [Mapquest Open API](http://open.mapquestapi.com/) for location Geocoding
 * [Sinatra](http://www.sinatrarb.com): a simple Ruby DSL that receives client
   requests, calls 3rd party APIs/MongoDB and returns JSON responses and dynamic
   web pages.
