@@ -56,6 +56,7 @@ Here are some guidelines:
 * [Postmark](https://postmarkapp.com/) For transactional email alerting.
 * [Twitter API](https://dev.twitter.com/) For posting outage notifications to Twitter.
 * [Mapquest Open API](http://open.mapquestapi.com/) for location Geocoding
+* [Google Analytics](https://www.google.com/analytics/) for website usage reporting.
 * [Sinatra](http://www.sinatrarb.com): a simple Ruby DSL that receives client
   requests, calls 3rd party APIs/MongoDB and returns JSON responses and dynamic
   web pages.
