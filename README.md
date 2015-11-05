@@ -1,10 +1,8 @@
 # Unlock Philly
 
-An interactive web application that was prototyped at Apps For Philly Transit
-Hackathon. The aim is provide better information about accessibility. E.g
-visualize accessibility of stations and services around the stations. The hope
-is that the app can be developed and extended significantly to help people of
-Philadelphia.
+Using open data, accessible visualizations and social media our mission is to make Philadelphia a more accessible city that welcomes and embraces people of all ages and abilities.
+
+We are "building with, not for" and doing our best to ensure that our meetup spaces and tools are accessible. CityCoho is completely wheelchair accessible including the restrooms; Devnuts' entrance is wheelchair accessible and the restroom is large and on the same level, but there are no grab bars. The seating at both spaces is wheelchair friendly.
 
 More details on [Code for Philly project page](https://codeforphilly.org/projects/Unlock_Philadelphia)
 
