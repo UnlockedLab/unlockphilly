@@ -6,6 +6,8 @@ visualize accessibility of stations and services around the stations. The hope
 is that the app can be developed and extended significantly to help people of
 Philadelphia.
 
+More details on [Code for Philly project page](https://codeforphilly.org/projects/Unlock_Philadelphia)
+
 [View it online at http://unlockphilly.com](http://unlockphilly.com).
 
 # Contributors
