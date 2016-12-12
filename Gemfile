@@ -3,7 +3,7 @@ source "https://rubygems.org"
 gem 'dotenv', '~> 2.1', '>= 2.1.1'
 gem 'sinatra', '1.4.3'
 gem 'rest-client', "~> 1.6.7"
-gem 'mongo', '~> 2.2.0'
+gem 'mongo', '~> 2.4.0'
 gem "rack", "~> 1.5.2"
 gem "newrelic_rpm", "~> 3.8.1.221"
 gem "oauth", "~> 0.4.7"
