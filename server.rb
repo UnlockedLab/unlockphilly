@@ -106,7 +106,7 @@ end
 get '/station/:stationid' do
   station_arr = settings.STATIONS_COLLECTION.find({:_id => params[:stationid]}).to_a
   station_content_arr = settings.STATIONS_CONTENT_COLLECTION.find({:_id => params[:stationid]}).to_a
-  outage_history = settings.OUTAGE_TRACKER_COLLECTION.find({"_id.stationId" => params[:stationid]}).sort("_id.outageStart" => :asc).to_a
+  outage_history = settings.OUTAGE_TRACKER_COLLECTION.find({"_id.stationId" => params[:stationid]}).to_a
   active_outage_arr = settings.OUTAGE_TRACKER_COLLECTION.find({"_id.stationId" => params[:stationid], "isActive" => true}).to_a
   if (station_arr.size==0) 
     status 404
