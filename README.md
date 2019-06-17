@@ -1,10 +1,10 @@
 # Unlock Philly
 
-An interactive web application that was prototyped at Apps For Philly Transit
-Hackathon. The aim is provide better information about accessibility. E.g
-visualize accessibility of stations and services around the stations. The hope
-is that the app can be developed and extended significantly to help people of
-Philadelphia.
+Using open data, accessible visualizations and social media our mission is to make Philadelphia a more accessible city that welcomes and embraces people of all ages and abilities.
+
+We are "building with, not for" and doing our best to ensure that our meetup spaces and tools are accessible. CityCoho is completely wheelchair accessible including the restrooms; Devnuts' entrance is wheelchair accessible and the restroom is large and on the same level, but there are no grab bars. The seating at both spaces is wheelchair friendly.
+
+More details on [Code for Philly project page](https://codeforphilly.org/projects/Unlock_Philadelphia)
 
 [View it online at http://unlockphilly.com](http://unlockphilly.com).
 
@@ -39,7 +39,7 @@ Here are some guidelines:
  * Happy coding! Come along to Code for Philly meetups to learn more and meet
    the team.
 
-### Client Technology / Concepts
+### Client Tools (and tech/concepts)
 
 * HTML/CSS.
 * Javascript ([JQuery](http://jquery.com)).
@@ -49,10 +49,14 @@ Here are some guidelines:
 * [D3.js](http://d3js.org/) for graphs and visualizations ([example](http://www.unlockphilly.com/station/21532))
 * AJAX requests to the server.
 
-### Server Technology / Concepts
+### Server/General Tools (and tech/concepts)
 
 * [Ruby](http://www.ruby.org).
 * [MongoDB](http://www.mongodb.org) (NoSQL database).
+* [Postmark](https://postmarkapp.com/) For transactional email alerting.
+* [Twitter API](https://dev.twitter.com/) For posting outage notifications to Twitter.
+* [Mapquest Open API](http://open.mapquestapi.com/) for location Geocoding
+* [Google Analytics](https://www.google.com/analytics/) for website usage reporting.
 * [Sinatra](http://www.sinatrarb.com): a simple Ruby DSL that receives client
   requests, calls 3rd party APIs/MongoDB and returns JSON responses and dynamic
   web pages.
