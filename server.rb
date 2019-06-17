@@ -221,17 +221,30 @@ get '/septa/elevator/dayswithoutagereport/:stationid' do
 end
 
 # make a call to yelp for wheelchair accessible businesses around given lat/lng
+# get '/yelp/wheelchairaccess/:lat/:lng/:radius' do
+  # consumer_key = ENV['YELP_CONSUMER_KEY']
+  # consumer_secret = ENV['YELP_CONSUMER_SECRET']
+  # token = ENV['YELP_TOKEN']
+  # token_secret = ENV['YELP_TOKEN_SECRET']
+  # api_host = 'api.yelp.com'
+  # consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => "http://#{api_host}"})
+  # access_token = OAuth::AccessToken.new(consumer, token, token_secret)
+  # path = "/v2/search?term=wheelchair+accessible&ll=#{params[:lat]},#{params[:lng]}&radius_filter=#{params[:radius]}&sort=1"
+  # yelpResults = access_token.get(path).body
+  # logger.info yelpResults
+  # append_street_address_lat_lng(JSON.parse(yelpResults))
+# end
+
+# make a call to yelp for wheelchair accessible businesses around given lat/lng/in radius FUSION
+# example https://api.yelp.com/v3/businesses/search?latitude=39.960399&longitude=-75.140408&attributes=wheelchair_accessible&radius=1000
 get '/yelp/wheelchairaccess/:lat/:lng/:radius' do
-  consumer_key = ENV['YELP_CONSUMER_KEY']
-  consumer_secret = ENV['YELP_CONSUMER_SECRET']
-  token = ENV['YELP_TOKEN']
-  token_secret = ENV['YELP_TOKEN_SECRET']
+  api_key = ENV['YELP_FUSION_API_KEY']
   api_host = 'api.yelp.com'
-  consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => "http://#{api_host}"})
-  access_token = OAuth::AccessToken.new(consumer, token, token_secret)
-  path = "/v2/search?term=wheelchair+accessible&ll=#{params[:lat]},#{params[:lng]}&radius_filter=#{params[:radius]}&sort=1"
-  yelpResults = access_token.get(path).body
-  append_street_address_lat_lng(JSON.parse(yelpResults))
+  path = "/v3/businesses/search?attributes=wheelchair_accessible&latitude=#{params[:lat]}&longitude=#{params[:lng]}&radius=#{params[:radius]}&sort=1"
+  
+  RestClient.get "https://api.yelp.com#{path}", {Authorization: "Bearer #{api_key}"}
+  # logger.info JSON.parse(yelpResults)
+  # append_street_address_lat_lng(JSON.parse(yelpResults))
 end
 
 helpers do
@@ -497,10 +510,10 @@ helpers do
   # Given a hash of Yelp results, append the latLng values of each address to each result
   def append_street_address_lat_lng(yelpResults)
     yelpResults["businesses"].each_index do |i|
-      addr1 = yelpResults["businesses"][i]["location"]["address"][0]
+      addr1 = yelpResults["businesses"][i]["location"]["display_address"][0]
       city = yelpResults["businesses"][i]["location"]["city"]
-      stateCode = yelpResults["businesses"][i]["location"]["state_code"]
-      countryCode = yelpResults["businesses"][i]["location"]["country_code"]
+      stateCode = yelpResults["businesses"][i]["location"]["state"]
+      countryCode = yelpResults["businesses"][i]["location"]["country"]
       if (addr1 && city && stateCode && countryCode)
         singleLineAddress = addr1 + ", " + city + ", " + stateCode + ", " + countryCode
         address = singleLineAddress
