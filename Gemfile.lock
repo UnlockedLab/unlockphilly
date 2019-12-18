@@ -39,7 +39,7 @@ GEM
     postmark (1.2.1)
       json
       rake
-    rack (1.6.11)
+    rack (1.6.12)
     rack-protection (1.5.3)
       rack
     rake (10.4.2)
