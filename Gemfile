@@ -6,7 +6,7 @@ gem "rest-client", ">= 1.7.3"
 gem 'mongo', '~> 2.4.0'
 gem "rack", ">= 1.6.11"
 gem "newrelic_rpm", "~> 3.8.1.221"
-gem "oauth", "~> 0.4.7"
+gem "oauth", "~> 0.5.5"
 gem "nokogiri", ">= 1.8.5"
 gem 'postmark', '~> 1.2.0'
 gem "mail", ">= 2.5.5"
