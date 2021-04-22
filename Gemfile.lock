@@ -35,7 +35,7 @@ GEM
     newrelic_rpm (3.8.1.221)
     nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
-    oauth (0.4.7)
+    oauth (0.5.5)
     postmark (1.2.1)
       json
       rake
@@ -86,7 +86,7 @@ DEPENDENCIES
   mongo (~> 2.4.0)
   newrelic_rpm (~> 3.8.1.221)
   nokogiri (>= 1.8.5)
-  oauth (~> 0.4.7)
+  oauth (~> 0.5.5)
   postmark (~> 1.2.0)
   rack (>= 1.6.11)
   rest-client (>= 1.7.3)
